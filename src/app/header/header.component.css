@@ -1,0 +1,75 @@
+.mynav{
+    background-color: #443298 !important;
+}
+.bord{
+    border-bottom: 1px solid #5747A0;
+}
+.navbar-brand{
+    color:white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+}
+.navbar-brand:hover{
+    color: #F5C24C;
+}
+.form-control{
+    font-family: 'Rubik', sans-serif;
+}
+input:focus , select:focus{
+    box-shadow: none !important;
+    border-color: #F5C24C !important;
+}
+.form-select{
+    color: #443298;
+    font-weight: 500;
+    font-size: 0.9rem;
+    flex-grow: 0 !important;
+}
+.fa-magnifying-glass{
+    color: #443298;
+}
+.btn{
+    background-color: #F5C24C !important;
+    --bs-btn-padding-x: 1rem !important;
+    --bs-btn-padding-y: 0.6rem !important;
+    border: none;
+}
+.btn:hover{
+    border: none;
+    background-color: #f2ca6d !important;
+}
+ul li a i{
+    border: 2px solid #5747A0;
+    padding:0.7rem 0.7rem !important;
+}
+ul li a i:hover{
+    background-color: #4D3C9C;
+}
+.fa-bars-staggered{
+  border: none !important;
+  padding: 0;
+  text-decoration: none;
+}
+.navie{
+    padding: 0 ;
+    margin-top: -8px;
+}
+.fs-6{
+    font-size: small !important;
+    font-weight: lighter !important;
+}
+.myactive{
+	color: #F5C24C !important;
+	border-top: 1px solid #F5C24C;
+}
+.fs-7{
+    font-family: 'Rubik', sans-serif;
+    font-size: smaller;
+}
+.fa-cart-shopping{
+    background-color:#4D3C9;
+    border: none !important;
+}
+.bg-yellow{
+    background-color: #F5C24C;
+}

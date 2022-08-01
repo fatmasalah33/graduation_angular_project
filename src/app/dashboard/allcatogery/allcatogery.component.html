@@ -1,0 +1,45 @@
+<section class="section mt-5">
+    <div class="container">
+      <div class="row justify-content-center">
+      </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class=" d-flex  row">
+                <h1 class=" text-center justify-content-center title fs-1">All catogery</h1>
+                <h5> <a routerLink="addcatogery" class="btn btn-info">Add category</a></h5>
+               
+              </div>
+              <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                              <th>ID</th>
+                              <th>name</th>
+                              <th>description</th>
+                              <th>category_id</th>
+                              <th colspan="3">Action</th>
+                            </tr>
+                        </thead>
+                        <tr class="text-center" *ngFor="let  category of  categories ; let i = index">
+                          <th >{{category.id}}</th>
+                          <td>{{category.name}}</td>
+                          <td>{{category.description}}</td>
+                         <td>{{category.category_id}}</td>
+                         
+                          
+                         
+                          <td>
+                           <td> <a routerLink="edit/{{category.id}}"><i class='fa-solid fa-pencil'></i>
+                                </a></td>
+                          <td> <a (click)="deletecategory(category.id)">
+                          <i class='fa-solid fa-trash text-danger'></i>  
+                          </a></td>
+                     
+                      </tr>
+                        </table>
+                        </div>
+                        </div>
+        </div>
+        </div>
+        </section>
+

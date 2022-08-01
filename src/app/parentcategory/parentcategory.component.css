@@ -1,0 +1,17 @@
+.image{
+    max-width: 100%;
+    opacity: 0.8;
+    transition: all 1s;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+}
+.image:hover{
+    opacity: 1;
+    cursor: pointer !important;
+    transform: scale(1.1) rotate(-5deg);
+}
+.sticky-lg-top{
+    top: 10rem;
+}

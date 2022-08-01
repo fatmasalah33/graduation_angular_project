@@ -1,0 +1,61 @@
+<div class="section ps-5 pe-5">
+    <div class="mt-0 mb-0 ms-auto me-auto custom-width">
+        <div class="card card-format d-flex flex-row row">
+            <div class="card-body col-6">
+                <h2 class="title">update Product</h2>
+                <form method="post" action="" enctype="multipart/form-data" (ngSubmit)="updateproduct()">
+                    <div class="input-group d-flex flex-column">
+                        <input class="form-control w-100 mb-1" type="text" placeholder="Product Name" name="dname" [(ngModel)]="product.name" >
+                       
+                            <span></span> 
+                    </div>
+                    <div class="input-group d-flex flex-column">
+                        <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="Price" name="price" [(ngModel)]="product.price" >
+                          
+                   <span></span> 
+                    </div>
+                    <div class="input-group d-flex flex-column">
+                        <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="description" [(ngModel)]="product.description" name="description">
+                          
+                   <span></span> 
+                    </div>
+                    <div class="input-group d-flex flex-column">
+                        <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="brand" [(ngModel)]="product.brand" name="brand">
+                          
+                   <span></span> 
+                    </div>
+                    <div class="input-group d-flex flex-column">
+                        <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="quantity" [(ngModel)]="product.quantity" name="quantity">
+                          
+                   <span></span> 
+                    </div>
+                     <div class="input-group d-flex flex-column">
+                        <input class="form-control mb-1 mt-3 w-100"   type="hidden" value="1"  placeholder="user_id" name="user_id" [(ngModel)]="product.user_id">
+                          
+                   <span></span> 
+                    </div>
+                       <div class="input-group d-flex flex-column">
+                        <input class="form-control mb-1 mt-3 w-100"   type="hidden"   name="category_id" [(ngModel)]="product.category_id">
+                          
+                   <span></span> 
+                    </div>
+                 
+                    <div class="input-group d-flex flex-column">
+                  <select class='form-control mb-1 mt-3 w-100' name='category_id' [(ngModel)]="product.category_id">
+                            <option>Select a category</option>
+                      <option  value="1">1</option>
+    
+                      </select>
+
+                    </div>
+                
+                    <div class="mt-2 d-inline-block me-3">
+         <input class="btn btn-info ps-4 pe-4 pt-1 pb-1 " type="submit" name="addproduct" value="update Product">
+                    </div>
+                  
+                  
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

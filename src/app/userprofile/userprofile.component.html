@@ -1,0 +1,43 @@
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+            <div class="profile-tab-nav border-right">
+                <div class="p-4">
+                    <h4 class="text-center">User Name</h4>
+                </div>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="account-tab" data-toggle="pill" routerLink="accountdetails" role="tab" aria-controls="account" aria-selected="true">
+                        <i class="fa fa-home text-center mr-1"></i> 
+                        Account details
+                    </a>
+                    <a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false" routerLink="myorders">
+                        <i class="fa fa-user text-center mr-1"></i> 
+                        Orders
+                    </a>
+                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+                        <i class="fa-solid fa-heart text-center mr-1"></i> 
+                        Whislist
+                    </a>
+                    <a class="nav-link" id="application-tab" data-toggle="pill" routerLink="chpassword" role="tab" aria-controls="application" aria-selected="false">
+                        <i class="fa-solid fa-key text-center mr-1"></i> 
+                        Change Password
+                    </a>
+                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+                        <i class="fa-solid fa-arrow-right-from-bracket text-center mr-1"></i> 
+                        Logout
+                    </a>
+                </div>
+                
+            </div>
+            
+
+            <router-outlet></router-outlet>
+                    
+
+
+                </div>
+                
+            </div>
+        
+    
+</section>

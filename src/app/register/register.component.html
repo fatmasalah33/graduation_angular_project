@@ -1,0 +1,162 @@
+<div class="container-fluid">
+  <div class="container px-5 d-flex justify-content-center align-items-center">
+    <div class="card p-3" style="width: 26rem">
+      <div class="card-body">
+        <h5 class="card-title mb-4">Create your account</h5>
+        <form class="form card-text" action="" method="" #registerForm="ngForm" (ngSubmit)="handleSubmitForm(registerForm)">
+      
+          
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label mb-1"
+                >Your Name</label
+              >
+              <input
+                type="text"
+                class="form-control py-2 px-3"
+                id="exampleFormControlInput1"
+                placeholder="Ali ali"
+                ngModel
+                #yourname="ngModel"
+                name="yourname"
+                required
+                [(ngModel)]="register.name"
+              />
+              <div
+              id="yournameHelp"
+              *ngIf="yourname.touched && yourname.invalid"
+              class="form-text text-danger"
+            >
+              <small *ngIf="yourname?.errors?.['required']"
+                >This field is required</small
+              >
+           
+            </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label mb-1"
+                >Your Email</label
+              >
+              <input
+                type="email"
+                class="form-control py-2 px-3"
+                id="exampleFormControlInput1"
+                placeholder="Ali@gmail.com"
+                ngModel
+                #email="ngModel"
+                name="email"
+                required
+                pattern='^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$'
+                [(ngModel)]="register.email"
+              />
+              <div
+              id="emailHelp"
+              *ngIf="email.touched && email.invalid"
+              class="form-text text-danger"
+            >
+              <small *ngIf="email?.errors?.['required']"
+                >This field is required</small
+              >
+            
+              <small *ngIf="email?.errors?.['pattern']"
+                >Please enter a valid email</small
+              >
+            </div>
+            </div>
+         
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label mb-1"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control py-2 px-3"
+              id="exampleFormControlInput1"
+              placeholder="*************************"
+              ngModel
+              #password="ngModel"
+              name="password"
+              required
+              minlength="8"
+              [(ngModel)]="register.password"
+            />
+            <div
+            id="passwordHelp"
+            *ngIf=" password.touched &&  password.invalid"
+            class="form-text text-danger"
+          >
+            <small *ngIf="password?.errors?.['required']"
+              >This field is required</small
+            >
+            <small *ngIf="password?.errors?.['minlength']"
+              >Min length is 8 characters</small
+            >
+          
+          </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label mb-1"
+              >Your Address</label
+            >
+            <input
+              type="text"
+              class="form-control py-2 px-3"
+              id="exampleFormControlInput1"
+              placeholder="cairo,Egypt"
+              name="address"
+              [(ngModel)]="register.address"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label mb-1"
+              >Phone number</label
+            >
+            <input
+              type="text"
+              class="form-control py-2 px-3"
+              id="exampleFormControlInput1"
+              placeholder="010-000-000-00"
+              name="phone"
+              [(ngModel)]="register.phone"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label mb-1">Choose a role:</label>
+            <select name="role" id="role"  class="form-select py-2 px-3" [(ngModel)]="register.role_id">
+              <option value="">Choose a role</option>
+              <option value="3">Buyer</option>
+              <option value="1">seller</option>
+            </select>
+          </div>
+          <div class="w-100">
+            <button type="submit" class="btn btn-yellow py-2 mb-3">
+              Create Account
+            </button>
+          </div>
+        </form>
+        <p class="card-text text-center q mb-4">
+          Already have an account? <a class="card-link" href="#">Sign in</a>
+        </p>
+        <section class="d-flex align-items-baseline">
+          <hr class="w-50" />
+          <div class="text-center mb-4 fs-6 px-2">or</div>
+          <hr class="w-50" />
+        </section>
+
+        <nav class="d-flex justify-content-between">
+          <a href="#" class="py-1 px-4 border rounded facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="#" class="py-1 px-4 border rounded google"
+            ><i class="fa-brands fa-google-plus-g"></i
+          ></a>
+          <a href="#" class="py-1 px-4 border rounded twitter"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="#" class="py-1 px-4 border rounded instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

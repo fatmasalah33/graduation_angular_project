@@ -1,0 +1,89 @@
+.title{
+	 color: #00173B !important;
+  font-weight: 500 !important;
+   font-family: 'Rubik', sans-serif;
+}
+footer{
+      background-color: white !important;
+}
+
+.form-control:focus{
+	border: 1px solid #00173B;
+    box-shadow: 2px 2px  7px #EBEBEB;
+}
+.form-control{
+	font-size: smaller;
+	font-weight: 500;
+	color: #00173B !important;
+}
+.btn-yellow{
+   background-color: #F5C24C !important;
+   border: none;
+   font-size: smaller;
+   font-weight: 700;
+}
+.btn-yellow:hover{
+	background-color: #443298 !important;
+	color: #F5C24C !important;
+}
+.form-container{
+	width: 500px;
+}
+
+footer{
+    background-color: #04091D;
+    color: #00173B;
+}
+.footer{
+    padding: 50px;
+
+    border-bottom: 2px solid #EFEFEF;
+}
+.footer a{
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: #00173B;
+    font-size: 15px;
+}
+.footer a:hover{
+    text-decoration: underline;
+}
+.footer h5{
+    color: #00173B;
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+.frame{
+    display: flex;
+
+}
+i:hover{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.footer input[type="submit"]:hover{
+  padding: 6px 9px;
+  margin: 0;
+}
+.copy{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .footer{
+        display: flex;
+      
+        justify-content: space-between;
+
+    }
+    .frame{
+    justify-content: space-between;
+}
+ }

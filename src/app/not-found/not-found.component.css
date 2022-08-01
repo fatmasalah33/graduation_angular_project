@@ -1,0 +1,37 @@
+*{
+	color: #041F42;
+}
+.container-fluid{
+	border-bottom: 1px solid #EBEBEB;
+}
+.container{
+	padding-top: 7rem;
+	padding-bottom: 7rem;
+}
+h1{
+	font-size: 9rem;
+	color: #041F42;
+	font-family: 'Rubik', sans-serif;
+}
+p{
+	font-size: smaller;
+	font-weight: 400;
+	color: #142D50;
+}
+h1 span{
+	color: #F5C24C !important;
+}
+section img{
+	max-width: 100%;
+}
+.btn-yellow{
+   background-color: #F5C24C !important;
+   border: none;
+   
+   font-size: smaller;
+   font-weight: 700;
+}
+.btn-yellow:hover{
+	background-color: #443298 !important;
+	color: #F5C24C !important;
+}
