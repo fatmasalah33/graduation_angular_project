@@ -1,12 +1,12 @@
-<section class="py-5 my-5">
+<section class="py-5 ">
     <div class="container">
-        <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex " >
             <div class="profile-tab-nav border-right">
                 <div class="p-4">
-                    <h4 class="text-center">User Name</h4>
+                    <h4 class="text-center">Hi, {{username}}</h4>
                 </div>
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="account-tab" data-toggle="pill" routerLink="accountdetails" role="tab" aria-controls="account" aria-selected="true">
+                    <a class="nav-link" id="account-tab" data-toggle="pill" routerLink="accountdetails" role="tab" aria-controls="account" aria-selected="true">
                         <i class="fa fa-home text-center mr-1"></i> 
                         Account details
                     </a>
@@ -14,29 +14,118 @@
                         <i class="fa fa-user text-center mr-1"></i> 
                         Orders
                     </a>
-                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" routerLink="Wishlist" aria-controls="application" aria-selected="false">
                         <i class="fa-solid fa-heart text-center mr-1"></i> 
                         Whislist
+                    </a>
+                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" routerLink="reviews" aria-controls="application" aria-selected="false">
+                        <i class="fa-solid fa-star text-center mr-1"></i> 
+                        Reviews
                     </a>
                     <a class="nav-link" id="application-tab" data-toggle="pill" routerLink="chpassword" role="tab" aria-controls="application" aria-selected="false">
                         <i class="fa-solid fa-key text-center mr-1"></i> 
                         Change Password
                     </a>
-                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
-                        <i class="fa-solid fa-arrow-right-from-bracket text-center mr-1"></i> 
+                    <a class="nav-link text-center last"  id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+                       
                         Logout
                     </a>
                 </div>
                 
             </div>
             
-
+<div style="width: 100%;">
             <router-outlet></router-outlet>
+            </div>
                     
 
 
                 </div>
-                
+                <section>
+                    <div class="card my-4 p-md-3">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="card-block">
+                            <a routerLink="" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
+                            <h4>Recently Viewed</h4>
+                          <!--products-->
+                          <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img src="../../assets/images/img-1.jpg">
+                                        </a>
+                                        <span class="product-discount-label">-25%</span>
+                                        <ul class="product-links">
+                                            <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
+                                        </ul>
+                                        <a href="" class="add-to-cart">Add to Cart</a>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title"><a href="#">Women's Blouse Top</a></h3>
+                                        <div class="price">EGP 150 <span>EGP 200</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img src="../../assets/images/img-2.jpg">
+                                        </a>
+                                        <ul class="product-links">
+                                            <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
+                                        </ul>
+                                        <a href="" class="add-to-cart">Add to Cart</a>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title"><a href="#">Men's Jacket</a></h3>
+                                        <div class="price">EGP 450</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img src="../../assets/images/img-3.jpg">
+                                        </a>
+                                        <ul class="product-links">
+                                            <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
+                                        </ul>
+                                        <a href="" class="add-to-cart">Add to Cart</a>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title"><a href="#">Men's Jacket</a></h3>
+                                        <div class="price">EGP 200</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a href="#" class="image">
+                                            <img src="../../assets/images/img-4.jpg">
+                                        </a>
+                                        <ul class="product-links">
+                                            <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
+                                        </ul>
+                                        <a href="" class="add-to-cart">Add to Cart</a>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title"><a href="#">Men's Jacket</a></h3>
+                                        <div class="price">EGP 150</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <!--end of products-->
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    </section>
             </div>
         
     

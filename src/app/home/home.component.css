@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+
+.name {
+    font-size: 16px;
+    color: #e83d16 !important;
+    font-weight: 500
+}
+
+
+
+.btn-purple{
+    background-color: #443298 !important;
+    color: white;
+}
+
+.btn {
+    height: 35px;
+    width: 170px;
+    border: none;
+    border-radius: 20px;
+    background-color: #633a9c;
+    font-size: 14px;
+    font-weight: 500
+}
+
+.text {
+    font-size: 23px;
+    font-weight: bold
+}
+
+.card {
+    height: 130px;
+    overflow:hidden;
+    border: none;
+    border-radius: 15px
+}
+
+.imagename {
+    font-size: 14px;
+    font-weight: bold
+}
