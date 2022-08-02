@@ -34,6 +34,7 @@ import { ReviewsComponent } from './userprofile/reviews/reviews.component';
 import { HistoryComponent } from './userprofile/history/history.component';
 import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginComponent } from './dashboard/login/login.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { CartComponent } from './cart/cart.component';
     HistoryComponent,
     RecentlyViewedComponent,
     CartComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

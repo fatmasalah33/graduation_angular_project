@@ -53,6 +53,14 @@
                     <a class="nav-link active text-light pt-0 fs-7" aria-current="page" href="#">Total</a>
                 </div>
               </li>
+        
+            <li class="nav-item  d-flex align-items-center">
+              <a routerLink="" class="text-light me-1" ><i class="fa-solid fa-right-from-bracket rounded"></i></a>
+              <div class="d-flex flex-column">
+                <a *ngIf="isLogin" (click)='logOut()' class="nav-link">Logout</a>
+                 
+              </div>
+            </li>
             </ul>
           </div>
         </div>

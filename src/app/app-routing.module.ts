@@ -24,6 +24,7 @@ import { WhishlistComponent } from './userprofile/whishlist/whishlist.component'
 import { ReviewsComponent } from './userprofile/reviews/reviews.component';
 import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginComponent } from './dashboard/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
@@ -56,8 +57,9 @@ const routes: Routes = [
     {path:'allcatogery',component:AllcatogeryComponent},
     {path:'allcatogery/edit/:id',component:EditcatogeryComponent},
     {path:'allcatogery/addcatogery',component:AddcatogeryComponent}
+   
   ], },
-  
+  {path:'login',component:LoginComponent},
   { path: '**', component: NotFoundComponent },
 ];
 
