@@ -51,6 +51,9 @@
                     <a class="nav-link active text-light pt-0 fs-7" aria-current="page" href="#">Total</a>
                 </div>
               </li>
+              <li class="nav-item">
+                <a *ngIf="isLogin" (click)='logOut()' class="nav-link">Logout</a>
+            </li>
             </ul>
           </div>
         </div>

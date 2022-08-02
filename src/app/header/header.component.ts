@@ -17,20 +17,25 @@ export class HeaderComponent implements OnInit {
       if(data != null)
       {
         this.isLogin = true;
-        // this.username= _RegisterService.username
+        this.logeduser= this._RegisterService.getloginuser()
+        console.log(this.logeduser)
+        this.username=this.logeduser.name;
+         console.log(this.username)
       }
       else
       {
         this.isLogin = false;
+        this.username='';
       }
 
      })
-     this.logeduser= this._RegisterService.getloginuser()
-     console.log(this.logeduser)
-     this.username=this.logeduser.name;
-      console.log(this.username)
+   
   }
-
+  logOut()
+  {
+    this._RegisterService.logOut();
+    
+  }
   ngOnInit(): void {
    
   }

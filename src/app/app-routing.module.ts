@@ -20,6 +20,7 @@ import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.compon
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
+import { LoginComponent } from './dashboard/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
@@ -48,8 +49,9 @@ const routes: Routes = [
     {path:'allcatogery',component:AllcatogeryComponent},
     {path:'allcatogery/edit/:id',component:EditcatogeryComponent},
     {path:'allcatogery/addcatogery',component:AddcatogeryComponent}
+   
   ], },
-  
+  {path:'login',component:LoginComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

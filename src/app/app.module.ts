@@ -29,6 +29,7 @@ import { AllcatogeryComponent } from './dashboard/allcatogery/allcatogery.compon
 import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.component';
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
+import { LoginComponent } from './dashboard/login/login.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ParentcategoryComponent } from './parentcategory/parentcategory.compone
     AddcatogeryComponent,
     EditcatogeryComponent,
     ParentcategoryComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

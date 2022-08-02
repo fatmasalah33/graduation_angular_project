@@ -36,6 +36,15 @@ export class RegisterService {
     this.currentUsers.next(this.user);
    
   }
+  y:any=null;
+  logOut()
+  {
+      this.currentUsers.next(null);
+      localStorage.setItem('userData' , this.y );
+
+      // this._Router.navigate(['/login']);
+
+  }
   loginuser(user: any){
    this.logeduser=user
    
