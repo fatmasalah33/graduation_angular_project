@@ -20,6 +20,10 @@ import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.compon
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
+import { WhishlistComponent } from './userprofile/whishlist/whishlist.component';
+import { ReviewsComponent } from './userprofile/reviews/reviews.component';
+import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
@@ -28,13 +32,17 @@ const routes: Routes = [
   { path: 'categorypage', component: CategorypageComponent },
   { path: 'parentcategory', component: ParentcategoryComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'history', component: RecentlyViewedComponent },
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path: 'accountdetails',component:AccountdetailsComponent},
     {path: 'chpassword',component:ChpasswordComponent},
     {path: 'myorders',component:MyordersComponent},
+    {path: 'Wishlist',component:WhishlistComponent},
+    {path: 'reviews',component:ReviewsComponent},
   ], }
   ]},
   { path: 'dashboard', component: DashboardComponent,

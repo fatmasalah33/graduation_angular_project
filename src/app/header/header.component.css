@@ -2,7 +2,7 @@
     background-color: #443298 !important;
 }
 .bord{
-    border-bottom: 1px solid #5747A0;
+    /* border-bottom: 1px solid #5747A0; */
 }
 .navbar-brand{
     color:white;
@@ -67,7 +67,7 @@ ul li a i:hover{
     font-size: smaller;
 }
 .fa-cart-shopping{
-    background-color:#4D3C9;
+    background-color:#5747A0;
     border: none !important;
 }
 .bg-yellow{

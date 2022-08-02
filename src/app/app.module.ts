@@ -29,6 +29,11 @@ import { AllcatogeryComponent } from './dashboard/allcatogery/allcatogery.compon
 import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.component';
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
+import { WhishlistComponent } from './userprofile/whishlist/whishlist.component';
+import { ReviewsComponent } from './userprofile/reviews/reviews.component';
+import { HistoryComponent } from './userprofile/history/history.component';
+import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +60,11 @@ import { ParentcategoryComponent } from './parentcategory/parentcategory.compone
     AddcatogeryComponent,
     EditcatogeryComponent,
     ParentcategoryComponent,
+    WhishlistComponent,
+    ReviewsComponent,
+    HistoryComponent,
+    RecentlyViewedComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

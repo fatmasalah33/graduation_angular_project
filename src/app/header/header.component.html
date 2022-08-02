@@ -1,25 +1,27 @@
     <!--header-->
     <nav class="navbar mynav navbar-expand-lg">
-      hi {{username}}
-        <div class="container bord px-5 py-1">
-          <a class="navbar-brand title" href="#">Zeomart<span style="color: var(--secondarycolor);">.</span></a>
-          <button class="navbar-toggler ms-auto mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      
+        <div class="container bord px-3 py-2">
+          <a class="navbar-brand title" href="#">Lorem<span style="color: var(--secondarycolor);">.</span></a>
+          <button class="navbar-toggler  mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
            <!--search-->
-           <form class="ms-5 d-flex w-100" role="search" >
+           <form class="ms-3 me-3 d-flex w-100" role="search" >
             <div class="input-group row">
-               <select class="form-select form-select1 ps-3 pe-0 col-2" style="width: 9rem;" aria-label="Default select example">
+               <!-- <select class="form-select form-select1 ps-3 pe-0 col-2" style="width: 9rem;" aria-label="Default select example">
                    <option selected>All Categories</option>
                    <option value="1">Clothing</option>
                    <option value="2">Beauty</option>
                    <option value="3">Health</option>
-                 </select>
-               <input class="form-control form-control1 col-8 " style="color: #4D3C9C;"  type="search" placeholder="Search products..." aria-label="Search">
-               <button class="btn col-2 col-md-1" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                 </select> -->
+               <input class="form-control form-control1 col-10 " style="color: #4D3C9C;"  type="search" placeholder="Search products..." aria-label="Search">
+               <button class="btn col-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
            </form>
+           
+           <span class="me-2" style="color: white;">HI, {{username}}</span>
            <!--end of search-->
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent" >
@@ -27,7 +29,7 @@
               <li class="nav-item me-3 d-flex align-items-center">
                 <a href="#" class="text-light me-1"><i class="fa-regular fa-heart rounded "></i></a>
                 <div class="d-flex flex-column">
-                    <a class="nav-link active text-light pb-0 fs-6" aria-current="page" href="#">Whislist</a>
+                    <a class="nav-link active text-light pb-0 fs-6" aria-current="page" routerLink="history">Whislist</a>
                     <a class="nav-link active text-light pt-0 fs-7" style="width: 6rem;" aria-current="page" href="#">My Items</a>
                 </div>
               </li>
@@ -40,7 +42,7 @@
               </li>
               <li class="nav-item me-3 d-flex align-items-center">
                 <button type="button" class="position-relative me-1 rounded me-2" style="border: none; background-color:#4D3C9C;">
-                    <a href="#" class="text-light me-1"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a routerLink="cart" class="text-light me-1"><i class="fa-solid fa-cart-shopping"></i></a>
                     <span class="position-absolute top-0 start-90 translate-middle badge rounded-circle bg-yellow text-dark">
                       2
                       <span class="visually-hidden">unread messages</span>
