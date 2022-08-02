@@ -25,6 +25,8 @@ import { ReviewsComponent } from './userprofile/reviews/reviews.component';
 import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './dashboard/login/login.component';
+import { AllreviewComponent } from './dashboard/allreview/allreview.component';
+import { AlluserComponent } from './dashboard/alluser/alluser.component';
 
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
@@ -56,7 +58,9 @@ const routes: Routes = [
     {path:'allproduct/edit/:id',component:EditproductComponent},
     {path:'allcatogery',component:AllcatogeryComponent},
     {path:'allcatogery/edit/:id',component:EditcatogeryComponent},
-    {path:'allcatogery/addcatogery',component:AddcatogeryComponent}
+    {path:'allcatogery/addcatogery',component:AddcatogeryComponent},
+    {path:'allreview',component:AllreviewComponent},
+    {path:'alluser',component:AlluserComponent}
    
   ], },
   {path:'login',component:LoginComponent},
