@@ -41,6 +41,7 @@ export class RegisterService {
   {
       this.currentUsers.next(null);
       localStorage.setItem('userData' , this.y );
+      this.loginuser(this.y )
 
       // this._Router.navigate(['/login']);
 

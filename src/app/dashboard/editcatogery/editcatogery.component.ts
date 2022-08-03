@@ -24,6 +24,7 @@ export class EditcatogeryComponent implements OnInit {
     this._CatogeryService.getData(this.id).subscribe(res=>{
       this.data=res;
       this.category=this.data.data
+      console.log(this.category)
     })
   }
   updatecategory(){

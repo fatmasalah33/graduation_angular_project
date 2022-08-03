@@ -17,10 +17,10 @@ export class HeaderComponent implements OnInit {
       if(data != null)
       {
         this.isLogin = true;
-        this.logeduser= this._RegisterService.getloginuser()
-        console.log(this.logeduser)
-        this.username=this.logeduser.name;
-         console.log(this.username)
+        // this.logeduser= this._RegisterService.getloginuser()
+        // console.log(this.logeduser)
+        // this.username=this.logeduser.name;
+        //  console.log(this.isLogin)
       }
       else
       {
@@ -37,6 +37,9 @@ export class HeaderComponent implements OnInit {
     
   }
   ngOnInit(): void {
+    this.logeduser= this._RegisterService.getloginuser()
+    console.log(this.logeduser)
+    this.username=this.logeduser.name;
    
   }
 

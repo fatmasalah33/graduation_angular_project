@@ -22,13 +22,15 @@ email: string = ''
   handleSubmitForm(loginForm : any){
     console.log(loginForm);
     this.registerService.login(loginForm.value).subscribe(data => {
-      console.log(data.status)
+      console.log(data.user)
     //  this.router.navigate(['/']);
       if(data.status === "success")
       {
         
         this.registerService.saveCurrentUser(data.user.id,data.user.name , data.user.email , data.token,data.user.address,data.user.phone);
-        
+        this.registerService.loginuser(data.user)
+        // this.registerService.settusername(data.user.name)
+        console.log(data.user.name)
         this.router.navigate(['/']);  
         
       }
