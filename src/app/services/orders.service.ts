@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrdersService {
+
+  constructor(private http:HttpClient) {}
+  getOrdersList() {
+    return this.http.get('http://127.0.0.1:8000/api/orders');
+  }
+  deleteOrders(id: any){
+    return this.http.delete('http://127.0.0.1:8000/api/orders/'+id);
+  }
+  insertdate(data: any){
+    return this.http.post('http://127.0.0.1:8000/api/orders',data);
+  }
+  getData(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/orders/'+id);
+  }
+  updateOrders(id: any,data:any){
+    return this.http.put('http://127.0.0.1:8000/api/orders/'+id,data);
+  }
+
+}

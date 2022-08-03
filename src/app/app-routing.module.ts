@@ -25,6 +25,11 @@ import { ReviewsComponent } from './userprofile/reviews/reviews.component';
 import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './dashboard/login/login.component';
+ import { AllordersComponent } from './dashboard/allorders/allorders.component';
+// import { AddorderComponent } from './dashboard/addorder/addorder.component';
+import { EditorderComponent } from './dashboard/editorder/editorder.component';
+import { AlloffersComponent } from './dashboard/alloffers/alloffers.component';
+import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 import { AllreviewComponent } from './dashboard/allreview/allreview.component';
 import { AlluserComponent } from './dashboard/alluser/alluser.component';
 
@@ -59,6 +64,10 @@ const routes: Routes = [
     {path:'allcatogery',component:AllcatogeryComponent},
     {path:'allcatogery/edit/:id',component:EditcatogeryComponent},
     {path:'allcatogery/addcatogery',component:AddcatogeryComponent},
+    {path:'allorder',component:AllordersComponent},
+    {path:'allorder/edit/:id',component:EditorderComponent},
+    {path:'alloffer',component:AlloffersComponent},
+    {path:'alloffer/addoffer',component:AddofferComponent},
     {path:'allreview',component:AllreviewComponent},
     {path:'alluser',component:AlluserComponent}
    
