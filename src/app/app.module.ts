@@ -29,12 +29,19 @@ import { AllcatogeryComponent } from './dashboard/allcatogery/allcatogery.compon
 import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.component';
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
+import { WhishlistComponent } from './userprofile/whishlist/whishlist.component';
+import { ReviewsComponent } from './userprofile/reviews/reviews.component';
+import { HistoryComponent } from './userprofile/history/history.component';
+import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
+import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './dashboard/login/login.component';
 import { AllordersComponent } from './dashboard/allorders/allorders.component';
 import { AddorderComponent } from './dashboard/addorder/addorder.component';
 import { EditorderComponent } from './dashboard/editorder/editorder.component';
 import { AlloffersComponent } from './dashboard/alloffers/alloffers.component';
 import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
+import { AllreviewComponent } from './dashboard/allreview/allreview.component';
+import { AlluserComponent } from './dashboard/alluser/alluser.component';
 
 @NgModule({
   declarations: [
@@ -61,12 +68,19 @@ import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
     AddcatogeryComponent,
     EditcatogeryComponent,
     ParentcategoryComponent,
+    WhishlistComponent,
+    ReviewsComponent,
+    HistoryComponent,
+    RecentlyViewedComponent,
+    CartComponent,
     LoginComponent,
     AllordersComponent,
     AddorderComponent,
     EditorderComponent,
     AlloffersComponent,
     AddofferComponent,
+    AllreviewComponent,
+    AlluserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,61 @@
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 5;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin-top:10px;
+    -webkit-border-radius: .28571429rem;
+    -moz-border-radius: .28571429rem;
+    -ms-border-radius: .28571429rem;
+    -o-border-radius: .28571429rem;
+}
+.btn-purple{
+    color: #443298 !important;
+    font-weight: bold;
+}
+.btn-purple:hover{
+    background-color: #4532984f;
+    border: none;
+}
+.btn-outline-purple{
+background-color: #443298;
+color: white;
+}
+.DELIVERED{
+    color: white;
+    background-color: #6DBD28;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.SHIPPED{
+    background-color: #E4811C;
+}
+.CANCELLED{
+    background-color: #75757A;
+}
+.date{
+    font-weight: 600;
+    
+}
+.out{
+    background-color: #C7C7CD;
+    cursor:auto ;
+}
+.blocked{
+    filter: opacity(0.4);
+    -webkit-filter: opacity(0.4);
+}

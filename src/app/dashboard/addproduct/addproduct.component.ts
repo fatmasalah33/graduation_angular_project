@@ -4,6 +4,7 @@ import { Product } from '../../product';
 import { Router } from '@angular/router';
 import { FormGroup , FormBuilder} from '@angular/forms';
 import { formatDate } from '@angular/common';
+import { CatogeryService } from 'src/app/services/catogery.service';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -11,7 +12,8 @@ import { formatDate } from '@angular/common';
 })
 export class AddproductComponent implements OnInit {
   file:any ;
-  constructor(public fb:FormBuilder, private productsService :ProductsService,private router: Router) {
+  categories : Array<any> = [];
+  constructor(public fb:FormBuilder, private productsService :ProductsService,private router: Router,private _CatogeryService:CatogeryService ) {
    this.form = this.fb.group({
 
       name :null,
@@ -25,10 +27,18 @@ export class AddproductComponent implements OnInit {
 
     })
   }
+
   form : FormGroup ;
 
   product=new Product()
   ngOnInit(): void {
+    this.getallcategories()
+  }
+  getallcategories(){
+    this._CatogeryService.getcategoriesList().subscribe((data : any) => {
+      this.categories =data.data.categories ;
+      console.log(data.data.categories)
+      });
   }
   uploadImage($event:Event){
         this.file =($event?.target as HTMLInputElement)?.files?.[0];

@@ -1,9 +1,7 @@
 .mynav{
     background-color: #443298 !important;
 }
-.bord{
-    border-bottom: 1px solid #5747A0;
-}
+
 .navbar-brand{
     color:white;
     font-family: 'Rubik', sans-serif;
@@ -67,7 +65,7 @@ ul li a i:hover{
     font-size: smaller;
 }
 .fa-cart-shopping{
-    background-color:#4D3C9;
+    background-color:#4D3C9C;
     border: none !important;
 }
 .bg-yellow{

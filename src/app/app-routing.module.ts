@@ -20,12 +20,19 @@ import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.compon
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
 import { AuthGuardGuard } from './auth-guard.guard';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
+import { WhishlistComponent } from './userprofile/whishlist/whishlist.component';
+import { ReviewsComponent } from './userprofile/reviews/reviews.component';
+import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.component';
+import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './dashboard/login/login.component';
  import { AllordersComponent } from './dashboard/allorders/allorders.component';
 // import { AddorderComponent } from './dashboard/addorder/addorder.component';
 import { EditorderComponent } from './dashboard/editorder/editorder.component';
 import { AlloffersComponent } from './dashboard/alloffers/alloffers.component';
 import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
+import { AllreviewComponent } from './dashboard/allreview/allreview.component';
+import { AlluserComponent } from './dashboard/alluser/alluser.component';
+
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
   children: [
@@ -33,13 +40,17 @@ const routes: Routes = [
   { path: 'categorypage', component: CategorypageComponent },
   { path: 'parentcategory', component: ParentcategoryComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'history', component: RecentlyViewedComponent },
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path: 'accountdetails',component:AccountdetailsComponent},
     {path: 'chpassword',component:ChpasswordComponent},
     {path: 'myorders',component:MyordersComponent},
+    {path: 'Wishlist',component:WhishlistComponent},
+    {path: 'reviews',component:ReviewsComponent},
   ], }
   ]},
   { path: 'dashboard', component: DashboardComponent,
@@ -57,8 +68,9 @@ const routes: Routes = [
     {path:'allorder/edit/:id',component:EditorderComponent},
     {path:'alloffer',component:AlloffersComponent},
     {path:'alloffer/addoffer',component:AddofferComponent},
-
-    
+    {path:'allreview',component:AllreviewComponent},
+    {path:'alluser',component:AlluserComponent}
+   
   ], },
   {path:'login',component:LoginComponent},
   { path: '**', component: NotFoundComponent },
