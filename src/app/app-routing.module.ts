@@ -21,7 +21,11 @@ import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.com
 import { AuthGuardGuard } from './auth-guard.guard';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
 import { LoginComponent } from './dashboard/login/login.component';
-
+ import { AllordersComponent } from './dashboard/allorders/allorders.component';
+// import { AddorderComponent } from './dashboard/addorder/addorder.component';
+import { EditorderComponent } from './dashboard/editorder/editorder.component';
+import { AlloffersComponent } from './dashboard/alloffers/alloffers.component';
+import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
   children: [
@@ -48,8 +52,13 @@ const routes: Routes = [
     {path:'allproduct/edit/:id',component:EditproductComponent},
     {path:'allcatogery',component:AllcatogeryComponent},
     {path:'allcatogery/edit/:id',component:EditcatogeryComponent},
-    {path:'allcatogery/addcatogery',component:AddcatogeryComponent}
-   
+    {path:'allcatogery/addcatogery',component:AddcatogeryComponent},
+    {path:'allorder',component:AllordersComponent},
+    {path:'allorder/edit/:id',component:EditorderComponent},
+    {path:'alloffer',component:AlloffersComponent},
+    {path:'alloffer/addoffer',component:AddofferComponent},
+
+    
   ], },
   {path:'login',component:LoginComponent},
   { path: '**', component: NotFoundComponent },

@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./allproducts.component.css']
 })
 export class AllproductsComponent implements OnInit {
-  pathimage:any="http://127.0.0.1:8000/public/image/";
+   pathimage:any="http://127.0.0.1:8000/public/image/";
   products : Array<any> = [];
   constructor(private productsService :ProductsService,private activatedRoute: ActivatedRoute) { }
 

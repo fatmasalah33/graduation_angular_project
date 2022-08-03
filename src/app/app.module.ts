@@ -30,6 +30,11 @@ import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.compon
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
 import { ParentcategoryComponent } from './parentcategory/parentcategory.component';
 import { LoginComponent } from './dashboard/login/login.component';
+import { AllordersComponent } from './dashboard/allorders/allorders.component';
+import { AddorderComponent } from './dashboard/addorder/addorder.component';
+import { EditorderComponent } from './dashboard/editorder/editorder.component';
+import { AlloffersComponent } from './dashboard/alloffers/alloffers.component';
+import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +62,11 @@ import { LoginComponent } from './dashboard/login/login.component';
     EditcatogeryComponent,
     ParentcategoryComponent,
     LoginComponent,
+    AllordersComponent,
+    AddorderComponent,
+    EditorderComponent,
+    AlloffersComponent,
+    AddofferComponent,
   ],
   imports: [
     BrowserModule,
