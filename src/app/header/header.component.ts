@@ -26,15 +26,21 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit(): void {
     this._RegisterService.currentUsers.subscribe((data)=>{
+      console.log(data)
 
-      if(data != null)
+      if(data != null )
       {
-        this.isLogin = true;
         this.logeduser= this._RegisterService.getloginuser()
         console.log(this.logeduser)
           this.username=this.logeduser.name;
           this.userid=this.logeduser.id;
          console.log(this.username)
+        if(this.logeduser.user_type=='buyer'){
+          this.isLogin = true;
+        }
+      
+     
+        
       }
       else
       {

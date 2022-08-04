@@ -21,7 +21,7 @@ export class AddproductComponent implements OnInit {
       description:null,
       brand:null,
       quantity :null,
-      user_id:1,
+      user_id:18,
       category_id:null,
       image:null ,
 

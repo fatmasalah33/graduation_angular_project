@@ -11,6 +11,7 @@ export class RegisterService {
   x:any
   username:string = ''
   logeduser:any
+  
   currentUsers =  new BehaviorSubject(null);
   constructor(private http: HttpClient , private _Router:Router ) { 
     if(localStorage.getItem('userData') != null){
