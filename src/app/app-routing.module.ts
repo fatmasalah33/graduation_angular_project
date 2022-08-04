@@ -32,6 +32,7 @@ import { AlloffersComponent } from './dashboard/alloffers/alloffers.component';
 import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 import { AllreviewComponent } from './dashboard/allreview/allreview.component';
 import { AlluserComponent } from './dashboard/alluser/alluser.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'parentcategory', component: ParentcategoryComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'cart/checkout', component: CheckoutComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'history', component: RecentlyViewedComponent },
   { path: 'track-order', component: TrackOrderComponent },

@@ -42,6 +42,8 @@ import { AlloffersComponent } from './dashboard/alloffers/alloffers.component';
 import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 import { AllreviewComponent } from './dashboard/allreview/allreview.component';
 import { AlluserComponent } from './dashboard/alluser/alluser.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { AlluserComponent } from './dashboard/alluser/alluser.component';
     AlloffersComponent,
     AddofferComponent,
     AllreviewComponent,
-    AlluserComponent
+    AlluserComponent,
+    CheckoutComponent,
+    
   ],
   imports: [
     BrowserModule,
