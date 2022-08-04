@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-3" *ngIf="l>0">
     <div class="wrapper wrapper-content animated  fadeInRight">
         <div class="row">
             <div class="col-md-9 ">
@@ -27,14 +27,15 @@
                                            
                                         </p>
                                         <dl class="small m-b-none">
-                                            <button class="btn" (click)="decreaseQuantity(cat) ">-</button>
-                                            {{cat.quantity}}
-                                            <button class="btn" (click)=" increaseQuantity(cat)">+</button>
+                                            <button class="btn" (click)="decreaseQuantity(cat,i) ">-</button>
+                                            <button class="btn" >{{cat.quantity}}</button>
+                                      
+                                            <button class="btn" (click)=" increaseQuantity(cat,i)">+</button>
                                         </dl>
                                         <div class="m-t-sm">
                                             <a href="#" class="text-warning"><i class="fa fa-gift"></i> Add gift package</a>
                                             |
-                                            <a href="#" class="text-danger"><i class="fa fa-trash"></i> Remove item</a>
+                                            <a (click)="deletecartitem(cat.id)" class="text-danger"><i class="fa fa-trash"></i> Remove item</a>
                                         </div>
                                     </td>
                                     <td>
@@ -42,7 +43,7 @@
                                         <s class="small text-muted"></s>
                                     </td>
                                     <td width="65">
-                                        <input type="text" class="form-control" placeholder="1">
+                                       
                                     </td>
                                     <td>
                                         <h4>
@@ -54,7 +55,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="ibox-content">
+                    <!-- <div class="ibox-content">
                         <div class="table-responsive">
                             <table class="table shoping-cart-table">
 
@@ -98,7 +99,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="ibox-content">
                         <button class="btn "><i class="fa fa-arrow-left"></i> Continue shopping</button>
                     </div>
@@ -114,7 +115,7 @@
                             Total
                         </span>
                         <h2 class="font-bold">
-                            EGP 150
+                            EGP {{totalprice}}
                         </h2>
 
                         <hr>
@@ -134,4 +135,20 @@
             </div>
         </div>
     </div>
+    </div>
+    <div *ngIf="l==0">
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4" >
+                    <div class="card">
+                        <h2> Your cart is empty!</h2>
+                    </div>
+                   
+                </div>
+               
+            </div>
+        </div>
     </div>

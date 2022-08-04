@@ -29,9 +29,9 @@ export class RegisterService {
   updateuser(id: any,data:any){
     return this.http.put('http://127.0.0.1:8000/api/users/'+id,data);
   }
-  saveCurrentUser(id:number,name: string  , email: string , token: string,address:string,phone:string)
+  saveCurrentUser(id:number,name: string  , email: string , token: string,address:string,phone:string,type:string)
   {
-    this.user = new userData(id,name , email , token,address,phone);
+    this.user = new userData(id,name , email , token,address,phone,type);
 
     localStorage.setItem('userData' ,JSON.stringify(this.user) );
     this.currentUsers.next(this.user);

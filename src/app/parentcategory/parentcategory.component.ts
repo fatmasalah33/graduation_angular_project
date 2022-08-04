@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventType } from '@angular/router';
 import { Cart } from '../cart';
 import { CartService } from '../services/cart.service';
 import { ProductsService } from '../services/products.service';
@@ -16,7 +17,7 @@ export class ParentcategoryComponent implements OnInit {
   cat=new Cart();
   logeduser:any
   userid:any;
-  z:any=this._CartService.quantityarray;
+ 
 
   isexist:boolean=false;
   
@@ -57,7 +58,9 @@ export class ParentcategoryComponent implements OnInit {
   productExists = false
   updateqty = new Cart();
  
-  insertincart(item:any){
+  insertincart(event: any,item:any){
+    console.log( event.target.parentNode.lastChild)
+    // event.target.style.display='none'
     console.log(this.cart)
     this.cat.product_id=item.id
     this.cat.user_id=this.userid
@@ -66,7 +69,7 @@ export class ParentcategoryComponent implements OnInit {
     for (let i=0;i< this.cart.length;i++) {
     if(this.cart[i].product[0].id==item.id){
       console.log(this.cart[i].quantity)
-
+     
 this.cart[i].quantity++;
 
      this.updateqty.quantity= this.cart[i].quantity
@@ -93,13 +96,5 @@ this.cart[i].quantity++;
 
 
   }
-  decreaseQuantity(id: any,price: any){
-    this._CartService.decreaseQuantity(id);
-    console.log()
-   
-  }
-  increaseQuantity(id: any,price: any){
-    this._CartService.increaseQuantity(id);
 
-  }
 }

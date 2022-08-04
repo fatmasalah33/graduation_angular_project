@@ -7,8 +7,8 @@ import{CartItem} from '../cart-item'
   providedIn: 'root'
 })
 export class CartService {
-  quantityarray:Array<any>=[]
- 
+
+
   constructor(private http: HttpClient) { }
   getcartList(): Observable<any>{
     return this.http.get('http://127.0.0.1:8000/api/cart')
@@ -26,15 +26,10 @@ export class CartService {
   updatecart(id: any,data:any){
     return this.http.put('http://127.0.0.1:8000/api/cart/'+id,data);
   }
-
-  decreaseQuantity(indexItem: number) {
-    if (this.quantityarray[indexItem] > 1)
-      this.quantityarray[indexItem]--;
-      console.log(this.quantityarray)
-  }
-
-  increaseQuantity(indexItem: number) {
-   
-      this.quantityarray[indexItem]++;
-  }
+gettotalprice(id:any):Observable<any>{
+  return this.http.get('http://127.0.0.1:8000/api/totalprice/'+id);
+}
+gettotalitem(id:any):Observable<any>{
+  return this.http.get('http://127.0.0.1:8000/api/totalitem/'+id);
+}
 }

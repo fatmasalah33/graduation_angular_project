@@ -14,6 +14,10 @@ cart :Array<any> = [];
 products : Array<any> = [];
 logeduser:any
 userid:any;
+totalprice:number=0
+  item: any;
+
+  l:number=0
   constructor(private _CartService:CartService,private registerService :RegisterService) { }
 
   ngOnInit(): void {
@@ -23,41 +27,58 @@ userid:any;
     console.log(this.logeduser)
     this.userid=this.logeduser.id;
     this.getallcarts()
+    this.gettotal()
+  }
+  gettotal(){
+    this._CartService.gettotalprice(this.userid).subscribe(data=>{
+       this.totalprice=data[0].totalprice;
+       console.log(data[0].totalprice)
+    })
   }
   getallcarts(){
     this._CartService.getData(this.userid).subscribe((data : any) => {
       this.cart =data.data.cart ;
+      this.l= this.cart.length
       console.log(this.cart)
+ 
       });
   }
   updateqty = new Cart();
-  decreaseQuantity(cat: any){
-    if(cat.quantity>1){
-      cat.quantity--;
+  decreaseQuantity(cat: any,i:number){
+    console.log(i);
+    if(this.cart[i].quantity>1){
+      this.cart[i].quantity--;
     }
     
-
     this.updateqty.quantity= cat.quantity
      
      this._CartService. updatecart(cat.id, this.updateqty).subscribe((res: any)=>{
    
        console.log(res);
        this.getallcarts()
+       this.gettotal()
      })
   }
-  increaseQuantity(cat: any){
- 
-      cat.quantity++;
-    
-    
+  increaseQuantity(cat: any,i:number){
+    console.log(i);
+    this.cart[i].quantity++;
 
     this.updateqty.quantity= cat.quantity
      
-     this._CartService. updatecart(cat.id, this.updateqty).subscribe((res: any)=>{
+     this._CartService.updatecart(cat.id, this.updateqty).subscribe((res: any)=>{
    
        console.log(res);
+     
        this.getallcarts()
+       this.gettotal()
      })
+
+  }
+  deletecartitem(id: any){
+    this._CartService.deletecart(id).subscribe(data => {
+      this.getallcarts()
+      this.gettotal()
+      });
 
   }
 
