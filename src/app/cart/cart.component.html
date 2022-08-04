@@ -10,24 +10,26 @@
                         <div class="table-responsive">
                             <table class="table shoping-cart-table">
                                 <tbody>
-                                <tr>
+                                <tr *ngFor="let cat of cart ; let i = index">
                                     <td width="90">
                                         <div class="cart-product-imitation">
-                                            <img src="" alt="">
+                                            <img [src]="pathimage+cat.product[0].image" style="width:50px; height:50px"  alt="">
                                         </div>
                                     </td>
                                     <td class="desc">
                                         <h3>
                                         <a href="#" class="text-navy">
-                                           dress
+                                            {{cat.product[0].name}}
                                         </a>
                                         </h3>
                                         <p class="small">
-                                            summer dress
+                                           
+                                           
                                         </p>
                                         <dl class="small m-b-none">
-                                            <dt>Description lists</dt>
-                                            <dd>A description list is perfect for defining terms.</dd>
+                                            <button class="btn" (click)="decreaseQuantity(cat) ">-</button>
+                                            {{cat.quantity}}
+                                            <button class="btn" (click)=" increaseQuantity(cat)">+</button>
                                         </dl>
                                         <div class="m-t-sm">
                                             <a href="#" class="text-warning"><i class="fa fa-gift"></i> Add gift package</a>
@@ -36,15 +38,15 @@
                                         </div>
                                     </td>
                                     <td>
-                                        EGP 150
-                                        <s class="small text-muted">EGP 220</s>
+                                        
+                                        <s class="small text-muted"></s>
                                     </td>
                                     <td width="65">
                                         <input type="text" class="form-control" placeholder="1">
                                     </td>
                                     <td>
                                         <h4>
-                                            EGP 170
+                                            EGP {{cat.product[0].price}}
                                         </h4>
                                     </td>
                                 </tr>

@@ -9,7 +9,7 @@ import { RegisterService } from '../services/register.service';
 export class HeaderComponent implements OnInit {
   isLogin:boolean =false;
   logeduser:any
-  username:string = ''
+
   constructor(private _RegisterService:RegisterService ) { 
   
     _RegisterService.currentUsers.subscribe((data)=>{
@@ -19,8 +19,8 @@ export class HeaderComponent implements OnInit {
         this.isLogin = true;
         // this.logeduser= this._RegisterService.getloginuser()
         // console.log(this.logeduser)
-        // this.username=this.logeduser.name;
-        //  console.log(this.isLogin)
+        // this.username=this._RegisterService.logeduser.name;
+         console.log(this.username)
       }
       else
       {
@@ -31,15 +31,16 @@ export class HeaderComponent implements OnInit {
      })
    
   }
+  username=this._RegisterService.logeduser.name;
   logOut()
   {
     this._RegisterService.logOut();
     
   }
   ngOnInit(): void {
-    this.logeduser= this._RegisterService.getloginuser()
-    console.log(this.logeduser)
-    this.username=this.logeduser.name;
+    // this.logeduser= this._RegisterService.getloginuser()
+    // console.log(this.logeduser)
+    //   this.username=this.logeduser.name;
    
   }
 

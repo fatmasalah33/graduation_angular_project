@@ -7,4 +7,5 @@ export class Product{
   image:any;
   category_id:any;
   user_id:any=1
+ 
 }

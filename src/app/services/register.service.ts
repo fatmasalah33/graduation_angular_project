@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { userData } from '../userData';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class RegisterService {
   username:string = ''
   logeduser:any
   currentUsers =  new BehaviorSubject(null);
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient , private _Router:Router ) { 
     if(localStorage.getItem('userData') != null){
       this.x=localStorage.getItem('userData')
     this.loginuser(JSON.parse(this.x))
@@ -43,14 +44,15 @@ export class RegisterService {
       localStorage.setItem('userData' , this.y );
       this.loginuser(this.y )
 
-      // this._Router.navigate(['/login']);
+      this._Router.navigate(['/signin']);
 
   }
   loginuser(user: any){
    this.logeduser=user
    
+   
   }
-  getloginuser(){
+  getloginuser():Observable<any>{
     return this.logeduser
   }
 }

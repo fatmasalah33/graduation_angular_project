@@ -30,7 +30,7 @@ email: string = ''
         this.registerService.saveCurrentUser(data.user.id,data.user.name , data.user.email , data.token,data.user.address,data.user.phone);
         this.registerService.loginuser(data.user)
         // this.registerService.settusername(data.user.name)
-        console.log(data.user.name)
+        console.log( this.registerService.getloginuser())
         this.router.navigate(['/']);  
         
       }
