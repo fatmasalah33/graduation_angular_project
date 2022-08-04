@@ -273,6 +273,9 @@
                                 <img [src]="pathimage+product.image"  class="card-img-top w-75 m-auto" alt="...">
                                 <div class="card-body">
                                   <p class="card-title text-muted"></p>
+                                  
+                            
+                                
                                   <h5 class="card-title">{{product.name}}</h5>
                                   <p class="card-text">{{product.price}} L.E</p>
                                   <div>
@@ -283,7 +286,7 @@
                                   <span class="">40 reviews</span>
                                   </div>
           
-                                  <h5 class="card-title my-2">EGP 4,999.00</h5>
+                                  <a href="#" (click)="addtowhishlist(product)"><i class="fa-regular fa-heart"></i></a><br>
                                   <button type="button" class="add btn btn-info" (click)="insertincart($event,product)" data-trigpopup="">Add To Cart</button>
                                <div class="" style="display:none">
                                

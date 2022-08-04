@@ -91,10 +91,9 @@ this.cart[i].quantity++;
   this.getallcarts()
   });
   }
- 
+ }
+ addtowhishlist(ietm:any){
 
-
-
-  }
+ }
 
 }
