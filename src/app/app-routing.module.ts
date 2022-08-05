@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'categorypage', component: CategorypageComponent },
   { path: 'parentcategory', component: ParentcategoryComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate:[AuthGuardGuard] },
   { path: 'cart/checkout', component: CheckoutComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'history', component: RecentlyViewedComponent },

@@ -11,13 +11,14 @@ export class RegisterService {
   x:any
   username:string = ''
   logeduser:any
-  
+  localarry: Array<any> = [];
   currentUsers =  new BehaviorSubject(null);
   constructor(private http: HttpClient , private _Router:Router ) { 
-    if(localStorage.getItem('userData') != null){
+    if(localStorage.getItem('userData')){
       this.x=localStorage.getItem('userData')
     this.loginuser(JSON.parse(this.x))
-    console.log(this.logeduser)
+    // this.localarry=JSON.parse(this.x)
+    // console.log(JSON.parse(this.x).token)
       this.currentUsers.next(  JSON.parse(this.x)  )
     }
   }
@@ -35,6 +36,7 @@ export class RegisterService {
     this.user = new userData(id,name , email , token,address,phone,type);
 
     localStorage.setItem('userData' ,JSON.stringify(this.user) );
+    this.loginuser(this.user)
     this.currentUsers.next(this.user);
    
   }
@@ -42,7 +44,7 @@ export class RegisterService {
   logOut()
   {
       this.currentUsers.next(null);
-      localStorage.setItem('userData' , this.y );
+      localStorage.removeItem('userData');
       this.loginuser(this.y )
 
       this._Router.navigate(['/signin']);

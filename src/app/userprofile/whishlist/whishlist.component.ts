@@ -29,4 +29,10 @@ export class WhishlistComponent implements OnInit {
       
       }); 
   }
+  deleteitem(id:any){
+    this._WishlistService.deletewishlist(id).subscribe((data : any)=>{
+      console.log(data)
+    })
+
+  }
 }

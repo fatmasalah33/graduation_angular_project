@@ -20,7 +20,8 @@ export class ParentcategoryComponent implements OnInit {
   cat=new Cart();
   logeduser:any
   userid:any;
- 
+  totalprice:number=0
+  count:number=0
 saveditem=new Wishlsit();
   isexist:boolean=false;
   
@@ -32,14 +33,29 @@ saveditem=new Wishlsit();
 
   ngOnInit(): void {
     this.getallproducts()
-   
+    this.registerService.currentUsers.subscribe((data)=>{
+      console.log(data)
+
+      if(data != null )
+      {
+        this.logeduser= this.registerService.getloginuser()
+        console.log(this.logeduser)
+        this.userid=this.logeduser.id;
+        }
+      
+     
+        
   
-    this.logeduser= this.registerService.getloginuser()
-    console.log(this.logeduser)
-    this.userid=this.logeduser.id;
+   
+
+     })
+  
+ 
     this.getallcarts()
     console.log(this.cart)
     this.getallsaveitem()
+    this.gettotalitem()
+      this.gettotal()
 
   }
   getallproducts(){
@@ -89,7 +105,8 @@ this.cart[i].quantity++;
       
       this.productExists = true
       this._CartService. updatecart(this.cart[i].id, this.updateqty).subscribe((res: any)=>{
-    
+        this.gettotalitem()
+        this.gettotal()
         console.log(res);
       })
       break;
@@ -100,6 +117,8 @@ this.cart[i].quantity++;
   if (!this.productExists) {
    this._CartService.insertdate(this.cat).subscribe(data => {
   this.getallcarts()
+  this.gettotalitem()
+      this.gettotal()
   });
   }
  }
@@ -130,5 +149,17 @@ if (!this.ietmExists) {
  
 
 }
+}
+gettotalitem(){
+  this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
+  this.count=data[0].count;
+  console.log(this.count)
+  })
+}
+gettotal(){
+  this._CartService.gettotalprice(this.userid).subscribe(data=>{
+     this.totalprice=data[0].totalprice;
+     console.log(data[0].totalprice)
+  })
 }
 }

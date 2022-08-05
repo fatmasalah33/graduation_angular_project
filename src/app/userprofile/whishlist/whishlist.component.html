@@ -10,12 +10,12 @@
   </div>
   <div class="col-md-10 col-sm-8">
     <div class="card-block">
-      <a href="#" class="btn btn-outline-purple btn-sm float-right px-3 py-2">BUY NOW</a>
+      <a href="#" class="btn btn-outline-purple btn-sm float-right px-3 py-2">Add to Cart</a>
       
       <h4 class="card-title">{{item.product[0].name}}</h4><br>
       
       <span class="date d-block mt-1">EGP {{item.product[0].price}}</span>
-      <a href="#" class="btn btn-purple btn-sm float-right"><i class="fa-solid me-2 fa-trash"></i>REMOVE</a>
+      <a (click)="deleteitem(item.id)" class="btn btn-purple btn-sm float-right"><i class="fa-solid me-2 fa-trash"></i>REMOVE</a>
     </div>
   </div>
 </div>

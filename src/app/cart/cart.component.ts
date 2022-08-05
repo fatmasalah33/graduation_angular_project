@@ -21,15 +21,28 @@ totalprice:number=0
   constructor(private _CartService:CartService,private registerService :RegisterService) { }
 
   ngOnInit(): void {
+    this.registerService.currentUsers.subscribe((data:any)=>{
+      console.log(data)
+
+      if(data  )
+      {
+        this.logeduser= this.registerService.getloginuser()
+        console.log(this.logeduser)
+        this.userid=this.logeduser.id;
+      
+     
+        
+      }
    
+
+     })
     console.log(this.cart)
-    this.logeduser= this.registerService.getloginuser()
-    console.log(this.logeduser)
-    this.userid=this.logeduser.id;
+    
     this.getallcarts()
     this.gettotal()
   }
   gettotal(){
+    
     this._CartService.gettotalprice(this.userid).subscribe(data=>{
        this.totalprice=data[0].totalprice;
        console.log(data[0].totalprice)

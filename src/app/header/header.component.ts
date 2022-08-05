@@ -25,10 +25,10 @@ export class HeaderComponent implements OnInit {
     
   }
   ngOnInit(): void {
-    this._RegisterService.currentUsers.subscribe((data)=>{
+    this._RegisterService.currentUsers.subscribe((data:any)=>{
       console.log(data)
 
-      if(data != null )
+      if(data  )
       {
         this.logeduser= this._RegisterService.getloginuser()
         console.log(this.logeduser)
