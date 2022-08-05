@@ -21,12 +21,12 @@
             </div>
            </form>
            
-           <span class="me-2" style="color: white;">HI, {{username}}</span>
+           <span class="me-2" style="color: white;" *ngIf="isLogin">HI, {{username}}</span>
            <!--end of search-->
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent" >
             <ul class="navbar-nav ms-2 mb-2 mb-lg-0 text-light">
-              <li class="nav-item me-3 d-flex align-items-center">
+              <li class="nav-item me-3 d-flex align-items-center" *ngIf="isLogin" >
                 <a href="#" class="text-light me-1"><i class="fa-regular fa-heart rounded "></i></a>
                 <div class="d-flex flex-column">
                     <a class="nav-link active text-light pb-0 fs-6" aria-current="page" routerLink="history">Whislist</a>
@@ -34,30 +34,30 @@
                 </div>
               </li>
               <li class="nav-item me-3 d-flex align-items-center">
-                <a routerLink="userprofile" class="text-light me-1" ><i class="fa-regular fa-user rounded"></i></a>
+                <a routerLink="userprofile" class="text-light me-1" *ngIf="isLogin"  ><i class="fa-regular fa-user rounded"></i></a>
                 <div class="d-flex flex-column">
-                    <a class="nav-link active text-light pb-0 fs-6" aria-current="page" routerLink="signin">Signin</a>
-                    <a class="nav-link active text-light pt-0 fs-7" aria-current="page"  routerLink="register">Account</a>
+                    <a class="nav-link active text-light pb-0 fs-6" aria-current="page" *ngIf="!isLogin" routerLink="signin">Signin</a>
+                    <a class="nav-link active text-light pt-0 fs-7" aria-current="page" *ngIf="!isLogin"  routerLink="register">Account</a>
                 </div>
               </li>
-              <li class="nav-item me-3 d-flex align-items-center">
+              <li class="nav-item me-3 d-flex align-items-center" *ngIf="isLogin" >
                 <button type="button" class="position-relative me-1 rounded me-2" style="border: none; background-color:#4D3C9C;">
                     <a routerLink="cart" class="text-light me-1"><i class="fa-solid fa-cart-shopping"></i></a>
                     <span class="position-absolute top-0 start-90 translate-middle badge rounded-circle bg-yellow text-dark">
-                      2
+                      {{count}}
                       <span class="visually-hidden">unread messages</span>
                     </span>
                   </button>
                 <div class="d-flex flex-column">
-                    <a class="nav-link active text-light pb-0 fs-6" aria-current="page" href="#">$200.99</a>
+                    <a class="nav-link active text-light pb-0 fs-6" aria-current="page" href="#"> {{totalprice}}</a>
                     <a class="nav-link active text-light pt-0 fs-7" aria-current="page" href="#">Total</a>
                 </div>
               </li>
         
-            <li class="nav-item  d-flex align-items-center">
+            <li class="nav-item  d-flex align-items-center" *ngIf="isLogin" >
               <a routerLink="" class="text-light me-1" ><i class="fa-solid fa-right-from-bracket rounded"></i></a>
               <div class="d-flex flex-column">
-                <a *ngIf="isLogin" (click)='logOut()' class="nav-link">Logout</a>
+                <a (click)='logOut()' class="nav-link">Logout</a>
                  
               </div>
             </li>

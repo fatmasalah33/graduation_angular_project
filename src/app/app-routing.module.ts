@@ -48,11 +48,11 @@ const routes: Routes = [
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
-    {path: 'accountdetails',component:AccountdetailsComponent},
-    {path: 'chpassword',component:ChpasswordComponent},
-    {path: 'myorders',component:MyordersComponent},
-    {path: 'Wishlist',component:WhishlistComponent},
-    {path: 'reviews',component:ReviewsComponent},
+    {path: 'accountdetails',component:AccountdetailsComponent, canActivate:[AuthGuardGuard]},
+    {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
+    {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
+    {path: 'Wishlist',component:WhishlistComponent, canActivate:[AuthGuardGuard]},
+    {path: 'reviews',component:ReviewsComponent, canActivate:[AuthGuardGuard]},
   ], }
   ]},
   { path: 'dashboard', component: DashboardComponent,
