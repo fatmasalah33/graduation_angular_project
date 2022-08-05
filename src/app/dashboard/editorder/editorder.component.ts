@@ -12,19 +12,23 @@ export class EditorderComponent implements OnInit {
   id:any;
   data:any;
   order=new Order()
+ 
   constructor(private orderService :OrdersService,private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
+    // this.order.status="change the order status"
     this.id=this.activatedRoute.snapshot.params['id'];
     this.getDatabyid();
   }
   getDatabyid(){
-    this.orderService.getData(this.id).subscribe(res=>{
-      this.data=res;
-      this.order=this.data.data
+    this.orderService.getData(this.id).subscribe((res: any)=>{
+      this.order=res;
+      // this.order=this.data.data
+      console.log(res)
     })
   }
   updateOrders(){
+    console.log(this.order)
     this.orderService.updateOrders(this.id,this.order).subscribe(res=>{
       // this.router.navigate(['/dashboard/', 'allproduct']);
       console.log(res)

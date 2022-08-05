@@ -4,10 +4,22 @@
             <div class="card-body col-6">
                 <h2 class="title">update Order</h2>
                 <form method="post" action="" enctype="multipart/form-data" (ngSubmit)="updateOrders()">
-                   
+                    <!-- 'processing','cancelled','delivered','pending' -->
                     <div class="input-group d-flex flex-column">
-                        <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="status" name="status"
-                            [(ngModel)]="order.status">
+                       <input type="hidden" name="price" [(ngModel)]="order.price">
+                       <input type="hidden" name="address_state" [(ngModel)]="order.address_state">
+                       <input type="hidden" name="comment" [(ngModel)]="order.comment">
+                       <input type="hidden" name="address_city" [(ngModel)]="order.address_city">
+                       <input type="hidden" name="address_street" [(ngModel)]="order.address_street">
+                       <input type="hidden" name="user_id" [(ngModel)]="order.user_id">
+                       <input type="hidden" name="payment_id" [(ngModel)]="order.payment_id">
+                       <input type="hidden" name="copoun" [(ngModel)]="order.copoun">
+                            <select class="form-select mb-1 mt-3 w-100" name="status" id=""  [(ngModel)]="order.status">
+                                <option value="" selected>change the order status</option>
+                                <option value="processing">processing</option>
+                                <option value="delivered">delivered</option>
+                                <option value="cancelled">cancelled</option>
+                            </select>
 
                         <span></span>
                     </div>
