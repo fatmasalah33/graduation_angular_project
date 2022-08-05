@@ -4,24 +4,24 @@
 <!--first card-->
 <section>
 <div class="card mx-3 p-md-3">
-<div class="row">
+<div class="row" *ngFor="let item of savearray ; let i = index">
   <div class="col-md-2 col-sm-4">
-    <img class="d-block w-100" src="https://picsum.photos/150?image=641" alt="productimage">
+    <img class="d-block w-100" [src]="pathimage+item.product[0].image" alt="productimage">
   </div>
   <div class="col-md-10 col-sm-8">
     <div class="card-block">
       <a href="#" class="btn btn-outline-purple btn-sm float-right px-3 py-2">BUY NOW</a>
       
-      <h4 class="card-title">Product name</h4><br>
+      <h4 class="card-title">{{item.product[0].name}}</h4><br>
       
-      <span class="date d-block mt-1">EGP 13.00</span>
+      <span class="date d-block mt-1">EGP {{item.product[0].price}}</span>
       <a href="#" class="btn btn-purple btn-sm float-right"><i class="fa-solid me-2 fa-trash"></i>REMOVE</a>
     </div>
   </div>
 </div>
 </div>
 </section>
-<section>
+<!-- <section>
 <div class="card mx-3 p-md-3">
 <div class="row">
   <div class="col-md-2 col-sm-4">
@@ -39,4 +39,4 @@
   </div>
 </div>
 </div>
-</section>
+</section> -->

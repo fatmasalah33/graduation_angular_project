@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { EventType } from '@angular/router';
 import { Cart } from '../cart';
+import {Wishlsit} from '../wishlist';
 import { CartService } from '../services/cart.service';
 import { ProductsService } from '../services/products.service';
 import { RegisterService } from '../services/register.service';
+import { WishlistService } from '../services/wishlist.service';
 
 @Component({
   selector: 'app-parentcategory',
@@ -14,16 +16,17 @@ export class ParentcategoryComponent implements OnInit {
   pathimage:any="http://127.0.0.1:8000/public/image/";
   cart :Array<any> = [];
   products : Array<any> = [];
+  savearray: Array<any> = [];
   cat=new Cart();
   logeduser:any
   userid:any;
  
-
+saveditem=new Wishlsit();
   isexist:boolean=false;
   
  
   constructor(private productsService :ProductsService,private registerService :RegisterService
-    ,private _CartService:CartService) { 
+    ,private _CartService:CartService,private _WishlistService:WishlistService) { 
  
   }
 
@@ -36,6 +39,7 @@ export class ParentcategoryComponent implements OnInit {
     this.userid=this.logeduser.id;
     this.getallcarts()
     console.log(this.cart)
+    this.getallsaveitem()
 
   }
   getallproducts(){
@@ -54,8 +58,15 @@ export class ParentcategoryComponent implements OnInit {
       console.log(this.cart)
       });
   }
+  getallsaveitem(){
+    this._WishlistService.getData(this.userid).subscribe((data : any) => {
+      this.savearray =data.data.wishlist;
+      
+      }); 
+  }
 
   productExists = false
+  ietmExists = false
   updateqty = new Cart();
  
   insertincart(event: any,item:any){
@@ -92,8 +103,32 @@ this.cart[i].quantity++;
   });
   }
  }
- addtowhishlist(ietm:any){
+ addtowhishlist(ietm:any,e:any){
+// e.target.style.backgroundColor='red'
+  this.saveditem.user_id=this.userid
+  this.saveditem.product_id=ietm.id
+console.log(this.saveditem)
+console.log(this.savearray)
+for (let i=0;i< this.savearray.length;i++) {
+  if(this.savearray[i].product_id==ietm.id){
+   
+   
+    this.ietmExists = true
+ 
+    break;
+  }else{
+    this.ietmExists = false
+  }
+}
+if (!this.ietmExists) {
+  this._WishlistService.insertdate(this.saveditem).subscribe(data => {
+    this.getallsaveitem()
+    console.log('ok')
+    });
+ 
+  console.log('hi')
+ 
 
- }
-
+}
+}
 }
