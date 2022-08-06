@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { RegisterService } from '../services/register.service';
 
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   logeduser:any
   userid:any;
   totalprice:number=0
-  constructor(private _RegisterService:RegisterService,private _CartService:CartService ) { 
+  constructor(private _RegisterService:RegisterService,private _CartService:CartService,private router: Router ) { 
   
    
     
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
     this._RegisterService.logOut();
     
   }
+  currentUrl = this.router.url;
   ngOnInit(): void {
     this._RegisterService.currentUsers.subscribe((data:any)=>{
       console.log(data)
@@ -38,7 +40,8 @@ export class HeaderComponent implements OnInit {
         if(this.logeduser.user_type=='buyer'){
           this.isLogin = true;
         }
-      
+        this.router.navigate([this.currentUrl]);
+        console.log(this.currentUrl); 
      
         
       }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../product';
 import { Router } from '@angular/router';
-import { FormGroup , FormBuilder} from '@angular/forms';
+import { FormGroup , FormBuilder, Validators} from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { CatogeryService } from 'src/app/services/catogery.service';
 @Component({
@@ -16,14 +16,23 @@ export class AddproductComponent implements OnInit {
   constructor(public fb:FormBuilder, private productsService :ProductsService,private router: Router,private _CatogeryService:CatogeryService ) {
    this.form = this.fb.group({
 
-      name :null,
-      price :null,
-      description:null,
-      brand:null,
-      quantity :null,
+    name: ['', [Validators.required,
+    ]],
+      price :['', [Validators.required,
+        Validators.pattern('^[0-9]+$')
+      ]],
+      description:['', [Validators.required,
+        Validators.pattern('[a-zA-Z ]*')
+      ]],
+      brand:['', [Validators.required,
+      ]],
+      quantity :['', [Validators.required,
+      ]],
       user_id:18,
-      category_id:null,
-      image:null ,
+      category_id:['', [Validators.required,
+      ]],
+      image:['', [Validators.required,
+      ]] ,
 
     })
   }

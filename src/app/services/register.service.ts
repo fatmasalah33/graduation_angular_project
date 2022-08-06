@@ -55,6 +55,12 @@ export class RegisterService {
    
    
   }
+  
+  loginuserrole(){
+    return this.logeduser.user_type
+    
+    
+   }
   getloginuser():Observable<any>{
     return this.logeduser
   }
