@@ -45,7 +45,11 @@ import { AlluserComponent } from './dashboard/alluser/alluser.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+
+import { CategoryproductsComponent } from './categoryproducts/categoryproducts.component';
+
 import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
+
 
 @NgModule({
   declarations: [
@@ -86,7 +90,11 @@ import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
     AllreviewComponent,
     AlluserComponent,
     CheckoutComponent,
+
+    CategoryproductsComponent,
+
     EditofferComponent,
+
     
   ],
   imports: [
