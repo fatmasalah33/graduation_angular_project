@@ -33,6 +33,7 @@ import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 import { AllreviewComponent } from './dashboard/allreview/allreview.component';
 import { AlluserComponent } from './dashboard/alluser/alluser.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CategoryproductsComponent } from './categoryproducts/categoryproducts.component';
 
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent, canActivate:[AuthGuardGuard] },
   { path: 'cart/checkout', component: CheckoutComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'categoryproducts', component: CategoryproductsComponent },
   { path: 'history', component: RecentlyViewedComponent },
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],

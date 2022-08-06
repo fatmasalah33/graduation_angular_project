@@ -45,6 +45,7 @@ import { AlluserComponent } from './dashboard/alluser/alluser.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+import { CategoryproductsComponent } from './categoryproducts/categoryproducts.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { AuthInterceptor } from './auth.interceptor';
     AllreviewComponent,
     AlluserComponent,
     CheckoutComponent,
+    CategoryproductsComponent,
     
   ],
   imports: [
