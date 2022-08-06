@@ -10,6 +10,7 @@ import { RegisterService } from '../services/register.service';
 })
 export class HeaderComponent implements OnInit {
   isLogin:boolean =false;
+  isAdmin:boolean =false;
   logeduser:any
   userid:any;
   totalprice:number=0
@@ -39,6 +40,9 @@ export class HeaderComponent implements OnInit {
          console.log(this.username)
         if(this.logeduser.user_type=='buyer'){
           this.isLogin = true;
+        }
+        if(this.logeduser.user_type=='admin'){
+          this.isAdmin = true;
         }
         this.router.navigate([this.currentUrl]);
         console.log(this.currentUrl); 

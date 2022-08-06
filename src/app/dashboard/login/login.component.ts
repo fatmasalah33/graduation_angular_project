@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.registerService.loginuser(data.user)
         // this.registerService.settusername(data.user.name)
         console.log( this.registerService.getloginuser())
-        this.router.navigate(['/dashboard']);  
+        this.router.navigate(['/']);  
         
       }
       else
