@@ -33,6 +33,8 @@ import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 import { AllreviewComponent } from './dashboard/allreview/allreview.component';
 import { AlluserComponent } from './dashboard/alluser/alluser.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
+import { DashboardGuardGuard } from './dashboard-guard.guard';
 
 const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
@@ -60,18 +62,20 @@ const routes: Routes = [
     {
       path: 'allproduct',
       component:AllproductsComponent,
+       canActivate:[DashboardGuardGuard]
     },
-    {path:'allproduct/addproduct',component:AddproductComponent},
-    {path:'allproduct/edit/:id',component:EditproductComponent},
-    {path:'allcatogery',component:AllcatogeryComponent},
-    {path:'allcatogery/edit/:id',component:EditcatogeryComponent},
-    {path:'allcatogery/addcatogery',component:AddcatogeryComponent},
-    {path:'allorder',component:AllordersComponent},
-    {path:'allorder/edit/:id',component:EditorderComponent},
-    {path:'alloffer',component:AlloffersComponent},
-    {path:'alloffer/addoffer',component:AddofferComponent},
-    {path:'allreview',component:AllreviewComponent},
-    {path:'alluser',component:AlluserComponent}
+    {path:'allproduct/addproduct',component:AddproductComponent,canActivate:[DashboardGuardGuard]},
+    {path:'allproduct/edit/:id',component:EditproductComponent,canActivate:[DashboardGuardGuard]},
+    {path:'allcatogery',component:AllcatogeryComponent,canActivate:[DashboardGuardGuard]},
+    {path:'allcatogery/edit/:id',component:EditcatogeryComponent,canActivate:[DashboardGuardGuard]},
+    {path:'allcatogery/addcatogery',component:AddcatogeryComponent,canActivate:[DashboardGuardGuard]},
+    {path:'allorder',component:AllordersComponent,canActivate:[DashboardGuardGuard]},
+    {path:'allorder/edit/:id',component:EditorderComponent,canActivate:[DashboardGuardGuard]},
+    {path:'alloffer/edit/:id',component:EditofferComponent,canActivate:[DashboardGuardGuard]},
+    {path:'alloffer',component:AlloffersComponent,canActivate:[DashboardGuardGuard]},
+    {path:'alloffer/addoffer',component:AddofferComponent,canActivate:[DashboardGuardGuard]},
+    {path:'allreview',component:AllreviewComponent,canActivate:[DashboardGuardGuard]},
+    {path:'alluser',component:AlluserComponent,canActivate:[DashboardGuardGuard]}
    
   ], },
   {path:'login',component:LoginComponent},

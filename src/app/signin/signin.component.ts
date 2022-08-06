@@ -19,6 +19,7 @@ email: string = ''
 
   ngOnInit(): void {
   }
+  
   handleSubmitForm(loginForm : any){
     console.log(loginForm);
     this.registerService.login(loginForm.value).subscribe(data => {
@@ -31,8 +32,9 @@ email: string = ''
         this.registerService.loginuser(data.user)
         // this.registerService.settusername(data.user.name)
         console.log( this.registerService.getloginuser())
+      
         this.router.navigate(['/']);  
-        
+       
       }
       else
       {  this.flag = true;
