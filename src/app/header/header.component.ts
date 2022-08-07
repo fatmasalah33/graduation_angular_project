@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   logeduser:any
   userid:any;
   totalprice:number=0
+  keyword:any
   constructor(private _RegisterService:RegisterService,private _CartService:CartService,private router: Router ) { 
   
    
@@ -71,5 +72,10 @@ export class HeaderComponent implements OnInit {
        this.totalprice=data[0].totalprice;
        console.log(data[0].totalprice)
     })
+  }
+  getcatsearch(e:any){
+    this.keyword=e.target.value
+    console.log(this.keyword)
+
   }
 }

@@ -6,31 +6,31 @@
                 <div class="row g-0">
                     <div class="col-md-5 border-end">
                         <div class="d-flex flex-column justify-content-center">
-                            <div class="main_image"> <img src="../../assets/images/1.jpg" id="main_product_image" width="350">
+                            <div class="main_image"> <img [src]="pathimage+product.image" id="main_product_image" width="350">
                             </div>
                             <div class="thumbnail_images">
-                                <ul id="thumbnail" class="ps-0">
+                                <!-- <ul id="thumbnail" class="ps-0">
                                     <li><img onclick="changeImage(this)" src="../../assets/images/1.jpg" width="50"></li>
                                     <li><img onclick="changeImage(this)" src="../../assets/images/2.jpg" width="50"></li>
                                     <li><img onclick="changeImage(this)" src="../../assets/images/3.jpg" width="50"></li>
                                     <li><img onclick="changeImage(this)" src="../../assets/images/4.jpg" width="50"></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="p-3 right-side">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4>Flower Decor Straw Hat</h4> 
-                                <button class="heart"><i class='fa-regular fa-heart'></i></button>
+                                <h4>{{product.name}}</h4> 
+                                <button class="heart" (click)="addtowhishlist(product,$event)"><i class='fa-regular fa-heart'></i></button>
                             </div>
                             <div class="mt-2 pr-3 content">
                                 <h6 class="d-inline">Brand: </h6>
-                                <span><a href="#" class="link bran-link">SHEIN</a></span>
-                                <p>Girls Summer Sunscreen Boater Hat Weave Beach Hat-40cm.Enough to fit different oceans, such as travel, outdoor activities and so on.The appearance is very cute.Material: weave straw</p>
+                                <span><a href="#" class="link bran-link">{{product.brand}}</a></span>
+                                <p>{{product.description}}</p>
                             </div>
-                            <h3>EGP 199</h3>
-                            <h6 class="oldprice text-muted d-inline">EGP 299</h6> <span class="discount ms-2">-33%</span>
+                            <h3>EGP {{product.price}}</h3>
+                            <h6 class="oldprice text-muted d-inline">EGP </h6> <span class="discount ms-2">-33%</span>
                             <div class="ratings d-flex flex-row align-items-center mt-2">
                                 <div class="d-flex flex-row">
                                      <i class='fa fa-star' ></i>
@@ -42,7 +42,7 @@
                             </div>
                            
                             <div class="buttons d-flex flex-row mt-5 gap-3">
-                                <button class="btn btn-purple w-100">Add to Cart</button> </div>
+                                <button class="btn btn-purple w-100" (click)="insertincart($event,product)" >Add to Cart</button> </div>
                         </div>
                     </div>
                 </div>

@@ -276,7 +276,7 @@
                                   
                             
                                 
-                                  <h5 class="card-title">{{product.name}}</h5>
+                                  <a [routerLink]="['/productdetails' , product.id]"><h5 class="card-title">{{product.name}}</h5></a>
                                   <p class="card-text">{{product.price}} L.E</p>
                                   <div>
                                   <i class="fa-solid fa-star " style="color: rgba(255, 255, 0, 0.644);"></i>

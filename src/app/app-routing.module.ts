@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'cart/checkout', component: CheckoutComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'categoryproducts', component: CategoryproductsComponent },
-  { path: 'productdetails', component: ProductdetailsComponent },
+  { path: 'productdetails/:id', component: ProductdetailsComponent },
   { path: 'history', component: RecentlyViewedComponent },
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],

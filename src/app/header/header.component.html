@@ -16,7 +16,7 @@
                    <option value="2">Beauty</option>
                    <option value="3">Health</option>
                  </select> -->
-               <input class="form-control form-control1 col-10 " style="color: #4D3C9C;"  type="search" placeholder="Search products..." aria-label="Search">
+               <input (input)="getcatsearch($event)" class="form-control form-control1 col-10 " style="color: #4D3C9C;"  type="search" placeholder="Search products..." aria-label="Search">
                <button class="btn col-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
            </form>
