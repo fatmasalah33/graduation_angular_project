@@ -49,6 +49,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { CategoryproductsComponent } from './categoryproducts/categoryproducts.component';
 
 import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
     CategoryproductsComponent,
 
     EditofferComponent,
+      ProductdetailsComponent,
 
     
   ],

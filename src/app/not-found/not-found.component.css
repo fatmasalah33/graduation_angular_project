@@ -2,11 +2,15 @@
 	color: #041F42;
 }
 .container-fluid{
-	border-bottom: 1px solid #EBEBEB;
+	height:100vh;
 }
+/* .container-fluid{
+	border-bottom: 1px solid #EBEBEB;
+} */
 .container{
 	padding-top: 7rem;
 	padding-bottom: 7rem;
+	
 }
 h1{
 	font-size: 9rem;
