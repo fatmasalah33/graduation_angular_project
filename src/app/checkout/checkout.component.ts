@@ -21,6 +21,8 @@ export class CheckoutComponent implements OnInit {
   Order=new Order()
   handler:any = null;
   token:any;
+  states : Array<any> = [];
+  cities:Array<any> = [];
   constructor(public fb:FormBuilder, private OrdersService :OrdersService,private router: Router,private _CartService:CartService,private registerService :RegisterService) {
 
 
@@ -50,13 +52,27 @@ export class CheckoutComponent implements OnInit {
         this.logeduser= this.registerService.getloginuser()
         console.log(this.logeduser)
         this.user_id=this.logeduser.id;
-
+        console.log(this.user_id)
       }
 
      })
      this.gettotal();
      this.loadStripe();
+     this.getallstates()
     //  console.log(this.token);
+  }
+  getallstates(){
+    this.OrdersService.getstates().subscribe((data : any)=>{
+      this.states=data
+    })
+  }
+
+  getid(e: any){
+    console.log(e.target.value)
+    this.OrdersService.getcities(e.target.value).subscribe((data : any)=>{
+      this.cities=data
+      console.log(this.cities)
+    })
   }
   gettotal(){
     this._CartService.gettotalprice(this.user_id).subscribe(data=>{
@@ -68,7 +84,7 @@ export class CheckoutComponent implements OnInit {
     // let data = new FormData;
     const formData :any = new FormData;
   //  console.log(this.token.id)
-
+  console.log(this.user_id)
     // formData.append("status" , this.form.controls['status'].value);
     formData.append("price" , this.price);
     formData.append("comment" , this.form.controls['comment'].value);
@@ -78,7 +94,7 @@ export class CheckoutComponent implements OnInit {
     formData.append("user_id" , this.user_id);
     formData.append("payment_id" , this.form.controls['payment_id'].value);
     formData.append("copoun" , this.form.controls['copoun'].value);
-
+    console.log(formData)
      if (((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  ){
 
     this.OrdersService.insertdate(formData).subscribe(data => {

@@ -13,7 +13,8 @@ import { CatogeryService } from 'src/app/services/catogery.service';
 export class AddproductComponent implements OnInit {
   file:any ;
   categories : Array<any> = [];
-  constructor(public fb:FormBuilder, private productsService :ProductsService,private router: Router,private _CatogeryService:CatogeryService ) {
+  constructor(public fb:FormBuilder, private productsService :ProductsService
+    ,private router: Router,private _CatogeryService:CatogeryService ) {
    this.form = this.fb.group({
 
     name: ['', [Validators.required,

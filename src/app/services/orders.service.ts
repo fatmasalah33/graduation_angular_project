@@ -22,5 +22,10 @@ export class OrdersService {
   updateOrders(id: any,data:any){
     return this.http.put('http://127.0.0.1:8000/api/orders/'+id,data);
   }
-
+  getstates(){
+    return this.http.get('http://127.0.0.1:8000/api/states');
+  }
+  getcities(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/cities/'+id);
+  }
 }
