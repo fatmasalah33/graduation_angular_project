@@ -38,6 +38,7 @@ import { CategoryproductsComponent } from './categoryproducts/categoryproducts.c
 
 import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
 import { DashboardGuardGuard } from './dashboard-guard.guard';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'cart/checkout', component: CheckoutComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'categoryproducts', component: CategoryproductsComponent },
+  { path: 'productdetails', component: ProductdetailsComponent },
   { path: 'history', component: RecentlyViewedComponent },
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
