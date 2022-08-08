@@ -73,6 +73,13 @@ saveditem=new Wishlsit();
       });
       
   }
+  filterbycat(id:any){
+    console.log(id)
+    this._CatogeryService.filterbycat(id).subscribe((data : any)=>{
+      this.products =data.data.products ;
+    })
+
+  }
   getallcarts(){
     this._CartService.getData(this.userid).subscribe((data : any) => {
       this.cart =data.data.cart ;

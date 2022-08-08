@@ -64,7 +64,7 @@ const routes: Routes = [
     {path: 'reviews',component:ReviewsComponent, canActivate:[AuthGuardGuard]},
   ], }
   ]},
-  { path: 'dashboard', component: DashboardComponent,
+  { path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuardGuard],
   children: [
     {
       path: 'allproduct',
