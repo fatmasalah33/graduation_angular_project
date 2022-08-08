@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
+import { ProductsService } from '../services/products.service';
 import { RegisterService } from '../services/register.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class HeaderComponent implements OnInit {
   userid:any;
   totalprice:number=0
   keyword:any
-  constructor(private _RegisterService:RegisterService,private _CartService:CartService,private router: Router ) { 
+  products:Array<any> = [];
+  constructor(private _RegisterService:RegisterService,
+    private _ProductsService:ProductsService, private _CartService:CartService,private router: Router ) { 
   
    
     
@@ -75,7 +78,15 @@ export class HeaderComponent implements OnInit {
   }
   getcatsearch(e:any){
     this.keyword=e.target.value
-    console.log(this.keyword)
-
+    
+    if(this.keyword.length==0){
+      console.log(this.keyword.length)
+    }else{
+    this._ProductsService.getDatasearch(this.keyword).subscribe((data: any)=>{
+      console.log(data.data.products)
+      this.products=data.data.products
+      console.log(this.products)
+    })}
+  
   }
 }

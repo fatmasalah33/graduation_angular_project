@@ -21,4 +21,7 @@ export class ProductsService {
   updateproduct(id: any,data:any){
     return this.http.put('http://127.0.0.1:8000/api/products/'+id,data);
   }
+  getDatasearch(keyword:any){
+    return this.http.get('http://127.0.0.1:8000/api/product/search/'+keyword);
+  } 
 }
