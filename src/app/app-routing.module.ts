@@ -39,6 +39,7 @@ import { CategoryproductsComponent } from './categoryproducts/categoryproducts.c
 import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
 import { DashboardGuardGuard } from './dashboard-guard.guard';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { NavbarComponent } from './dashboard/navbar/navbar.component';
 
 
 const routes: Routes = [
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
+    {path:'',component: AccountdetailsComponent},
     {path: 'accountdetails',component:AccountdetailsComponent, canActivate:[AuthGuardGuard]},
     {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
     {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
@@ -66,6 +68,7 @@ const routes: Routes = [
   ]},
   { path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuardGuard],
   children: [
+    {path:'',component: NavbarComponent},
     {
       path: 'allproduct',
       component:AllproductsComponent

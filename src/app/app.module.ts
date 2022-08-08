@@ -50,6 +50,7 @@ import { CategoryproductsComponent } from './categoryproducts/categoryproducts.c
 
 import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { NavbarComponent } from './dashboard/navbar/navbar.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 
     EditofferComponent,
       ProductdetailsComponent,
+      NavbarComponent,
 
     
   ],
