@@ -68,21 +68,20 @@ const routes: Routes = [
   children: [
     {
       path: 'allproduct',
-      component:AllproductsComponent,
-       canActivate:[DashboardGuardGuard]
+      component:AllproductsComponent
     },
-    {path:'allproduct/addproduct',component:AddproductComponent,canActivate:[DashboardGuardGuard]},
-    {path:'allproduct/edit/:id',component:EditproductComponent,canActivate:[DashboardGuardGuard]},
-    {path:'allcatogery',component:AllcatogeryComponent,canActivate:[DashboardGuardGuard]},
-    {path:'allcatogery/edit/:id',component:EditcatogeryComponent,canActivate:[DashboardGuardGuard]},
-    {path:'allcatogery/addcatogery',component:AddcatogeryComponent,canActivate:[DashboardGuardGuard]},
-    {path:'allorder',component:AllordersComponent,canActivate:[DashboardGuardGuard]},
-    {path:'allorder/edit/:id',component:EditorderComponent,canActivate:[DashboardGuardGuard]},
-    {path:'alloffer/edit/:id',component:EditofferComponent,canActivate:[DashboardGuardGuard]},
-    {path:'alloffer',component:AlloffersComponent,canActivate:[DashboardGuardGuard]},
-    {path:'alloffer/addoffer',component:AddofferComponent,canActivate:[DashboardGuardGuard]},
-    {path:'allreview',component:AllreviewComponent,canActivate:[DashboardGuardGuard]},
-    {path:'alluser',component:AlluserComponent,canActivate:[DashboardGuardGuard]}
+    {path:'allproduct/addproduct',component:AddproductComponent},
+    {path:'allproduct/edit/:id',component:EditproductComponent},
+    {path:'allcatogery',component:AllcatogeryComponent},
+    {path:'allcatogery/edit/:id',component:EditcatogeryComponent},
+    {path:'allcatogery/addcatogery',component:AddcatogeryComponent},
+    {path:'allorder',component:AllordersComponent},
+    {path:'allorder/edit/:id',component:EditorderComponent},
+    {path:'alloffer/edit/:id',component:EditofferComponent},
+    {path:'alloffer',component:AlloffersComponent},
+    {path:'alloffer/addoffer',component:AddofferComponent},
+    {path:'allreview',component:AllreviewComponent},
+    {path:'alluser',component:AlluserComponent}
    
   ], },
   {path:'login',component:LoginComponent},
