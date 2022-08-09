@@ -23,4 +23,7 @@ export class ReviweService {
   updateReviwe(id: any,data:any){
     return this.http.put('http://127.0.0.1:8000/api/reviews/'+id,data);
   }
+  getproducttoreview(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/review/'+id);
+  }
 }

@@ -19,7 +19,7 @@
             <a [routerLink]="['/productdetails' , orderdetails.product_data[0].id]">
                <h4 class="card-title"> {{orderdetails.product_data[0].name}}</h4></a><br><br>
             <p class="text-muted">Order {{orderitem.id}}</p>
-            <span class="DELIVERED p-1">DELIVERED</span><br>
+            <span class="DELIVERED p-1" [style.background-color]="orderitem.status=='cancelld'?'red':'green'" >{{orderitem.status}}</span><br>
             <span class="date d-block mt-1">on 25-3</span>
           </div>
         </div>

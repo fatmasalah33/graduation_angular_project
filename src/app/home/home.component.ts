@@ -14,9 +14,10 @@ export class HomeComponent implements OnInit {
     this.getallcategories()
   }
   getallcategories(){
-    this._CatogeryService.getcategoriesList().subscribe((data : any) => {
+    this._CatogeryService.getmainCategory().subscribe((data : any) => {
       this.categories =data.data.categories ;
       console.log(data.data.categories)
       });
   }
+ 
 }

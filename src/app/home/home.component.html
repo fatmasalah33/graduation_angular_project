@@ -127,15 +127,15 @@
     <div class="d-flex justify-content-center mt-3"> <span class="text text-center">Finding Best Products Now<br> in Your Fingertips</span>
     </div>
     <div class="row mt-2 g-4">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngFor="let  category of  categories ; let i = index">
             <div class="card p-1 m-2">
                 <div class="d-flex justify-content-between align-items-center p-2 m-2">
-                    <div class="flex-column lh-1 imagename"> <span>Mobile</span> <span>Phones</span> </div>
+                    <div class="flex-column lh-1 imagename"><a [routerLink]="['/categoryproducts' , category.id]">{{category.name}}</a> <span></span> </div>
                     <div> <img src="https://i.imgur.com/b9zkoz0.jpg" height="100" width="100" /> </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="card p-2 m-2">
                 <div class="d-flex justify-content-between align-items-center p-2">
                     <div class="flex-column lh-1 imagename"> <span>Head</span> <span>Phones</span> </div>
@@ -198,6 +198,6 @@
                   <div> <img src="https://i.imgur.com/UMQJpSG.png" height="100" width="100" /> </div>
               </div>
           </div>
-      </div>
+      </div> -->
     </div>
 </div>

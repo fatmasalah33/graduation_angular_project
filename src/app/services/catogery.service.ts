@@ -25,4 +25,10 @@ export class CatogeryService {
   filterbycat(id: any){
     return this.http.get('http://127.0.0.1:8000/api/category/filter/'+id);
   }
+  getmainCategory(){
+    return this.http.get('http://127.0.0.1:8000/api/mainCategory');
+  }
+  getsubCategory(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/subCategory/'+id);
+  }
 }

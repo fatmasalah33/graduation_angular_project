@@ -68,5 +68,8 @@ export class RegisterService {
   code(verifyFormValue:any):Observable<any>{
     return this.http.post('http://127.0.0.1:8000/api/verifyAccount',verifyFormValue);
   }
+  changepassword(id: any,data:any){
+    return this.http.post('http://127.0.0.1:8000/api/changepassword/'+id,data); 
+  }
 }
 

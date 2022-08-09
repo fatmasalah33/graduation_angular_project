@@ -6,6 +6,7 @@ import { ProductsService } from '../services/products.service';
 import { RegisterService } from '../services/register.service';
 import { WishlistService } from '../services/wishlist.service';
 import { CatogeryService } from '../services/catogery.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-categoryproducts',
   templateUrl: './categoryproducts.component.html',
@@ -25,9 +26,11 @@ export class CategoryproductsComponent implements OnInit {
 saveditem=new Wishlsit();
   isexist:boolean=false;
   categories : Array<any> = [];
+  id: any;
  
   constructor(private productsService :ProductsService,private registerService :RegisterService
-    ,private _CartService:CartService,private _WishlistService:WishlistService,private _CatogeryService:CatogeryService ) { 
+    ,private _CartService:CartService,
+    private activatedRoute: ActivatedRoute,private _WishlistService:WishlistService,private _CatogeryService:CatogeryService ) { 
  
   }
 
@@ -50,7 +53,8 @@ saveditem=new Wishlsit();
 
      })
   
- 
+     console.log(this.activatedRoute.snapshot.params['id']);
+     this.id=this.activatedRoute.snapshot.params['id'];
     this.getallcarts()
     console.log(this.cart)
     this.getallsaveitem()
@@ -59,7 +63,7 @@ saveditem=new Wishlsit();
       this.getallcategories()
   }
   getallcategories(){
-    this._CatogeryService.getcategoriesList().subscribe((data : any) => {
+    this._CatogeryService.getsubCategory(this.id).subscribe((data : any) => {
       this.categories =data.data.categories ;
       console.log(data.data.categories)
       });
