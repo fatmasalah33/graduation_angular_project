@@ -1,8 +1,8 @@
-<div class="p-5 py-2 p-md-3">
+<div class="p-5 py-2 p-md-3" *ngIf="savearray.length>0">
     <h3 >Wishlist <span class="fs-5">(2)</span></h3>
 </div>
 <!--first card-->
-<section>
+<section *ngIf="savearray.length>0">
 <div class="card mx-3 p-md-3">
 <div class="row" *ngFor="let item of savearray ; let i = index">
   <div class="col-md-2 col-sm-4">
@@ -21,6 +21,9 @@
 </div>
 </div>
 </section>
+<div *ngIf="savearray.length==0">
+  You haven’t saved an item yet!
+</div>
 <!-- <section>
 <div class="card mx-3 p-md-3">
 <div class="row">

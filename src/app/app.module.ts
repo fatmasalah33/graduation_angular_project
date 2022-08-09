@@ -51,6 +51,7 @@ import { CategoryproductsComponent } from './categoryproducts/categoryproducts.c
 import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { VerificationCodeComponent } from './verification-code/verification-code.component';
 
 
 @NgModule({
@@ -98,6 +99,7 @@ import { NavbarComponent } from './dashboard/navbar/navbar.component';
     EditofferComponent,
       ProductdetailsComponent,
       NavbarComponent,
+      VerificationCodeComponent,
 
     
   ],

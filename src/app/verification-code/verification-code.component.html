@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="container px-5  ">
+        <div class="row align-items-center justify-content-around">
+           <section class="col-12 col-lg-6 d-none d-lg-block">
+            <img src="../assets/img/trackorder.PNG">
+           </section>
+           <section class="col-12 col-lg-4 text-lg-start">
+             <h3>Verifiate your email</h3>           
+             <p>To verifiate your email please enter your verification code in the box below and press the "verifiate" button.</p>
+           <form method="" action="" [formGroup]="verifiateForm" (ngSubmit)="handleSubmitForm(verifiateForm)">
+             <label for="exampleFormControlInput1" class="form-label mb-1">verification code</label>
+             <input type="text" class="form-control mb-2 py-2 px-3" id="exampleFormControlInput1"
+             formControlName="verification_code"/>
+             <label for="exampleFormControlInput1" class="form-label mb-1">Email</label>
+             <input type="email" class="form-control py-2 px-3" id="exampleFormControlInput1"
+             formControlName="email"/>
+             <button type="submit" class="btn btn-yellow mt-3 py-2 px-4 mb-3">Verifiate</button>
+           </form>
+        </section>  
+        </div>
+    </div>  
+    </div>

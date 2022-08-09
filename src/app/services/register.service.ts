@@ -64,5 +64,9 @@ export class RegisterService {
   getloginuser():Observable<any>{
     return this.logeduser
   }
+ 
+  code(verifyFormValue:any):Observable<any>{
+    return this.http.post('http://127.0.0.1:8000/api/verifyAccount',verifyFormValue);
+  }
 }
 
