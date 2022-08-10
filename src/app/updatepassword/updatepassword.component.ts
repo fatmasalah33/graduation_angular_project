@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 
 @Component({
@@ -9,10 +9,11 @@ import { RegisterService } from '../services/register.service';
   styleUrls: ['./updatepassword.component.css']
 })
 export class UpdatepasswordComponent implements OnInit {
-  logeduser:any
-  id:any;
+  
   upadepassForm: FormGroup ;
-  constructor(public fb:FormBuilder,private _RegisterService:RegisterService,private router: Router) { 
+  id: any;
+  constructor(public fb:FormBuilder,private _RegisterService:RegisterService,private router: Router
+    ,private activatedRoute: ActivatedRoute) { 
     this.upadepassForm= this.fb.group({
 
    
@@ -20,9 +21,8 @@ export class UpdatepasswordComponent implements OnInit {
       
   
       })
-      this.logeduser= this._RegisterService.getloginuser()
-      console.log(this.logeduser)
-      this.id=this.logeduser.id;
+      console.log(this.activatedRoute.snapshot.params['id']);
+      this.id=this.activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit(): void {

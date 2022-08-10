@@ -59,7 +59,7 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signin/forgetpassword', component: ForgetpasswordComponent },
   { path: 'recoveryInstructions', component: RecoveryInstructionsComponent },
-  { path: 'updatepassword', component: UpdatepasswordComponent },
+  { path: 'updatepassword/:id', component: UpdatepasswordComponent },
   { path: 'categoryproducts/:id', component: CategoryproductsComponent },
   { path: 'productdetails/:id', component: ProductdetailsComponent },
   { path: 'history', component: RecentlyViewedComponent },
