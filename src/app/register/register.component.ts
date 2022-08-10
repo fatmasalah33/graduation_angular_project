@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   handleSubmitForm(registerForm : any){
     console.log(registerForm);
     this.registerService.insertdate(this.register).subscribe(data => {
-      this.router.navigate(['/', 'signin']);
+      this.router.navigate(['/', 'verificationcode']);
       console.log('hi')
       });
       

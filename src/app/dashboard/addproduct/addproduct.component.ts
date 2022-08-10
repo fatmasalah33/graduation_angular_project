@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormGroup , FormBuilder, Validators} from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { CatogeryService } from 'src/app/services/catogery.service';
+import { RegisterService } from 'src/app/services/register.service';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -13,9 +14,27 @@ import { CatogeryService } from 'src/app/services/catogery.service';
 export class AddproductComponent implements OnInit {
   file:any ;
   categories : Array<any> = [];
+  logeduser:any
+  userid:any;
   constructor(public fb:FormBuilder, private productsService :ProductsService
-    ,private router: Router,private _CatogeryService:CatogeryService ) {
-   this.form = this.fb.group({
+    ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
+      this.registerService.currentUsers.subscribe((data)=>{
+        console.log(data)
+  
+        if(data != null )
+        {
+          this.logeduser= this.registerService.getloginuser()
+          console.log(this.logeduser)
+          this.userid=this.logeduser.id;
+          }
+        
+       
+          
+    
+     
+  
+       })
+      this.form = this.fb.group({
 
     name: ['', [Validators.required,
     ]],
@@ -29,13 +48,14 @@ export class AddproductComponent implements OnInit {
       ]],
       quantity :['', [Validators.required,
       ]],
-      user_id:18,
+      user_id:this.userid,
       category_id:['', [Validators.required,
       ]],
       image:['', [Validators.required,
       ]] ,
 
     })
+    
   }
 
   form : FormGroup ;
