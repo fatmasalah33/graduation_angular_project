@@ -71,5 +71,11 @@ export class RegisterService {
   changepassword(id: any,data:any){
     return this.http.post('http://127.0.0.1:8000/api/changepassword/'+id,data); 
   }
+  forgetpassword(data: any){
+    return this.http.post('http://127.0.0.1:8000/api/forgetpassword',data); 
+  }
+  updatepassword(id:any,data: any){
+    return this.http.post('http://127.0.0.1:8000/api/updatepassword/'+id,data); 
+  }
 }
 

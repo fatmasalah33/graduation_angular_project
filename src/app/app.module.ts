@@ -52,6 +52,9 @@ import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { NavbarComponent } from './dashboard/navbar/navbar.component';
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-instructions.component';
 
 
 @NgModule({
@@ -100,6 +103,9 @@ import { VerificationCodeComponent } from './verification-code/verification-code
       ProductdetailsComponent,
       NavbarComponent,
       VerificationCodeComponent,
+      ForgetpasswordComponent,
+      UpdatepasswordComponent,
+      RecoveryInstructionsComponent,
 
     
   ],
