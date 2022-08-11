@@ -7,11 +7,13 @@ import { RegisterService } from '../services/register.service';
 import { WishlistService } from '../services/wishlist.service';
 import { CatogeryService } from '../services/catogery.service';
 import { ActivatedRoute } from '@angular/router';
+import { Filter } from '../filter';
 @Component({
   selector: 'app-categoryproducts',
   templateUrl: './categoryproducts.component.html',
   styleUrls: ['./categoryproducts.component.css']
 })
+
 export class CategoryproductsComponent implements OnInit {
 
   pathimage:any="http://127.0.0.1:8000/public/image/";
@@ -26,9 +28,11 @@ export class CategoryproductsComponent implements OnInit {
 saveditem=new Wishlsit();
   isexist:boolean=false;
   categories : Array<any> = [];
+ subcat: Array<any> = [];
   brands : Array<any> = [];
   id: any;
 selected_cat: Array<any> = [];
+filter=new Filter();
   constructor(private productsService :ProductsService,private registerService :RegisterService
     ,private _CartService:CartService,
     private activatedRoute: ActivatedRoute,private _WishlistService:WishlistService,private _CatogeryService:CatogeryService ) { 
@@ -64,7 +68,10 @@ selected_cat: Array<any> = [];
       this.getallcategories()
   }
   applyfilter(){
-
+    this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
+      console.log(data)
+      this.products=data
+    })
   }
   index:any;
   addbrand(event:any){
@@ -77,16 +84,34 @@ selected_cat: Array<any> = [];
      this.selected_cat.splice(this.index,1)
     }
     console.log(this.selected_cat)
-
+    this.filter.selected_brands=this.selected_cat
+    console.log(this.filter)
+this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
+  console.log(data)
+  this.products=data
+})
+  }
+  minprice(e: any){
+    console.log(e.target.value)
+    this.filter.price.min=parseInt(e.target.value)
+  }
+  maxprice(e: any){
+    console.log(e.target.value)
+    this.filter.price.max=parseInt(e.target.value)
   }
   getallcategories(){
+   
     this._CatogeryService.getsubCategory(this.id).subscribe((data : any) => {
       this.categories =data.subcat.categories ;
       this.products =data.products ;
       this.brands=data.brand
-      console.log(data)
+      this.categories.forEach(element => {
+        this.subcat.push(element.id)
+      });
+      console.log(this.subcat)
        console.log(this.brands[0])
       });
+      this.filter.id=this.subcat
   }
   getallproducts(){
     // this.productsService.getProductsList().subscribe((data : any) => {
@@ -99,6 +124,7 @@ selected_cat: Array<any> = [];
   }
   filterbycat(id:any){
     console.log(id)
+    this.filter.id=this.subcat
     this._CatogeryService.filterbycat(id).subscribe((data : any)=>{
       this.products =data.data.products ;
       this.brands=data.brand

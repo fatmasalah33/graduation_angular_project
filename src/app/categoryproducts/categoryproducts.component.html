@@ -22,7 +22,7 @@
 				</form>
 				
 				<ul class="list-menu" >
-				<li *ngFor="let  category of  categories ; let i = index" ><a (click)="filterbycat(category.id)">{{category.name}}  </a></li>
+				<li *ngFor="let  category of  categories ; let i = index" ><a style="cursor:pointer ;" (click)="filterbycat(category.id)">{{category.name}}  </a></li>
 				<!-- <li><a href="#">Watches </a></li>
 				<li><a href="#">mobiles  </a></li>
 				<li><a href="#">Clothes  </a></li>
@@ -48,7 +48,7 @@
 				  <div class="custom-control-label">{{item.brand}} 
 				  	<b class="badge badge-pill badge-light float-right"></b>  </div>
 				</label>
-				<button class="btn" >apply filter</button>
+			
 				<!-- <div *ngFor="let  item of  brands ; let i = index" >{{item.scalar}} </div> -->
 				<!-- <label class="custom-control custom-checkbox">
 				  <input type="checkbox" checked="" class="custom-control-input">
@@ -85,11 +85,11 @@
 				<div class="form-row">
 				<div class="form-group col-md-6">
 				  <label>Min</label>
-				  <input class="form-control" placeholder="EGP 50" type="number">
+				  <input class="form-control" (input)="minprice($event)" placeholder="EGP 50" type="number">
 				</div>
 				<div class="form-group text-right col-md-6">
 				  <label>Max</label>
-				  <input class="form-control" placeholder="EGP 3,000" type="number">
+				  <input class="form-control" (input)="maxprice($event)" placeholder="EGP 3,000" type="number">
 				</div>
 				</div> <!-- form-row.// -->
 				<button class="btn btn-block btn-purple" (click)="applyfilter()">Apply</button>

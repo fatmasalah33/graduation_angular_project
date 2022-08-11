@@ -42,7 +42,7 @@ export class AddproductComponent implements OnInit {
         Validators.pattern('^[0-9]+$')
       ]],
       description:['', [Validators.required,
-        Validators.pattern('[a-zA-Z ]*')
+       
       ]],
       brand:['', [Validators.required,
       ]],
