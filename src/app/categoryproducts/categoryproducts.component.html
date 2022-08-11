@@ -41,14 +41,16 @@
 				<h6 class="title sub-title">Brands </h6>
 			</a>
 		</header>
-		<div class="filter-content collapse show" id="collapse_2" style="">
+		<div class="filter-content collapse show" id="collapse_2" >
 			<div class="card-body">
-				<label class="custom-control custom-checkbox">
-				  <input type="checkbox" checked="" class="custom-control-input">
-				  <div class="custom-control-label">American Eagle  
-				  	<b class="badge badge-pill badge-light float-right">120</b>  </div>
+				<label class="custom-control custom-checkbox" *ngFor="let  item of  brands ; let i = index" >
+				  <input type="checkbox" id="{{item.brand}}" (change)="addbrand($event)"  class="custom-control-input">
+				  <div class="custom-control-label">{{item.brand}} 
+				  	<b class="badge badge-pill badge-light float-right"></b>  </div>
 				</label>
-				<label class="custom-control custom-checkbox">
+				<button class="btn" >apply filter</button>
+				<!-- <div *ngFor="let  item of  brands ; let i = index" >{{item.scalar}} </div> -->
+				<!-- <label class="custom-control custom-checkbox">
 				  <input type="checkbox" checked="" class="custom-control-input">
 				  <div class="custom-control-label">Max 
 				  	<b class="badge badge-pill badge-light float-right">15</b>  </div>
@@ -67,7 +69,7 @@
 				  <input type="checkbox" class="custom-control-input">
 				  <div class="custom-control-label">Adiddas 
 				  	<b class="badge badge-pill badge-light float-right">30</b>  </div>
-				</label>
+				</label> -->
 	</div> <!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -90,7 +92,7 @@
 				  <input class="form-control" placeholder="EGP 3,000" type="number">
 				</div>
 				</div> <!-- form-row.// -->
-				<button class="btn btn-block btn-purple">Apply</button>
+				<button class="btn btn-block btn-purple" (click)="applyfilter()">Apply</button>
 			</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->

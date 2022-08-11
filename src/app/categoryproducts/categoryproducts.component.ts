@@ -26,8 +26,9 @@ export class CategoryproductsComponent implements OnInit {
 saveditem=new Wishlsit();
   isexist:boolean=false;
   categories : Array<any> = [];
+  brands : Array<any> = [];
   id: any;
- 
+selected_cat: Array<any> = [];
   constructor(private productsService :ProductsService,private registerService :RegisterService
     ,private _CartService:CartService,
     private activatedRoute: ActivatedRoute,private _WishlistService:WishlistService,private _CatogeryService:CatogeryService ) { 
@@ -62,25 +63,47 @@ saveditem=new Wishlsit();
       this.gettotal()
       this.getallcategories()
   }
+  applyfilter(){
+
+  }
+  index:any;
+  addbrand(event:any){
+    console.log(event.target.checked)
+    if(event.target.checked){
+      this.selected_cat.push(event.target.id)
+      
+    }else{
+     this.index =this.selected_cat.indexOf(event.target.id)
+     this.selected_cat.splice(this.index,1)
+    }
+    console.log(this.selected_cat)
+
+  }
   getallcategories(){
     this._CatogeryService.getsubCategory(this.id).subscribe((data : any) => {
-      this.categories =data.data.categories ;
-      console.log(data.data.categories)
+      this.categories =data.subcat.categories ;
+      this.products =data.products ;
+      this.brands=data.brand
+      console.log(data)
+       console.log(this.brands[0])
       });
   }
   getallproducts(){
-    this.productsService.getProductsList().subscribe((data : any) => {
-      this.products =data.data.products ;
-      console.log(data.data.products)
-      console.log(this.products)
-      console.log(this.cart)
-      });
+    // this.productsService.getProductsList().subscribe((data : any) => {
+    //   this.products =data.data.products ;
+    //   console.log(data.data.products)
+    //   console.log(this.products)
+    //   console.log(this.cart)
+    //   });
       
   }
   filterbycat(id:any){
     console.log(id)
     this._CatogeryService.filterbycat(id).subscribe((data : any)=>{
       this.products =data.data.products ;
+      this.brands=data.brand
+      console.log(this.brands)
+      console.log(data)
     })
 
   }
