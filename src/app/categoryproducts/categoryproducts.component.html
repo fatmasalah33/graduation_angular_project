@@ -85,11 +85,11 @@
 				<div class="form-row">
 				<div class="form-group col-md-6">
 				  <label>Min</label>
-				  <input class="form-control" (input)="minprice($event)" placeholder="EGP 50" type="number">
+				  <input class="form-control" min="1" max="3000" value="1" (input)="minprice($event)" placeholder="EGP 50" type="number">
 				</div>
 				<div class="form-group text-right col-md-6">
 				  <label>Max</label>
-				  <input class="form-control" (input)="maxprice($event)" placeholder="EGP 3,000" type="number">
+				  <input class="form-control" min="1" max="3000" value="3000" (input)="maxprice($event)" placeholder="EGP 3,000" type="number">
 				</div>
 				</div> <!-- form-row.// -->
 				<button class="btn btn-block btn-purple" (click)="applyfilter()">Apply</button>

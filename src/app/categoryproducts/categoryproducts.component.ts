@@ -73,6 +73,14 @@ filter=new Filter();
       this.products=data
     })
   }
+  //  document.querySelectorAll('')
+  // numInputs.forEach(function(input) {
+  //   input.addEventListener('change', function(e) {
+  //     if (e.target.value == '') {
+  //       e.target.value = 0
+  //     }
+  //   })
+  // })
   index:any;
   addbrand(event:any){
     console.log(event.target.checked)
@@ -93,10 +101,16 @@ this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
   }
   minprice(e: any){
     console.log(e.target.value)
+    if (e.target.value == '') {
+            e.target.value = 1
+          }
     this.filter.price.min=parseInt(e.target.value)
   }
   maxprice(e: any){
     console.log(e.target.value)
+    if (e.target.value == '') {
+      e.target.value = 3000
+    }
     this.filter.price.max=parseInt(e.target.value)
   }
   getallcategories(){

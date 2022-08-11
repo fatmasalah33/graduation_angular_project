@@ -36,7 +36,7 @@ export class ReviewsComponent implements OnInit {
   }
 getdata(){
   this._ReviweService.getproducttoreview(this.userid).subscribe((data : any)=>{
-    this.products=data
+    this.products=data.products
     console.log(this.products)
   })
 }
