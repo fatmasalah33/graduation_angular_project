@@ -23,5 +23,9 @@ export class ProductsService {
   }
   getDatasearch(keyword:any){
     return this.http.get('http://127.0.0.1:8000/api/product/search/'+keyword);
-  } 
+  }
+  
+   getProductsListuser(id:any) {
+    return this.http.get('http://127.0.0.1:8000/api/producterbyuser/'+id);
+  }
 }

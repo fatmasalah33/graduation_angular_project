@@ -4,6 +4,8 @@ import { Offer } from '../../offer';
 import { Router } from '@angular/router';
 import { FormGroup , FormBuilder} from '@angular/forms';
 import { formatDate } from '@angular/common';
+import { RegisterService } from 'src/app/services/register.service';
+import { ProductsService } from 'src/app/services/products.service';
 @Component({
   selector: 'app-addoffer',
   templateUrl: './addoffer.component.html',
@@ -12,7 +14,11 @@ import { formatDate } from '@angular/common';
 export class AddofferComponent implements OnInit {
   form : FormGroup ;
   offer=new Offer()
-  constructor(public fb:FormBuilder, private offerService :OffersService,private router: Router) { 
+  products : Array<any> = [];
+  logeduser:any
+  userid:any;
+  constructor(public fb:FormBuilder, private offerService :OffersService,private router: Router
+    ,private registerService :RegisterService,private productsService :ProductsService) { 
     this.form = this.fb.group({
 
       end_at :null,
@@ -23,6 +29,31 @@ export class AddofferComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.registerService.currentUsers.subscribe((data)=>{
+      console.log(data)
+
+      if(data != null )
+      {
+        this.logeduser= this.registerService.getloginuser()
+        console.log(this.logeduser)
+        this.userid=this.logeduser.id;
+        }
+      
+     
+        
+  
+   
+
+     })
+    this.getallproducts()
+
+  }
+  
+  getallproducts(){
+    this.productsService.getProductsListuser(this.userid).subscribe((data : any) => {
+      this.products =data.data.products ;
+      console.log(data.data.products)
+      });
   }
   insertdate(){
     // let data = new FormData;
