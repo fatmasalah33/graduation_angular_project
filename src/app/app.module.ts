@@ -58,6 +58,7 @@ import { MainnavbarComponent } from './mainnavbar/mainnavbar.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-instructions.component';
+import { OrderdetailsComponent } from './userprofile/orderdetails/orderdetails.component';
 
 
 
@@ -113,6 +114,7 @@ import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-
       ForgetpasswordComponent,
       UpdatepasswordComponent,
       RecoveryInstructionsComponent,
+      OrderdetailsComponent,
 
 
     
