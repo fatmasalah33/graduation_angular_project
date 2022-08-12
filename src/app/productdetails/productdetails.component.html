@@ -29,9 +29,10 @@
                                 <span><a href="#" class="link bran-link">{{product.brand}}</a></span>
                                 <p>{{product.description}}</p>
                             </div>
-                            <h3>EGP {{product.price}}</h3>
-                            <h6 class="oldprice text-muted d-inline">EGP </h6> <span class="discount ms-2">-33%</span>
-                            <div class="ratings d-flex flex-row align-items-center mt-2">
+                            <h3 *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}}</h3>
+                            <h6 class=" text-muted d-inline" [ngClass]="{'oldprice': product.Offeres!=null}">EGP{{product.price}} </h6>
+                            <span *ngIf="product.Offeres!=null" class="text-muted ms-2">{{product.Offeres.offeres.percent}}%</span>
+                               <div class="ratings d-flex flex-row align-items-center mt-2">
                                 <div class="d-flex flex-row">
                                      <i class='fa fa-star' ></i>
                                       <i class='fa fa-star' ></i>

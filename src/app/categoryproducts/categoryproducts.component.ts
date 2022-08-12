@@ -70,7 +70,8 @@ filter=new Filter();
   applyfilter(){
     this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
       console.log(data)
-      this.products=data
+      this.products=data.products
+      console.log(this.filter)
     })
   }
   //  document.querySelectorAll('')
@@ -96,7 +97,7 @@ filter=new Filter();
     console.log(this.filter)
 this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
   console.log(data)
-  this.products=data
+  this.products=data.products
 })
   }
   minprice(e: any){
@@ -137,8 +138,11 @@ this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
       
   }
   filterbycat(id:any){
-    console.log(id)
+    console.log(this.subcat)
+    this.subcat=[]
+this.subcat.push(id);
     this.filter.id=this.subcat
+    console.log(this.filter)
     this._CatogeryService.filterbycat(id).subscribe((data : any)=>{
       this.products =data.data.products ;
       this.brands=data.brand

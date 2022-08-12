@@ -239,3 +239,6 @@ a:focus{
     background-color: #443298 !important;
     color: white;
 }
+.oldprice{
+    text-decoration: line-through;
+}

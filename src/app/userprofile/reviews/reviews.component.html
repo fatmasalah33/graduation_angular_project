@@ -6,15 +6,15 @@
 <div class="card mx-3 p-md-3">
 <div class="row">
   <div class="col-md-2 col-sm-4">
-    <img class="d-block w-100" [src]="pathimage+product.image" alt="productimage">
+    <img class="d-block w-100" [src]="pathimage+product.product_data[0].image" alt="productimage">
   </div>
   <div class="col-md-10 col-sm-8">
     <div class="card-block">
       <a href="#" class="btn btn-purple btn-sm float-right">RATE THIS PRODUCT</a>
-      <h4 class="card-title">{{product.name}}</h4><br>
-      <p class="text-muted">Order no:123695846</p>
+      <h4 class="card-title">{{product.product_data[0].name}}</h4><br><br>
+      <p class="text-muted">Order no:{{product.order.id}}</p>
       <span class="DELIVERED p-1">DELIVERED</span><br>
-      <span class="date d-block mt-1">on 25-3</span>
+      <span class="date d-block mt-1">on {{product.order.created_at}}</span>
     </div>
   </div>
 </div>

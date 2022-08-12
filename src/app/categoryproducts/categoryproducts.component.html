@@ -190,7 +190,11 @@
             </div>
             <div class="product-content">
                 <h3 class="title"> <a [routerLink]="['/productdetails' , product.id]">{{product.name}}</a></h3>
-                <div class="price">EGP {{product.price}}</div>
+                <div class="price" *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}} </div>
+				<h6 class=" text-muted d-inline" [ngClass]="{'oldprice': product.Offeres!=null}">EGP{{product.price}} </h6>
+				 <span *ngIf="product.Offeres!=null" class="text-muted ms-2">{{product.Offeres.offeres.percent}}%</span>
+                           
+				
             </div>
         </div>
     </div><!-- col.// -->

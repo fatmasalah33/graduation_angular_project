@@ -18,7 +18,7 @@ import { Wishlsit } from '../wishlist';
 export class ProductdetailsComponent implements OnInit {
   id:any;
   data:any;
-  product=new Product()
+  product:any;
   pathimage:any="http://127.0.0.1:8000/public/image/";
   cart :Array<any> = [];
   products : Array<any> = [];
@@ -67,6 +67,7 @@ saveditem=new Wishlsit();
     this.productsService.getData(this.id).subscribe(res=>{
       this.data=res;
       this.product=this.data.data
+      console.log(this.product.Offeres)
     })
   }
   getallproducts(){
