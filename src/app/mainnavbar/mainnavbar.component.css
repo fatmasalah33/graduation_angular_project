@@ -12,3 +12,6 @@
 .btn-pink , .bg-pink{
     background-color: #f2acbe !important;
 }
+.navbar{
+    box-shadow: 0 3px 5px  #E3E3E3 !important;
+}

@@ -1,0 +1,108 @@
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+.maintitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color:#282828;
+}
+.fa-arrow-left{
+    color:#282828;
+}
+.orderid{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+h6{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #75757a;
+    font-weight: 400;
+    line-height: 0.7rem;
+}
+h5{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #282828;
+    font-weight: 500;
+}
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    /* padding: 5; */
+    border: none;
+    border-radius: .28571429rem;
+    /* box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5; */
+    margin-top:10px;
+    -webkit-border-radius: .28571429rem;
+    -moz-border-radius: .28571429rem;
+    -ms-border-radius: .28571429rem;
+    -o-border-radius: .28571429rem;
+}
+.btn-purple{
+    color: #443298 !important;
+    font-weight: bold;
+}
+.btn-purple:hover{
+    background-color: #4532984f;
+    border: none;
+}
+.DELIVERED{
+    color: white;
+    width: fit-content;
+    background-color: #6DBD28;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.border-bottom{
+    border-bottom: 1px solid #75757A;
+}
+.SHIPPED{
+    background-color: #E4811C;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.CANCELLED{
+    background-color: #75757A;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.date{
+    font-weight: 600;
+    
+}
+
+.btn-pink , .bg-pink{
+    background-color: #f2acbe !important;
+    color: white;
+    padding: 0.5rem 3.1rem;
+    box-shadow: 0 3px 5px  #E3E3E3;
+    border: none;
+
+}
+.btn:hover{
+    border: none;
+    background-color: #cc909f !important;
+}
+
+.price{
+    color: #0d0d0d;
+    font-size: 14px;
+    font-weight: 600;
+}
+.price span{
+    color: #888;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: line-through;
+}

@@ -413,12 +413,12 @@
                             </a>
                             <span class="product-discount-label">{{product.products[0].Offeres.offeres.percent}}%</span>
                             <ul class="product-links">
-                                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
+                                <li><a (click)="addtowhishlist(product.products[0],$event)"><i class="fa-regular fa-heart"></i></a></li>
                             </ul>
-                            <a href="" class="add-to-cart">Add to Cart</a>
+                            <a (click)="insertincart($event,product.products[0])" class="add-to-cart">Add to Cart</a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a >{{product.products[0].name}}</a></h3>
+                            <h3 class="title"><a [routerLink]="['/productdetails' , product.products[0].id]" >{{product.products[0].name}}</a></h3>
                             <div class="price">EGP {{product.products[0].Offeres.price_offer}} <span>EGP {{product.products[0].price}}</span></div>
                         </div>
                     </div>

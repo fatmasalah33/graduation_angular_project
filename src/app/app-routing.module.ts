@@ -14,6 +14,7 @@ import { TrackOrderComponent } from './track-order/track-order.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { AccountdetailsComponent } from './userprofile/accountdetails/accountdetails.component';
 import { ChpasswordComponent } from './userprofile/chpassword/chpassword.component';
+import { OrderdetailsComponent } from './userprofile/orderdetails/orderdetails.component';
 import { MyordersComponent } from './userprofile/myorders/myorders.component';
 import { AllcatogeryComponent } from './dashboard/allcatogery/allcatogery.component';
 import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.component';
@@ -70,6 +71,7 @@ const routes: Routes = [
     {path: 'accountdetails',component:AccountdetailsComponent, canActivate:[AuthGuardGuard]},
     {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
     {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
+    {path: 'orderdetails',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
     {path: 'Wishlist',component:WhishlistComponent, canActivate:[AuthGuardGuard]},
     {path: 'reviews',component:ReviewsComponent, canActivate:[AuthGuardGuard]},
   ], }

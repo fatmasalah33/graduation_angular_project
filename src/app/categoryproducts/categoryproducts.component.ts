@@ -176,7 +176,13 @@ this.subcat.push(id);
     this.cat.product_id=item.id
     this.cat.user_id=this.userid
     console.log(this.cat.user_id)
-    this.cat.price=item.price*this.cat.quantity
+    if(item.Offeres==null){
+      this.cat.price=item.price
+      console.log('v')
+    }else{
+      this.cat.price=item.Offeres.price_offer
+      console.log('b')
+    }
     for (let i=0;i< this.cart.length;i++) {
     if(this.cart[i].product[0].id==item.id){
       console.log(this.cart[i].quantity)
