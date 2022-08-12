@@ -1,0 +1,14 @@
+.navbar-brand{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.form-control{
+    background-image: url(../../assets/images/search.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    padding-left: 37px;
+}
+.btn-pink , .bg-pink{
+    background-color: #f2acbe !important;
+}

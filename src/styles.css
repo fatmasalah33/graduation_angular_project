@@ -4,3 +4,25 @@
     font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
     outline:none !important;
   }
+body{
+  background-color: #F5F5F5 !important;
+}
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #F2ACBE; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #443298; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5a4d97; 
+}
