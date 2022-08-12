@@ -2,18 +2,8 @@
     <div class="section1 row d-flex ">
       <div class=" col-12 col-lg-3 ">
         <ul class="card p-2 ">
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Elctronics</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Clothings</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Health & beauty</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Home & Kitchen</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Home & Furniture</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Grocery & Market</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Toy & Video games</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Babies & Mom</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Home & Furniture</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Grocery & Market</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Toy & Video games</a></li>
-          <li class="mb-1"><i class="fa-solid fa-laptop me-1"></i> <a href="#">Babies & Mom</a></li>
+          <li class="mb-1" *ngFor="let catogery of categories  ; let i = index"><i class="fa-solid fa-laptop me-1"></i> <a [routerLink]="['/categoryproducts' , catogery.id]">{{catogery.name}}</a></li>
+
         </ul>
       </div>
       <div class="col-lg-9 col-12">

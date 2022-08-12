@@ -67,7 +67,7 @@ saveditem=new Wishlsit();
     this.productsService.getData(this.id).subscribe(res=>{
       this.data=res;
       this.product=this.data.data
-      console.log(this.product.Offeres)
+      console.log(this.product)
     })
   }
   getallproducts(){
