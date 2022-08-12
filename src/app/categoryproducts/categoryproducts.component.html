@@ -182,7 +182,7 @@
                 <a href="#" class="image">
                     <img [src]="pathimage+product.image">
                 </a>
-                <span class="product-discount-label"></span>
+                <span class="product-discount-label" *ngIf="product.Offeres!=null">{{product.Offeres.offeres.percent}}%</span>
                 <ul class="product-links">
                     <li><a (click)="addtowhishlist(product,$event)"><i class="fa-regular fa-heart"></i></a></li>
                 </ul>
@@ -190,10 +190,9 @@
             </div>
             <div class="product-content">
                 <h3 class="title"> <a [routerLink]="['/productdetails' , product.id]">{{product.name}}</a></h3>
-                <div class="price" *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}} </div>
-				<h6 class=" text-muted d-inline" [ngClass]="{'oldprice': product.Offeres!=null}">EGP{{product.price}} </h6>
-				 <span *ngIf="product.Offeres!=null" class="text-muted ms-2">{{product.Offeres.offeres.percent}}%</span>
-                           
+                <span class="price me-1" *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}} </span>
+				<span class="  d-inline" [ngClass]="{'oldprice': product.Offeres!=null,'price': product.Offeres==null}">EGP{{product.price}} </span>
+				          
 				
             </div>
         </div>

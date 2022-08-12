@@ -241,4 +241,13 @@ a:focus{
 }
 .oldprice{
     text-decoration: line-through;
+    color:gray;
+}
+.title a{
+    display: block;
+    /* max-height:1rem; */
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+   
 }
