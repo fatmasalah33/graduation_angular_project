@@ -16,16 +16,19 @@ footer{
 	font-weight: 500;
 	color: #00173B !important;
 }
-.btn-yellow{
-   background-color: #F5C24C !important;
-   border: none;
-   font-size: smaller;
-   font-weight: 700;
-}
-.btn-yellow:hover{
-	background-color: #443298 !important;
-	color: #F5C24C !important;
-}
+.btn-pink{
+    background-color: #f2acbe !important;
+    color: white;
+    padding: 0 3.1rem;
+    box-shadow: 0 3px 5px  #E3E3E3;
+    border: none;
+    width: fit-content;
+  
+  }
+  .btn:hover{
+    border: none;
+    background-color: #cc909f !important;
+  }
 .form-container{
 	width: 500px;
 }
