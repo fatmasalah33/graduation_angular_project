@@ -22,7 +22,7 @@
 				</form>
 				
 				<ul class="list-menu" >
-				<li *ngFor="let  category of  categories ; let i = index" ><a (click)="filterbycat(category.id)">{{category.name}}  </a></li>
+				<li *ngFor="let  category of  categories ; let i = index" ><a style="cursor:pointer ;" (click)="filterbycat(category.id)">{{category.name}}  </a></li>
 				<!-- <li><a href="#">Watches </a></li>
 				<li><a href="#">mobiles  </a></li>
 				<li><a href="#">Clothes  </a></li>
@@ -41,14 +41,16 @@
 				<h6 class="title sub-title">Brands </h6>
 			</a>
 		</header>
-		<div class="filter-content collapse show" id="collapse_2" style="">
+		<div class="filter-content collapse show" id="collapse_2" >
 			<div class="card-body">
-				<label class="custom-control custom-checkbox">
-				  <input type="checkbox" checked="" class="custom-control-input">
-				  <div class="custom-control-label">American Eagle  
-				  	<b class="badge badge-pill badge-light float-right">120</b>  </div>
+				<label class="custom-control custom-checkbox" *ngFor="let  item of  brands ; let i = index" >
+				  <input type="checkbox" id="{{item.brand}}" (change)="addbrand($event)"  class="custom-control-input">
+				  <div class="custom-control-label">{{item.brand}} 
+				  	<b class="badge badge-pill badge-light float-right"></b>  </div>
 				</label>
-				<label class="custom-control custom-checkbox">
+			
+				<!-- <div *ngFor="let  item of  brands ; let i = index" >{{item.scalar}} </div> -->
+				<!-- <label class="custom-control custom-checkbox">
 				  <input type="checkbox" checked="" class="custom-control-input">
 				  <div class="custom-control-label">Max 
 				  	<b class="badge badge-pill badge-light float-right">15</b>  </div>
@@ -67,7 +69,7 @@
 				  <input type="checkbox" class="custom-control-input">
 				  <div class="custom-control-label">Adiddas 
 				  	<b class="badge badge-pill badge-light float-right">30</b>  </div>
-				</label>
+				</label> -->
 	</div> <!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -83,14 +85,14 @@
 				<div class="form-row">
 				<div class="form-group col-md-6">
 				  <label>Min</label>
-				  <input class="form-control" placeholder="EGP 50" type="number">
+				  <input class="form-control" min="1" max="3000" value="1" (input)="minprice($event)" placeholder="EGP 50" type="number">
 				</div>
 				<div class="form-group text-right col-md-6">
 				  <label>Max</label>
-				  <input class="form-control" placeholder="EGP 3,000" type="number">
+				  <input class="form-control" min="1" max="3000" value="3000" (input)="maxprice($event)" placeholder="EGP 3,000" type="number">
 				</div>
 				</div> <!-- form-row.// -->
-				<button class="btn btn-block btn-purple">Apply</button>
+				<button class="btn btn-block btn-purple" (click)="applyfilter()">Apply</button>
 			</div><!-- card-body.// -->
 		</div>
 	</article> <!-- filter-group .// -->
@@ -188,7 +190,11 @@
             </div>
             <div class="product-content">
                 <h3 class="title"> <a [routerLink]="['/productdetails' , product.id]">{{product.name}}</a></h3>
-                <div class="price">EGP {{product.price}}</div>
+                <div class="price" *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}} </div>
+				<h6 class=" text-muted d-inline" [ngClass]="{'oldprice': product.Offeres!=null}">EGP{{product.price}} </h6>
+				 <span *ngIf="product.Offeres!=null" class="text-muted ms-2">{{product.Offeres.offeres.percent}}%</span>
+                           
+				
             </div>
         </div>
     </div><!-- col.// -->

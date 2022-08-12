@@ -7,11 +7,13 @@ import { RegisterService } from '../services/register.service';
 import { WishlistService } from '../services/wishlist.service';
 import { CatogeryService } from '../services/catogery.service';
 import { ActivatedRoute } from '@angular/router';
+import { Filter } from '../filter';
 @Component({
   selector: 'app-categoryproducts',
   templateUrl: './categoryproducts.component.html',
   styleUrls: ['./categoryproducts.component.css']
 })
+
 export class CategoryproductsComponent implements OnInit {
 
   pathimage:any="http://127.0.0.1:8000/public/image/";
@@ -26,8 +28,11 @@ export class CategoryproductsComponent implements OnInit {
 saveditem=new Wishlsit();
   isexist:boolean=false;
   categories : Array<any> = [];
+ subcat: Array<any> = [];
+  brands : Array<any> = [];
   id: any;
- 
+selected_cat: Array<any> = [];
+filter=new Filter();
   constructor(private productsService :ProductsService,private registerService :RegisterService
     ,private _CartService:CartService,
     private activatedRoute: ActivatedRoute,private _WishlistService:WishlistService,private _CatogeryService:CatogeryService ) { 
@@ -62,25 +67,87 @@ saveditem=new Wishlsit();
       this.gettotal()
       this.getallcategories()
   }
+  applyfilter(){
+    this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
+      console.log(data)
+      this.products=data.products
+      console.log(this.filter)
+    })
+  }
+  //  document.querySelectorAll('')
+  // numInputs.forEach(function(input) {
+  //   input.addEventListener('change', function(e) {
+  //     if (e.target.value == '') {
+  //       e.target.value = 0
+  //     }
+  //   })
+  // })
+  index:any;
+  addbrand(event:any){
+    console.log(event.target.checked)
+    if(event.target.checked){
+      this.selected_cat.push(event.target.id)
+      
+    }else{
+     this.index =this.selected_cat.indexOf(event.target.id)
+     this.selected_cat.splice(this.index,1)
+    }
+    console.log(this.selected_cat)
+    this.filter.selected_brands=this.selected_cat
+    console.log(this.filter)
+this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
+  console.log(data)
+  this.products=data.products
+})
+  }
+  minprice(e: any){
+    console.log(e.target.value)
+    if (e.target.value == '') {
+            e.target.value = 1
+          }
+    this.filter.price.min=parseInt(e.target.value)
+  }
+  maxprice(e: any){
+    console.log(e.target.value)
+    if (e.target.value == '') {
+      e.target.value = 3000
+    }
+    this.filter.price.max=parseInt(e.target.value)
+  }
   getallcategories(){
+   
     this._CatogeryService.getsubCategory(this.id).subscribe((data : any) => {
-      this.categories =data.data.categories ;
-      console.log(data.data.categories)
+      this.categories =data.subcat.categories ;
+      this.products =data.products ;
+      this.brands=data.brand
+      this.categories.forEach(element => {
+        this.subcat.push(element.id)
       });
+      console.log(this.subcat)
+       console.log(this.brands[0])
+      });
+      this.filter.id=this.subcat
   }
   getallproducts(){
-    this.productsService.getProductsList().subscribe((data : any) => {
-      this.products =data.data.products ;
-      console.log(data.data.products)
-      console.log(this.products)
-      console.log(this.cart)
-      });
+    // this.productsService.getProductsList().subscribe((data : any) => {
+    //   this.products =data.data.products ;
+    //   console.log(data.data.products)
+    //   console.log(this.products)
+    //   console.log(this.cart)
+    //   });
       
   }
   filterbycat(id:any){
-    console.log(id)
+    console.log(this.subcat)
+    this.subcat=[]
+this.subcat.push(id);
+    this.filter.id=this.subcat
+    console.log(this.filter)
     this._CatogeryService.filterbycat(id).subscribe((data : any)=>{
       this.products =data.data.products ;
+      this.brands=data.brand
+      console.log(this.brands)
+      console.log(data)
     })
 
   }

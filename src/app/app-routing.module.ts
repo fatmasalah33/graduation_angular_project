@@ -41,6 +41,9 @@ import { DashboardGuardGuard } from './dashboard-guard.guard';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { NavbarComponent } from './dashboard/navbar/navbar.component';
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
+import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-instructions.component';
 
 
 const routes: Routes = [
@@ -54,6 +57,9 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent, canActivate:[AuthGuardGuard] },
   { path: 'cart/checkout', component: CheckoutComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'signin/forgetpassword', component: ForgetpasswordComponent },
+  { path: 'recoveryInstructions', component: RecoveryInstructionsComponent },
+  { path: 'updatepassword/:id', component: UpdatepasswordComponent },
   { path: 'categoryproducts/:id', component: CategoryproductsComponent },
   { path: 'productdetails/:id', component: ProductdetailsComponent },
   { path: 'history', component: RecentlyViewedComponent },

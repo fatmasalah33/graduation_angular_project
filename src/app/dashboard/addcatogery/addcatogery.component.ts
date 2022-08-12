@@ -11,6 +11,8 @@ import { CatogeryService } from 'src/app/services/catogery.service';
 export class AddcatogeryComponent implements OnInit {
 category=new Catogery();
 categories : Array<any> = [];
+logeduser:any
+userid:any;
   constructor(private _CatogeryService:CatogeryService,private router: Router) { }
 
   ngOnInit(): void {
