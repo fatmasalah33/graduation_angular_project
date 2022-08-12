@@ -88,6 +88,8 @@ export class CheckoutComponent implements OnInit {
     // formData.append("status" , this.form.controls['status'].value);
     formData.append("price" , this.price);
     formData.append("comment" , this.form.controls['comment'].value);
+    formData.append("name" , this.form.controls['yourname'].value);
+    formData.append("phone" , this.form.controls['phone'].value);
     formData.append("address_state" , this.form.controls['address_state'].value);
     formData.append("address_city" , this.form.controls['address_city'].value);
     formData.append("address_street" , this.form.controls['address_street'].value);
