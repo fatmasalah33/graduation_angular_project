@@ -41,7 +41,7 @@
           <li class="nav-item me-3 d-flex align-items-center"  >
             <button type="button" class="position-relative me-1 rounded" style="border: none; background-color:transparent;">
                 <a routerLink="cart" class="text-dark"><i class="fa-solid fa-cart-shopping me-2"></i></a>
-                <span class="position-absolute top-10 start-70 translate-middle badge rounded-circle bg-pink text-dark">
+                <span *ngIf="count>0" class="position-absolute top-10 start-70 translate-middle badge rounded-circle bg-pink text-dark">
                   {{count}}
                   <span class="visually-hidden">unread messages</span>
                 </span>

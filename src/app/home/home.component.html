@@ -405,114 +405,25 @@
                
               <!--products-->
               <div class="row p-2">
-                <div class="col-md-2 col-sm-6">
+                <div class="col-md-2 col-sm-6" *ngFor="let product of productOffered ; let i = index">
                     <div class="product-grid">
                         <div class="product-image">
                             <a href="#" class="image">
-                                <img src="../../assets/images/img-1.jpg">
+                                <img [src]="pathimage+product.products[0].image">
                             </a>
-                            <span class="product-discount-label">-75%</span>
+                            <span class="product-discount-label">{{product.products[0].Offeres.offeres.percent}}%</span>
                             <ul class="product-links">
-                                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
+                                <li><a (click)="addtowhishlist(product.products[0],$event)"><i class="fa-regular fa-heart"></i></a></li>
                             </ul>
-                            <a href="" class="add-to-cart">Add to Cart</a>
+                            <a (click)="insertincart($event,product.products[0])" class="add-to-cart">Add to Cart</a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a href="#">Women'sssssssssssssssssssssss Blouse</a></h3>
-                            <div class="price">EGP 150 <span>EGP 200</span></div>
+                            <h3 class="title"><a [routerLink]="['/productdetails' , product.products[0].id]" >{{product.products[0].name}}</a></h3>
+                            <div class="price">EGP {{product.products[0].Offeres.price_offer}} <span>EGP {{product.products[0].price}}</span></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img src="../../assets/images/img-2.jpg">
-                            </a>
-                            <span class="product-discount-label">-25%</span>
-                            <ul class="product-links">
-                                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-                            </ul>
-                            <a href="" class="add-to-cart">Add to Cart</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Women's Blouse</a></h3>
-                            <div class="price">EGP 150 <span>EGP 200</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img src="../../assets/images/img-3.jpg">
-                            </a>
-                            <span class="product-discount-label">-25%</span>
-                            <ul class="product-links">
-                                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-                            </ul>
-                            <a href="" class="add-to-cart">Add to Cart</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Women'sssssssssssssssssssssss Blouse</a></h3>
-                            <div class="price">EGP 150 <span>EGP 200</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img src="../../assets/images/img-1.jpg">
-                            </a>
-                            <span class="product-discount-label">-25%</span>
-                            <ul class="product-links">
-                                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-                            </ul>
-                            <a href="" class="add-to-cart">Add to Cart</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Women'sssssssssssssssssssssss Blouse</a></h3>
-                            <div class="price">EGP 150 <span>EGP 200</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img src="../../assets/images/img-1.jpg">
-                            </a>
-                            <span class="product-discount-label">-25%</span>
-                            <ul class="product-links">
-                                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-                            </ul>
-                            <a href="" class="add-to-cart">Add to Cart</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Women'sssssssssssssssssssssss Blouse</a></h3>
-                            <div class="price">EGP 150 <span>EGP 200</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img src="../../assets/images/img-1.jpg">
-                            </a>
-                            <span class="product-discount-label">-25%</span>
-                            <ul class="product-links">
-                                <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-                            </ul>
-                            <a href="" class="add-to-cart">Add to Cart</a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Women'sssssssssssssssssssssss Blouse</a></h3>
-                            <div class="price">EGP 150 <span>EGP 200</span></div>
-                        </div>
-                    </div>
-                </div>
+         
                 
                 
             </div>
