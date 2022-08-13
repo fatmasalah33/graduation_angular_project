@@ -9,7 +9,15 @@
     </div> -->
 <!--rating-->
 
-  
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
+            <li (click)="countStar(star)"
+            [ngClass]="{'selected': (star <= selectedValue)}">
+                <i class="fa fa-star"></i>
+        </li>  </ul>
+    </div>
+  </div>
   
 
 <!--end of rating-->
@@ -19,16 +27,18 @@
         <p class="orderid">LEAVE A REVIEW</p>
     </div>
             
-<form method="post" action="" #updateForm="ngForm" >
+<form method="post" action="" #reviewForm="ngForm" (ngSubmit)="insertreview(reviewForm)" >
     <div class="row">       
 
 
 <div class="col-md-12">
-    <div class="form-group">
+  <div class="form-group">
           <label>Detailed Review</label>
         <textarea class="form-control" rows="7" 
         ngModel
-        name="address" placeholder="Tell us about your feedback!"></textarea>
+        #feedback="ngModel"
+        name="feedback" placeholder="Tell us about your feedback!"
+        [(ngModel)]="review.feedback"></textarea>
     </div>
 </div>
 </div>

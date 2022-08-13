@@ -11,7 +11,7 @@
       </div>
       <div class="col-md-10 col-sm-8">
         <div class="card-block">
-          <a href="#" class="btn btn-purple btn-sm float-right">RATE THIS PRODUCT</a>
+          <a [routerLink]="['/userprofile/rate' , product.product_data.products[0].id,product.order.id]" class="btn btn-purple btn-sm float-right">RATE THIS PRODUCT</a>
           <h4 class="card-title">{{product.product_data.products[0].name}}</h4><br><br>
           <p class="text-muted">Order no:{{product.order.id}}</p>
           <span class="DELIVERED p-1">DELIVERED</span><br>

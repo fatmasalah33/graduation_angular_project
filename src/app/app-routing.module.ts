@@ -82,7 +82,7 @@ const routes: Routes = [
     {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
     {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
 
-    {path: 'rate',component:RateComponent, canActivate:[AuthGuardGuard]},
+    {path: 'rate/:id/:order_id',component:RateComponent, canActivate:[AuthGuardGuard]},
     {path: 'orderdetails',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
 
     {path: 'orderdetails/:id',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
