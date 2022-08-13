@@ -59,17 +59,16 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-instructions.component';
 import { OrderdetailsComponent } from './userprofile/orderdetails/orderdetails.component';
-<<<<<<< HEAD
+
 import { PendingproductComponent } from './dashboard/pendingproduct/pendingproduct.component';
 import { VerfiyproductComponent } from './dashboard/verfiyproduct/verfiyproduct.component';
 import { SellerComponent } from './seller/seller.component';
 import { VerifiedProductComponent } from './seller/verified-product/verified-product.component';
 import { NotVerifiedProductComponent } from './seller/not-verified-product/not-verified-product.component';
 import { AddproductsellerComponent } from './seller/addproductseller/addproductseller.component';
-=======
 import { RateComponent } from './userprofile/rate/rate.component';
 
->>>>>>> 583e093a6fda9d4f731a6ac5ea3966e390cc8d05
+
 
 
 
@@ -126,17 +125,17 @@ import { RateComponent } from './userprofile/rate/rate.component';
       UpdatepasswordComponent,
       RecoveryInstructionsComponent,
       OrderdetailsComponent,
-<<<<<<< HEAD
+
       PendingproductComponent,
       VerfiyproductComponent,
       SellerComponent,
       VerifiedProductComponent,
       NotVerifiedProductComponent,
       AddproductsellerComponent,
-=======
+
       RateComponent,
       
->>>>>>> 583e093a6fda9d4f731a6ac5ea3966e390cc8d05
+
 
 
     
