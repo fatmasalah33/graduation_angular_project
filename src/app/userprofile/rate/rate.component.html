@@ -4,9 +4,9 @@
         <div class="py-0 ps-3 mb-2 border-bottom">
           <h3 class="maintitle"><a href="#"><i class="fa-solid fa-arrow-left me-3 text-dark"></i></a>Rate & Review</h3>
       </div>
-      <div class="mx-2 border-bottom mt-2 mb-1">
+      <!-- <div class="mx-2 border-bottom mt-2 mb-1">
         <p class="orderid">SELECT THE STARS TO RATE THE PRODUCT</p>
-    </div>
+    </div> -->
 <!--rating-->
 
   
@@ -21,31 +21,14 @@
             
 <form method="post" action="" #updateForm="ngForm" >
     <div class="row">       
-<div class="col-md-6">
-    <div class="form-group">
-          <label> Review title</label>
-          <input type="text" class="form-control" name="name"
-          ngModel
-          placeholder="e.g. I like it! /I don't Like it!"
-         >
-    </div>
-</div>
 
-<div class="col-md-6">
-    <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" class="form-control"
-          ngModel
-          name="name" >
-    </div>
-</div>
 
 <div class="col-md-12">
     <div class="form-group">
           <label>Detailed Review</label>
         <textarea class="form-control" rows="7" 
         ngModel
-        name="address" placeholder="Tell us more about your rating!"></textarea>
+        name="address" placeholder="Tell us about your feedback!"></textarea>
     </div>
 </div>
 </div>

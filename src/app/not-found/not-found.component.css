@@ -14,22 +14,22 @@
 }
 h1{
 	font-size: 9rem;
-	color: #041F42;
+	color: #443298;
 	font-family: 'Rubik', sans-serif;
 }
 p{
 	font-size: smaller;
 	font-weight: 400;
-	color: #142D50;
+	color: #443298;
 }
 h1 span{
-	color: #F5C24C !important;
+	color: #f2acbe !important;
 }
 section img{
 	max-width: 100%;
 }
 .btn-yellow{
-   background-color: #F5C24C !important;
+   background-color: #f2acbe !important;
    border: none;
    
    font-size: smaller;
@@ -37,5 +37,5 @@ section img{
 }
 .btn-yellow:hover{
 	background-color: #443298 !important;
-	color: #F5C24C !important;
+	color: #f2acbe !important;
 }

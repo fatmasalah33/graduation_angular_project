@@ -106,3 +106,7 @@ h5{
     font-weight: 400;
     text-decoration: line-through;
 }
+.oldprice{
+    text-decoration: line-through;
+    color:gray;
+}
