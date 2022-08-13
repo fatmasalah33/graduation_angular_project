@@ -71,7 +71,7 @@ const routes: Routes = [
     {path: 'accountdetails',component:AccountdetailsComponent, canActivate:[AuthGuardGuard]},
     {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
     {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
-    {path: 'orderdetails',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
+    {path: 'orderdetails/:id',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
     {path: 'Wishlist',component:WhishlistComponent, canActivate:[AuthGuardGuard]},
     {path: 'reviews',component:ReviewsComponent, canActivate:[AuthGuardGuard]},
   ], }
