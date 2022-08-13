@@ -52,6 +52,9 @@ import { VerifiedProductComponent } from './seller/verified-product/verified-pro
 import { NotVerifiedProductComponent } from './seller/not-verified-product/not-verified-product.component';
 import { AddproductsellerComponent } from './seller/addproductseller/addproductseller.component';
 import { SellerGuard } from './seller.guard';
+import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.component';
+import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
+import { ProfileComponent } from './seller/profile/profile.component';
 
 
 const routes: Routes = [
@@ -91,21 +94,17 @@ const routes: Routes = [
   { path: 'seller', component: SellerComponent,canActivate:[SellerGuard],
   children: [
     {path:'',component: NavbarComponent},
-    {
-      path: 'verifiedProduct',
-      component:VerifiedProductComponent
-    },
+    {path: 'verifiedProduct',component:VerifiedProductComponent},
     {path:'notVerifiedProduct',component:NotVerifiedProductComponent},
-  
+    {path:'alloffer',component:AlloffersellerComponent},
+    {path:'alloffer/addoffer',component:AddoffersellerComponent},
     {path:'addproduct',component:AddproductsellerComponent },
+    {path:'profile',component:ProfileComponent }
   ], },
   { path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuardGuard],
   children: [
     {path:'',component: NavbarComponent},
-    {
-      path: 'allproduct',
-      component:AllproductsComponent
-    },
+    {path: 'allproduct',component:AllproductsComponent},
     {path:'allproduct/addproduct',component:AddproductComponent},
     {path:'allproduct/edit/:id',component:EditproductComponent},
     {path:'allcatogery',component:AllcatogeryComponent},
