@@ -16,6 +16,7 @@ import { AccountdetailsComponent } from './userprofile/accountdetails/accountdet
 import { ChpasswordComponent } from './userprofile/chpassword/chpassword.component';
 import { OrderdetailsComponent } from './userprofile/orderdetails/orderdetails.component';
 import { MyordersComponent } from './userprofile/myorders/myorders.component';
+import { RateComponent } from './userprofile/rate/rate.component';
 import { AllcatogeryComponent } from './dashboard/allcatogery/allcatogery.component';
 import { AddcatogeryComponent } from './dashboard/addcatogery/addcatogery.component';
 import { EditcatogeryComponent } from './dashboard/editcatogery/editcatogery.component';
@@ -77,7 +78,12 @@ const routes: Routes = [
     {path: 'accountdetails',component:AccountdetailsComponent, canActivate:[AuthGuardGuard]},
     {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
     {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
+
+    {path: 'rate',component:RateComponent, canActivate:[AuthGuardGuard]},
+    {path: 'orderdetails',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
+
     {path: 'orderdetails/:id',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
+
     {path: 'Wishlist',component:WhishlistComponent, canActivate:[AuthGuardGuard]},
     {path: 'reviews',component:ReviewsComponent, canActivate:[AuthGuardGuard]},
   ], }

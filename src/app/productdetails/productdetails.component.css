@@ -349,3 +349,10 @@ body {
 .bran-link:hover{
     text-decoration: underline;
 }
+
+.maintitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color:#282828;
+}
