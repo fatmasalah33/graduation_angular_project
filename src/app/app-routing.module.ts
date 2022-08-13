@@ -45,6 +45,7 @@ import { VerificationCodeComponent } from './verification-code/verification-code
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-instructions.component';
+import { PendingproductComponent } from './dashboard/pendingproduct/pendingproduct.component';
 
 
 const routes: Routes = [
@@ -94,8 +95,8 @@ const routes: Routes = [
     {path:'alloffer',component:AlloffersComponent},
     {path:'alloffer/addoffer',component:AddofferComponent},
     {path:'allreview',component:AllreviewComponent},
-    {path:'alluser',component:AlluserComponent}
-   
+    {path:'alluser',component:AlluserComponent},
+    {path:'pendingproduct',component:PendingproductComponent}
   ], },
   {path:'login',component:LoginComponent},
   { path: '**', component: NotFoundComponent },

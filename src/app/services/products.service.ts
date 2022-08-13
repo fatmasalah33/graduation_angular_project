@@ -28,4 +28,19 @@ export class ProductsService {
    getProductsListuser(id:any) {
     return this.http.get('http://127.0.0.1:8000/api/producterbyuser/'+id);
   }
+  notVerifiedProducts(){
+    return this.http.get('http://127.0.0.1:8000/api/notVerifiedProducts');
+  }
+  verifyProduct(id: any){
+    return this.http.get('http://127.0.0.1:8000/api/verifyProduct/'+id);
+  }
+  notVerifiedProduct_seller(id: any){
+    return this.http.get('http://127.0.0.1:8000/api/notVerifiedProduct_seller/'+id);
+  }
+  VerifiedProduct_seller(id: any){
+    return this.http.get('http://127.0.0.1:8000/api/VerifiedProduct_seller/'+id);
+  }
+  bestSeller(){
+    return this.http.get('http://127.0.0.1:8000/api/bestSeller');
+  }
 }
