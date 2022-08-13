@@ -59,6 +59,8 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-instructions.component';
 import { OrderdetailsComponent } from './userprofile/orderdetails/orderdetails.component';
+import { RateComponent } from './userprofile/rate/rate.component';
+
 
 
 
@@ -115,6 +117,8 @@ import { OrderdetailsComponent } from './userprofile/orderdetails/orderdetails.c
       UpdatepasswordComponent,
       RecoveryInstructionsComponent,
       OrderdetailsComponent,
+      RateComponent,
+      
 
 
     

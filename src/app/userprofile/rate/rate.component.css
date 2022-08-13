@@ -1,0 +1,29 @@
+.maintitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color:#282828;
+}
+.orderid{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+label{
+    font-size: 12px;
+    color: #75757a;
+    font-weight: 400;
+}
+
+.btn-pink {
+    background-color: #f2acbe !important;
+    color: white;
+    padding: 0.5rem 3.1rem;
+    box-shadow: 0 3px 5px  #E3E3E3;
+    border: none;
+
+}
+.btn:hover{
+    border: none;
+    background-color: #cc909f !important;
+}
