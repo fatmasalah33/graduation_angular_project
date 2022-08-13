@@ -46,6 +46,11 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { RecoveryInstructionsComponent } from './recovery-instructions/recovery-instructions.component';
 import { PendingproductComponent } from './dashboard/pendingproduct/pendingproduct.component';
+import { SellerComponent } from './seller/seller.component';
+import { VerifiedProductComponent } from './seller/verified-product/verified-product.component';
+import { NotVerifiedProductComponent } from './seller/not-verified-product/not-verified-product.component';
+import { AddproductsellerComponent } from './seller/addproductseller/addproductseller.component';
+import { SellerGuard } from './seller.guard';
 
 
 const routes: Routes = [
@@ -77,6 +82,17 @@ const routes: Routes = [
     {path: 'reviews',component:ReviewsComponent, canActivate:[AuthGuardGuard]},
   ], }
   ]},
+  { path: 'seller', component: SellerComponent,canActivate:[SellerGuard],
+  children: [
+    {path:'',component: NavbarComponent},
+    {
+      path: 'verifiedProduct',
+      component:VerifiedProductComponent
+    },
+    {path:'notVerifiedProduct',component:NotVerifiedProductComponent},
+  
+    {path:'addproduct',component:AddproductsellerComponent },
+  ], },
   { path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuardGuard],
   children: [
     {path:'',component: NavbarComponent},

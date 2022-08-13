@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-12">
               <div class=" d-flex  row">
-                <h1 class=" text-center justify-content-center title fs-1">All pending Products</h1>
-               
+                <h1 class=" text-center justify-content-center title fs-1">All Products</h1>
+                <h5> <a routerLink="addproduct" class="btn btn-info">Add product</a></h5>
                
               </div>
               <div class="table-wrap">
@@ -35,8 +35,11 @@
                           <td><img style="width:50px ; height:50px;" [src]="pathimage+product.image"></td>
                          
                           <td>
-                           <td>  <h5> <a (click)="verfiyproduct(product.id)" class="btn btn-info">verifiate product</a></h5></td>
-                        
+                           <td> <a routerLink="edit/{{product.id}}"><i class='fa-solid fa-pencil'></i>
+                                </a></td>
+                          <td> <a (click)="deleteproduct(product.id)">
+                          <i class='fa-solid fa-trash text-danger'></i>  
+                          </a></td>
                      
                       </tr>
                         </table>

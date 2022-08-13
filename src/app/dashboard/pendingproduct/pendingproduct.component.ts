@@ -8,16 +8,22 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class PendingproductComponent implements OnInit {
   products : Array<any> = [];
+  pathimage:any="http://127.0.0.1:8000/public/image/";
   constructor(private productsService :ProductsService) { }
 
   ngOnInit(): void {
     this.getallproducts()
 
   }
-  
+  verfiyproduct(id:any){
+    this.productsService.verifyProduct(id).subscribe((data:any)=>{
+      console.log(data)
+      this.getallproducts()
+    })
+  }
   getallproducts(){
     this.productsService.notVerifiedProducts().subscribe((data : any) => {
-      // this.products =data.data.products ;
+       this.products =data.data.products ;
       console.log(data)
       });
   }
