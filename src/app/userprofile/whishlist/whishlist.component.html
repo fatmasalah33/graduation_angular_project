@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-10 col-sm-8">
     <div class="card-block">
-      <a href="#" class="btn btn-outline-purple btn-sm float-right px-3 py-2">Add to Cart</a>
+      <a (click)="insertincart($event,item.product[0])" class="btn btn-outline-purple btn-sm float-right px-3 py-2">Buy Now</a>
       
       <h4 class="card-title">{{item.product[0].name}}</h4><br>
       

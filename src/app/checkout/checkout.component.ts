@@ -100,7 +100,8 @@ export class CheckoutComponent implements OnInit {
      if (((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  ){
 
     this.OrdersService.insertdate(formData).subscribe(data => {
-      // this.router.navigate(['/dashboard/', 'allorders']);
+      
+      this.router.navigate(['/']);
       console.log(data)
       });}
       else {
