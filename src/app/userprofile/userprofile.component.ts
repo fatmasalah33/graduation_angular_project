@@ -30,7 +30,11 @@ export class UserprofileComponent implements OnInit {
      this.username=this.logeduser.name;
       console.log(this.username)
   }
-
+  logOut()
+  {
+    this._RegisterService.logOut();
+    
+  }
   ngOnInit(): void {
   }
   
