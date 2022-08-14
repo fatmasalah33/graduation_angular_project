@@ -6,14 +6,15 @@ import { CartService } from '../services/cart.service';
 import { Order } from '../order';
 import { Cart } from '../cart';
 import { RegisterService } from '../services/register.service';
-
-
+// import { render } from 'creditcardpayments/creditCardPayments'
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  public payPalConfig?: IPayPalConfig;
    form:FormGroup
    user_id:any
   logeduser: any
@@ -23,6 +24,7 @@ export class CheckoutComponent implements OnInit {
   token:any;
   states : Array<any> = [];
   cities:Array<any> = [];
+  showSuccess: boolean = false;
   constructor(public fb:FormBuilder, private OrdersService :OrdersService,private router: Router,private _CartService:CartService,private registerService :RegisterService) {
 
 
@@ -40,6 +42,14 @@ export class CheckoutComponent implements OnInit {
 
 
     })
+    // render({
+    //   id: '#myPaypalButton',
+    //   currency: 'USD' ,
+    //   value: this.price ,
+    //   onApprove :(details)=> {
+    //      alert("success transaction")
+    //   },
+    // })
 
   }
 
@@ -60,7 +70,9 @@ export class CheckoutComponent implements OnInit {
      this.loadStripe();
      this.getallstates()
     //  console.log(this.token);
+    this.initConfig();
   }
+
   getallstates(){
     this.OrdersService.getstates().subscribe((data : any)=>{
       this.states=data
@@ -97,10 +109,10 @@ export class CheckoutComponent implements OnInit {
     formData.append("payment_id" , this.form.controls['payment_id'].value);
     formData.append("copoun" , this.form.controls['copoun'].value);
     console.log(formData)
-     if (((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  ){
+     if (((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  || (this.showSuccess) ){
 
     this.OrdersService.insertdate(formData).subscribe(data => {
-      
+
       this.router.navigate(['/']);
       console.log(data)
       });}
@@ -114,8 +126,6 @@ export class CheckoutComponent implements OnInit {
 
 
 
-
-    // ostor ya rab
 
 
     pay(amount: any) {
@@ -166,5 +176,80 @@ export class CheckoutComponent implements OnInit {
 
         window.document.body.appendChild(s);
       }
+    }
+
+
+
+
+
+    // paypal(price:any){
+    //   this.OrdersService.payment().subscribe(data=>{
+    //      console.log(data);
+    //   }
+    //   )
+    // }
+
+
+
+
+    private initConfig(): void {
+      this.payPalConfig = {
+      currency: 'USD',
+      clientId: 'sb',
+      createOrderOnClient: (data) => <ICreateOrderRequest>{
+        intent: 'CAPTURE',
+        purchase_units: [
+          {
+            amount: {
+              currency_code: 'USD',
+              value: this.price,
+              breakdown: {
+                item_total: {
+                  currency_code: 'USD',
+                  value: this.price
+                }
+              }
+            },
+            items: [
+              {
+                name: 'Enterprise Subscription',
+                quantity: '1',
+                category: 'DIGITAL_GOODS',
+                unit_amount: {
+                  currency_code: 'USD',
+                  value: this.price,
+                },
+              }
+            ]
+          }
+        ]
+      },
+      advanced: {
+        commit: 'true'
+      },
+      style: {
+        label: 'paypal',
+        layout: 'vertical'
+      },
+      onApprove: (data, actions) => {
+        console.log('onApprove - transaction was approved, but not authorized', data, actions);
+        actions.order.get().then((details: any) => {
+          console.log('onApprove - you can get full order details inside onApprove: ', details);
+        });
+      },
+      onClientAuthorization: (data) => {
+        console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+        this.showSuccess = true;
+      },
+      onCancel: (data, actions) => {
+        console.log('OnCancel', data, actions);
+      },
+      onError: err => {
+        console.log('OnError', err);
+      },
+      onClick: (data, actions) => {
+        console.log('onClick', data, actions);
+      },
+    };
     }
 }

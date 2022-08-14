@@ -79,6 +79,7 @@
                              <label for="payment3" class="form-label mb-1"><img src="../../assets/images/PNg24.png" alt="">Pay by card</label>
                             </button>
                             </h2>
+                            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
                             <!-- <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                               <div class="accordion-body">
                                 cart paymentttt ya eman -------------tmam ya khloud
@@ -171,6 +172,15 @@
                                                         </div>
                                                       </div> -->
                                                     </div>
+                           <!-- <div class="accordion-item">
+                           <h2 class="accordion-header" id="headingTwo">
+                           <button class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  (click)="paypal(price)" >
+                           <input  type="radio" formControlName="payment_id" id="payment2" value="3">
+                           <label for="payment2" class="form-label mb-1">pay by paypal</label>
+                            </button>
+                            </h2>
+                            </div> -->
+                            <!-- <a href="http://127.0.0.1:8000/api/payment" target="_blank" >paypal</a> -->
                                                     <!-- <div class="accordion-item" id="myPaypalButton">
                                                       <h2 class="accordion-header" id="headingThree">
                                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

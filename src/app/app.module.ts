@@ -71,7 +71,7 @@ import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.
 import { ProfileComponent } from './seller/profile/profile.component';
 import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
 
-
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 
@@ -140,18 +140,19 @@ import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.
         AddoffersellerComponent,
         ProfileComponent,
         AlloffersellerComponent,
-      
 
 
 
-    
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPayPalModule
   ],
   providers: [
     {
