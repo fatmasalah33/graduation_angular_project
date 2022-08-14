@@ -31,6 +31,8 @@ export class ProductdetailsComponent implements OnInit {
 saveditem=new Wishlsit();
   isexist:boolean=false;
   selectedValue: any;
+  cat_id:any
+  related: Array<any> = [];
   constructor(private productsService :ProductsService,
     private _CartService:CartService,private _WishlistService:WishlistService,
     private activatedRoute: ActivatedRoute,private router: Router,private registerService :RegisterService) { }
@@ -69,14 +71,30 @@ saveditem=new Wishlsit();
     this.getallsaveitem()
     this.gettotalitem()
       this.gettotal()
+      // this.relatedProduct()
   }
   getDatabyid(){
     this.productsService.getData(this.id).subscribe(res=>{
       this.data=res;
       this.product=this.data.data
+       this.cat_id=this.data.data.category_id
+       this.productsService.relatedProduct(this.data.data.category_id).subscribe((data : any)=>{
+        this.related=data
+        console.log(data)
+        console.log(this.related)
+       })
       console.log(this.product)
+      console.log(this.cat_id)
     })
   }
+  // relatedProduct(){
+  //   console.log('hi')
+  //   console.log(this.cat_id)
+    //  this.productsService.relatedProduct(2).subscribe((data : any)=>{
+    //   console.log(data)
+    //   console.log('hi')
+    //  })
+  // }
   getallproducts(){
     this.productsService.getProductsList().subscribe((data : any) => {
       this.products =data.data.products ;
@@ -187,5 +205,5 @@ gettotal(){
      console.log(data[0].totalprice)
   })
 } 
- 
+
 }

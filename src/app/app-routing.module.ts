@@ -80,17 +80,17 @@ const routes: Routes = [
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path:'',component: AccountdetailsComponent},
-    {path: 'accountdetails',component:AccountdetailsComponent, canActivate:[AuthGuardGuard]},
-    {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
-    {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
+    {path: 'accountdetails',component:AccountdetailsComponent},
+    {path: 'chpassword',component:ChpasswordComponent},
+    {path: 'myorders',component:MyordersComponent},
 
-    {path: 'rate/:id/:order_id',component:RateComponent, canActivate:[AuthGuardGuard]},
-    {path: 'orderdetails',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
+    {path: 'rate/:id/:order_id',component:RateComponent},
+    {path: 'orderdetails',component:OrderdetailsComponent},
 
-    {path: 'orderdetails/:id',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
+    {path: 'orderdetails/:id',component:OrderdetailsComponent},
 
-    {path: 'Wishlist',component:WhishlistComponent, canActivate:[AuthGuardGuard]},
-    {path: 'reviews',component:ReviewsComponent, canActivate:[AuthGuardGuard]},
+    {path: 'Wishlist',component:WhishlistComponent},
+    {path: 'reviews',component:ReviewsComponent},
   ], }
   ]},
   { path: 'seller', component: SellerComponent,canActivate:[SellerGuard],
