@@ -73,7 +73,7 @@ import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.
 import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
 import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 
-
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 
@@ -142,20 +142,25 @@ import { EditoffersellerComponent } from './seller/editofferseller/editoffersell
         AddoffersellerComponent,
         ProfileComponent,
         AlloffersellerComponent,
+<<<<<<< HEAD
+=======
         CheckoutsellerComponent,
         EditoffersellerComponent,
       
+>>>>>>> f67ce6ea150a3f1d5cdf90441f2a9aa6677332da
 
 
 
-    
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPayPalModule
   ],
   providers: [
     {
