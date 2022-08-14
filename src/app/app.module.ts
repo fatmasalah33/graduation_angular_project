@@ -70,6 +70,8 @@ import { RateComponent } from './userprofile/rate/rate.component';
 import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.component';
 import { ProfileComponent } from './seller/profile/profile.component';
 import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
+import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
+import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 
 
 
@@ -140,6 +142,8 @@ import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.
         AddoffersellerComponent,
         ProfileComponent,
         AlloffersellerComponent,
+        CheckoutsellerComponent,
+        EditoffersellerComponent,
       
 
 

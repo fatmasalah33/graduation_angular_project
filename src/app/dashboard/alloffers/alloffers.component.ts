@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
+import { RegisterService } from 'src/app/services/register.service';
 import { OffersService } from './../../services/offers.service';
 @Component({
   selector: 'app-alloffers',
@@ -9,14 +10,34 @@ import { OffersService } from './../../services/offers.service';
 })
 export class AlloffersComponent implements OnInit {
   offers : Array<any> = [];
-  constructor(private offersService :OffersService,private activatedRoute: ActivatedRoute) { }
+  logeduser:any
+  userid:any;
+  constructor(private offersService :OffersService,private activatedRoute: ActivatedRoute,
+    private registerService :RegisterService) { 
+      this.registerService.currentUsers.subscribe((data)=>{
+        console.log(data)
+  
+        if(data != null )
+        {
+          this.logeduser= this.registerService.getloginuser()
+          console.log(this.logeduser)
+          this.userid=this.logeduser.id;
+          }
+        
+       
+          
+    
+     
+  
+       })
+    }
 
   ngOnInit(): void {
     this.getalloffers()
   }
   getalloffers(){
-    this.offersService.getoffersList().subscribe((res : any) => {
-      this.offers =res.data.offeres ;
+    this.offersService.getAllOffers(this.userid).subscribe((res : any) => {
+      this.offers =res ;
       console.log(res.data.offeres)
       });
   }

@@ -55,6 +55,8 @@ import { SellerGuard } from './seller.guard';
 import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.component';
 import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
 import { ProfileComponent } from './seller/profile/profile.component';
+import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
+import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 
 
 const routes: Routes = [
@@ -97,9 +99,11 @@ const routes: Routes = [
     {path: 'verifiedProduct',component:VerifiedProductComponent},
     {path:'notVerifiedProduct',component:NotVerifiedProductComponent},
     {path:'alloffer',component:AlloffersellerComponent},
+    {path:'alloffer/edit/:id',component:EditoffersellerComponent},
     {path:'alloffer/addoffer',component:AddoffersellerComponent},
     {path:'addproduct',component:AddproductsellerComponent },
-    {path:'profile',component:ProfileComponent }
+    {path:'profile',component:ProfileComponent },
+    {path:'checkoutseller',component:CheckoutsellerComponent }
   ], },
   { path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuardGuard],
   children: [
