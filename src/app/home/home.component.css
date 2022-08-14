@@ -267,6 +267,10 @@ a:focus{
     font-weight: 400;
     text-decoration: line-through;
 }
+.oldprice{
+    text-decoration: line-through;
+    color:gray;
+}
 @media screen and (max-width: 990px){
     .product-grid{ margin-bottom: 30px; }
 }

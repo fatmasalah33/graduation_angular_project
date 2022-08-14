@@ -15,6 +15,8 @@ import { Wishlsit } from '../wishlist';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  random: Array<any> = [];
+  bestSeller: Array<any> = [];
   categories : Array<any> = [];
   productOffered: Array<any> = [];
   pathimage:any="http://127.0.0.1:8000/public/image/";
@@ -58,6 +60,19 @@ saveditem=new Wishlsit();
        this.gettotal()
     this.getallcategories()
     this.getOffersproduct()
+    this.bestSellers()
+    this.randomProduc()
+  }
+  bestSellers(){
+this.productsService.bestSeller().subscribe((data : any) => {
+  console.log(data)
+})
+  }
+  randomProduc(){
+this.productsService.randomProduc().subscribe((data : any)=>{
+  console.log(data)
+  this.random=data
+})
   }
   getallcategories(){
     this._CatogeryService.getmainCategory().subscribe((data : any) => {
@@ -67,8 +82,8 @@ saveditem=new Wishlsit();
   }
   getOffersproduct(){
     this._OffersService.productOffered().subscribe((data : any)=>{
-      console.log(data)
-      this.productOffered=data
+      // console.log(data)
+      // this.productOffered=data
     })
   }
   getallproducts(){

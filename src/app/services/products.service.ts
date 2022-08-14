@@ -47,4 +47,11 @@ export class ProductsService {
   getMoney(id: any){
     return this.http.get('http://127.0.0.1:8000/api/getMoney/'+id);
   }
+  relatedProduct(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/relatedProduct/'+id);
+  }
+  randomProduc(){
+    return this.http.get('http://127.0.0.1:8000/api/randomProduct');
+  }
+ 
 }

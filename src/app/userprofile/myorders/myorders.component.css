@@ -37,6 +37,9 @@
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
 }
+.pending{
+  background-color: #e1e41c;
+}
 .SHIPPED{
     background-color: #E4811C;
 }
