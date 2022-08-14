@@ -32,7 +32,7 @@
                             <h3 *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}}</h3>
                             <h6 class=" text-muted d-inline" [ngClass]="{'oldprice': product.Offeres!=null}">EGP{{product.price}} </h6>
                             <span *ngIf="product.Offeres!=null" class="text-muted ms-2">{{product.Offeres.offeres.percent}}%</span>
-                               <div class="ratings d-flex flex-row align-items-center mt-2">
+                               <!-- <div class="ratings d-flex flex-row align-items-center mt-2">
                                 <div class="d-flex flex-row">
                                      <i class='fa fa-star' ></i>
                                       <i class='fa fa-star' ></i>
@@ -40,7 +40,7 @@
                                      <i class='fa fa-star' >
                                      </i> <i class='fa fa-star' ></i> </div>
                                 <span>5 reviews</span>
-                            </div>
+                            </div> -->
                            
                             <div class="buttons d-flex flex-row mt-5 gap-3">
                                 <button class="btn btn-purple w-100" (click)="insertincart($event,product)" >Add to Cart</button> </div>
@@ -49,13 +49,13 @@
                 </div>
             </div>
         </div>
-        <div class="card ps-3">
+        <div class="card px-3">
             <div class="py-0  mb-2 border-bottom">
                 <h3 class="maintitle py-2">Verified Customer Feedback</h3>
             </div>
-            <h6>PRODUCT REVIEWS (2)</h6>
+            <h6>PRODUCT REVIEWS ({{product.Reviews.reviews.length}})</h6>
 
-            <section class="border-bottom">
+            <!-- <section class="border-bottom">
                 <div class="d-flex flex-row mt-3 mb-1">
                     <i class='fa fa-star' ></i>
                      <i class='fa fa-star' ></i>
@@ -65,17 +65,18 @@
                 <p >Very good product i liked it!</p>
                 <p class="text-muted">08-08-2022 <span class="ms-2">Nada diaa</span></p>
     
-            </section>
+            </section> -->
 
-            <section class="border-bottom">
+            <section 
+            *ngFor="let review of product.Reviews.reviews ; let i = index">
                 <div class="d-flex flex-row mt-3 mb-1">
-                    <i class='fa fa-star' ></i>
-                     <i class='fa fa-star text-muted' ></i>
-                   <i class='fa fa-star text-muted' ></i>
-                    <i class='fa fa-star text-muted' >
-                    </i> <i class='fa fa-star text-muted' ></i> </div>
-                <p >i didn't like it!</p>
-                <p class="text-muted">08-08-2022 <span class="ms-2">Kholod diaa</span></p>
+                    <ul class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block" >
+                        <li (click)="countStar(star)"
+                        [ngClass]="{'selected': (star <= review.rating)}">
+                            <i class="fa fa-star"></i>
+                    </li>  </ul></div>
+                <p >{{review.feedback}}</p>
+                <p class="text-muted">{{review.created_at}} <span class="ms-2">{{review.user_name}}</span></p>
     
             </section>
            

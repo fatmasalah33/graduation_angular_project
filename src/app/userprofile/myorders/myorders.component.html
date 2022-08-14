@@ -20,7 +20,8 @@
               <a [routerLink]="['/productdetails' , orderdetails.product_data.products[0].id]">
                  <h4 class="card-title"> {{orderdetails.product_data.products[0].name}}</h4></a><br><br>
               <p class="text-muted">Order {{orderitem.id}}</p>
-              <span class="DELIVERED p-1" [style.background-color]="orderitem.status=='cancelld'?'red':'green'" >{{orderitem.status}}</span><br>
+              <span class="DELIVERED p-1" [ngClass]="{'CANCELLED': orderitem.status=='cancelld','pending': orderitem.status=='pending'}"
+            >{{orderitem.status}}</span><br>
               <span class="date d-block mt-1">on {{orderitem.created_at}}</span>
             </div>
           </div>

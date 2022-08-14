@@ -1,19 +1,28 @@
 .container-fluid {
-  background-color: #f4f5f7;
+  background-color: white;
 }
 .container {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  
+}
+
+.mt-6{
+  margin-top: 6.4rem;
 }
 .card {
   border-color: #ebebeb !important;
   box-shadow: 3px 3px 15px 7px #ebebeb;
 }
+.border-rightgray{
+  border-right: 2px solid #EDEDED;
+}
 
 .card-title {
-  color: #00173b !important;
-  font-weight: 500 !important;
-  font-family: "Rubik", sans-serif;
+  color: #443298 !important;
+  font-weight: 700 !important;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
 }
 .form-label {
   color: #00173b !important;
@@ -32,23 +41,22 @@
 .btn-yellow {
   background-color: #f5c24c !important;
   border: none;
-  width: 100%;
-  font-size: smaller;
-  font-weight: 700;
+  
+  
 }
 .btn-yellow:hover {
   background-color: #443298 !important;
   color: #f5c24c !important;
 }
-.q {
-  font-size: smaller;
-  color: #00173b;
-  font-weight: 500;
-}
+
 .card-link {
   text-decoration: none;
   font-weight: 700;
   color: #00173b;
+}
+.px-6{
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 .fs-6 {
   font-size: smaller !important;
@@ -57,14 +65,8 @@
 hr {
   color: #00173b !important;
 }
-.facebook {
-  color: #1a68d3;
-  border-color: #1a68d3 !important;
-}
-.google {
-  color: #d92d23;
-  border-color: #d92d23 !important;
-}
+
+
 .twitter {
   color: #2d99db;
   border-color: #2d99db !important;
@@ -97,4 +99,40 @@ hr {
 }
 .lost:hover {
   text-decoration: underline;
+}
+.btn-pink{
+  background-color: #f2acbe !important;
+  color: white;
+  padding: 0.5rem 3.1rem;
+  box-shadow: 0 3px 5px  #E3E3E3;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn:hover{
+  border: none;
+  background-color: #cc909f !important;
+  color: white !important;
+}
+.card-text{
+  color:#282828;
+  line-height: 24px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.facebook {
+  color: white ;
+  background-color: #344F88 !important;
+}
+.google {
+  color: white;
+  background-color: #8777ce !important;
+}
+@media screen and (max-width: 991px) {
+  .border-rightgray{
+    border-right:none;
+  }
 }

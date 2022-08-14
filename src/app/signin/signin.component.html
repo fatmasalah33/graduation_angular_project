@@ -1,13 +1,13 @@
-
 <div class="container-fluid">
-  <div class="container px-5 d-flex justify-content-center align-items-center">
-    <div class="card p-3" style="width: 23rem">
-      <div class="card-body">
-        <h5 class="card-title mb-4">Sign-In</h5>
+<div class="container">
+  <div class="  row d-flex justify-content-around">
+    <div class="p-3 col-12 col-lg-6 border-rightgray" >
+      <div class="card-body px-6 d-flex flex-column">
+        <h5 class="card-title mb-4 text-center">Login</h5>
         <form class="form card-text" action="" method="" #loginForm="ngForm"  (ngSubmit)="handleSubmitForm(loginForm)">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label mb-1"
-              >Username or email address</label
+              >E-mail</label
             >
             <input
               type="text"
@@ -40,10 +40,10 @@
               >Password</label
             >
             <input
-              type="password"
+            type="password"
               class="form-control py-2 px-3"
-              id="exampleFormControlInput1"
-              placeholder="*************************"
+              id="password"
+              placeholder="******************"
               ngModel
               #password="ngModel"
               name="password"
@@ -51,6 +51,8 @@
              
              
             />
+            
+            
             <div
               id="passwordHelp"
               *ngIf=" password.touched &&  password.invalid"
@@ -63,7 +65,7 @@
              
             </div>
           </div>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between mb-2">
             <div class="d-flex align-items-baseline">
               <input type="checkbox" class="me-1" name="remember" />
               <label class="form-label">Remember me</label>
@@ -71,36 +73,67 @@
             <a routerLink="forgetpassword" class="lost">Forget your password?</a>
           </div>
           <div class="w-100">
-            <button type="submit" class="btn btn-yellow py-2 mb-3 mt-3">
-              Login
+            <button type="submit" class="btn btn-pink py-2 mb-3  d-flex">
+              <i class="fa-solid fa-envelope align-self-start"></i>
+              <span class="mx-auto">LOGIN</span> 
             </button>
           </div>
         </form>
-        <p class="card-text text-center q mb-4">
-          Don't have an account?
-          <a class="card-link" href="#">Create account</a>
-        </p>
-        <section class="d-flex align-items-baseline">
-          <hr class="w-50" />
-          <div class="text-center mb-4 fs-6 px-2">or</div>
-          <hr class="w-50" />
-        </section>
+        <div class="w-100">
+          <a type="submit" class="btn btn-pink py-2 mb-3 d-flex google">
+            <i class="fa-brands fa-google-plus-g align-self-start"></i
+              > 
+              <span class="mx-auto">LOGIN WITH GMAIL</span>
+          </a>
+        </div>
+        <div class="w-100">
+          <a type="submit" class="btn btn-pink facebook py-2 mb-3 d-flex">
+            <i class="fa-brands fa-facebook-f align-self-start"></i
+              > 
+              <span class="mx-auto ">LOGIN WITH FACEBOOK</span>
+          </a>
+        </div>
+        
 
-        <nav class="d-flex justify-content-between">
-          <a href="#" class="py-1 px-4 border rounded facebook"
-            ><i class="fa-brands fa-facebook-f"></i
-          ></a>
-          <a href="#" class="py-1 px-4 border rounded google"
-            ><i class="fa-brands fa-google-plus-g"></i
-          ></a>
-          <a href="#" class="py-1 px-4 border rounded twitter"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="#" class="py-1 px-4 border rounded instagram"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-        </nav>
+       
       </div>
     </div>
+
+
+    <!--right section-->
+
+    <div class="p-3 col-12 mt-5  mt-lg-0 col-lg-6  text-center" >
+      <div class="card-body px-6 mx-auto d-flex flex-column">
+        <h5 class="card-title mb-4 ">Create your account</h5>
+        
+        <p class="card-text text-center mt-4 ">
+          Create your customer account in just a few clicks! You can register either using your e-mail address or through your Google / Facebook account.
+        </p>
+       <section class="mt-6">
+        <div class="w-100">
+          <a type="submit" routerLink="register" class="btn btn-pink py-2 mb-3 d-flex">
+            <i class="fa-solid fa-envelope align-self-start"></i>
+            <span  class="mx-auto">CREATE AN ACCOUNT VIA E-MAIL</span>
+          </a>
+        </div>
+        <div class="w-100">
+          <a type="submit" class="btn btn-pink py-2 mb-3 d-flex google">
+            <i class="fa-brands fa-google-plus-g align-self-start"></i
+              > 
+              <span class="mx-auto">REGISTER WITH GMAIL</span>
+          </a>
+        </div>
+        <div class="w-100">
+          <a type="submit" class="btn btn-pink py-2 mb-3 d-flex facebook">
+            <i class="fa-brands fa-facebook-f align-self-start"></i
+              > 
+              <span class="mx-auto">REGISTER WITH FACEBOOK</span>
+          </a>
+        </div>
+      </section>
+      
+      </div>
+    
   </div>
+</div>
 </div>

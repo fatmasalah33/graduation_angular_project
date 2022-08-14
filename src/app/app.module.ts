@@ -70,6 +70,8 @@ import { RateComponent } from './userprofile/rate/rate.component';
 import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.component';
 import { ProfileComponent } from './seller/profile/profile.component';
 import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
+import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
+import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 
 import { NgxPayPalModule } from 'ngx-paypal';
 
@@ -140,6 +142,12 @@ import { NgxPayPalModule } from 'ngx-paypal';
         AddoffersellerComponent,
         ProfileComponent,
         AlloffersellerComponent,
+<<<<<<< HEAD
+=======
+        CheckoutsellerComponent,
+        EditoffersellerComponent,
+      
+>>>>>>> f67ce6ea150a3f1d5cdf90441f2a9aa6677332da
 
 
 

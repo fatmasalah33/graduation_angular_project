@@ -55,6 +55,8 @@ import { SellerGuard } from './seller.guard';
 import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.component';
 import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
 import { ProfileComponent } from './seller/profile/profile.component';
+import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
+import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 
 
 const routes: Routes = [
@@ -63,7 +65,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent},
   { path: 'categorypage', component: CategorypageComponent },
   { path: 'parentcategory', component: ParentcategoryComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'signin/register', component: RegisterComponent },
   { path: 'verificationcode' , component:VerificationCodeComponent},
   { path: 'cart', component: CartComponent, canActivate:[AuthGuardGuard] },
   { path: 'cart/checkout', component: CheckoutComponent },
@@ -82,7 +84,7 @@ const routes: Routes = [
     {path: 'chpassword',component:ChpasswordComponent, canActivate:[AuthGuardGuard]},
     {path: 'myorders',component:MyordersComponent, canActivate:[AuthGuardGuard]},
 
-    {path: 'rate',component:RateComponent, canActivate:[AuthGuardGuard]},
+    {path: 'rate/:id/:order_id',component:RateComponent, canActivate:[AuthGuardGuard]},
     {path: 'orderdetails',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
 
     {path: 'orderdetails/:id',component:OrderdetailsComponent, canActivate:[AuthGuardGuard]},
@@ -97,9 +99,11 @@ const routes: Routes = [
     {path: 'verifiedProduct',component:VerifiedProductComponent},
     {path:'notVerifiedProduct',component:NotVerifiedProductComponent},
     {path:'alloffer',component:AlloffersellerComponent},
+    {path:'alloffer/edit/:id',component:EditoffersellerComponent},
     {path:'alloffer/addoffer',component:AddoffersellerComponent},
     {path:'addproduct',component:AddproductsellerComponent },
-    {path:'profile',component:ProfileComponent }
+    {path:'profile',component:ProfileComponent },
+    {path:'checkoutseller',component:CheckoutsellerComponent }
   ], },
   { path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuardGuard],
   children: [

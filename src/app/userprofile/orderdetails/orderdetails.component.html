@@ -2,10 +2,15 @@
     <h3 class="maintitle"><a href="#"><i class="fa-solid fa-arrow-left me-3"></i></a>Order Details</h3>
 </div>
 <div class="mx-3 border-bottom mb-2">
-    <p class="orderid">Order nº {{order.id}}</p>
+    <p class="orderid me-5">Order nº {{order.id}}
+      <a class="btn btn-danger" *ngIf="order.status=='pending'" (click)="cancelldorder(order.id)">
+        cancelled order</a> 
+    </p>
     <h6>{{order.order_details.length}} Items</h6>
     <h6>Placed on {{order.created_at}}</h6>
     <h6>Total: EGP {{order.price}}</h6>
+   
+           
 </div>
 <!--first card-->
 <!-- <div >
@@ -38,8 +43,9 @@
 <section *ngFor="let item of order.order_details ; let i = index">
     <div class="card mx-3 p-md-3">
         <div class="row">
-            <span class="DELIVERED p-1 ms-2" >DELIVERED</span><br>
-            <span class="date d-block mt-1">on 25-3</span>
+            <span class="DELIVERED p-1 ms-2"  [ngClass]="{'CANCELLED': order.status=='cancelld','pending': order.status=='pending'}"
+             >{{order.status}}</span><br>
+            <span class="date d-block mt-1">on {{order.created_at}}</span>
         <div class="col-md-2 col-sm-4">
             
           <img class="d-block w-100"  [src]="pathimage+item.product_data.products[0].image"  alt="productimage">
@@ -56,7 +62,7 @@
                
                  <span class="price me-1" *ngIf="item.product_data.products[0].Offeres!=null">EGP {{item.product_data.products[0].Offeres.price_offer}} </span>
                  <span class="  d-inline" [ngClass]="{'oldprice': item.product_data.products[0].Offeres!=null,'price': item.product_data.products[0].Offeres==null}">EGP{{item.product_data.products[0].price}} </span>
-                      
+                  
             </div>
           </div>
         </div>
@@ -94,12 +100,12 @@
             <h5 class=" pt-2">PAYMENT INFORMATION</h5>
         </div>
         <p class="orderid">Payment Method</p>
-        <h6>Cash On Delivery</h6><br>
+        <h6>{{order.payment_id.method}}</h6><br>
         <p class="orderid">Payment Details</p>
-    <h6>Items total: EGP 125.00</h6>
+    <h6>Items total: EGP {{order.price}}</h6>
     <h6>Shipping Fees: EGP 39.90</h6>
     <h6>Promotional Discount: EGP -39.90</h6>
-    <h6 class="text-dark mt-2">Total: EGP 125.00</h6>
+    <h6 class="text-dark mt-2">Total: EGP {{order.price}}</h6>
     </div>
     <div class="card col-6 ms-2">
      
@@ -109,7 +115,7 @@
         <p class="orderid">Delivery Method</p>
         <h6>Standard Door Delivery</h6><br>
         <p class="orderid">Shipping Address</p>
-    <h6>Kafr Saad, Damietta</h6>
+    <h6> {{order.address_city[0].name}} , {{order.address_state[0].name}}</h6>
    
     </div>
 

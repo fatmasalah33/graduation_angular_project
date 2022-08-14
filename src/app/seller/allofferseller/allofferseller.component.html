@@ -13,14 +13,14 @@
             <table class="table">
               <thead class="thead-primary">
                 <tr class="text-center">
-                  <th>Product Name</th>
+                  <th>Product id</th>
                   <th>End AT</th>
                   <th>Percent</th>
                   <th colspan="3">Action</th>
                 </tr>
               </thead>
               <tr class="text-center" *ngFor="let offer of offers ; let i = index">
-                <th>{{offer.product.name}}</th>
+                <th>{{offer.product_id}}</th>
                 <td>{{offer.end_at}}</td>
                 <td>{{offer.percent}} %</td>
                

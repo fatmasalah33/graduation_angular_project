@@ -1,12 +1,12 @@
-<div class="container-fluid">
-  <div class="container px-5 d-flex justify-content-center align-items-center">
-    <div class="card p-3" style="width: 26rem">
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="container px-6  ">
+    <div class="  p-3">
       <div class="card-body">
         <h5 class="card-title mb-4">Create your account</h5>
-        <form class="form card-text" action="" method="" #registerForm="ngForm" (ngSubmit)="handleSubmitForm(registerForm)">
+        <form class="form row card-text" action="" method="" #registerForm="ngForm" (ngSubmit)="handleSubmitForm(registerForm)">
       
           
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-lg-6">
               <label for="exampleFormControlInput1" class="form-label mb-1"
                 >Your Name</label
               >
@@ -32,7 +32,7 @@
            
             </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-lg-6">
               <label for="exampleFormControlInput1" class="form-label mb-1"
                 >Your Email</label
               >
@@ -63,7 +63,7 @@
             </div>
             </div>
          
-          <div class="mb-3">
+          <div class="mb-3 col-12 col-lg-6">
             <label for="exampleFormControlInput1" class="form-label mb-1"
               >Password</label
             >
@@ -93,20 +93,7 @@
           
           </div>
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label mb-1"
-              >Your Address</label
-            >
-            <input
-              type="text"
-              class="form-control py-2 px-3"
-              id="exampleFormControlInput1"
-              placeholder="cairo,Egypt"
-              name="address"
-              [(ngModel)]="register.address"
-            />
-          </div>
-          <div class="mb-3">
+          <div class="mb-3 col-12 col-lg-6">
             <label for="exampleFormControlInput1" class="form-label mb-1"
               >Phone number</label
             >
@@ -120,42 +107,58 @@
             />
           </div>
           <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label mb-1"
+              >Your Address</label
+            >
+            <input
+              type="text"
+              class="form-control py-2 px-3"
+              id="exampleFormControlInput1"
+              placeholder="cairo,Egypt"
+              name="address"
+              [(ngModel)]="register.address"
+            />
+          </div>
+          
+          <div class="mb-3">
             <label class="form-label mb-1">Choose a role:</label>
             <select name="role" id="role"  class="form-select py-2 px-3" [(ngModel)]="register.role_id">
-              <option value="">Choose a role</option>
+              <option value="" readonly>Choose a role</option>
               <option value="3">Buyer</option>
               <option value="2">seller</option>
             </select>
           </div>
           <div class="w-100">
-            <button type="submit" class="btn btn-yellow py-2 mb-3">
-              Create Account
+            <button type="submit" class="btn btn-pink py-2 mb-2 mt-2">
+              CREATE ACCOUNT
             </button>
           </div>
         </form>
-        <p class="card-text text-center q mb-4">
-          Already have an account? <a class="card-link" href="#">Sign in</a>
-        </p>
         <section class="d-flex align-items-baseline">
           <hr class="w-50" />
-          <div class="text-center mb-4 fs-6 px-2">or</div>
+          <div class="text-center mb-4 fs-6 px-2">OR</div>
           <hr class="w-50" />
         </section>
 
-        <nav class="d-flex justify-content-between">
-          <a href="#" class="py-1 px-4 border rounded facebook"
-            ><i class="fa-brands fa-facebook-f"></i
-          ></a>
-          <a href="#" class="py-1 px-4 border rounded google"
-            ><i class="fa-brands fa-google-plus-g"></i
-          ></a>
-          <a href="#" class="py-1 px-4 border rounded twitter"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="#" class="py-1 px-4 border rounded instagram"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-        </nav>
+        <div class="w-100">
+          <a type="submit" class="btn btn-pink py-2 mb-3 d-flex google">
+            <i class="fa-brands fa-google-plus-g align-self-start"></i
+              > 
+              <span class="mx-auto">REGISTER WITH GMAIL</span>
+          </a>
+        </div>
+        <div class="w-100">
+          <a type="submit" class="btn btn-pink py-2 mb-3 d-flex facebook">
+            <i class="fa-brands fa-facebook-f align-self-start"></i
+              > 
+              <span class="mx-auto">REGISTER WITH FACEBOOK</span>
+          </a>
+        </div>
+        <p class="card-text text-center q mb-2 mt-5">
+          Already have an account?
+        </p>
+        <div class="text-center lineheight"><a class="card-link" routerLink="../../signin">LOGIN</a></div>
+       
       </div>
     </div>
   </div>
