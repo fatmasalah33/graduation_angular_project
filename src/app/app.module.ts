@@ -71,6 +71,7 @@ import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.
 import { ProfileComponent } from './seller/profile/profile.component';
 import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
 import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
+import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 
 
 
@@ -142,6 +143,7 @@ import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.
         ProfileComponent,
         AlloffersellerComponent,
         CheckoutsellerComponent,
+        EditoffersellerComponent,
       
 
 

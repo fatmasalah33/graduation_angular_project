@@ -24,4 +24,7 @@ export class OffersService {
   productOffered(){
     return this.http.get('http://127.0.0.1:8000/api/productOffered');
   }
+  getAllOffers(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/getAllOffers/'+id);
+  }
 }

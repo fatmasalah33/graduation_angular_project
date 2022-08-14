@@ -330,9 +330,9 @@ body {
 	width: 150px;
 	
 }
-.fa-star{
+/* .fa-star{
     color: #F2CA6D;
-}
+} */
 .oldprice{
     text-decoration: line-through;
 }
@@ -356,3 +356,21 @@ body {
     font-weight: 500;
     color:#282828;
 }
+/* .rating-list li {
+    float: right;
+    color: #ddd;
+    padding: 10px 5px;
+  
+  } */
+  .rating-list li.selected {
+    color: #ffd700;
+}
+  .rating-list li:hover,
+  .rating-list li:hover ~ li {
+    color: #ffd700;
+  }
+  
+  .rating-list {
+    display: inline-block;
+    list-style: none;
+  }

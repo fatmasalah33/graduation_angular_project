@@ -30,10 +30,17 @@ export class ProductdetailsComponent implements OnInit {
   count:number=0
 saveditem=new Wishlsit();
   isexist:boolean=false;
+  selectedValue: any;
   constructor(private productsService :ProductsService,
     private _CartService:CartService,private _WishlistService:WishlistService,
     private activatedRoute: ActivatedRoute,private router: Router,private registerService :RegisterService) { }
-
+    stars: number[] = [1, 2, 3, 4, 5];
+    countStar(star:any) {
+      this.selectedValue = star;
+      console.log('Value of star', star);
+      console.log(this.selectedValue)
+    
+  }
   ngOnInit(): void {
     console.log(this.activatedRoute.snapshot.params['id']);
     this.id=this.activatedRoute.snapshot.params['id'];

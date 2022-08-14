@@ -10,7 +10,7 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class CheckoutsellerComponent implements OnInit {
   pathimage:any="http://127.0.0.1:8000/public/image/";
-  products : Array<any> = [];
+  products : any;
   logeduser:any
   userid:any;
   constructor(private productsService :ProductsService,private activatedRoute: ActivatedRoute
@@ -39,7 +39,7 @@ export class CheckoutsellerComponent implements OnInit {
   
   getallproducts(){
     this.productsService.getMoney(this.userid).subscribe((data : any) => {
-      // this.products =data.data.products ;
+      this.products =data ;
       console.log(data)
       });
   }
