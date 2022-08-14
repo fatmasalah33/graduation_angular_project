@@ -39,11 +39,9 @@ email: string = ''
       else
       {  this.flag = true;
         this.errorMessage = data.message;
-        console.log(this.errorMessage)
+        console.log('this.flag')
         
       }
-      },(e: any)=>{
-        console.log('error')
       });
       
   }

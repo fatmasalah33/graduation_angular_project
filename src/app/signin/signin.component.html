@@ -4,6 +4,9 @@
     <div class="p-3 col-12 col-lg-6 border-rightgray" >
       <div class="card-body px-6 d-flex flex-column">
         <h5 class="card-title mb-4 text-center">Login</h5>
+        <div class="alert alert-danger" role="alert" *ngIf="flag">
+          wrong email or password 
+        </div>
         <form class="form card-text" action="" method="" #loginForm="ngForm"  (ngSubmit)="handleSubmitForm(loginForm)">
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label mb-1"
