@@ -42,6 +42,8 @@ email: string = ''
         console.log(this.errorMessage)
         
       }
+      },(e: any)=>{
+        console.log('error')
       });
       
   }

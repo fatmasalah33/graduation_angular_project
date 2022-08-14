@@ -27,5 +27,10 @@ export class OrderdetailsComponent implements OnInit {
       console.log(this.order)
     })
   }
-
+  cancelldorder(id:any){
+console.log(id)
+this._OrdersService.cancelldorder(id).subscribe((data: any)=>{
+  console.log(data)
+})
+  }
 }
