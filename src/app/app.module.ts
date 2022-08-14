@@ -67,6 +67,9 @@ import { VerifiedProductComponent } from './seller/verified-product/verified-pro
 import { NotVerifiedProductComponent } from './seller/not-verified-product/not-verified-product.component';
 import { AddproductsellerComponent } from './seller/addproductseller/addproductseller.component';
 import { RateComponent } from './userprofile/rate/rate.component';
+import { AddoffersellerComponent } from './seller/addofferseller/addofferseller.component';
+import { ProfileComponent } from './seller/profile/profile.component';
+import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.component';
 
 
 
@@ -134,6 +137,9 @@ import { RateComponent } from './userprofile/rate/rate.component';
       AddproductsellerComponent,
 
       RateComponent,
+        AddoffersellerComponent,
+        ProfileComponent,
+        AlloffersellerComponent,
       
 
 
