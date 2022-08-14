@@ -65,7 +65,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent},
   { path: 'categorypage', component: CategorypageComponent },
   { path: 'parentcategory', component: ParentcategoryComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'signin/register', component: RegisterComponent },
   { path: 'verificationcode' , component:VerificationCodeComponent},
   { path: 'cart', component: CartComponent, canActivate:[AuthGuardGuard] },
   { path: 'cart/checkout', component: CheckoutComponent },

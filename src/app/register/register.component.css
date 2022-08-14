@@ -10,6 +10,12 @@
   padding-left: 8rem;
   padding-right: 8rem;
 }
+@media screen and (max-width: 991px) {
+  .px-6{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 
 .card-title {
@@ -41,17 +47,7 @@
   font-weight: 500;
   color: #00173b !important;
 }
-.btn-yellow {
-  background-color: #f5c24c !important;
-  border: none;
-  width: 100%;
-  font-size: smaller;
-  font-weight: 700;
-}
-.btn-yellow:hover {
-  background-color: #443298 !important;
-  color: #f5c24c !important;
-}
+
 .q {
   font-size: 14px;
   color: #282828;
