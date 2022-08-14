@@ -31,13 +31,13 @@ export class OrdersService {
   getorderofuser(id:any){
     return this.http.get('http://127.0.0.1:8000/api/order/'+id);
   }
-<<<<<<< HEAD
+
   // payment(){
   //   return this.http.get('http://127.0.0.1:8000/api/payment/');
   // }
-=======
+
   cancelldorder(id:any){
     return this.http.get('http://127.0.0.1:8000/api/cancelldorder/'+id);
   }
->>>>>>> f67ce6ea150a3f1d5cdf90441f2a9aa6677332da
+
 }

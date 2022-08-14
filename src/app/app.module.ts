@@ -142,12 +142,11 @@ import { NgxPayPalModule } from 'ngx-paypal';
         AddoffersellerComponent,
         ProfileComponent,
         AlloffersellerComponent,
-<<<<<<< HEAD
-=======
+
         CheckoutsellerComponent,
         EditoffersellerComponent,
-      
->>>>>>> f67ce6ea150a3f1d5cdf90441f2a9aa6677332da
+
+ 
 
 
 
