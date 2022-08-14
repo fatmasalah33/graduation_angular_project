@@ -76,7 +76,7 @@ const routes: Routes = [
   { path: 'categoryproducts/:id', component: CategoryproductsComponent },
   { path: 'productdetails/:id', component: ProductdetailsComponent },
   { path: 'history', component: RecentlyViewedComponent },
-  { path: 'track-order', component: TrackOrderComponent },
+  { path: 'track-order', component: TrackOrderComponent , canActivate:[AuthGuardGuard]},
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path:'',component: AccountdetailsComponent},
