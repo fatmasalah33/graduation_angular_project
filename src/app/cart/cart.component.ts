@@ -41,6 +41,7 @@ totalprice:number=0
     this.getallsaveitem()
     this.getallcarts()
     this.gettotal()
+    this.gettotalitem()
   }
   getallsaveitem(){
     this._WishlistService.getData(this.userid).subscribe((data : any) => {
@@ -69,7 +70,8 @@ totalprice:number=0
     if(this.cart[i].quantity>1){
       this.cart[i].quantity--;
     }
-    
+    this.count--
+    this._CartService.setCartCount(this.count)
     this.updateqty.quantity= cat.quantity
      
      this._CartService. updatecart(cat.id, this.updateqty).subscribe((res: any)=>{
@@ -79,12 +81,22 @@ totalprice:number=0
        this.gettotal()
      })
   }
+  count:number=0
+  gettotalitem(){
+    this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
+    this.count=data[0].count;
+    this._CartService.setCartCount(this.count)
+    console.log(this.count)
+    })
+  }
+ 
   increaseQuantity(cat: any,i:number){
     console.log(i);
     this.cart[i].quantity++;
 
     this.updateqty.quantity= cat.quantity
-     
+    this.count++
+    this._CartService.setCartCount(this.count)
      this._CartService.updatecart(cat.id, this.updateqty).subscribe((res: any)=>{
    
        console.log(res);

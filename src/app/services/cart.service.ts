@@ -3,13 +3,27 @@ import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import{CartItem} from '../cart-item'
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-
-  constructor(private http: HttpClient) { }
+  cartCount =  new BehaviorSubject(1);
+  count:any
+  constructor(private http: HttpClient) {
+    if(localStorage.getItem('cart_count')){
+      this.count=localStorage.getItem('cart_count')
+  
+      this.cartCount.next(JSON.parse(this.count))
+    }
+   }
+  setCartCount(count: number) {
+    // encapsulate with logic to set local storage
+    localStorage.setItem("cart_count", JSON.stringify(count));
+    this.count=count
+    this.cartCount.next(count);
+  }
   getcartList(): Observable<any>{
     return this.http.get('http://127.0.0.1:8000/api/cart')
   }
