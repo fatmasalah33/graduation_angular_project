@@ -36,15 +36,16 @@ email: string = ''
         this.router.navigate(['/']);  
        
       }
-      else
+      else if(data.error === "Unauthorized")
       {  this.flag = true;
-        this.errorMessage = data.message;
-        console.log(this.errorMessage)
+        // this.errorMessage = data.message;
+        console.log('this.flag')
         
       }
-      },(e: any)=>{
-        console.log('error')
-      });
+      },err=>{
+        this.flag = true;
+      }
+      );
       
   }
 }

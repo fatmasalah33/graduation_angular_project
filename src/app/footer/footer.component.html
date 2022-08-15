@@ -5,9 +5,14 @@
         <section class="text-center ">
             <h5 class="title">Subscribe and get 20% discount.</h5>
               <div class="d-flex justify-content-center align-items-center">
-                    <form action="" method="" class="form-container d-flex align-items-baseline align-content-center justify-content-center">
-                     <input type="email" class="form-control px-3 py-3 mt-2 me-2" id="exampleFormControlInput1" placeholder="Your email address">
-                      <button type="submit" class="btn btn-pink py-2 px-4 mb-3">Subscribe</button>
+                    <form 
+                    #copunForm="ngForm" (ngSubmit)="insertemail(copunForm)"  class="form-container d-flex align-items-baseline align-content-center justify-content-center">
+                     <input type="email"
+                     ngModel
+                     name="email"
+                     #email="ngModel"
+                     [(ngModel)]="copoun.email" class="form-control px-3 py-3 mt-2 me-2" id="exampleFormControlInput1" placeholder="Your email address">
+                      <button  class="btn btn-pink py-2 px-4 mb-3">Subscribe</button>
                 </form>
               </div>
         </section>

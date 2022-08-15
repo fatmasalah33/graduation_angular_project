@@ -66,6 +66,7 @@ saveditem=new Wishlsit();
   bestSellers(){
 this.productsService.bestSeller().subscribe((data : any) => {
   console.log(data)
+  this.bestSeller=data
 })
   }
   randomProduc(){
@@ -82,8 +83,8 @@ this.productsService.randomProduc().subscribe((data : any)=>{
   }
   getOffersproduct(){
     this._OffersService.productOffered().subscribe((data : any)=>{
-      // console.log(data)
-      // this.productOffered=data
+      console.log(data)
+      this.productOffered=data
     })
   }
   getallproducts(){

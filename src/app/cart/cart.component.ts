@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from '../cart';
 import { CartService } from '../services/cart.service';
 import { RegisterService } from '../services/register.service';
+import { WishlistService } from '../services/wishlist.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,9 +17,9 @@ logeduser:any
 userid:any;
 totalprice:number=0
   item: any;
-
+  savearray: Array<any> = [];
   l:number=0
-  constructor(private _CartService:CartService,private registerService :RegisterService) { }
+  constructor(private _CartService:CartService,private registerService :RegisterService,private _WishlistService:WishlistService) { }
 
   ngOnInit(): void {
     this.registerService.currentUsers.subscribe((data:any)=>{
@@ -37,9 +38,15 @@ totalprice:number=0
 
      })
     console.log(this.cart)
-    
+    this.getallsaveitem()
     this.getallcarts()
     this.gettotal()
+  }
+  getallsaveitem(){
+    this._WishlistService.getData(this.userid).subscribe((data : any) => {
+      this.savearray =data.data.wishlist;
+      console.log(this.savearray)
+      }); 
   }
   gettotal(){
     
