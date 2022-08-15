@@ -3,6 +3,7 @@ import { Cart } from '../cart';
 import { CartService } from '../services/cart.service';
 import { RegisterService } from '../services/register.service';
 import { WishlistService } from '../services/wishlist.service';
+import { Wishlsit } from '../wishlist';
 
 @Component({
   selector: 'app-cart',
@@ -19,6 +20,8 @@ totalprice:number=0
   item: any;
   savearray: Array<any> = [];
   l:number=0
+  cat=new Cart();
+  saveditem=new Wishlsit();
   constructor(private _CartService:CartService,private registerService :RegisterService,private _WishlistService:WishlistService) { }
 
   ngOnInit(): void {
@@ -110,8 +113,90 @@ totalprice:number=0
     this._CartService.deletecart(id).subscribe(data => {
       this.getallcarts()
       this.gettotal()
+      this.gettotalitem()
       });
 
   }
+
+  productExists = false
+  ietmExists = false
+ 
+ 
+  insertincart(event: any,item:any){
+    this.count++
+    this._CartService.setCartCount(this.count)
+    console.log( event.target.parentNode.lastChild)
+    // event.target.style.display='none'
+    console.log(this.cart)
+    this.cat.product_id=item.id
+    this.cat.user_id=this.userid
+    console.log(this.cat.user_id)
+    console.log(item.Offeres)
+    if(item.Offeres==null){
+      this.cat.price=item.price
+      console.log('v')
+    }else{
+      this.cat.price=item.Offeres.price_offer
+      console.log('b')
+    }
+   
+    console.log(this.cat.price)
+    for (let i=0;i< this.cart.length;i++) {
+    if(this.cart[i].product[0].id==item.id){
+      console.log(this.cart[i].quantity)
+     
+this.cart[i].quantity++;
+
+     this.updateqty.quantity= this.cart[i].quantity
+     
+        // this.router.navigate(['/dashboard/', 'allcatogery']);
+      
+      this.productExists = true
+      this._CartService. updatecart(this.cart[i].id, this.updateqty).subscribe((res: any)=>{
+        this.gettotalitem()
+        this.gettotal()
+        console.log(res);
+      })
+      break;
+    }else{
+      this.productExists = false
+    }
+  }
+  if (!this.productExists) {
+   this._CartService.insertdate(this.cat).subscribe(data => {
+  this.getallcarts()
+  this.gettotalitem()
+      this.gettotal()
+  });
+  }
+ }
+ addtowhishlist(ietm:any,e:any){
+// e.target.style.backgroundColor='red'
+  this.saveditem.user_id=this.userid
+  this.saveditem.product_id=ietm.id
+console.log(this.saveditem)
+console.log(this.savearray)
+for (let i=0;i< this.savearray.length;i++) {
+  if(this.savearray[i].product_id==ietm.id){
+   
+   
+    this.ietmExists = true
+ 
+    break;
+  }else{
+    this.ietmExists = false
+  }
+}
+if (!this.ietmExists) {
+  this._WishlistService.insertdate(this.saveditem).subscribe(data => {
+    this.getallsaveitem()
+    console.log('ok')
+    });
+ 
+  console.log('hi')
+ 
+
+}
+}
 
 }
