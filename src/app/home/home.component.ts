@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   count:number=0
 saveditem=new Wishlsit();
   isexist:boolean=false;
+  maincat: Array<any> = [];
   constructor(private _CatogeryService:CatogeryService ,private _OffersService:OffersService,
     private registerService :RegisterService
     ,private _CartService:CartService,
@@ -62,6 +63,7 @@ saveditem=new Wishlsit();
     this.getOffersproduct()
     this.bestSellers()
     this.randomProduc()
+    this.mainCategory()
   }
   bestSellers(){
 this.productsService.bestSeller().subscribe((data : any) => {
@@ -78,8 +80,18 @@ this.productsService.randomProduc().subscribe((data : any)=>{
   getallcategories(){
     this._CatogeryService.getmainCategory().subscribe((data : any) => {
       this.categories =data.data.categories ;
+      // this.maincat.push()
       console.log(data.data.categories)
+      data.data.categories.forEach((element: any) => {
+        console.log(element)
       });
+      });
+  }
+  mainCategory(){
+    console.log(this.categories)
+    this.categories.forEach(element => {
+      console.log(element)
+    });
   }
   getOffersproduct(){
     this._OffersService.productOffered().subscribe((data : any)=>{

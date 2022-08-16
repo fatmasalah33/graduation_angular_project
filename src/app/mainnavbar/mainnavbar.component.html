@@ -16,8 +16,8 @@
               <span class="me-2" style="" *ngIf="isLogin">HI, {{username}}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="text-center px-3 py-1"><a class="w-100 btn btn-pink" *ngIf="!isLogin" routerLink="signin">SIGN IN</a></li>
-              <li *ngIf="!isLogin"><hr class="dropdown-divider"></li>
+              <li class="text-center px-3 py-1"><a class="w-100 btn btn-pink" *ngIf="!isnotnull" routerLink="signin">SIGN IN</a></li>
+              <li *ngIf="!isnotnull"><hr class="dropdown-divider"></li>
               <li ><a routerLink="userprofile" class="dropdown-item" *ngIf="isLogin" ><i class="fa-regular fa-user me-3"></i>My Account</a></li>
               <li><a routerLink="userprofile/myorders" class="dropdown-item"><i class="fa-solid fa-box me-3"></i>Orders</a></li>
               <li><a routerLink="userprofile/Wishlist" class="dropdown-item" ><i class="fa-regular fa-heart me-3"></i>Saved Items</a></li>
