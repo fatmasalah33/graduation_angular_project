@@ -25,6 +25,7 @@ export class CheckoutComponent implements OnInit {
   states : Array<any> = [];
   cities:Array<any> = [];
   showSuccess: boolean = false;
+  payment: any;
   constructor(public fb:FormBuilder, private OrdersService :OrdersService,private router: Router,private _CartService:CartService,private registerService :RegisterService) {
 
 
@@ -56,7 +57,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.registerService.currentUsers.subscribe((data:any)=>{
       console.log(data)
-
+       console.log(this.price)
       if(data)
       {
         this.logeduser= this.registerService.getloginuser()
@@ -72,6 +73,7 @@ export class CheckoutComponent implements OnInit {
     //  console.log(this.token);
     this.initConfig();
   }
+
 
   getallstates(){
     this.OrdersService.getstates().subscribe((data : any)=>{
@@ -106,7 +108,7 @@ export class CheckoutComponent implements OnInit {
     formData.append("address_city" , this.form.controls['address_city'].value);
     formData.append("address_street" , this.form.controls['address_street'].value);
     formData.append("user_id" , this.user_id);
-    formData.append("payment_id" , this.form.controls['payment_id'].value);
+    formData.append("payment_id" , ( this.form.controls['payment_id'].value)? this.form.controls['payment_id'].value : this.payment );
     formData.append("copoun" , this.form.controls['copoun'].value);
     console.log(formData)
      if (((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  || (this.showSuccess) ){
@@ -202,11 +204,11 @@ export class CheckoutComponent implements OnInit {
           {
             amount: {
               currency_code: 'USD',
-              value: this.price,
+              value: '.1',
               breakdown: {
                 item_total: {
                   currency_code: 'USD',
-                  value: this.price
+                  value: '.1'
                 }
               }
             },
@@ -217,7 +219,7 @@ export class CheckoutComponent implements OnInit {
                 category: 'DIGITAL_GOODS',
                 unit_amount: {
                   currency_code: 'USD',
-                  value: this.price,
+                  value: '.1',
                 },
               }
             ]
@@ -232,12 +234,14 @@ export class CheckoutComponent implements OnInit {
         layout: 'vertical'
       },
       onApprove: (data, actions) => {
+        this.payment=3;
         console.log('onApprove - transaction was approved, but not authorized', data, actions);
         actions.order.get().then((details: any) => {
           console.log('onApprove - you can get full order details inside onApprove: ', details);
         });
       },
       onClientAuthorization: (data) => {
+        this.payment=3;
         console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
         this.showSuccess = true;
       },

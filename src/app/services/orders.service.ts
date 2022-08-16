@@ -32,13 +32,21 @@ export class OrdersService {
     return this.http.get('http://127.0.0.1:8000/api/order/'+id);
   }
 
+  // payment(){
+  //   return this.http.get('http://127.0.0.1:8000/api/payment/');
+  // }
+
   cancelldorder(id:any){
     return this.http.get('http://127.0.0.1:8000/api/cancelldorder/'+id);
   }
   getCopoun(data: any){
     return this.http.post('http://127.0.0.1:8000/api/getCopoun',data);
   }
+
   filterbystatus(data: any){
     return this.http.post('http://127.0.0.1:8000/api/filterbystatus',data); 
   }
+
+
+
 }
