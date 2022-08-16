@@ -33,6 +33,9 @@
     border: none;
     border-radius: 15px
 } */
+.card-block{
+    overflow: hidden;
+}
 .card li{
     list-style: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

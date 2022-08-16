@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cart } from '../cart';
 import { CartService } from '../services/cart.service';
 import { RegisterService } from '../services/register.service';
@@ -22,7 +23,9 @@ totalprice:number=0
   l:number=0
   cat=new Cart();
   saveditem=new Wishlsit();
-  constructor(private _CartService:CartService,private registerService :RegisterService,private _WishlistService:WishlistService) { }
+  constructor(private _CartService:CartService,
+    private registerService :RegisterService,private _WishlistService:WishlistService
+    ,private router: Router) { }
 
   ngOnInit(): void {
     this.registerService.currentUsers.subscribe((data:any)=>{
@@ -98,6 +101,7 @@ totalprice:number=0
     this.cart[i].quantity++;
 
     this.updateqty.quantity= cat.quantity
+    console.log(this.updateqty)
     this.count++
     this._CartService.setCartCount(this.count)
      this._CartService.updatecart(cat.id, this.updateqty).subscribe((res: any)=>{
@@ -198,5 +202,23 @@ if (!this.ietmExists) {
 
 }
 }
+checkout(){
+  for (let i=0;i< this.cart.length;i++) {
+    if(this.cart[i].product[0].quantity==0){
+      alert('the cart is contain product out of stock . please remove it first and checkout again')
+      break;
+    }
+  else{
+        this.router.navigate(['/cart','checkout']);
+      }
+    }
+  }
+  // this.cart.forEach(element => {
+  //   if(element.product[0].quantity==0){
+  
+  //   }else{
+  //     this.router.navigate(['/cart','checkout']);
+  //   }
+  // });
 
 }

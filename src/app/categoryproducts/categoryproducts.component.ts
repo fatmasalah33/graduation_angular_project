@@ -35,7 +35,8 @@ selected_cat: Array<any> = [];
 filter=new Filter();
   constructor(private productsService :ProductsService,private registerService :RegisterService
     ,private _CartService:CartService,
-    private activatedRoute: ActivatedRoute,private _WishlistService:WishlistService,private _CatogeryService:CatogeryService ) { 
+    private activatedRoute: ActivatedRoute,
+    private _WishlistService:WishlistService,private _CatogeryService:CatogeryService ) { 
  
   }
 
@@ -123,6 +124,7 @@ this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
       this.categories.forEach(element => {
         this.subcat.push(element.id)
       });
+      console.log(data)
       console.log(this.subcat)
        console.log(this.brands[0])
       });

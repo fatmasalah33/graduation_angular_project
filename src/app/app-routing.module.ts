@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: '', component: HomeHeaderComponent,
   children: [
     { path: '', component: HomeComponent},
-  { path: 'categorypage', component: CategorypageComponent },
+  { path: 'categorypage/:name/:id', component: CategorypageComponent },
   { path: 'parentcategory', component: ParentcategoryComponent },
   { path: 'signin/register', component: RegisterComponent },
   { path: 'verificationcode' , component:VerificationCodeComponent},

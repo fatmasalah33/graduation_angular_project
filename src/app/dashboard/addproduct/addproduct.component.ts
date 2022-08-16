@@ -81,6 +81,8 @@ export class AddproductComponent implements OnInit {
   }
   insertdate(){
     // let data = new FormData;
+    console.log(this.file)
+    console.log(this.file.name)
     const formData :any = new FormData;
 
     formData.append("image" ,this.file,this.file.name);
