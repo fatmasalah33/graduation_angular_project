@@ -16,9 +16,10 @@
                        <input type="hidden" name="copoun" [(ngModel)]="order.copoun">
                             <select class="form-select mb-1 mt-3 w-100" name="status" id=""  [(ngModel)]="order.status">
                                 <option value="" selected>change the order status</option>
-                                <option value="processing">processing</option>
+                                <option value="confirmed">confirmed</option>
+                                <option value="shipped">shipped</option>
                                 <option value="delivered">delivered</option>
-                                <option value="cancelled">cancelled</option>
+                                <option value="cancelld">cancelled</option>
                             </select>
 
                         <span></span>

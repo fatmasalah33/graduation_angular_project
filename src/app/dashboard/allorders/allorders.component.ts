@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { OrdersService } from '../../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
+import { Status } from 'src/app/status';
 @Component({
   selector: 'app-allorders',
   templateUrl: './allorders.component.html',
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AllordersComponent implements OnInit {
   orders : Array<any> = [];
+  status=new Status()
   constructor(private orderService :OrdersService,private activatedRoute: ActivatedRoute) { 
 
   }
@@ -23,5 +25,12 @@ export class AllordersComponent implements OnInit {
       console.log(res);
       });
   }
- 
+  getstatus(event: any){
+this.status.status=event.target.value
+console.log(this.status)
+this.orderService.filterbystatus(this.status).subscribe((data : any)=>{
+console.log(data)
+this.orders =data.data ;
+})
+  }
 }

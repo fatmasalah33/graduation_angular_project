@@ -29,10 +29,10 @@ export class EditcatogeryComponent implements OnInit {
   }
   updatecategory(){
     this._CatogeryService.updatecategory(this.id,this.category).subscribe(res=>{
-
+ this.router.navigate(['/dashboard/', 'allcatogery']);
       console.log(res)
     })
-    // this.router.navigate(['/dashboard/', 'allcatogery']);
+   
   }
 
 }

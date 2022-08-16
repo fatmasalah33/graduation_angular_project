@@ -30,7 +30,7 @@ export class EditorderComponent implements OnInit {
   updateOrders(){
     console.log(this.order)
     this.orderService.updateOrders(this.id,this.order).subscribe(res=>{
-      // this.router.navigate(['/dashboard/', 'allproduct']);
+      this.router.navigate(['/dashboard/', 'allorder']);
       console.log(res)
     })
   }

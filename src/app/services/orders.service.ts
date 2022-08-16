@@ -38,5 +38,7 @@ export class OrdersService {
   getCopoun(data: any){
     return this.http.post('http://127.0.0.1:8000/api/getCopoun',data);
   }
-
+  filterbystatus(data: any){
+    return this.http.post('http://127.0.0.1:8000/api/filterbystatus',data); 
+  }
 }

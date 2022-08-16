@@ -1,3 +1,29 @@
+
+
+<div class="container-fluid">
+	<div class="row">
+	<aside class="col-md-3">
+    
+
+</aside>
+<main class="col-md-12">
+    <header class="border-bottom mb-4 pb-3">
+            <div class="form-inline">   
+                <label for="" class="me-2">Sort by: </label>
+                <select (change)="getstatus($event)" class="mr-2 form-select w-25" name="status">
+                    <option>change the order status</option>
+                    <option value="pending">pending</option>
+                    <option value="confirmed">confirmed</option>
+                    <option value="shipped">shipped</option>
+                    <option value="delivered">delivered</option>
+                    <option value="cancelld">cancelled</option>
+                </select>
+           
+            </div>
+    </header>
+    </main>
+</div>
+</div> 
 <section class="section mt-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -38,7 +64,9 @@
                             
 
                             <td>
-                            <td> <a routerLink="edit/{{order.id}}"><i class='fa-solid fa-pencil'></i>
+                            <td> <a *ngIf="(order.status === 'pending' || order.status === 'confirmed'
+                                || order.status ==='shipped')"
+                                 routerLink="edit/{{order.id}}"><i class='fa-solid fa-pencil'></i>
                                 </a></td>
                            
                         </tr>

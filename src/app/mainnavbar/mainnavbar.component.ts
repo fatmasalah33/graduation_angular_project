@@ -12,8 +12,11 @@ import { RegisterService } from '../services/register.service';
 export class MainnavbarComponent implements OnInit {
   isLogin:boolean =false;
   isAdmin:boolean =false;
+  isSeller:boolean =false;
+ 
   logeduser:any
   userid:any;
+  isnotnull:boolean =false;
   totalprice:number=0
   keyword:any
   products:Array<any> = [];
@@ -45,9 +48,21 @@ export class MainnavbarComponent implements OnInit {
          console.log(this.username)
         if(this.logeduser.user_type=='buyer'){
           this.isLogin = true;
+          this.isSeller = false;
+          this.isAdmin = false;
+          this.isnotnull=true
         }
         if(this.logeduser.user_type=='admin'){
           this.isAdmin = true;
+          this.isSeller = false;
+          this.isLogin = false;
+          this.isnotnull=true
+        }
+        if(this.logeduser.user_type=='seller'){
+          this.isSeller = true;
+          this.isAdmin = false;
+          this.isLogin = false;
+          this.isnotnull=true
         }
         this.router.navigate([this.currentUrl]);
         console.log(this.currentUrl); 
@@ -56,7 +71,10 @@ export class MainnavbarComponent implements OnInit {
       }
       else
       {
+        this.isnotnull=false
+        this.isAdmin = false;
         this.isLogin = false;
+        this.isSeller = false;
         this.username='';
       }
 

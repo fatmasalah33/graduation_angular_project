@@ -21,10 +21,13 @@
               <li ><a routerLink="userprofile" class="dropdown-item" *ngIf="isLogin" ><i class="fa-regular fa-user me-3"></i>My Account</a></li>
               <li><a routerLink="userprofile/myorders" class="dropdown-item"><i class="fa-solid fa-box me-3"></i>Orders</a></li>
               <li><a routerLink="userprofile/Wishlist" class="dropdown-item" ><i class="fa-regular fa-heart me-3"></i>Saved Items</a></li>
+            <li><a *ngIf="isAdmin"   class="dropdown-item text-center" style="color: #f2acbe;" routerLink="dashboard">log to admin dashboard</a></li>
+              <li><a *ngIf="isSeller"   class="dropdown-item text-center" style="color: #f2acbe;" routerLink="seller" >log to seller dashboard</a></li>
               <li *ngIf="isLogin"><hr class="dropdown-divider"></li>
-              <li><a *ngIf="isLogin"  (click)='logOut()' class="dropdown-item text-center" style="color: #f2acbe;" >LOGOUT</a></li>
+             
+              <li><a *ngIf="isnotnull"  (click)='logOut()' class="dropdown-item text-center" style="color: #f2acbe;" >LOGOUT</a></li>
               
-            </ul>
+               </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

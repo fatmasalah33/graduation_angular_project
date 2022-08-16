@@ -22,7 +22,7 @@ export class SellerGuard implements CanActivate {
       }
      else
      {
-       this._Router.navigate(['/login']);
+       this._Router.navigate(['/signin']);
        return false;
      }
   }
