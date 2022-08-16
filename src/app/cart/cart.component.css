@@ -297,3 +297,20 @@ border-bottom: none !important;
 	background-color: transparent !important;
 	color:#443298;
 }
+.outofstock{
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  color: gray;
+}
+.outofstock-badge{
+  background-color: gray;
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
