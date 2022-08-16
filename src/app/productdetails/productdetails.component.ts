@@ -123,6 +123,8 @@ saveditem=new Wishlsit();
   updateqty = new Cart();
  
   insertincart(event: any,item:any){
+    this.count++
+    this._CartService.setCartCount(this.count)
     console.log( event.target.parentNode.lastChild)
     // event.target.style.display='none'
     console.log(this.cart)
@@ -164,6 +166,7 @@ this.cart[i].quantity++;
       this.gettotal()
   });
   }
+ 
  }
  addtowhishlist(ietm:any,e:any){
 // e.target.style.backgroundColor='red'
@@ -195,7 +198,7 @@ if (!this.ietmExists) {
 }
 gettotalitem(){
   this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
-  this.count=data[0].count;
+    this._CartService.setCartCount(data[0].count)
   console.log(this.count)
   })
 }

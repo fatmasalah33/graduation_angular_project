@@ -28,7 +28,8 @@ export class MainnavbarComponent implements OnInit {
   logOut()
   {
     this._RegisterService.logOut();
-    
+    this._CartService.cartCount.next(0);
+    localStorage.removeItem('cart_count');
   }
   currentUrl = this.router.url;
   ngOnInit(): void {
@@ -60,13 +61,19 @@ export class MainnavbarComponent implements OnInit {
       }
 
      })
- 
+ this._CartService.cartCount.subscribe((data: any)=>
+ {
+  console.log(data)
+ this.count=data
+ }
+ )
       this.gettotalitem()
       this.gettotal()
   }
   gettotalitem(){
     this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
-    this.count=data[0].count;
+    // this.count=data[0].count;
+    this._CartService.setCartCount(data[0].count)
     console.log(this.count)
     })
   }

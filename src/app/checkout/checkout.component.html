@@ -79,7 +79,11 @@
                              <label for="payment3" class="form-label mb-1"><img src="../../assets/images/PNg24.png" alt="">Pay by card</label>
                             </button>
                             </h2>
-                            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                            <!-- <button class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  (click)="setpayment_id" > -->
+                            <ngx-paypal [config]="payPalConfig"  >
+                              <!-- <input  type="radio" formControlName="payment_id" id="payment2" value="3"> -->
+                            </ngx-paypal>
+                            <!-- </button> -->
                             <!-- <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                               <div class="accordion-body">
                                 cart paymentttt ya eman -------------tmam ya khloud
