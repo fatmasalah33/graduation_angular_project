@@ -86,7 +86,7 @@
         
       <div class="card my-4 ">
         <div class="bg-pink rounded-top p-3 pb-0">
-          <a routerLink="" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
+          <a [routerLink]="['/sale']" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
           <h4> Sale | Up to 75% Off</h4>
         </div>
       <div class="row">
@@ -97,7 +97,7 @@
             <!--products-->
             <div class="row p-2">
               <div class="col-md-2 col-sm-6" *ngFor="let product of productOffered ; let i = index">
-                  <div class="product-grid">
+                  <div class="product-grid" *ngIf="i<6">
                       <div class="product-image">
                           <a href="#" class="image">
                               <img [src]="pathimage+product.products[0].image">
@@ -134,7 +134,7 @@
               <!--products-->
               <div class="row">
                 <div class="col-md-2 col-sm-6" *ngFor="let product of bestSeller  ; let i = index">
-                    <div class="product-grid">
+                    <div class="product-grid" *ngIf="i<6">
                         <div class="product-image">
                             <a href="#" class="image">
                                 <img [src]="pathimage+product.products[0].image">
@@ -507,7 +507,7 @@
         </div>
         </section>
       <!--specific category sale-->
-      <section>
+      <!-- <section>
         
         <div class="card my-4 ">
           <div class="bg-pink rounded-top p-3 pb-0">
@@ -519,7 +519,7 @@
             <div class="card-block">
                 
                
-              <!--products-->
+            
               <div class="row p-2">
                 <div class="col-md-2 col-sm-6" *ngFor="let product of productOffered ; let i = index">
                     <div class="product-grid">
@@ -543,12 +543,12 @@
                 
                 
             </div>
-              <!--end of products-->
+          
             </div>
           </div>
         </div>
         </div>
-        </section>
+        </section> -->
   
       <!--specific category sale-->
       <section *ngFor="let cat of allcats ; let i = index">

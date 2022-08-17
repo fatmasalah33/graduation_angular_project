@@ -57,6 +57,7 @@ import { AlloffersellerComponent } from './seller/allofferseller/allofferseller.
 import { ProfileComponent } from './seller/profile/profile.component';
 import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
 import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
+import { SaleComponent } from './sale/sale.component';
 
 
 const routes: Routes = [
@@ -65,6 +66,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent},
   { path: 'categorypage/:name/:id', component: CategorypageComponent },
   { path: 'parentcategory', component: ParentcategoryComponent },
+  { path: 'sale', component: SaleComponent },
   { path: 'signin/register', component: RegisterComponent },
   { path: 'verificationcode' , component:VerificationCodeComponent},
   { path: 'cart', component: CartComponent, canActivate:[AuthGuardGuard] },

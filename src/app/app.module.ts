@@ -74,6 +74,7 @@ import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.
 import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 
 import { NgxPayPalModule } from 'ngx-paypal';
+import { SaleComponent } from './sale/sale.component';
 
 
 
@@ -145,6 +146,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 
         CheckoutsellerComponent,
         EditoffersellerComponent,
+        SaleComponent,
 
 
 
