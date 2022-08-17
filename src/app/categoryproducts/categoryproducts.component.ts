@@ -115,12 +115,16 @@ this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
     }
     this.filter.price.max=parseInt(e.target.value)
   }
+  newArr : Array<any> = [];
   getallcategories(){
    
     this._CatogeryService.getsubCategory(this.id).subscribe((data : any) => {
       this.categories =data.subcat.categories ;
       this.products =data.products ;
       this.brands=data.brand
+      console.log(this.products)
+   
+      console.log(this.newArr)
       this.categories.forEach(element => {
         this.subcat.push(element.id)
       });
@@ -129,6 +133,21 @@ this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
        console.log(this.brands[0])
       });
       this.filter.id=this.subcat
+  
+    console.log(this.products)
+  
+  }
+  getsort(event: any){
+    console.log(event.target.value)
+    if(event.target.value==1){
+    this.newArr = this.products.sort(function (a, b) {
+      return a.price - b.price;
+    })}
+    else if(event.target.value==2){
+      this.newArr = this.products.sort(function (a, b) {
+        return  b.price - a.price;
+      })}
+   
   }
   getallproducts(){
     // this.productsService.getProductsList().subscribe((data : any) => {

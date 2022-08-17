@@ -79,6 +79,19 @@ filter=new Filter();
       console.log(this.filter)
     })
   }
+  newArr : Array<any> = [];
+  getsort(event: any){
+    console.log(event.target.value)
+    if(event.target.value==1){
+    this.newArr = this.products.sort(function (a, b) {
+      return a.price - b.price;
+    })}
+    else if(event.target.value==2){
+      this.newArr = this.products.sort(function (a, b) {
+        return  b.price - a.price;
+      })}
+   
+  }
   //  document.querySelectorAll('')
   // numInputs.forEach(function(input) {
   //   input.addEventListener('change', function(e) {

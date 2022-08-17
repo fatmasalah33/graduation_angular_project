@@ -57,6 +57,7 @@ export class RegisterService {
       this.currentType.next('')
       this.currentUsers.next(null);
       localStorage.removeItem('userData');
+      localStorage.removeItem('userRole');
       this.loginuser(this.y )
 
       this._Router.navigate(['/signin']);

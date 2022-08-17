@@ -33,7 +33,8 @@ email: string = ''
         // this.registerService.settusername(data.user.name)
         console.log( this.registerService.getloginuser())
     
-        this.router.navigate(['/']);  
+        // this.router.navigate(['/']);  
+        window.location.href="http://localhost:4200"
        
       }
       else if(data.error === "Unauthorized")

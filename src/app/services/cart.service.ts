@@ -19,7 +19,6 @@ export class CartService {
     }
    }
   setCartCount(count: number) {
-    // encapsulate with logic to set local storage
     localStorage.setItem("cart_count", JSON.stringify(count));
     this.count=count
     this.cartCount.next(count);
