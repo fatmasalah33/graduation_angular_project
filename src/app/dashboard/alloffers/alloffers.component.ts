@@ -38,13 +38,28 @@ export class AlloffersComponent implements OnInit {
   getalloffers(){
     this.offersService.getAllOffers(this.userid).subscribe((res : any) => {
       this.offers =res ;
-      console.log(res.data.offeres)
+    
       });
   }
   deleteoffer(id: any){
     this.offersService.deleteoffer(id).subscribe(data => {
       this.getalloffers()
       });
+
+  }
+  getoffer(event: any){
+    console.log(event.target.value)
+    if(event.target.value == 1){
+this.offersService.continuesoffer(this.userid).subscribe((res: any)=>{
+  this.offers =res ;
+ 
+})
+    }else if(event.target.value == 2){
+      this.offersService.expiredoffers(this.userid).subscribe((res: any)=>{
+        this.offers =res ;
+     
+      })
+    }
 
   }
 }

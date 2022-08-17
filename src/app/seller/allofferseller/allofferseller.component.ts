@@ -49,4 +49,19 @@ export class AlloffersellerComponent implements OnInit {
       });
 
   }
+  getoffer(event: any){
+    console.log(event.target.value)
+    if(event.target.value == 1){
+this.offersService.continuesoffer(this.userid).subscribe((res: any)=>{
+  this.offers =res ;
+ 
+})
+    }else if(event.target.value == 2){
+      this.offersService.expiredoffers(this.userid).subscribe((res: any)=>{
+        this.offers =res ;
+     
+      })
+    }
+
+  }
 }

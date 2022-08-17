@@ -13,13 +13,22 @@ export class RegisterService {
   logeduser:any
   localarry: Array<any> = [];
   currentUsers =  new BehaviorSubject(null);
+  currentType =  new BehaviorSubject('');
+  y:any
+  storagerole:any;
   constructor(private http: HttpClient , private _Router:Router ) { 
     if(localStorage.getItem('userData')){
       this.x=localStorage.getItem('userData')
+      this.y=JSON.parse(this.x)
     this.loginuser(JSON.parse(this.x))
     // this.localarry=JSON.parse(this.x)
     // console.log(JSON.parse(this.x).token)
       this.currentUsers.next(  JSON.parse(this.x)  )
+  
+    }
+    if(localStorage.getItem('userRole')){
+      this.storagerole=localStorage.getItem('userRole')
+      this.currentType.next(JSON.parse(this.storagerole))
     }
   }
   insertdate(data: any):Observable<any>{
@@ -36,13 +45,16 @@ export class RegisterService {
     this.user = new userData(id,name , email , token,address,phone,type);
 
     localStorage.setItem('userData' ,JSON.stringify(this.user) );
+    localStorage.setItem('userRole' ,JSON.stringify(type) );
     this.loginuser(this.user)
     this.currentUsers.next(this.user);
+    this.currentType.next(type)
    
   }
-  y:any=null;
+
   logOut()
   {
+      this.currentType.next('')
       this.currentUsers.next(null);
       localStorage.removeItem('userData');
       this.loginuser(this.y )
@@ -57,6 +69,7 @@ export class RegisterService {
   }
   
   loginuserrole(){
+    this.logeduser= this.getloginuser()
     return this.logeduser.user_type
     
     

@@ -37,8 +37,8 @@ export class MainnavbarComponent implements OnInit {
   currentUrl = this.router.url;
   ngOnInit(): void {
     this._RegisterService.currentUsers.subscribe((data:any)=>{
-      console.log(data)
-
+      console.log(this._RegisterService.currentType.getValue())
+console.log(this._RegisterService.getloginuser())
       if(data  )
       {
         this.logeduser= this._RegisterService.getloginuser()

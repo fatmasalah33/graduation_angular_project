@@ -27,4 +27,10 @@ export class OffersService {
   getAllOffers(id:any){
     return this.http.get('http://127.0.0.1:8000/api/getAllOffers/'+id);
   }
+  expiredoffers(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/endedoffer/'+id);
+  }
+  continuesoffer(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/workoffer/'+id);
+  }
 }
