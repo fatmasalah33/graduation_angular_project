@@ -111,6 +111,7 @@ this.cart[i].quantity++;
   getallsaveitem(){
     this._WishlistService.getData(this.userid).subscribe((data : any) => {
       this.savearray =data.data.wishlist;
+      console.log(data)
       
       }); 
   }
