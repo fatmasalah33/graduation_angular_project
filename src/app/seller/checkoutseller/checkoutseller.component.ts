@@ -42,7 +42,7 @@ export class CheckoutsellerComponent implements OnInit {
   getallproducts(){
     this.productsService.getMoney(this.userid).subscribe((data : any) => {
       this.products =data ;
-      this.totalRecords=data.products.order_detailslength
+      this.totalRecords=data.products.order_details.length
       console.log(data)
       });
   }
