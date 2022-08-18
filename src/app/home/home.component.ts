@@ -68,6 +68,7 @@ saveditem=new Wishlsit();
     this.mainCategory()
     this.allcat()
   }
+
   allcat(){
     this._CatogeryService.allcat().subscribe((data : any)=>{
       console.log(data)

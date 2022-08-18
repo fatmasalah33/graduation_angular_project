@@ -64,8 +64,8 @@ console.log(this._RegisterService.getloginuser())
           this.isLogin = false;
           this.isnotnull=true
         }
-        this.router.navigate([this.currentUrl]);
-        console.log(this.currentUrl); 
+        // this.router.navigate([this.currentUrl]);
+        // console.log(this.currentUrl); 
      
         
       }
@@ -103,15 +103,23 @@ console.log(this._RegisterService.getloginuser())
   }
   getcatsearch(e:any){
     this.keyword=e.target.value
-    
-    if(this.keyword.length==0){
-      console.log(this.keyword.length)
-    }else{
+    console.log(e.target.value)
+    // if(this.keyword.length==0){
+    //   console.log(this.keyword.length)
+    // }else{
     this._ProductsService.getDatasearch(this.keyword).subscribe((data: any)=>{
       console.log(data.data.products)
       this.products=data.data.products
       console.log(this.products)
-    })}
+    })
   
+  }
+  search(searchForm:any){
+    console.log(searchForm.value)
+    this._ProductsService.getId(searchForm.value).subscribe((data: any)=>{
+      console.log(data)
+      // [routerLink]="['/productdetails' , product.id]"
+      this.router.navigate(['/productdetails' , data.id]);
+    })
   }
 }

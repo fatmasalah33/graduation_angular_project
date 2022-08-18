@@ -1,12 +1,27 @@
 <nav class="navbar navbar-expand-lg bg-white sticky-top">
     <div class="container">
-      <a class="navbar-brand me-5" href="#">LOREM</a>
+      <a class="navbar-brand me-5" href="#">Moda</a>
       <button class="navbar-toggler text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-dark border-0"><i class="fa-solid fa-bars"></i></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="d-flex row w-100" role="search">
-          <input class="form-control me-2 col-9" type="search" placeholder="Search products, brands and categories" aria-label="Search">
+        <form class="d-flex row w-100" role="search" 
+        #searchForm="ngForm" (ngSubmit)="search(searchForm)" >
+          <input
+           (change)="getcatsearch($event)"
+          name="name"
+          ngModel
+ 
+          #name="ngModel"
+           list="datalistOptions"
+           id="exampleDataList"
+            class="form-control fromStyle  me-2 col-9"
+             type="search" placeholder="Search products, brands and categories" aria-label="Search">
+          <datalist id="datalistOptions">
+            <option *ngFor="let product of products ; let i = index" 
+            [value]="product.name">
+             {{product.name}} </option>
+          </datalist>
           <button class="btn btn-pink text-white col-2" type="submit">SEARCH</button>
         </form>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
