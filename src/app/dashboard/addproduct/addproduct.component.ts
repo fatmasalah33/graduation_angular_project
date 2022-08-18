@@ -6,6 +6,7 @@ import { FormGroup , FormBuilder, Validators} from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { CatogeryService } from 'src/app/services/catogery.service';
 import { RegisterService } from 'src/app/services/register.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -17,7 +18,7 @@ export class AddproductComponent implements OnInit {
   logeduser:any
   userid:any;
   constructor(public fb:FormBuilder, private productsService :ProductsService
-    ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
+   ,private toastr: ToastrService ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
       this.registerService.currentUsers.subscribe((data)=>{
         console.log(data)
   
@@ -96,6 +97,7 @@ export class AddproductComponent implements OnInit {
 
     this.productsService.insertdate(formData).subscribe(data => {
       this.router.navigate(['/dashboard/', 'allproduct']);
+      this.toastr.success('The product has been successfully added');
       console.log('f')
       });
     //  console.log(this.form.value);

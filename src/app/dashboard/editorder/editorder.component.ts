@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { OrdersService } from 'src/app/services/orders.service';
 
 import { Order } from './../../order';
@@ -13,7 +14,7 @@ export class EditorderComponent implements OnInit {
   data:any;
   order=new Order()
  
-  constructor(private orderService :OrdersService,private activatedRoute: ActivatedRoute,private router: Router) { }
+  constructor(private toastr: ToastrService,private orderService :OrdersService,private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
     // this.order.status="change the order status"
@@ -31,6 +32,7 @@ export class EditorderComponent implements OnInit {
     console.log(this.order)
     this.orderService.updateOrders(this.id,this.order).subscribe(res=>{
       this.router.navigate(['/dashboard/', 'allorder']);
+      this.toastr.warning('The order Status has been successfully update');
       console.log(res)
     })
   }

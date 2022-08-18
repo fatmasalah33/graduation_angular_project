@@ -51,7 +51,7 @@ export class RegisterService {
     this.currentType.next(type)
    
   }
-
+ 
   logOut()
   {
       this.currentType.next('')

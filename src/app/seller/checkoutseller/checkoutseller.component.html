@@ -25,7 +25,10 @@
                              
                             </tr>
                         </thead>
-                        <tr class="text-center" *ngFor="let product of products.order_details ; let i = index">
+                        <tr class="text-center" *ngFor="let product of products.order_details |paginate: { id: 'listing_pagination',
+                        itemsPerPage: 4,
+                        currentPage: page,
+                        totalItems: totalRecords}">
                           <th >{{product.product_id}}</th>
                           <td>{{product.quantity}}</td>
                           <td>{{product. created_at}}</td>
@@ -46,3 +49,7 @@
         </div>
         </div>
         </section>
+        <div class="text-center">
+          <pagination-controls class="my-pagination" id="listing_pagination"
+          (pageChange)="page = $event"></pagination-controls>
+        </div>

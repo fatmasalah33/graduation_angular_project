@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Catogery } from 'src/app/category';
 import { CatogeryService } from 'src/app/services/catogery.service';
 
@@ -13,7 +14,8 @@ category=new Catogery();
 categories : Array<any> = [];
 logeduser:any
 userid:any;
-  constructor(private _CatogeryService:CatogeryService,private router: Router) { }
+  constructor(private _CatogeryService:CatogeryService
+    ,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getallcategories()
@@ -27,6 +29,7 @@ userid:any;
   insertdate(){
     this._CatogeryService.insertdate(this.category).subscribe(data => {
       this.router.navigate(['/dashboard/', 'allcatogery']);
+      this.toastr.success('The catoegory has been successfully added');
       console.log('ok')
       });
     

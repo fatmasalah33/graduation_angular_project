@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-allproducts',
   templateUrl: './allproducts.component.html',
@@ -12,8 +13,10 @@ export class AllproductsComponent implements OnInit {
   products : Array<any> = [];
   logeduser:any
   userid:any;
+  totalRecords: number | undefined; 
+  page: number = 1
   constructor(private productsService :ProductsService,private activatedRoute: ActivatedRoute
-    ,private registerService :RegisterService) { }
+    ,private registerService :RegisterService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.registerService.currentUsers.subscribe((data)=>{
@@ -39,12 +42,14 @@ export class AllproductsComponent implements OnInit {
   getallproducts(){
     this.productsService.getProductsListuser(this.userid).subscribe((data : any) => {
       this.products =data.data.products ;
+      this.totalRecords=data.data.products.length
       console.log(data.data.products)
       });
   }
   deleteproduct(id: any){
     this.productsService.deleteproduct(id).subscribe(data => {
       this.getallproducts()
+      this.toastr.error('The product has been successfully delete');
       });
 
   }

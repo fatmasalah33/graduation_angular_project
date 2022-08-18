@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CatogeryService } from 'src/app/services/catogery.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { CatogeryService } from 'src/app/services/catogery.service';
 })
 export class AllcatogeryComponent implements OnInit {
   categories : Array<any> = [];
-  constructor(private _CatogeryService:CatogeryService ) { }
+  totalRecords: number | undefined; 
+  page: number = 1
+  constructor(private _CatogeryService:CatogeryService ,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getallcategories()
@@ -16,12 +19,14 @@ export class AllcatogeryComponent implements OnInit {
   getallcategories(){
     this._CatogeryService.getcategoriesList().subscribe((data : any) => {
       this.categories =data.data.categories ;
+      this.totalRecords=data.data.categories.length
       console.log(data.data.categories)
       });
   }
   deletecategory(id: any){
     this._CatogeryService.deletecategory(id).subscribe(data => {
       this.getallcategories()
+      this.toastr.error('The category has been successfully delete');
       });
 
   }

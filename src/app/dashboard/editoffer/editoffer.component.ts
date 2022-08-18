@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Offer } from 'src/app/offer';
 import { OffersService } from 'src/app/services/offers.service';
 
@@ -13,7 +14,7 @@ export class EditofferComponent implements OnInit {
   form : FormGroup ;
   offer=new Offer()
   id: any;
-  constructor(public fb:FormBuilder,private activatedRoute: ActivatedRoute, private offerService :OffersService,private router: Router) { 
+  constructor(private toastr: ToastrService,public fb:FormBuilder,private activatedRoute: ActivatedRoute, private offerService :OffersService,private router: Router) { 
     this.form = this.fb.group({
 
       end_at :null,
@@ -36,6 +37,8 @@ this.offerService.getData(this.id).subscribe((data:any)=>{
 }
 updatedate(){
 this.offerService.updateoffer(this.id,this.offer).subscribe((data : any)=>{
+  this.router.navigate(['/dashboard/', 'alloffer']);
+  this.toastr.warning('The offer has been successfully update');
   console.log(data)
 })
 }

@@ -12,6 +12,8 @@ export class NotVerifiedProductComponent implements OnInit {
   userid:any;
   products : Array<any> = [];
   pathimage:any="http://127.0.0.1:8000/public/image/";
+  totalRecords: number | undefined; 
+  page: number = 1
   constructor(private productsService :ProductsService,private registerService :RegisterService) {
     this.registerService.currentUsers.subscribe((data)=>{
       console.log(data)
@@ -44,6 +46,7 @@ export class NotVerifiedProductComponent implements OnInit {
   getallproducts(){
     this.productsService.notVerifiedProduct_seller(this.userid).subscribe((data : any) => {
        this.products =data.data.products ;
+       this.totalRecords=data.data.products.length
       console.log(data)
       });
   }

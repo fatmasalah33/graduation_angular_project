@@ -23,7 +23,10 @@
                               <th colspan="3">Action</th>
                             </tr>
                         </thead>
-                        <tr class="text-center" *ngFor="let product of products ; let i = index">
+                        <tr class="text-center" *ngFor="let product of products |paginate: { id: 'listing_pagination',
+                        itemsPerPage: 4,
+                        currentPage: page,
+                        totalItems: totalRecords}">
                           <th >{{product.id}}</th>
                           <td>{{product.name}}</td>
                           <td>{{product.price}} L.E</td>
@@ -35,8 +38,7 @@
                           <td><img style="width:50px ; height:50px;" [src]="pathimage+product.image"></td>
                          
                           <td>
-                           <td> <a routerLink="edit/{{product.id}}"><i class='fa-solid fa-pencil'></i>
-                                </a></td>
+                         
                           <td> <a (click)="deleteproduct(product.id)">
                           <i class='fa-solid fa-trash text-danger'></i>  
                           </a></td>
@@ -48,3 +50,7 @@
         </div>
         </div>
         </section>
+        <div class="text-center">
+          <pagination-controls class="my-pagination" id="listing_pagination"
+          (pageChange)="page = $event"></pagination-controls>
+        </div>

@@ -13,6 +13,8 @@ export class CheckoutsellerComponent implements OnInit {
   products : any;
   logeduser:any
   userid:any;
+  totalRecords: number | undefined; 
+  page: number = 1
   constructor(private productsService :ProductsService,private activatedRoute: ActivatedRoute
     ,private registerService :RegisterService) { }
 
@@ -40,6 +42,7 @@ export class CheckoutsellerComponent implements OnInit {
   getallproducts(){
     this.productsService.getMoney(this.userid).subscribe((data : any) => {
       this.products =data ;
+      this.totalRecords=data.products.order_detailslength
       console.log(data)
       });
   }

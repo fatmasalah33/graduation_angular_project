@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
 import { Status } from 'src/app/status';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-allorders',
   templateUrl: './allorders.component.html',
@@ -11,7 +12,9 @@ import { Status } from 'src/app/status';
 export class AllordersComponent implements OnInit {
   orders : Array<any> = [];
   status=new Status()
-  constructor(private orderService :OrdersService,private activatedRoute: ActivatedRoute) { 
+  totalRecords: number | undefined; 
+  page: number = 1
+  constructor(private orderService :OrdersService,private activatedRoute: ActivatedRoute,private toastr: ToastrService) { 
 
   }
 
@@ -31,6 +34,7 @@ console.log(this.status)
 this.orderService.filterbystatus(this.status).subscribe((data : any)=>{
 console.log(data)
 this.orders =data.data ;
+this.totalRecords=data.data.length
 })
   }
 }

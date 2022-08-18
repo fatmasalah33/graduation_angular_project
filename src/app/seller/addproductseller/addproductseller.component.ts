@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/product';
 import { CatogeryService } from 'src/app/services/catogery.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -17,7 +18,7 @@ export class AddproductsellerComponent implements OnInit {
   categories : Array<any> = [];
   logeduser:any
   userid:any;
-  constructor(public fb:FormBuilder, private productsService :ProductsService
+  constructor(public fb:FormBuilder, private productsService :ProductsService,private toastr: ToastrService
     ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
       this.registerService.currentUsers.subscribe((data)=>{
         console.log(data)
@@ -95,6 +96,7 @@ export class AddproductsellerComponent implements OnInit {
 
     this.productsService.insertdate(formData).subscribe(data => {
       this.router.navigate(['/seller/', 'notVerifiedProduct']);
+      this.toastr.success('The product has been successfully added');
       console.log('f')
       });
     //  console.log(this.form.value);

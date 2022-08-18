@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Offer } from 'src/app/offer';
 import { OffersService } from 'src/app/services/offers.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -19,7 +20,7 @@ export class AddoffersellerComponent implements OnInit {
   logeduser:any
   userid:any;
   constructor(public fb:FormBuilder, private offerService :OffersService,private router: Router
-    ,private registerService :RegisterService,private productsService :ProductsService) { 
+    ,private registerService :RegisterService,private productsService :ProductsService,private toastr: ToastrService) { 
     this.form = this.fb.group({
 
       end_at :null,
@@ -66,6 +67,7 @@ export class AddoffersellerComponent implements OnInit {
 
     this.offerService.insertdate(formData).subscribe(data => {
       this.router.navigate(['/seller/', 'alloffer']);
+      this.toastr.success('The offer has been successfully added');
       console.log('f')
       });
     //  console.log(this.form.value);

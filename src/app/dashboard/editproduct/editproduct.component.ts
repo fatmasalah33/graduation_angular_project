@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from '../../product';
 @Component({
@@ -11,7 +12,8 @@ export class EditproductComponent implements OnInit {
   id:any;
   data:any;
   product=new Product()
-  constructor(private productsService :ProductsService,private activatedRoute: ActivatedRoute,private router: Router) { }
+  constructor(private productsService :ProductsService,
+    private toastr: ToastrService ,private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.activatedRoute.snapshot.params['id']);
@@ -27,6 +29,7 @@ export class EditproductComponent implements OnInit {
   updateproduct(){
     this.productsService.updateproduct(this.id,this.product).subscribe(res=>{
       this.router.navigate(['/dashboard/', 'allproduct']);
+      this.toastr.warning('The product has been successfully update');
       console.log(res)
     })
   }

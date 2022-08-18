@@ -1,8 +1,30 @@
 
 
 
+<div class="container-fluid">
+	<div class="row">
+	<aside class="col-md-3">
+    
 
-<section class="section mt-5">
+</aside>
+<main class="col-md-12">
+    <header class="border-bottom mb-4 pb-3">
+            <div class="form-inline">   
+                <label for="" class="me-2">Sort by: </label>
+                <select (change)="getrole($event)" class="mr-2 form-select w-25" name="status">
+                    <option>filter by the roles</option>
+                    <option value="users">users</option>
+                    <option value="admin">admin </option>
+                    <option value="sellers">sellers</option>
+                
+                </select>
+           
+            </div>
+    </header>
+    </main>
+</div>
+</div> 
+<section class="section">
     <div class="container">
       <div class="row justify-content-center">
       </div>
@@ -27,7 +49,10 @@
                               
                             </tr>
                         </thead>
-                        <tr class="text-center" *ngFor="let user of users ; let i = index">
+                        <tr class="text-center" *ngFor="let user of users  |paginate: { id: 'listing_pagination',
+                        itemsPerPage: 5,
+                        currentPage: page,
+                        totalItems: totalRecords}">
                           <th >{{user.id}}</th>
                           <th >{{user.name}}</th>
                           <td>{{user.emai}} </td>
@@ -48,94 +73,8 @@
         </div>
         </section>
 
-
-        <section class="section mt-5">
-            <div class="container">
-              <div class="row justify-content-center">
-              </div>
-                <div class="row">
-                    <div class="col-md-12">
-                      <div class=" d-flex  row">
-                        <h1 class=" text-center justify-content-center title fs-1">All  Sellers</h1>
-                       
-                       
-                      </div>
-                      <div class="table-wrap">
-                            <table class="table">
-                                <thead class="thead-primary">
-                                    <tr class="text-center">
-                                      <th>id</th>
-                                      <th>name</th>
-                                      <th>emai</th>
-                                      <th>address</th>
-                                      <th>phone</th>
-                                      
-                                    
-                                      
-                                    </tr>
-                                </thead>
-                                <tr class="text-center" *ngFor="let user of  sellers ; let i = index">
-                                  <th >{{user.id}}</th>
-                                  <th >{{user.name}}</th>
-                                  <td>{{user.emai}} </td>
-                                  <td>{{user.address}}</td>
-                                  <td>{{user.phone}}</td>
-                              
-                                  
-                                 
-                                 
-                                 
-                                
-                             
-                              </tr>
-                                </table>
-                                </div>
-                                </div>
-                </div>
-                </div>
-                </section>
-                <section class="section mt-5">
-                    <div class="container">
-                      <div class="row justify-content-center">
-                      </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                              <div class=" d-flex  row">
-                                <h1 class=" text-center justify-content-center title fs-1">All Admins</h1>
-                               
-                               
-                              </div>
-                              <div class="table-wrap">
-                                    <table class="table">
-                                        <thead class="thead-primary">
-                                            <tr class="text-center">
-                                              <th>id</th>
-                                              <th>name</th>
-                                              <th>emai</th>
-                                              <th>address</th>
-                                              <th>phone</th>
-                                              
-                                            
-                                              
-                                            </tr>
-                                        </thead>
-                                        <tr class="text-center" *ngFor="let user of admins ; let i = index">
-                                          <th >{{user.id}}</th>
-                                          <th >{{user.name}}</th>
-                                          <td>{{user.emai}} </td>
-                                          <td>{{user.address}}</td>
-                                          <td>{{user.phone}}</td>
-                                      
-                                          
-                                         
-                                         
-                                         
-                                        
-                                     
-                                      </tr>
-                                        </table>
-                                        </div>
-                                        </div>
-                        </div>
-                        </div>
-                        </section>
+        <div class="text-center">
+          <pagination-controls class="my-pagination" id="listing_pagination"
+          (pageChange)="page = $event"></pagination-controls>
+        </div>
+      

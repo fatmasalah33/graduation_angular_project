@@ -10,17 +10,43 @@ export class AlluserComponent implements OnInit {
 
   constructor(private _UserService:UserService) { }
   users : Array<any> = [];
-  admins : Array<any> = [];
-  sellers : Array<any> = [];
+
+  totalRecords: number | undefined;
+
+  page: number = 1
   ngOnInit(): void {
     this.getallusers()
   }
   getallusers(){
-    this._UserService.getUserList().subscribe((data : any) => {
-      this.users=data.users ;
-      this.admins=data.admin ;
-      this.sellers=data.sellers ;
-      console.log(data.users)
+    this._UserService.alluser().subscribe((data : any) => {
+      this.users=data ;
+   
+      this.totalRecords=data.length
+
       });
+}
+getrole(event: any){
+if(event.target.value=='users'){
+  this._UserService.getUserList().subscribe((data : any) => {
+    this.users=data.users ;
+ 
+    this.totalRecords=data.users.length
+
+    });
+}else if(event.target.value=='admin'){
+  this._UserService.getUserList().subscribe((data : any) => {
+    this.users=data.admin ;
+ 
+    this.totalRecords=data.admin.length
+    console.log(data.users)
+    });
+}else if(event.target.value=='sellers'){
+  this._UserService.getUserList().subscribe((data : any) => {
+    this.users=data.sellers ;
+ 
+    this.totalRecords=data.sellers.length
+    console.log(data.users)
+    });
+}
 }
 }
