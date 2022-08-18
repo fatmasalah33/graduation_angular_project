@@ -60,6 +60,7 @@ import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.
 import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 import { SaleComponent } from './sale/sale.component';
 import { BestsellerComponent } from './bestseller/bestseller.component';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 
 
 const routes: Routes = [
@@ -82,6 +83,7 @@ const routes: Routes = [
   { path: 'productdetails/:id', component: ProductdetailsComponent },
   { path: 'history', component: RecentlyViewedComponent },
   { path: 'track-order', component: TrackOrderComponent },
+  { path: 'payment-methods', component: PaymentMethodsComponent },
   { path: 'cancel-order', component: CancelOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
