@@ -34,6 +34,8 @@ saveditem=new Wishlsit();
  
 selected_cat: Array<any> = [];
 filter=new Filter();
+totalRecords: number | undefined; // change String ->number
+page: number = 1
   constructor(private productsService :ProductsService,private registerService :RegisterService
     ,private _CartService:CartService,
     private activatedRoute: ActivatedRoute,
@@ -76,6 +78,7 @@ filter=new Filter();
     this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
       console.log(data)
       this.products=data.products
+      this.totalRecords=data.products.length
       console.log(this.filter)
     })
   }
@@ -116,6 +119,7 @@ filter=new Filter();
 this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
   console.log(data)
   this.products=data.products
+  this.totalRecords=data.products.length
 })
   }
   minprice(e: any){
@@ -164,6 +168,7 @@ this.subcat.push(this.id);
     console.log(this.filter)
     this._CatogeryService.filterbycat(this.id).subscribe((data : any)=>{
       this.products =data.data.products ;
+      this.totalRecords=data.data.products.length
       this.brands=data.brand
       console.log(this.brands)
       console.log(data)

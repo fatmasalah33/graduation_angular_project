@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+@import '~ngx-toastr/toastr';
 * {
     font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
     outline:none !important;
@@ -25,4 +26,51 @@ body{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #5a4d97; 
+}
+.toast-container {
+  /* background-image: linear-gradient(purple,red) !important;
+  border-radius: 22px !important; 
+  box-shadow: -5px 8px 16px 0px rgba(0,0,0,0.3) !important;
+  margin-bottom: 2px !important; */
+
+  position: -webkit-sticky;
+  position: sticky;
+ 
+  top: 0px;
+
+
+}
+
+.toast-container .toast {
+  margin: 2px !important;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+  background-color: #fff !important;
+  position: -webkit-sticky;
+  position: sticky;
+ 
+  top: 0px;
+}
+
+.toast-success{
+  background-image: none !important;
+}
+
+.toast-success::after{
+  content: '\f00c' !important;
+  font-family: 'FontAwesome' !important;
+  position: absolute !important;
+  top: 14px !important;
+  left: 15px !important;
+  color: #333 !important;
+  font-size: 1.5em !important;
+}
+
+.toast-title{
+  /* color: purple !important; */
+  font-size: 16px !important;
+}
+
+.toast-message{
+  /* color:#8f8f8f !important; */
 }

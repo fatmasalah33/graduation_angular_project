@@ -251,3 +251,6 @@ a:focus{
     overflow: hidden;
    
 }
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: #443298 ;
+  }

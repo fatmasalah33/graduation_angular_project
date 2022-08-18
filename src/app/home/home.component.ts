@@ -8,7 +8,7 @@ import { ProductsService } from '../services/products.service';
 import { RegisterService } from '../services/register.service';
 import { WishlistService } from '../services/wishlist.service';
 import { Wishlsit } from '../wishlist';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -36,7 +36,8 @@ saveditem=new Wishlsit();
   constructor(private _CatogeryService:CatogeryService ,private _OffersService:OffersService,
     private registerService :RegisterService
     ,private _CartService:CartService,
-    private activatedRoute: ActivatedRoute,private _WishlistService:WishlistService,private productsService :ProductsService ) { }
+    private activatedRoute: ActivatedRoute
+    ,private toastr: ToastrService,private _WishlistService:WishlistService,private productsService :ProductsService ) { }
 
   ngOnInit(): void {
         this.getallproducts()
@@ -168,6 +169,7 @@ this.cart[i].quantity++;
       
       this.productExists = true
       this._CartService. updatecart(this.cart[i].id, this.updateqty).subscribe((res: any)=>{
+        this.toastr.success('The product has been successfully added to the card');
         this.gettotalitem()
         this.gettotal()
         console.log(res);
@@ -179,6 +181,7 @@ this.cart[i].quantity++;
   }
   if (!this.productExists) {
    this._CartService.insertdate(this.cat).subscribe(data => {
+    this.toastr.success('The product has been successfully added to the card');
   this.getallcarts()
   this.gettotalitem()
       this.gettotal()

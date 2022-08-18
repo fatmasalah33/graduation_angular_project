@@ -72,6 +72,7 @@ filter=new Filter();
     this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
       console.log(data)
       this.products=data.products
+      this.totalRecords=data.products.length
       console.log(this.filter)
     })
   }
@@ -99,6 +100,7 @@ filter=new Filter();
 this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
   console.log(data)
   this.products=data.products
+  this.totalRecords=data.products.length
 })
   }
   minprice(e: any){
@@ -116,12 +118,16 @@ this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
     this.filter.price.max=parseInt(e.target.value)
   }
   newArr : Array<any> = [];
+ 
+  totalRecords: number | undefined; // change String ->number
+  page: number = 1
   getallcategories(){
    
     this._CatogeryService.getsubCategory(this.id).subscribe((data : any) => {
       this.categories =data.subcat.categories ;
       this.products =data.products ;
       this.brands=data.brand
+      this.totalRecords=data.products.length
       console.log(this.products)
    
       console.log(this.newArr)
@@ -166,6 +172,7 @@ this.subcat.push(id);
     console.log(this.filter)
     this._CatogeryService.filterbycat(id).subscribe((data : any)=>{
       this.products =data.data.products ;
+      this.totalRecords=data.data.products.length
       this.brands=data.brand
       console.log(this.brands)
       console.log(data)

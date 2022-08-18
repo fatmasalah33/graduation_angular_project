@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { CategoryNavbarComponent } from './category-navbar/category-navbar.component';
 
 import { CategorypageComponent } from './categorypage/categorypage.component';
@@ -45,7 +45,7 @@ import { AlluserComponent } from './dashboard/alluser/alluser.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
-
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 import { CategoryproductsComponent } from './categoryproducts/categoryproducts.component';
 
 import { EditofferComponent } from './dashboard/editoffer/editoffer.component';
@@ -165,7 +165,9 @@ import { BestsellerComponent } from './bestseller/bestseller.component';
     HttpClientModule,
     FormsModule ,
     ReactiveFormsModule,
-    NgxPayPalModule
+    NgxPayPalModule,
+    NgxPaginationModule,
+    ToastNoAnimationModule.forRoot(),
   ],
   providers: [
     {
