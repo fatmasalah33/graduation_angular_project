@@ -1,0 +1,54 @@
+.container{
+    background-color: white;
+}
+h1{
+    background-color: #f2acbe;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+}
+h2{
+    color: #f2acbe;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 33px;
+}
+h6{
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 21px;
+    color: #f2acbe;
+}
+li{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 21px;
+
+}
+span{
+    font-weight: 700;
+}
+div img{
+    
+        max-width: 100%;
+        border-radius:11px ;
+        -webkit-border-radius:11px ;
+        -moz-border-radius:11px ;
+        -ms-border-radius:11px ;
+        -o-border-radius:11px ;
+        
+   
+}
+.cards div{
+    background-color: #F5F5F5;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
