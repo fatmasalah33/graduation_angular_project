@@ -3,7 +3,7 @@
 </div>
 <div class="mx-3 border-bottom mb-2">
     <p class="orderid me-5">Order nº {{order.id}}
-      <a class="btn btn-danger" *ngIf="order.status=='pending'" (click)="cancelldorder(order.id)">
+      <a class="btn btn-danger ms-auto" *ngIf="order.status=='pending'" (click)="cancelldorder(order.id)">
         cancelled order</a> 
     </p>
     <h6>{{order.order_details.length}} Items</h6>
