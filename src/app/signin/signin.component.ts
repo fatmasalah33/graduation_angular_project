@@ -14,14 +14,15 @@ email: string = ''
   password: string = ''
   errorMessage:string ='';
   flag:boolean  = false;
-  
+  isSubmitted:boolean  = false;
   constructor(private registerService :RegisterService,private router: Router) { }
 
   ngOnInit(): void {
   }
   
   handleSubmitForm(loginForm : any){
-    console.log(loginForm);
+    console.log(loginForm.invalid);
+    this.isSubmitted = true;
     this.registerService.login(loginForm.value).subscribe(data => {
       console.log(data)
     //  this.router.navigate(['/']);
@@ -37,14 +38,12 @@ email: string = ''
         window.location.href="http://localhost:4200"
        
       }
-      else if(data.error === "Unauthorized")
-      {  this.flag = true;
-        // this.errorMessage = data.message;
-        console.log('this.flag')
-        
-      }
       },err=>{
-        this.flag = true;
+        console.log(err.error.error)
+        if(!loginForm.invalid){
+          this.flag = true;
+        }
+       
       }
       );
       

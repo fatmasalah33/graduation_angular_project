@@ -23,7 +23,8 @@
               />
               <div
               id="yournameHelp"
-              *ngIf="yourname.touched && yourname.invalid"
+              *ngIf="(yourname.touched && yourname.invalid)|| 
+              (yourname.untouched && isSubmitted)"
               class="form-text text-danger"
             >
               <small *ngIf="yourname?.errors?.['required']"
@@ -45,22 +46,32 @@
                 #email="ngModel"
                 name="email"
                 required
-                pattern='^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$'
+             
                 [(ngModel)]="register.email"
               />
               <div
               id="emailHelp"
-              *ngIf="email.touched && email.invalid"
+              *ngIf="(email.touched && email.invalid)|| 
+              (email.untouched && isSubmitted)"
               class="form-text text-danger"
             >
               <small *ngIf="email?.errors?.['required']"
                 >This field is required</small
               >
             
-              <small *ngIf="email?.errors?.['pattern']"
-                >Please enter a valid email</small
-              >
+           
             </div>
+            <div
+            id="emailHelp"
+            *ngIf="erroremail!=''"
+            class="form-text text-danger"
+          >
+            <small 
+              >{{erroremail}}</small
+            >
+          
+           
+          </div>
             </div>
          
           <div class="mb-3 col-12 col-lg-6">
@@ -76,19 +87,20 @@
               #password="ngModel"
               name="password"
               required
-              minlength="8"
+              minlength="6"
               [(ngModel)]="register.password"
             />
             <div
             id="passwordHelp"
-            *ngIf=" password.touched &&  password.invalid"
+            *ngIf=" (password.touched &&  password.invalid)|| 
+            (password.untouched && isSubmitted)"
             class="form-text text-danger"
           >
             <small *ngIf="password?.errors?.['required']"
               >This field is required</small
             >
             <small *ngIf="password?.errors?.['minlength']"
-              >Min length is 8 characters</small
+              >Min length is 6 characters</small
             >
           
           </div>
@@ -105,6 +117,17 @@
               name="phone"
               [(ngModel)]="register.phone"
             />
+            <div
+            id="phoneHelp"
+            *ngIf="errorphone!=''"
+            class="form-text text-danger"
+          >
+            <small 
+              >{{errorphone}}</small
+            >
+          
+           
+          </div>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label mb-1"
@@ -122,12 +145,28 @@
           
           <div class="mb-3">
             <label class="form-label mb-1">Choose a role:</label>
-            <select name="role" id="role"  class="form-select py-2 px-3" [(ngModel)]="register.role_id">
+            <select name="role" id="role"  class="form-select py-2 px-3"
+              ngModel
+              #role="ngModel"
+             
+              required [(ngModel)]="register.role_id">
               <option value="" readonly>Choose a role</option>
               <option value="3">Buyer</option>
               <option value="2">seller</option>
             </select>
           </div>
+          <div
+          id="roleHelp"
+          *ngIf=" (role.touched &&  role.invalid)|| 
+          (role.untouched && isSubmitted)"
+          class="form-text text-danger"
+        >
+          <small *ngIf="role?.errors?.['required']"
+            >This field is required</small
+          >
+         
+        
+        </div>
           <div class="w-100">
             <button type="submit" class="btn btn-pink py-2 mb-2 mt-2">
               CREATE ACCOUNT

@@ -29,7 +29,7 @@ localarry: Array<any> = [];
             Authorization: "Bearer " + accessToken
         }
     });
-   console.log(accessToken)
+ 
     return next.handle(request);
   }
 }
