@@ -11,8 +11,9 @@
                           <div
                           id="nameHelp"
                           *ngIf="
-                          form.controls['name'].touched &&
-                          form.controls['name'].invalid
+                          (form.controls['name'].touched &&
+                          form.controls['name'].invalid)|| 
+                          (form.controls['name'].untouched && isSubmitted)
                       "
                           class="form-text text-danger"
                         >
@@ -30,8 +31,9 @@
                  <div
                  id="nameHelp"
                  *ngIf="
-                 form.controls['price'].touched &&
-                 form.controls['price'].invalid
+                 (form.controls['price'].touched &&
+                 form.controls['price'].invalid)
+                 || (form.controls['price'].untouched && isSubmitted)
              "
                  class="form-text text-danger"
                >
@@ -51,8 +53,8 @@
                  <div
                  id="nameHelp"
                  *ngIf="
-                 form.controls['description'].touched &&
-                 form.controls['description'].invalid
+                 (form.controls['description'].touched &&
+                 form.controls['description'].invalid) || (form.controls['description'].untouched && isSubmitted)
              "
                  class="form-text text-danger"
                >
@@ -71,8 +73,9 @@
                  <div
                  id="nameHelp"
                  *ngIf="
-                 form.controls['brand'].touched &&
-                 form.controls['brand'].invalid
+                ( form.controls['brand'].touched &&
+                 form.controls['brand'].invalid)
+                 || (form.controls['brand'].untouched && isSubmitted)
              "
                  class="form-text text-danger"
                >
@@ -86,14 +89,25 @@
                   <div class="input-group d-flex flex-column">
                       <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="quantity"  formControlName="quantity">
 
-                 <span></span>
-                  </div>
-                   <div class="input-group d-flex flex-column">
-                      <input class="form-control mb-1 mt-3 w-100"   type="hidden" value="1"  placeholder="user_id" formControlName="user_id" >
-
-                 <span></span>
+                      <div
+                    id="nameHelp"
+                    *ngIf="
+                    (form.controls['quantity'].touched &&
+                    form.controls['quantity'].invalid)
+                    || (form.controls['quantity'].untouched && isSubmitted)
+                "
+                    class="form-text text-danger"
+                  >
+                    <small *ngIf="form.controls['quantity'].errors?.['required']"
+                      >This field is required</small
+                    >
                  
+                    <small *ngIf="form.controls['quantity'].errors?.['pattern']"
+                    > The quantity must be a number</small
+                  >
                   </div>
+                  </div>
+           
                   <div class="input-group d-flex flex-column">
                 <select class='form-select mb-1 mt-3 w-100' formControlName='category_id'>
                           <option selected  >Select a category</option>
@@ -103,8 +117,9 @@
                     <div
                     id="nameHelp"
                     *ngIf="
-                    form.controls['category_id'].touched &&
-                    form.controls['category_id'].invalid
+                    (form.controls['category_id'].touched &&
+                    form.controls['category_id'].invalid)
+                    || (form.controls['category_id'].untouched && isSubmitted)
                 "
                     class="form-text text-danger"
                   >
@@ -122,8 +137,9 @@
                          <div
                          id="nameHelp"
                          *ngIf="
-                         form.controls['image'].touched &&
-                         form.controls['image'].invalid
+                         (form.controls['image'].touched &&
+                         form.controls['image'].invalid)
+                         || (form.controls['image'].untouched && isSubmitted)
                      "
                          class="form-text text-danger"
                        >

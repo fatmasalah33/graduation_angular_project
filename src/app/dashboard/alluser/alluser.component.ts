@@ -26,6 +26,7 @@ export class AlluserComponent implements OnInit {
       });
 }
 getrole(event: any){
+  console.log(event.target.value)
 if(event.target.value=='users'){
   this._UserService.getUserList().subscribe((data : any) => {
     this.users=data.users ;
@@ -34,18 +35,19 @@ if(event.target.value=='users'){
 
     });
 }else if(event.target.value=='admin'){
+  
   this._UserService.getUserList().subscribe((data : any) => {
     this.users=data.admin ;
  
     this.totalRecords=data.admin.length
-    console.log(data.users)
+
     });
 }else if(event.target.value=='sellers'){
   this._UserService.getUserList().subscribe((data : any) => {
     this.users=data.sellers ;
  
     this.totalRecords=data.sellers.length
-    console.log(data.users)
+   
     });
 }
 }

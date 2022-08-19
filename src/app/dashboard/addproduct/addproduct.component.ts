@@ -17,6 +17,7 @@ export class AddproductComponent implements OnInit {
   categories : Array<any> = [];
   logeduser:any
   userid:any;
+  isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder, private productsService :ProductsService
    ,private toastr: ToastrService ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
       this.registerService.currentUsers.subscribe((data)=>{
@@ -48,6 +49,7 @@ export class AddproductComponent implements OnInit {
       brand:['', [Validators.required,
       ]],
       quantity :['', [Validators.required,
+        Validators.pattern('^[0-9]+$')
       ]],
       user_id:this.userid,
       category_id:['', [Validators.required,
@@ -66,9 +68,9 @@ export class AddproductComponent implements OnInit {
     this.getallcategories()
   }
   getallcategories(){
-    this._CatogeryService.getcategoriesList().subscribe((data : any) => {
-      this.categories =data.data.categories ;
-      console.log(data.data.categories)
+    this._CatogeryService.allsubcat().subscribe((data : any) => {
+      this.categories =data.subcat ;
+      console.log(data.data.subcat)
       });
   }
   uploadImage($event:Event){
@@ -81,6 +83,7 @@ export class AddproductComponent implements OnInit {
 
   }
   insertdate(){
+    this.isSubmitted = true;
     // let data = new FormData;
     console.log(this.file)
     console.log(this.file.name)

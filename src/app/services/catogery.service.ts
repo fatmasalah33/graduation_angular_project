@@ -38,4 +38,8 @@ export class CatogeryService {
   allcat() {
     return this.http.get('http://127.0.0.1:8000/api/allcat');
   }
+  allsubcat() {
+    return this.http.get('http://127.0.0.1:8000/api/allsubcat');
+  }
+  
 }
