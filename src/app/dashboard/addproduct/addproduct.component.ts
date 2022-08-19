@@ -43,11 +43,8 @@ export class AddproductComponent implements OnInit {
       price :['', [Validators.required,
         Validators.pattern('^[0-9]+$')
       ]],
-      description:['', [Validators.required,
-       
-      ]],
-      brand:['', [Validators.required,
-      ]],
+      description:[''],
+      brand:[''],
       quantity :['', [Validators.required,
         Validators.pattern('^[0-9]+$')
       ]],
@@ -70,7 +67,7 @@ export class AddproductComponent implements OnInit {
   getallcategories(){
     this._CatogeryService.allsubcat().subscribe((data : any) => {
       this.categories =data.subcat ;
-      console.log(data.data.subcat)
+      console.log(data.subcat)
       });
   }
   uploadImage($event:Event){
@@ -82,8 +79,10 @@ export class AddproductComponent implements OnInit {
         })
 
   }
+  errorimg:string = ''
   insertdate(){
     this.isSubmitted = true;
+
     // let data = new FormData;
     console.log(this.file)
     console.log(this.file.name)
@@ -102,6 +101,14 @@ export class AddproductComponent implements OnInit {
       this.router.navigate(['/dashboard/', 'allproduct']);
       this.toastr.success('The product has been successfully added');
       console.log('f')
+      },err=>{
+        if(!formData.invalid){
+          console.log(err)
+        if(err.error.errors.image){
+          
+this.errorimg=err.error.errors.image
+        }
+      }
       });
     //  console.log(this.form.value);
 

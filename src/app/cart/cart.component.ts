@@ -202,15 +202,21 @@ if (!this.ietmExists) {
 
 }
 }
+outofstok:boolean =false;
 checkout(){
   for (let i=0;i< this.cart.length;i++) {
     if(this.cart[i].product[0].quantity==0){
       alert('the cart is contain product out of stock . please remove it first and checkout again')
+      this.outofstok=true
       break;
     }
   else{
-        this.router.navigate(['/cart','checkout']);
+    this.outofstok=false
+        console.log('bubu')
       }
+    }
+    if(!this.outofstok){
+      this.router.navigate(['/cart','checkout']); 
     }
   }
   // this.cart.forEach(element => {

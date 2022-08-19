@@ -191,6 +191,9 @@ this.subcat.push(id);
   updateqty = new Cart();
  
   insertincart(event: any,item:any){
+    if(this.userid==null){
+      alert('you must login first')
+    }else{
     this.count++
     this._CartService.setCartCount(this.count)
     console.log( event.target.parentNode.lastChild)
@@ -233,7 +236,7 @@ this.cart[i].quantity++;
   this.gettotalitem()
       this.gettotal()
   });
-  }
+  }}
  }
  addtowhishlist(ietm:any,e:any){
 // e.target.style.backgroundColor='red'

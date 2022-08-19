@@ -50,41 +50,13 @@
                       <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="description"  formControlName="description">
 
                  <span></span>
-                 <div
-                 id="nameHelp"
-                 *ngIf="
-                 (form.controls['description'].touched &&
-                 form.controls['description'].invalid) || (form.controls['description'].untouched && isSubmitted)
-             "
-                 class="form-text text-danger"
-               >
-                 <small *ngIf="form.controls['description'].errors?.['required']"
-                   >This field is required</small
-                 >
-               
-              
-           
-               </div>
+          
                   </div>
                   <div class="input-group d-flex flex-column">
                       <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="brand" formControlName="brand">
 
                  <span></span>
-                 <div
-                 id="nameHelp"
-                 *ngIf="
-                ( form.controls['brand'].touched &&
-                 form.controls['brand'].invalid)
-                 || (form.controls['brand'].untouched && isSubmitted)
-             "
-                 class="form-text text-danger"
-               >
-                 <small *ngIf="form.controls['brand'].errors?.['required']"
-                   >This field is required</small
-                 >
-              
-           
-               </div>
+          
                   </div>
                   <div class="input-group d-flex flex-column">
                       <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="quantity"  formControlName="quantity">
@@ -149,6 +121,17 @@
                       
                    
                        </div>
+                       <div
+                       id="imgHelp"
+                       *ngIf="errorimg!=''"
+                       class="form-text text-danger"
+                     >
+                       <small 
+                         >{{errorimg}}</small
+                       >
+                     
+                      
+                     </div>
                   </div>
                   <div class="mt-2 d-inline-block me-3">
        <input class="btn btn-info ps-4 pe-4 pt-1 pb-1 " type="submit" name="addproduct" value="Add Product">

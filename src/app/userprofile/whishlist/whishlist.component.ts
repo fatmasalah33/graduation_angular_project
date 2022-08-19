@@ -49,6 +49,8 @@ export class WhishlistComponent implements OnInit {
   insertincart(event: any,item:any){
     console.log( event.target.parentNode.lastChild)
     // event.target.style.display='none'
+    this.count++
+    this._CartService.setCartCount(this.count)
     console.log(this.cart)
     this.cat.product_id=item.id
     this.cat.user_id=this.userid
@@ -62,7 +64,7 @@ export class WhishlistComponent implements OnInit {
     }
     for (let i=0;i< this.cart.length;i++) {
     if(this.cart[i].product[0].id==item.id){
-      console.log(this.cart[i].quantity)
+      console.log('the item is exists')
      
 this.cart[i].quantity++;
 
@@ -98,7 +100,8 @@ this.cart[i].quantity++;
   }
   gettotalitem(){
     this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
-    this.count=data[0].count;
+    // this.count=data[0].count;
+    this._CartService.setCartCount(data[0].count)
     console.log(this.count)
     })
   }

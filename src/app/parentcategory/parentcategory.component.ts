@@ -86,6 +86,9 @@ saveditem=new Wishlsit();
   updateqty = new Cart();
  
   insertincart(event: any,item:any){
+    if(this.userid==null){
+      alert('you must login first')
+    }else{
     console.log( event.target.parentNode.lastChild)
     // event.target.style.display='none'
     console.log(this.cart)
@@ -120,7 +123,7 @@ this.cart[i].quantity++;
   this.gettotalitem()
       this.gettotal()
   });
-  }
+  }}
  }
  addtowhishlist(ietm:any,e:any){
 // e.target.style.backgroundColor='red'
