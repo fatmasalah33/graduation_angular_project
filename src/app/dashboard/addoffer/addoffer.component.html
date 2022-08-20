@@ -9,13 +9,44 @@
                         <input class="form-control w-100 mb-1" type="date" placeholder="End Date"
                             formControlName="end_at">
 
-                        <span></span>
+                            <div
+                            id="end_atHelp"
+                            *ngIf="
+                            (form.controls['end_at'].touched &&
+                            form.controls['end_at'].invalid)|| 
+                            (form.controls['end_at'].untouched && isSubmitted)
+                        "
+                            class="form-text text-danger"
+                          >
+                            <small *ngIf="form.controls['end_at'].errors?.['required']"
+                              >This field is required</small
+                            >
+                         
+                      
+                          </div>
                     </div>
                     <div class="input-group d-flex flex-column">
                         <input class="form-control mb-1 mt-3 w-100" type="text" placeholder="Percent"
                             formControlName="percent">
 
                         <span></span>
+                        <div
+                        id="percentHelp"
+                        *ngIf="
+                        (form.controls['percent'].touched &&
+                        form.controls['percent'].invalid)
+                        || (form.controls['percent'].untouched && isSubmitted)
+                    "
+                        class="form-text text-danger"
+                      >
+                        <small *ngIf="form.controls['percent'].errors?.['required']"
+                          >This field is required</small
+                        >
+                        <small *ngIf="form.controls['percent'].errors?.['pattern']"
+                        >Please enter a valid percent must be number</small
+                      >
+                  
+                      </div>
                     </div>
                     <!-- *ngFor="let product of products ; let i = index" -->
                     <div class="input-group d-flex flex-column">
@@ -24,6 +55,21 @@
                       <option *ngFor="let product of products ; let i = index" value="{{product.id}}" >{{product.name}}</option>
   
                       </select>
+                      <div
+                      id="product_idHelp"
+                      *ngIf="
+                      (form.controls['product_id'].touched &&
+                      form.controls['product_id'].invalid)
+                      || (form.controls['product_id'].untouched && isSubmitted)
+                  "
+                      class="form-text text-danger"
+                    >
+                      <small *ngIf="form.controls['product_id'].errors?.['required']"
+                        >This field is required</small
+                      >
+                   
+                
+                    </div>
                     </div>
                    
                     <div class="mt-2 d-inline-block me-3">

@@ -172,7 +172,7 @@ this.cart[i].quantity++;
       
       this.productExists = true
       this._CartService. updatecart(this.cart[i].id, this.updateqty).subscribe((res: any)=>{
-        this.toastr.success('The product has been successfully added to the card');
+        this.toastr.info('The product is exit in cart  and quantity now is '+this.updateqty.quantity);
         this.gettotalitem()
         this.gettotal()
         console.log(res);
@@ -201,7 +201,7 @@ console.log(this.savearray)
 for (let i=0;i< this.savearray.length;i++) {
   if(this.savearray[i].product_id==ietm.id){
    
-   
+    this.toastr.info('The product is exit in Wishlist');
     this.ietmExists = true
  
     break;
@@ -211,6 +211,7 @@ for (let i=0;i< this.savearray.length;i++) {
 }
 if (!this.ietmExists) {
   this._WishlistService.insertdate(this.saveditem).subscribe(data => {
+    this.toastr.success('The product has been successfully added to the Wishlist');
     this.getallsaveitem()
     console.log('ok')
     });

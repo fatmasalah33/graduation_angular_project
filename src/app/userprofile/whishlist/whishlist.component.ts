@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Cart } from 'src/app/cart';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -30,7 +31,7 @@ export class WhishlistComponent implements OnInit {
   isexist:boolean=false;
   constructor(private registerService :RegisterService
     ,private _CartService:CartService,private _WishlistService:WishlistService
-    ,private productsService :ProductsService) { }
+    ,private productsService :ProductsService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.logeduser= this.registerService.getloginuser()
@@ -74,6 +75,7 @@ this.cart[i].quantity++;
       
       this.productExists = true
       this._CartService. updatecart(this.cart[i].id, this.updateqty).subscribe((res: any)=>{
+        this.toastr.info('The product is exit in cart  and quantity now is '+this.updateqty.quantity);
         this.gettotalitem()
         this.gettotal()
         console.log(res);
@@ -85,6 +87,7 @@ this.cart[i].quantity++;
   }
   if (!this.productExists) {
    this._CartService.insertdate(this.cat).subscribe(data => {
+    this.toastr.success('The product has been successfully added to the card');
   this.getallcarts()
   this.gettotalitem()
       this.gettotal()
@@ -100,7 +103,7 @@ this.cart[i].quantity++;
   }
   gettotalitem(){
     this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
-    // this.count=data[0].count;
+    this.count=data[0].count;
     this._CartService.setCartCount(data[0].count)
     console.log(this.count)
     })

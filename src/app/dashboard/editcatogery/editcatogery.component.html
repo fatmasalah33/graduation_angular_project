@@ -18,7 +18,15 @@
                  
           
                  
-                 
+                    <div class="input-group d-flex flex-column">
+                        <select class='form-select mb-1 mt-3 w-100' name='category_id' [(ngModel)]="category.category_id">
+                                  <option selected>Select a category</option>
+                                  <option *ngFor="let  category of  categories ; let i = index"  value="{{category.id}}" >{{category.name}}</option>
+      
+          
+                            </select>
+      
+                          </div>
                  
                
                     <div class="mt-2 d-inline-block me-3">

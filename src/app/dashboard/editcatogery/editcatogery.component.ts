@@ -14,12 +14,20 @@ export class EditcatogeryComponent implements OnInit {
   category=new Catogery();
   id:any;
   data:any;
+  categories : Array<any> = [];
   constructor(private toastr: ToastrService,private _CatogeryService:CatogeryService,private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.activatedRoute.snapshot.params['id']);
     this.id=this.activatedRoute.snapshot.params['id'];
     this.getDatabyid();
+    this.getallcategories()
+  }
+  getallcategories(){
+    this._CatogeryService.getcategoriesList().subscribe((data : any) => {
+      this.categories =data.data.categories ;
+      console.log(data.data.categories)
+      });
   }
   getDatabyid(){
     this._CatogeryService.getData(this.id).subscribe(res=>{

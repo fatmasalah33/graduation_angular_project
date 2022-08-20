@@ -254,3 +254,9 @@ a:focus{
 .my-pagination ::ng-deep .ngx-pagination .current {
     background: #443298 ;
   }
+  .exit{
+    display:none;
+  }
+  .notexit{
+    display:block;
+  }

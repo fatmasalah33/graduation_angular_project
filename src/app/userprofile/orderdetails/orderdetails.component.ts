@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Order } from 'src/app/order';
 import { OrdersService } from 'src/app/services/orders.service';
 
@@ -13,7 +14,7 @@ export class OrderdetailsComponent implements OnInit {
   data:any;
   order:any
   pathimage:any="http://127.0.0.1:8000/public/image/";
-  constructor(private _OrdersService:OrdersService,private activatedRoute: ActivatedRoute) { }
+  constructor(private _OrdersService:OrdersService,private activatedRoute: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.id=this.activatedRoute.snapshot.params['id'];

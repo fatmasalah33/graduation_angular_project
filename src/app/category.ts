@@ -3,6 +3,6 @@ export class Catogery{
    
     description:any;
   
-    category_id:any;
+    category_id:any='Select a category';
   
   }

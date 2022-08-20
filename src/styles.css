@@ -33,10 +33,9 @@ body{
   box-shadow: -5px 8px 16px 0px rgba(0,0,0,0.3) !important;
   margin-bottom: 2px !important; */
 
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed !important;
  
-  top: 0px;
+ 
 
 
 }

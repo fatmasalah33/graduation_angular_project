@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cart } from '../cart';
 import { Filter } from '../filter';
 import { CartService } from '../services/cart.service';
@@ -39,7 +40,7 @@ filter=new Filter();
     ,private _CartService:CartService,
     private activatedRoute: ActivatedRoute,
     private _WishlistService:WishlistService,private _CatogeryService:CatogeryService,
-    private _OffersService:OffersService ) { 
+    private _OffersService:OffersService,private toastr: ToastrService ) { 
  
   }
 
@@ -213,6 +214,7 @@ this.cart[i].quantity++;
       
       this.productExists = true
       this._CartService. updatecart(this.cart[i].id, this.updateqty).subscribe((res: any)=>{
+        this.toastr.info('The product is exit in cart  and quantity now is '+this.updateqty.quantity);
         this.gettotalitem()
         this.gettotal()
         console.log(res);
@@ -224,6 +226,7 @@ this.cart[i].quantity++;
   }
   if (!this.productExists) {
    this._CartService.insertdate(this.cat).subscribe(data => {
+    this.toastr.success('The product has been successfully added to the card');
   this.getallcarts()
   this.gettotalitem()
       this.gettotal()
@@ -239,7 +242,7 @@ console.log(this.savearray)
 for (let i=0;i< this.savearray.length;i++) {
   if(this.savearray[i].product_id==ietm.id){
    
-   
+    this.toastr.info('The product is exit in Wishlist');
     this.ietmExists = true
  
     break;
@@ -249,6 +252,7 @@ for (let i=0;i< this.savearray.length;i++) {
 }
 if (!this.ietmExists) {
   this._WishlistService.insertdate(this.saveditem).subscribe(data => {
+    this.toastr.success('The product has been successfully added to the Wishlist');
     this.getallsaveitem()
     console.log('ok')
     });
@@ -260,7 +264,7 @@ if (!this.ietmExists) {
 }
 gettotalitem(){
   this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
-  // this.count=data[0].count;
+  this.count=data[0].count;
   this._CartService.setCartCount(data[0].count)
   console.log(this.count)
   })

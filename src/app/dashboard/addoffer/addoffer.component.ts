@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OffersService } from '../../services/offers.service';
 import { Offer } from '../../offer';
 import { Router } from '@angular/router';
-import { FormGroup , FormBuilder} from '@angular/forms';
+import { FormGroup , FormBuilder, Validators} from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { RegisterService } from 'src/app/services/register.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -18,13 +18,18 @@ export class AddofferComponent implements OnInit {
   products : Array<any> = [];
   logeduser:any
   userid:any;
+  isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder, private offerService :OffersService,private router: Router
     ,private registerService :RegisterService,private productsService :ProductsService,private toastr: ToastrService) { 
     this.form = this.fb.group({
 
-      end_at :null,
-      percent :null,
-      product_id:null,
+      end_at :['', [Validators.required,
+      ]],
+      percent :['', [Validators.required,
+        Validators.pattern('^[0-9]+$')
+      ]],
+      product_id:['', [Validators.required,
+      ]],
 
     })
   }
@@ -58,6 +63,7 @@ export class AddofferComponent implements OnInit {
   }
   insertdate(){
     // let data = new FormData;
+    this.isSubmitted = true;
     const formData :any = new FormData;
     formData.append("end_at" , this.form.controls['end_at'].value);
     formData.append("percent" , this.form.controls['percent'].value);

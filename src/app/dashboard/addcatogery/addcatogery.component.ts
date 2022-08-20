@@ -14,6 +14,7 @@ category=new Catogery();
 categories : Array<any> = [];
 logeduser:any
 userid:any;
+isSubmitted:boolean  = false;
   constructor(private _CatogeryService:CatogeryService
     ,private router: Router,private toastr: ToastrService) { }
 
@@ -27,6 +28,7 @@ userid:any;
       });
   }
   insertdate(){
+    this.isSubmitted = true;
     this._CatogeryService.insertdate(this.category).subscribe(data => {
       this.router.navigate(['/dashboard/', 'allcatogery']);
       this.toastr.success('The catoegory has been successfully added');

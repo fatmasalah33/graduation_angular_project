@@ -18,6 +18,7 @@ export class AddproductsellerComponent implements OnInit {
   categories : Array<any> = [];
   logeduser:any
   userid:any;
+  isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder, private productsService :ProductsService,private toastr: ToastrService
     ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
       this.registerService.currentUsers.subscribe((data)=>{
@@ -43,12 +44,10 @@ export class AddproductsellerComponent implements OnInit {
       price :['', [Validators.required,
         Validators.pattern('^[0-9]+$')
       ]],
-      description:['', [Validators.required,
-       
-      ]],
-      brand:['', [Validators.required,
-      ]],
+      description:[''],
+      brand:[''],
       quantity :['', [Validators.required,
+        Validators.pattern('^[0-9]+$')
       ]],
       user_id:this.userid,
       category_id:['', [Validators.required,
@@ -67,9 +66,9 @@ export class AddproductsellerComponent implements OnInit {
     this.getallcategories()
   }
   getallcategories(){
-    this._CatogeryService.getcategoriesList().subscribe((data : any) => {
-      this.categories =data.data.categories ;
-      console.log(data.data.categories)
+    this._CatogeryService.allsubcat().subscribe((data : any) => {
+      this.categories =data.subcat ;
+      console.log(data.subcat)
       });
   }
   uploadImage($event:Event){
@@ -81,7 +80,9 @@ export class AddproductsellerComponent implements OnInit {
         })
 
   }
+  errorimg:string = ''
   insertdate(){
+    this.isSubmitted = true;
     // let data = new FormData;
     const formData :any = new FormData;
 
@@ -98,6 +99,14 @@ export class AddproductsellerComponent implements OnInit {
       this.router.navigate(['/seller/', 'notVerifiedProduct']);
       this.toastr.success('The product has been successfully added');
       console.log('f')
+      },err=>{
+        if(!formData.invalid){
+          console.log(err)
+        if(err.error.errors.image){
+          
+this.errorimg=err.error.errors.image
+        }
+      }
       });
     //  console.log(this.form.value);
 

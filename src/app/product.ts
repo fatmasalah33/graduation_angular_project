@@ -5,7 +5,7 @@ export class Product{
   brand:any;
   quantity:any;
   image:any;
-  category_id:any;
+  category_id:any='Select a category';
   user_id:any;
  
 }

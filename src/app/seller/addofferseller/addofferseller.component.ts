@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Offer } from 'src/app/offer';
@@ -19,13 +19,18 @@ export class AddoffersellerComponent implements OnInit {
   products : Array<any> = [];
   logeduser:any
   userid:any;
+  isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder, private offerService :OffersService,private router: Router
     ,private registerService :RegisterService,private productsService :ProductsService,private toastr: ToastrService) { 
     this.form = this.fb.group({
 
-      end_at :null,
-      percent :null,
-      product_id:null,
+      end_at :['', [Validators.required,
+      ]],
+      percent :['', [Validators.required,
+        Validators.pattern('^[0-9]+$')
+      ]],
+      product_id:['', [Validators.required,
+      ]],
 
     })
   }
@@ -58,6 +63,7 @@ export class AddoffersellerComponent implements OnInit {
       });
   }
   insertdate(){
+    this.isSubmitted = true;
     // let data = new FormData;
     const formData :any = new FormData;
     formData.append("end_at" , this.form.controls['end_at'].value);

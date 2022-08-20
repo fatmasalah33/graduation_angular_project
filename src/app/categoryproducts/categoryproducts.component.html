@@ -189,7 +189,8 @@
                 <ul class="product-links">
                     <li><a (click)="addtowhishlist(product,$event)"><i class="fa-regular fa-heart"></i></a></li>
                 </ul>
-                <a (click)="insertincart($event,product)" class="add-to-cart">Add to Cart</a>
+                <a 
+				 (click)="insertincart($event,product)" class="add-to-cart">Add to Cart</a>
             </div>
             <div class="product-content">
                 <h3 class="title"> <a [routerLink]="['/productdetails' , product.id]">{{product.name}}</a></h3>
