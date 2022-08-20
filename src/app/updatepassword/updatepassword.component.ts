@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 
@@ -12,12 +12,15 @@ export class UpdatepasswordComponent implements OnInit {
   
   upadepassForm: FormGroup ;
   id: any;
+  isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder,private _RegisterService:RegisterService,private router: Router
     ,private activatedRoute: ActivatedRoute) { 
     this.upadepassForm= this.fb.group({
 
    
-      password :['', ],
+      password :['', [Validators.required,
+        Validators.minLength(6)
+      ]],
       
   
       })
@@ -28,10 +31,15 @@ export class UpdatepasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   handleSubmitForm(upadepassForm:any){
-    console.log(upadepassForm.value);
+    this.isSubmitted = true;
+    console.log(upadepassForm.invalid);
     this._RegisterService.updatepassword(this.id,upadepassForm.value).subscribe((data:any)=>{
-      this.router.navigate(['/']);  
       console.log(data)
+      if(!upadepassForm.invalid){
+      this.router.navigate(['/']);  
+      }  
+    },err=>{
+      console.log(err.error.message)
     })
 
   }
