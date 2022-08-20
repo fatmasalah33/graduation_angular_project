@@ -23,11 +23,23 @@ export class ForgetpasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  erromsg:string = ''
   handleSubmitForm(forgetForm:any){
     console.log(forgetForm.value);
     this._RegisterService.forgetpassword(forgetForm.value).subscribe((data:any)=>{
-      this.router.navigate(['/', 'recoveryInstructions']);
       console.log(data)
+      if(data.status === "success")
+      {
+      this.router.navigate(['/', 'recoveryInstructions']);
+      }
+      
+    },err=>{
+    
+        this.erromsg=err.error.message
+      
+      
+      console.log(err)
+      console.log(this.erromsg)
     })
 
   }
