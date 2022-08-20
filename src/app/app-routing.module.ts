@@ -59,6 +59,7 @@ import { ProfileComponent } from './seller/profile/profile.component';
 import { CheckoutsellerComponent } from './seller/checkoutseller/checkoutseller.component';
 import { EditoffersellerComponent } from './seller/editofferseller/editofferseller.component';
 import { SaleComponent } from './sale/sale.component';
+import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 import { BestsellerComponent } from './bestseller/bestseller.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 
@@ -85,6 +86,7 @@ const routes: Routes = [
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'payment-methods', component: PaymentMethodsComponent },
   { path: 'cancel-order', component: CancelOrderComponent },
+  { path: 'confirmed-order', component: ConfirmedOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path:'',component: AccountdetailsComponent},

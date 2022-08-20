@@ -40,14 +40,14 @@
       
   }
   .btn-yellow{
-     background-color: #F5C24C !important;
-     border: none;
-     
-     font-size: smaller;
-     font-weight: 700;
-  }
-  .btn-yellow:hover{
-    background-color: #443298 !important;
-    color: #F5C24C !important;
-  }
-  
+    background-color: #f2acbe !important;
+    border: none;
+    
+    font-size: smaller;
+    font-weight: 700;
+ }
+ .btn-yellow:hover{
+   background-color: #443298 !important;
+   color: #f2acbe !important;
+ }
+ 

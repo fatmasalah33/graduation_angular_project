@@ -78,6 +78,7 @@ import { SaleComponent } from './sale/sale.component';
 import { BestsellerComponent } from './bestseller/bestseller.component';
 import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 
 
 
@@ -153,6 +154,7 @@ import { PaymentMethodsComponent } from './payment-methods/payment-methods.compo
         BestsellerComponent,
         CancelOrderComponent,
         PaymentMethodsComponent,
+        ConfirmedOrderComponent,
 
 
 
