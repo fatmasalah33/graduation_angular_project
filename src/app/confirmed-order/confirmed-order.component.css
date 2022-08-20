@@ -1,0 +1,43 @@
+*{
+	color: #041F42;
+}
+.container-fluid{
+	height:100vh;
+}
+.container-fluid{
+	background-color: white;
+}
+
+h1{
+	font-size: 2rem;
+	color: #443298;
+	font-family: 'Rubik', sans-serif;
+}
+p{
+	font-size: smaller;
+	font-weight: 400;
+	color: #443298;
+}
+h1 span{
+	color: #fd6088 !important;
+    
+    
+}
+h2{
+    font-size: 1.6rem;
+}
+
+section img{
+	max-width: 100%;
+}
+.btn-yellow{
+   background-color: #f2acbe !important;
+   border: none;
+   
+   font-size: smaller;
+   font-weight: 700;
+}
+.btn-yellow:hover{
+	background-color: #443298 !important;
+	color: #f2acbe !important;
+}
