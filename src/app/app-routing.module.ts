@@ -65,6 +65,8 @@ import { SaleComponent } from './sale/sale.component';
 import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 import { BestsellerComponent } from './bestseller/bestseller.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 
 
 const routes: Routes = [
@@ -91,6 +93,7 @@ const routes: Routes = [
   { path: 'payment-methods', component: PaymentMethodsComponent },
   { path: 'cancel-order', component: CancelOrderComponent },
   { path: 'privacy', component: PrivacyComponent },
+  { path: 'About-us', component: AboutUsComponent },
 
   { path: 'confirmed-order', component: ConfirmedOrderComponent },
   { path: 'FAQ', component: FAQComponent },
