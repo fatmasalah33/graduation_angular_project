@@ -11,10 +11,49 @@
                      ngModel
                      name="email"
                      #email="ngModel"
+                     required
+                     pattern='^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$'
                      [(ngModel)]="copoun.email" class="form-control px-3 py-3 mt-2 me-2" id="exampleFormControlInput1" placeholder="Your email address">
-                      <button  class="btn btn-pink py-2 px-4 mb-3">Subscribe</button>
+                     <div
+                     id="emailHelp"
+                     *ngIf="(email.touched && email.invalid)|| 
+                     (email.untouched && isSubmitted)"
+                     class="form-text text-danger"
+                   >
+                     <small *ngIf="email?.errors?.['required']"
+                       >This field is required</small
+                     >
+                   
+                     <small *ngIf="email?.errors?.['pattern']"
+                       >Please enter a valid email</small
+                     >
+                   </div>
+           
+                     <button  class="btn btn-pink py-2 px-4 mb-3">Subscribe</button>
                 </form>
               </div>
+              <div
+              id="emailHelp"
+              *ngIf="erroremail!=''"
+              class="form-text text-danger"
+            >
+              <small 
+                >Please make sure that you are logged in and that your email address is correct and the last coupon is over a month ago</small
+              >
+            
+             
+            </div>
+            <div
+            id="emailHelp"
+            *ngIf="successemai!=''"
+            class="form-text text-success"
+          >
+            <small 
+              >The coupon has been sent successfully, please check your email</small
+            >
+          
+           
+          </div>
         </section>
       </div>
         <!--footer-->

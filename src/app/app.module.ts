@@ -80,6 +80,7 @@ import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 import { FAQComponent } from './faq/faq.component';
+import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 
 
 
@@ -157,6 +158,7 @@ import { FAQComponent } from './faq/faq.component';
         PaymentMethodsComponent,
         ConfirmedOrderComponent,
         FAQComponent,
+        TermsOfUseComponent,
 
 
 

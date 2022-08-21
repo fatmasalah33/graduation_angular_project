@@ -34,7 +34,7 @@ email: string = ''
         // this.registerService.settusername(data.user.name)
         console.log( this.registerService.getloginuser())
     
-        // this.router.navigate(['/']); 
+        
         if(data.user_type=='admin') {
           window.location.href="http://localhost:4200/dashboard"
         }
@@ -42,7 +42,7 @@ email: string = ''
           window.location.href="http://localhost:4200/seller"
         }
         if(data.user_type=='buyer') {
-          window.location.href="http://localhost:4200"
+          this.router.navigate(['/']); 
         }
       
        

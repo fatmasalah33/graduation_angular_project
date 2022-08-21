@@ -90,7 +90,7 @@ console.log(this._RegisterService.getloginuser())
   }
   gettotalitem(){
     this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
-    // this.count=data[0].count;
+    this.count=data[0].count;
     this._CartService.setCartCount(data[0].count)
     console.log(this.count)
     })
