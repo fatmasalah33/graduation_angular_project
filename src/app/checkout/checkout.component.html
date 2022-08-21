@@ -26,6 +26,21 @@
                           <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label mb-1">st.name/Building number/apartment</label>
                             <textarea type="text" row="6" class="form-control py-2 px-3" id="exampleFormControlInput1" placeholder="Street Name / Building / Apartment No. / Floor" formControlName="address_street"></textarea>
+                            <div
+                            id="nameHelp"
+                            *ngIf="
+                            (form.controls['address_street'].touched &&
+                            form.controls['address_street'].invalid)
+                            || (form.controls['address_street'].untouched && isSubmitted)
+                        "
+                            class="form-text text-danger"
+                          >
+                            <small *ngIf="form.controls['address_street'].errors?.['required']"
+                              >This field is required</small
+                            >
+                         
+                      
+                          </div>
                           </div>
 
                           <div class="mb-3">
@@ -39,6 +54,21 @@
                               <option value="2">Monofia</option>
                               <option value="2">Tanta</option> -->
                             </select>
+                            <div
+                            id="nameHelp"
+                            *ngIf="
+                            (form.controls['address_state'].touched &&
+                            form.controls['address_state'].invalid)
+                            || (form.controls['address_state'].untouched && isSubmitted)
+                        "
+                            class="form-text text-danger"
+                          >
+                            <small *ngIf="form.controls['address_state'].errors?.['required']"
+                              >This field is required</small
+                            >
+                         
+                      
+                          </div>
                           </div>
                           <div class="mb-3">
                             <label class="form-label mb-1">City</label>
@@ -49,6 +79,21 @@
                                 <option value="2">Kaf saad</option>
                                 <option value="2">Faraskour</option> -->
                               </select>
+                              <div
+                              id="nameHelp"
+                              *ngIf="
+                              (form.controls['address_city'].touched &&
+                              form.controls['address_city'].invalid)
+                              || (form.controls['address_city'].untouched && isSubmitted)
+                          "
+                              class="form-text text-danger"
+                            >
+                              <small *ngIf="form.controls['address_city '].errors?.['required']"
+                                >This field is required</small
+                              >
+                           
+                        
+                            </div>
                           </div>
                           <div class="ibox-title">
                             <h5>2. PAYMENT METHOD</h5>
