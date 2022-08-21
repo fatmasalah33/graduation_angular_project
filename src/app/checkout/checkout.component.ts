@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrdersService } from '../services/orders.service';
 import { CartService } from '../services/cart.service';
@@ -26,6 +26,7 @@ export class CheckoutComponent implements OnInit {
   cities:Array<any> = [];
   showSuccess: boolean = false;
   payment: any;
+  isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder, private OrdersService :OrdersService,private router: Router,private _CartService:CartService,private registerService :RegisterService) {
 
 
@@ -35,9 +36,12 @@ export class CheckoutComponent implements OnInit {
      copoun:null,
       price:this.price,
       comment:null,
-      address_state:null,
-      address_city :null,
-      address_street :null,
+      address_state:['', [Validators.required,
+      ]],
+      address_city :['', [Validators.required,
+      ]],
+      address_street :['', [Validators.required,
+      ]],
      user_id :this.user_id,
       payment_id:null,
 
@@ -95,6 +99,7 @@ export class CheckoutComponent implements OnInit {
     })
   }
   insertdate(){
+    this.isSubmitted = true;
     // let data = new FormData;
     const formData :any = new FormData;
   //  console.log(this.token.id)
