@@ -81,6 +81,7 @@ import { PaymentMethodsComponent } from './payment-methods/payment-methods.compo
 import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 import { FAQComponent } from './faq/faq.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 
 
@@ -159,6 +160,7 @@ import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
         ConfirmedOrderComponent,
         FAQComponent,
         TermsOfUseComponent,
+        PrivacyComponent,
 
 
 

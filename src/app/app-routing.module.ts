@@ -36,6 +36,7 @@ import { AllreviewComponent } from './dashboard/allreview/allreview.component';
 import { AlluserComponent } from './dashboard/alluser/alluser.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FAQComponent } from './faq/faq.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { CancelOrderComponent } from './cancel-order/cancel-order.component';
 
@@ -89,6 +90,7 @@ const routes: Routes = [
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'payment-methods', component: PaymentMethodsComponent },
   { path: 'cancel-order', component: CancelOrderComponent },
+  { path: 'privacy', component: PrivacyComponent },
 
   { path: 'confirmed-order', component: ConfirmedOrderComponent },
   { path: 'FAQ', component: FAQComponent },
