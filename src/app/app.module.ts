@@ -83,6 +83,7 @@ import { FAQComponent } from './faq/faq.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 
@@ -163,6 +164,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
         TermsOfUseComponent,
         PrivacyComponent,
         AboutUsComponent,
+        ContactUsComponent,
 
 
 
