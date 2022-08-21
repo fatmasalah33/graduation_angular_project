@@ -1,8 +1,20 @@
+
 <div class="section ps-5 pe-5">
+    
     <div class="mt-0 mb-0 ms-auto me-auto custom-width">
         <div class="card card-format d-flex flex-row row">
             <div class="card-body col-6">
-                <h2 class="title">update Order</h2>
+                <div class="mx-3 border-bottom mb-2">
+                    <p class="orderid me-5">Order nº {{info.id}}
+                    </p>
+                    <h6>{{info.order_details.length}} Items</h6>
+                    <h6>Placed on {{info.created_at}}</h6>
+                    <h6>Total: EGP {{info.price}}</h6>
+                    <h6>user_id :{{info.user.user_id}}</h6>
+                    <h6>address :{{info.address_street}}, {{info.address_city[0].name}} , {{info.address_state[0].name}}</h6>
+                           
+                </div>
+                <h2 class="title">update order status</h2>
                 <form method="post" action="" enctype="multipart/form-data" (ngSubmit)="updateOrders()">
                     <!-- 'processing','cancelled','delivered','pending' -->
                     <div class="input-group d-flex flex-column">

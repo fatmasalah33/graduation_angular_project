@@ -3,13 +3,13 @@ import { OrdersService } from 'src/app/services/orders.service';
 import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
-  selector: 'app-myorders',
-  templateUrl: './myorders.component.html',
-  styleUrls: ['./myorders.component.css']
+  selector: 'app-closed-orders',
+  templateUrl: './closed-orders.component.html',
+  styleUrls: ['./closed-orders.component.css']
 })
-export class MyordersComponent implements OnInit {
-order:Array<any> = [];
-orderclose:Array<any> = [];
+export class ClosedOrdersComponent implements OnInit {
+
+  order:Array<any> = [];
 logeduser:any
 userid:any;
   constructor(private _OrdersService:OrdersService,private _RegisterService:RegisterService) { }
@@ -33,18 +33,13 @@ userid:any;
      })
  
     this.getdata();
-    this.getdata2();
   }
   getdata(){
-    this._OrdersService.getorderofuser(this.userid).subscribe((data : any)=>{
+    this._OrdersService.getclosedorder(this.userid).subscribe((data : any)=>{
 this.order=data.data
 console.log(this.order[0])
     })
   }
-  getdata2(){
-    this._OrdersService.getclosedorder(this.userid).subscribe((data : any)=>{
-this.orderclose=data.data
-console.log(this.order[0])
-    })
-  }
+
+
 }

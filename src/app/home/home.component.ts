@@ -139,9 +139,10 @@ this.productsService.randomProduc().subscribe((data : any)=>{
   updateqty = new Cart();
  
   insertincart(event: any,item:any){
-    if(this.userid==null){
-      alert('you must login first')
-    }else{
+    // console.log(this.registerService.loginuserrole())
+    if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
+      alert('you must login as a buyer first')
+    }else if(this.userid!=null && this.registerService.loginuserrole()=="buyer"){
     this.count++
     this._CartService.setCartCount(this.count)
     console.log( event.target.parentNode.lastChild)

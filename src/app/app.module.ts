@@ -82,8 +82,13 @@ import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.compo
 import { FAQComponent } from './faq/faq.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+<<<<<<< HEAD
+import { OpenOrdersComponent } from './userprofile/myorders/open-orders/open-orders.component';
+import { ClosedOrdersComponent } from './userprofile/myorders/closed-orders/closed-orders.component';
+=======
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+>>>>>>> 48ff9056481102a1bfd0ab5f3b59f078814fd93e
 
 
 
@@ -163,8 +168,13 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
         FAQComponent,
         TermsOfUseComponent,
         PrivacyComponent,
+<<<<<<< HEAD
+        OpenOrdersComponent,
+        ClosedOrdersComponent,
+=======
         AboutUsComponent,
         ContactUsComponent,
+>>>>>>> 48ff9056481102a1bfd0ab5f3b59f078814fd93e
 
 
 
