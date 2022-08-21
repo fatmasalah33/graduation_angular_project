@@ -8,25 +8,33 @@
 body{
   background-color: #F5F5F5 !important;
 }
+
+
+/*scroll bar*/
   /* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 10px;
-}
+} */
 
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background: #F2ACBE; 
-}
+} */
  
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background: #443298; 
-}
+} */
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background: #5a4d97; 
-}
+} */
+
+
+/*end of scrollbar*/
+
+
 .toast-container {
   /* background-image: linear-gradient(purple,red) !important;
   border-radius: 22px !important; 

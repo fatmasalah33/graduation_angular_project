@@ -1,0 +1,18 @@
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    color:#f2acbe;
+    border-bottom: 2px solid #f2acbe;
+}
+.content{
+    padding-top: 2rem;
+}
+p{
+    color:#555555;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
