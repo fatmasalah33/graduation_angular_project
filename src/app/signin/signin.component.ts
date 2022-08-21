@@ -42,7 +42,7 @@ email: string = ''
           window.location.href="http://localhost:4200/seller"
         }
         if(data.user_type=='buyer') {
-          this.router.navigate(['/']); 
+          window.location.href="http://localhost:4200/"
         }
       
        

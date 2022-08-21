@@ -13,7 +13,7 @@ export class EditorderComponent implements OnInit {
   id:any;
   data:any;
   order=new Order()
- 
+ info: any
   constructor(private toastr: ToastrService,private orderService :OrdersService,private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
@@ -24,6 +24,7 @@ export class EditorderComponent implements OnInit {
   getDatabyid(){
     this.orderService.getData(this.id).subscribe((res: any)=>{
       this.order=res;
+      this.info=res.data
       // this.order=this.data.data
       console.log(res)
     })

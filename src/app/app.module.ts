@@ -82,6 +82,8 @@ import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.compo
 import { FAQComponent } from './faq/faq.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { OpenOrdersComponent } from './userprofile/myorders/open-orders/open-orders.component';
+import { ClosedOrdersComponent } from './userprofile/myorders/closed-orders/closed-orders.component';
 
 
 
@@ -161,6 +163,8 @@ import { PrivacyComponent } from './privacy/privacy.component';
         FAQComponent,
         TermsOfUseComponent,
         PrivacyComponent,
+        OpenOrdersComponent,
+        ClosedOrdersComponent,
 
 
 
