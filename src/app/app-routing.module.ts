@@ -96,13 +96,7 @@ const routes: Routes = [
   { path: 'FAQ', component: FAQComponent },
 
   { path: 'cart/checkout/confirmed-order', component: ConfirmedOrderComponent },
-
-
-  { path: 'cart/checkout/confirmed-order', component: ConfirmedOrderComponent },
-  { path: 'confirmed-order', component: ConfirmedOrderComponent },
-  { path: 'FAQ', component: FAQComponent },
-
-  { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
+ { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path:'',component: AccountdetailsComponent},
     {path: 'accountdetails',component:AccountdetailsComponent},
