@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
-  cartCount =  new BehaviorSubject(1);
+  cartCount =  new BehaviorSubject(0);
   count:any
   constructor(private http: HttpClient) {
     if(localStorage.getItem('cart_count')){
