@@ -16,6 +16,10 @@ footer{
 	font-weight: 500;
 	color: #00173B !important;
 }
+.head{
+    font-weight: bold;
+    color: #04091D;
+}
 .btn-pink{
     background-color: #f2acbe !important;
     color: white;
