@@ -28,20 +28,32 @@
                        >Please enter a valid email</small
                      >
                    </div>
-                   <div
-                   id="emailHelp"
-                   *ngIf="erroremail!=''"
-                   class="form-text text-danger"
-                 >
-                   <small 
-                     >{{erroremail}}</small
-                   >
-                 
-                  
-                 </div>
+           
                      <button  class="btn btn-pink py-2 px-4 mb-3">Subscribe</button>
                 </form>
               </div>
+              <div
+              id="emailHelp"
+              *ngIf="erroremail!=''"
+              class="form-text text-danger"
+            >
+              <small 
+                >Please make sure that you are logged in and that your email address is correct and the last coupon is over a month ago</small
+              >
+            
+             
+            </div>
+            <div
+            id="emailHelp"
+            *ngIf="successemai!=''"
+            class="form-text text-success"
+          >
+            <small 
+              >The coupon has been sent successfully, please check your email</small
+            >
+          
+           
+          </div>
         </section>
       </div>
         <!--footer-->

@@ -86,7 +86,7 @@ const routes: Routes = [
   { path: 'track-order', component: TrackOrderComponent },
   { path: 'payment-methods', component: PaymentMethodsComponent },
   { path: 'cancel-order', component: CancelOrderComponent },
-  { path: 'confirmed-order', component: ConfirmedOrderComponent },
+  { path: 'cart/checkout/confirmed-order', component: ConfirmedOrderComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path:'',component: AccountdetailsComponent},

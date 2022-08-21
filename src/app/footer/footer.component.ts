@@ -23,6 +23,7 @@ logeduser:any
     this.name=this.logeduser.name
   }
   isSubmitted:boolean  = false;
+  successemai:string = ''
   insertemail(copunForm:any){
     this.isSubmitted = true;
     console.log(copunForm.value)
@@ -32,6 +33,7 @@ console.log(this.copoun)
 console.log(copunForm)
 this._OrdersService.getCopoun(this.copoun).subscribe((data : any)=>{
   console.log(data)
+  this.successemai=data.message
 },err=>{
   console.log(err)
 
