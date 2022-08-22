@@ -6,7 +6,7 @@
 }
 
 .point{
-    cursour:pointer;
+    cursor:pointer;
 }
 
 
@@ -288,6 +288,7 @@ a:focus{
 }
 .bg-main
 {
+<<<<<<< HEAD
     background-color: #ff206e !important ;
 }
 .ulsize{
@@ -334,4 +335,8 @@ a:focus{
 .lisize button.active {
     border-color: #443298;
     color: #443298;
+=======
+    background-color: #f2acbe !important ;
+    text-align: center;
+>>>>>>> 6856732a54aaae206387e3e9684d5bf0440c54e9
 }
