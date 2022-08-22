@@ -115,7 +115,7 @@ const routes: Routes = [
     children: [
       {path:'',component:OpenOrdersComponent },
       {path: 'open-orders',component:OpenOrdersComponent},
-      {path: 'closed-orders',component:ClosedOrdersComponent }, 
+      {path: 'closed-orders',component:ClosedOrdersComponent },
     ],},
     {path: 'rate/:id/:order_id',component:RateComponent},
     {path: 'orderdetails',component:OrderdetailsComponent},
