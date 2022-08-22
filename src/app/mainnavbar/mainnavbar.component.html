@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg bg-white sticky-top">
-    <div class="container">
+    <div class="container ps-2">
       <a class="navbar-brand me-5" routerLink="">Moda</a>
       <button class="navbar-toggler text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-dark border-0"><i class="fa-solid fa-bars"></i></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="d-flex row w-100" role="search" 
+        <form class="d-flex row w-100 ms-auto" role="search" 
         #searchForm="ngForm" (ngSubmit)="search(searchForm)" >
           <input
            (change)="getcatsearch($event)"
