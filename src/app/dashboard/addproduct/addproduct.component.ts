@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./addproduct.component.css']
 })
 export class AddproductComponent implements OnInit {
+  sizeArray:Array<any>=[];
   file:any ;
   categories : Array<any> = [];
   logeduser:any
@@ -22,19 +23,19 @@ export class AddproductComponent implements OnInit {
    ,private toastr: ToastrService ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
       this.registerService.currentUsers.subscribe((data)=>{
         console.log(data)
-  
+
         if(data != null )
         {
           this.logeduser= this.registerService.getloginuser()
           console.log(this.logeduser)
           this.userid=this.logeduser.id;
           }
-        
-       
-          
-    
-     
-  
+
+
+
+
+
+
        })
       this.form = this.fb.group({
 
@@ -55,7 +56,7 @@ export class AddproductComponent implements OnInit {
       ]] ,
 
     })
-    
+
   }
 
   form : FormGroup ;
@@ -95,22 +96,53 @@ export class AddproductComponent implements OnInit {
     formData.append("category_id" , this.form.controls['category_id'].value);
     formData.append("user_id" , this.form.controls['user_id'].value);
     formData.append("price" , this.form.controls['price'].value);
-    formData.append("brand" , this.form.controls['brand'].value);
-
+    formData.append("brand" , this.form.controls['brand'].value); 
+    for (let size of this.sizeArray) {
+      formData.append('sizes[]', size);
+  }
+    // formData.append("sizes[]" , this.sizeArray);
+      
     this.productsService.insertdate(formData).subscribe(data => {
       this.router.navigate(['/dashboard/', 'allproduct']);
       this.toastr.success('The product has been successfully added');
-      console.log('f')
+      console.log(data)
       },err=>{
         if(!formData.invalid){
           console.log(err)
         if(err.error.errors.image){
-          
+
 this.errorimg=err.error.errors.image
         }
       }
-      });
-    //  console.log(this.form.value);
+      }); 
+
+    //  console.log(formData['sizes']);
+    //  console.log(formData.value);
 
     }
+
+
+
+
+    // size  
+    categorySize:Array<any>=[]; 
+     getsizeOfCategory(event:any){
+      this.productsService.getsizes(event.target.value).subscribe((data:any)=>{
+        console.log(data); 
+        this.categorySize=data;
+      })
+
+    } 
+    index:any;
+    selectSize(event:any){ 
+      if(event.target.checked){
+        this.sizeArray.push(event.target.value) ; 
+      } 
+      else {
+        this.index =this.sizeArray.indexOf(event.target.value)
+        this.sizeArray.splice(this.index,1)
+      }
+     console.log(this.sizeArray)
+       }
+       
 }
