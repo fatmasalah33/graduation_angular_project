@@ -65,14 +65,14 @@ import { SaleComponent } from './sale/sale.component';
 import { ConfirmedOrderComponent } from './confirmed-order/confirmed-order.component';
 import { BestsellerComponent } from './bestseller/bestseller.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
-<<<<<<< HEAD
+
 import { OpenOrdersComponent } from './userprofile/myorders/open-orders/open-orders.component';
 import { ClosedOrdersComponent } from './userprofile/myorders/closed-orders/closed-orders.component';
-=======
+
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
->>>>>>> 48ff9056481102a1bfd0ab5f3b59f078814fd93e
+
 
 
 const routes: Routes = [

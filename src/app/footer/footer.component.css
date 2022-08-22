@@ -42,8 +42,7 @@ footer{
     color: #00173B;
 }
 .footer{
-    padding: 50px;
-
+    padding: 20px;
     border-bottom: 2px solid #EFEFEF;
 }
 .footer a{
@@ -81,16 +80,25 @@ i:hover{
     font-size: 14px;
     font-weight: 500;
 }
+.footer div{
+    margin-bottom: 35px;
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
     .footer{
-        display: flex;
-      
+        display: flex; 
         justify-content: space-between;
 
     }
     .frame{
     justify-content: space-between;
+}
+.footer div{
+    margin-bottom: 0;
+}
+.footer{
+    padding: 50px;
+    border-bottom: 2px solid #EFEFEF;
 }
  }
