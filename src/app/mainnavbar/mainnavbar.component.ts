@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
+import { CatogeryService } from '../services/catogery.service';
 import { ProductsService } from '../services/products.service';
 import { RegisterService } from '../services/register.service';
 
@@ -13,14 +14,14 @@ export class MainnavbarComponent implements OnInit {
   isLogin:boolean =false;
   isAdmin:boolean =false;
   isSeller:boolean =false;
- 
+  categories : Array<any> = [];
   logeduser:any
   userid:any;
   isnotnull:boolean =false;
   totalprice:number=0
   keyword:any
   products:Array<any> = [];
-  constructor(private _RegisterService:RegisterService,
+  constructor(private _RegisterService:RegisterService,private _CatogeryService:CatogeryService ,
     private _ProductsService:ProductsService, private _CartService:CartService,private router: Router ) { 
   
    
@@ -85,6 +86,7 @@ console.log(this._RegisterService.getloginuser())
  this.count=data
  }
  )
+ this.getallcategories()
       this.gettotalitem()
       this.gettotal()
   }
@@ -121,5 +123,15 @@ console.log(this._RegisterService.getloginuser())
       // [routerLink]="['/productdetails' , product.id]"
       this.router.navigate(['/productdetails' , data.id]);
     })
+  }
+    getallcategories(){
+    this._CatogeryService.getmainCategory().subscribe((data : any) => {
+      this.categories =data.data.categories ;
+      // this.maincat.push()
+      console.log(data.data.categories)
+      data.data.categories.forEach((element: any) => {
+        console.log(element)
+      });
+      });
   }
 }
