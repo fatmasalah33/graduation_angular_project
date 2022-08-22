@@ -6,7 +6,7 @@
 }
 
 .point{
-    cursour:pointer;
+    cursor:pointer;
 }
 
 
@@ -288,5 +288,6 @@ a:focus{
 }
 .bg-main
 {
-    background-color: #ff206e !important ;
+    background-color: #f2acbe !important ;
+    text-align: center;
 }
