@@ -67,10 +67,12 @@
                             
 
                             <td>
-                            <td> <a *ngIf="(order.status === 'pending' || order.status === 'confirmed'
+                            <td>
+                                <!-- <a *ngIf="(order.status === 'pending' || order.status === 'confirmed'
                                 || order.status ==='shipped')"
                                  routerLink="edit/{{order.id}}"><i class='fa-solid fa-pencil'></i>
-                                </a></td>
+                                </a> -->
+                            <a class="btn btn-light " (click)="statusnow(order)">update to next status</a></td>
                            
                         </tr>
                     </table>
