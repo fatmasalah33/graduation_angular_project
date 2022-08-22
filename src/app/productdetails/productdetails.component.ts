@@ -84,9 +84,12 @@ saveditem=new Wishlsit();
         console.log(data)
         console.log(this.related)
        })
-      console.log(this.product)
+      console.log(this.product.sizes[0].size)
       console.log(this.cat_id)
     })
+  }
+  sizeofprod(event:any){
+    console.log(event.target.value)
   }
   // relatedProduct(){
   //   console.log('hi')

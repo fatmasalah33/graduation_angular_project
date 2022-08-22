@@ -41,7 +41,16 @@
                                      </i> <i class='fa fa-star' ></i> </div>
                                 <span>5 reviews</span>
                             </div> -->
-                           
+                            <br>
+                           <span *ngFor="let size of product.sizes ; let i = index">
+                          
+                           <div class="form-check">
+                            <input (change)="sizeofprod($event)" class="form-check-input" value="{{size.id}}" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                {{size.size}}
+                            </label>
+                          </div>
+                           </span>
                             <div class="buttons d-flex flex-row mt-5 gap-3">
                                 <button class="btn btn-purple w-100" (click)="insertincart($event,product)" >Add to Cart</button> </div>
                         </div>

@@ -131,7 +131,7 @@ this._CatogeryService.Filterbybrand(this.filter).subscribe((data : any)=>{
       this.brands=data.brand
       this.totalRecords=data.products.length
       console.log(this.products)
-   
+      console.log(this.products[2].sizes[0].size)
       console.log(this.newArr)
       this.categories.forEach(element => {
         this.subcat.push(element.id)
