@@ -290,3 +290,48 @@ a:focus{
 {
     background-color: #ff206e !important ;
 }
+.ulsize{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    padding-top: 1rem;
+    margin-bottom: 0 !important;
+  }
+  .lisize{
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .lisize button {
+    height: 100%;
+    position: relative;
+    border-radius: 2px;
+    padding: 4px 8px;
+    max-width: 100px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: 1px solid rgb(226, 229, 241);
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin-right: 0.3rem;
+    
+}
+.lisize button:hover{
+    border: 1px solid #000000;  
+}
+.lisize button[disabled] {
+    pointer-events: none;
+}
+
+
+.lisize button.active {
+    border-color: #443298;
+    color: #443298;
+}

@@ -59,7 +59,18 @@
                 <span class="price me-1" *ngIf="product.products[0].Offeres!=null">EGP {{product.products[0].Offeres.price_offer}} </span>
                 <span class="  d-inline" [ngClass]="{'oldprice': product.products[0].Offeres!=null,'price': product.products[0].Offeres==null}">EGP{{product.products[0].price}} </span>
                           
+                       
+                <div>
+                    <ul class="ulsize">
+                        <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
+                            <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
+                            :psize.id==1}"
+                            >{{psize.size}}</button>
+                        </li>
+                    
                 
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
