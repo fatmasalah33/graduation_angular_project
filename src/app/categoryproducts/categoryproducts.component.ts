@@ -200,6 +200,7 @@ this.subcat.push(id);
   updateqty = new Cart();
  
   insertincart(event: any,item:any){
+    console.log(this.cat.size_id)
     // console.log(this.registerService.loginuserrole())
     if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
       alert('you must login as a buyer first')
@@ -209,6 +210,11 @@ this.subcat.push(id);
     console.log( event.target.parentNode.lastChild)
     // event.target.style.display='none'
     console.log(this.cart)
+    if(this.cat.size_id==null && item.sizes.length>0 ){
+      this.cat.size_id=1
+    }else if(item.sizes.length==0){
+      this.cat.size_id=null
+    }
     this.cat.product_id=item.id
     this.cat.user_id=this.userid
     console.log(this.cat.user_id)
@@ -220,8 +226,12 @@ this.subcat.push(id);
       console.log('b')
     }
     for (let i=0;i< this.cart.length;i++) {
-    if(this.cart[i].product[0].id==item.id){
-      console.log(this.cart[i].quantity)
+    if(this.cart[i].product[0].id==item.id  ){
+      if(this.cart[i].size_id==this.cat.size_id){
+        console.log('k')
+      
+      console.log(this.cart[i].size_id)
+      console.log(this.cat.size_id)
      
 this.cart[i].quantity++;
 
@@ -237,10 +247,13 @@ this.cart[i].quantity++;
         console.log(res);
       })
       break;
+    }
     }else{
       this.productExists = false
     }
   }
+  console.log(this.cat.size_id)
+  console.log(this.cat)
   if (!this.productExists) {
    this._CartService.insertdate(this.cat).subscribe(data => {
     this.toastr.success('The product has been successfully added to the card');

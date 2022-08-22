@@ -6,5 +6,5 @@ export class Cart{
     
     user_id:any
     product_id:any;
-    size_id:any=1;
+    size_id:any;
   }
