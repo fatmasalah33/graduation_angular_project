@@ -19,3 +19,12 @@
     padding-left: 0 !important;
 }
 
+@media screen and (max-width: 791px) {
+  
+    .search-btn{
+        font-size: 13px;
+        
+    }
+
+}
+
