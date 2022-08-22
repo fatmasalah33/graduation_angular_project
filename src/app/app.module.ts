@@ -169,6 +169,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
         OpenOrdersComponent,
         ClosedOrdersComponent,
+
         AboutUsComponent,
         ContactUsComponent,
 
