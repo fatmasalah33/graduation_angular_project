@@ -175,3 +175,39 @@ a:focus{
 @media screen and (max-width: 990px){
     .product-grid{ margin-bottom: 30px; }
 }
+.ulsize{
+    display: flex;
+    flex-wrap: wrap;
+  
+    list-style: none;
+  }
+  .lisize{
+    position: relative;
+   
+  }
+  .lisize button {
+    height: 100%;
+    position: relative;
+    border-radius: 2px;
+    padding: 4px 8px;
+    max-width: 100px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: 1px solid rgb(226, 229, 241);
+    background-color: transparent;
+    cursor: pointer;
+}
+.lisize button:hover{
+    border: 1px solid #000000;  
+}
+.lisize button[disabled] {
+    pointer-events: none;
+}
+
+
+.lisize button.active {
+    border-color: rgb(56, 102, 223);
+    color: rgb(56, 102, 223);
+}

@@ -293,5 +293,15 @@ gettotal(){
      console.log(data[0].totalprice)
   })
 }
+addprosize(event: any,id:any){
+  const btns=document.querySelectorAll(".lisize button");
+  for(let i=0; i< btns.length; i++) {
+    btns[i].className = " ";
+  }
+  console.log(btns)
+  event.target.className += " active"
+  event.target.className += " disabled "
+
+}
 
 }

@@ -42,7 +42,17 @@ this.totalRecords=data.data.length
     this.orderService.updateOrders(order.id,order).subscribe(res=>{
      
       this.toastr.warning('The order Status has been successfully update');
+      this.getallorders()
       console.log(res)
+
     })
   }
+  cancelldorder(id:any){
+    console.log(id)
+    this.orderService.cancelldorder(id).subscribe((data: any)=>{
+      this.toastr.warning('The order Status has been successfully cancel');
+      this.getallorders()
+      console.log(data)
+    })
+      }
 }
