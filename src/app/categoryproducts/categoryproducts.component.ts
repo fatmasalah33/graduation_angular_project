@@ -298,10 +298,11 @@ addprosize(event: any,id:any){
   for(let i=0; i< btns.length; i++) {
     btns[i].className = " ";
   }
-  console.log(btns)
+  
   event.target.className += " active"
   event.target.className += " disabled "
-
+  console.log(id)
+this.cat.size_id=id
 }
 
 }
