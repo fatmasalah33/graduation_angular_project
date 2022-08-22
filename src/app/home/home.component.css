@@ -289,7 +289,8 @@ a:focus{
 .bg-main
 {
 
-    background-color: #ff206e !important ;
+    background-color: #f2acbe !important ;
+    text-align: center;
 }
 .ulsize{
     display: flex;
@@ -337,3 +338,4 @@ a:focus{
     color: #443298;
 
 }
+
