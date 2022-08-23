@@ -19,6 +19,7 @@ export class AddproductsellerComponent implements OnInit {
   logeduser:any
   userid:any;
   isSubmitted:boolean  = false;
+  sizeArray:Array<any>=[];
   constructor(public fb:FormBuilder, private productsService :ProductsService,private toastr: ToastrService
     ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
       this.registerService.currentUsers.subscribe((data)=>{
@@ -94,7 +95,9 @@ export class AddproductsellerComponent implements OnInit {
     formData.append("user_id" , this.form.controls['user_id'].value);
     formData.append("price" , this.form.controls['price'].value);
     formData.append("brand" , this.form.controls['brand'].value);
-
+    for (let size of this.sizeArray) {
+      formData.append('sizes[]', size);
+  }
     this.productsService.insertdate(formData).subscribe(data => {
       this.router.navigate(['/seller/', 'notVerifiedProduct']);
       this.toastr.success('The product has been successfully added');
@@ -111,4 +114,23 @@ this.errorimg=err.error.errors.image
     //  console.log(this.form.value);
 
     }
+    categorySize:Array<any>=[]; 
+    getsizeOfCategory(event:any){
+     this.productsService.getsizes(event.target.value).subscribe((data:any)=>{
+       console.log(data); 
+       this.categorySize=data;
+     })
+
+   } 
+   index:any;
+   selectSize(event:any){ 
+     if(event.target.checked){
+       this.sizeArray.push(event.target.value) ; 
+     } 
+     else {
+       this.index =this.sizeArray.indexOf(event.target.value)
+       this.sizeArray.splice(this.index,1)
+     }
+    console.log(this.sizeArray)
+      }
 }
