@@ -90,6 +90,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SizesComponent } from './dashboard/sizes/sizes.component';
 import { AddsizeComponent } from './dashboard/addsize/addsize.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -176,6 +177,7 @@ import { AddsizeComponent } from './dashboard/addsize/addsize.component';
         ContactUsComponent,
         SizesComponent,
         AddsizeComponent,
+        PaymentComponent,
 
 
 
