@@ -27,7 +27,7 @@
                           <th >{{category.id}}</th>
                           <td>{{category.name}}</td>
                           <td>{{category.description}}</td>
-                         <td>{{category.category_id}}</td>
+                         <td *ngIf="category.category_name.length>0">{{category.category_name[0].name}}</td>
                          
                           
                          
