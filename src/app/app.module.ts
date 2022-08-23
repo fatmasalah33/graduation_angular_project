@@ -88,6 +88,7 @@ import { ClosedOrdersComponent } from './userprofile/myorders/closed-orders/clos
 
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { SizesComponent } from './dashboard/sizes/sizes.component';
 
 
 @NgModule({
@@ -172,6 +173,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
         AboutUsComponent,
         ContactUsComponent,
+        SizesComponent,
 
 
 

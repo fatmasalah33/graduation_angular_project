@@ -23,9 +23,9 @@
                                             {{cat.product[0].name}}
                                         </a>
                                         </h3>
-                                        <p class="small">
+                                        <p class="small" *ngIf="cat.size_id !=null">
                                            
-                                           
+                                          {{cat.size_id}} 
                                         </p>
                                         <div *ngIf="cat.product[0].quantity==0" class="mb-2">
                                             <span class="outofstock-badge py-1 px-2">OUT OF STOCK</span><br>
