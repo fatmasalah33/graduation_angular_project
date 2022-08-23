@@ -1,329 +1,200 @@
+
 <div class="container mt-3">
-    <h5>CHECKOUT</h5>
- <div class="wrapper wrapper-content animated  fadeInRight">
-  <div class="row">
-    <div class="col-md-9 ">
-      <div>
-        <div class="card">
-          <div class="ibox-title">
-            <h5>1. ADDRESS DETAILS</h5>
-          </div>
-          <div class="ibox-content ">
-            <div class="table-responsive">
-              <table class="table shoping-cart-table">
-                <tbody>
-                  <tr>
-                    <td>
-                      <form class="form card-text"   [formGroup]="form" (ngSubmit)="insertdate()"  >
+
+  <h5>CHECKOUT</h5>
+  <div class="wrapper wrapper-content animated  fadeInRight">
+    <div class="row">
+      <div class="col-md-9 ">
+        <div>
+          <div class="card">
+            <div class="ibox-title">
+              <h5>1. ADDRESS DETAILS</h5>
+            </div>
+            <div class="ibox-content ">
+              <div class="table-responsive">
+                <table class="table shoping-cart-table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <form class="form card-text" [formGroup]="form" (ngSubmit)="insertdate()">
+                          <div id="addressDetails"  *ngIf="AddressArray.length">
+                          <div class="form-check"  id="existAddress" *ngFor="let address of  AddressArray ; let i = index">
+                            <input class="form-check-input" type="radio" formControlName="address_detail"   value="{{address.id}}" id="{{address.id}}">
+                            <label class="form-check-label" for="{{address.id}}">
+                              {{address.name}},.{{address.address_street}},.{{address.address_state}},.{{address.address_city}},.{{address.phone}}
+                            </label>
+                          </div>
+
+
+                          <!-- _____________________________________________________________________________ -->
+
+
+
+
+                          <!-- ______________________________________________ -->
+                        </div>
+                          <div id="changeAdress" *ngIf="AddressArray.length==0">
                           <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label mb-1">Your Name</label>
-                            <input type="text" class="form-control py-2 px-3" id="exampleFormControlInput1" placeholder="Ali ali" formControlName="yourname" required/>
+                            <input type="text" class="form-control py-2 px-3" id="exampleFormControlInput1"
+                              placeholder="Ali ali" formControlName="yourname" required />
                           </div>
                           <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label mb-1">Phone number</label>
-                            <input type="text" class="form-control py-2 px-3" id="exampleFormControlInput1" placeholder="010-000-000-00" formControlName="phone"/>
+                            <input type="text" class="form-control py-2 px-3" id="exampleFormControlInput1"
+                              placeholder="010-000-000-00" formControlName="phone" />
                           </div>
                           <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label mb-1">st.name/Building number/apartment</label>
-                            <textarea type="text" row="6" class="form-control py-2 px-3" id="exampleFormControlInput1" placeholder="Street Name / Building / Apartment No. / Floor" formControlName="address_street"></textarea>
-                            <div
-                            id="nameHelp"
-                            *ngIf="
+                            <label for="exampleFormControlInput1" class="form-label mb-1">st.name/Building
+                              number/apartment</label>
+                            <textarea type="text" row="6" class="form-control py-2 px-3" id="exampleFormControlInput1"
+                              placeholder="Street Name / Building / Apartment No. / Floor"
+                              formControlName="address_street"></textarea>
+                            <div id="nameHelp" *ngIf="
                             (form.controls['address_street'].touched &&
                             form.controls['address_street'].invalid)
                             || (form.controls['address_street'].untouched && isSubmitted)
-                        "
-                            class="form-text text-danger"
-                          >
-                            <small *ngIf="form.controls['address_street'].errors?.['required']"
-                              >This field is required</small
-                            >
-                         
-                      
-                          </div>
+                        " class="form-text text-danger">
+                              <small *ngIf="form.controls['address_street'].errors?.['required']">This field is
+                                required</small>
+
+
+                            </div>
                           </div>
 
                           <div class="mb-3">
                             <label class="form-label mb-1">State/region</label>
-                            <select (change)="getid($event)" formControlName="address_state" class="form-select py-2 px-3"  >
+                            <select (change)="getid($event)" formControlName="address_state"
+                              class="form-select py-2 px-3">
                               <option value="" disabled selected>Please select...</option>
-                              <option value="{{state.id}}" *ngFor="let state of states ; let i = index">{{state.name}}</option>
-                              <!-- <option value="2">Mansoura</option>
-                              <option value="2">Dammita</option>
-                              <option value="2">Alexandira</option>
-                              <option value="2">Monofia</option>
-                              <option value="2">Tanta</option> -->
+                              <option value="{{state.id}}" *ngFor="let state of states ; let i = index">{{state.name}}
+                              </option>
                             </select>
-                            <div
-                            id="nameHelp"
-                            *ngIf="
+                            <div id="nameHelp" *ngIf="
                             (form.controls['address_state'].touched &&
                             form.controls['address_state'].invalid)
                             || (form.controls['address_state'].untouched && isSubmitted)
-                        "
-                            class="form-text text-danger"
-                          >
-                            <small *ngIf="form.controls['address_state'].errors?.['required']"
-                              >This field is required</small
-                            >
-                         
-                      
-                          </div>
+                        " class="form-text text-danger">
+                              <small *ngIf="form.controls['address_state'].errors?.['required']">This field is
+                                required</small>
+
+
+                            </div>
                           </div>
                           <div class="mb-3">
                             <label class="form-label mb-1">City</label>
-                              <select formControlName="address_city" class="form-select py-2 px-3" >
-                                <option value="" disabled selected>Please select...</option>
-                                <option value="{{city.id}}"*ngFor="let city of cities ; let i = index">{{city.name}}</option>
-                                <!-- <option value="2">Ras Elbar</option>
-                                <option value="2">Kaf saad</option>
-                                <option value="2">Faraskour</option> -->
-                              </select>
-                              <div
-                              id="nameHelp"
-                              *ngIf="
+                            <select formControlName="address_city" class="form-select py-2 px-3">
+                              <option value="" disabled selected>Please select...</option>
+                              <option value="{{city.id}}" *ngFor="let city of cities ; let i = index">{{city.name}}
+                              </option>
+
+                            </select>
+                            <div id="nameHelp" *ngIf="
                               (form.controls['address_city'].touched &&
                               form.controls['address_city'].invalid)
                               || (form.controls['address_city'].untouched && isSubmitted)
-                          "
-                              class="form-text text-danger"
-                            >
-                              <small *ngIf="form.controls['address_city '].errors?.['required']"
-                                >This field is required</small
-                              >
-                           
-                        
+                          " class="form-text text-danger">
+                              <small *ngIf="form.controls['address_city '].errors?.['required']">This field is
+                                required</small>
+
+
                             </div>
+                          </div>
                           </div>
                           <div class="ibox-title">
                             <h5>2. PAYMENT METHOD</h5>
                           </div>
+
+
                           <h3>How do you want to pay for your order?</h3>
                           <div class="accordion" id="accordionExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                               <input type="radio" formControlName="payment_id" id="payment1"  value="1">
-                               <label for="payment1" class="form-label mb-1">
-                               <img src="../../assets/images/cashIcon1_1.png" alt="">Cash on Delivery</label>
-                              </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                              <div class="accordion-body text-muted fs-8">
-                                When you choose Cash on delivery, you canorder in cash when you receive your shi<br>
-                                1. Egyptian pounds is accepted only.<br>
-                                2. Please provide the specified amount onlfor the possibility that there will be enothe delivery representative if a value ithan the requested one.<Br>
-                                3. You must pay for the product beforshipment. We remind you that you can returyourself through the application or site industrial defect or non-conformity with specifications.
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  <input type="radio" formControlName="payment_id" id="payment1" value="1">
+                                  <label for="payment1" class="form-label mb-1">
+                                    <img src="../../assets/images/cashIcon1_1.png" alt="">Cash on Delivery</label>
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted fs-8">
+                                  When you choose Cash on delivery, you canorder in cash when you receive your shi<br>
+                                  1. Egyptian pounds is accepted only.<br>
+                                  2. Please provide the specified amount onlfor the possibility that there will be
+                                  enothe delivery representative if a value ithan the requested one.<Br>
+                                  3. You must pay for the product beforshipment. We remind you that you can
+                                  returyourself through the application or site industrial defect or non-conformity with
+                                  specifications.
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" (click)="pay(price)">
-                             <input  type="radio" formControlName="payment_id" id="payment3" value="2">
-                             <label for="payment3" class="form-label mb-1"><img src="../../assets/images/PNg24.png" alt="">Pay by card</label>
-                            </button>
-                            </h2>
-                            <!-- <button class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  (click)="setpayment_id" > -->
-                            <ngx-paypal [config]="payPalConfig"  >
-                              <!-- <input  type="radio" formControlName="payment_id" id="payment2" value="3"> -->
-                            </ngx-paypal>
-                            <!-- </button> -->
-                            <!-- <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                cart paymentttt ya eman -------------tmam ya khloud
-                                <div class="padding">
-                                    <div class="row justify-content-center">
-                                    <div class="col-sm-6">
-                                     <div class="card">
-                                      <div class="card-header">
-                                        <strong>Credit Card</strong>
-                                        <small> enter your card details</small>
-                                      </div>
-                                      <div class="card-body">
-                                       <div class="row">
-                                        <div class="col-sm-12">
-                                         <div class="form-group">
-                                          <label for="name">Name</label>
-                                          <input class="form-control" id="name" placeholder="Enter your name">
-                                         </div>
-                                       </div>
-                                     </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed border-0" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                  aria-controls="collapseTwo" (click)="pay(price)">
+                                  <input type="radio" formControlName="payment_id" id="payment3" value="2">
+                                  <label for="payment3" class="form-label mb-1"><img src="../../assets/images/PNg24.png"
+                                      alt="">Pay by card</label>
+                                </button>
+                              </h2>
+                              <!-- <button class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  (click)="setpayment_id" > -->
+                              <ngx-paypal [config]="payPalConfig">
 
-                                      <div class="row">
-                                        <div class="col-sm-12">
-                                          <div class="form-group">
-                                            <label for="ccnumber">Credit Card Number</label>
-                                            <div class="input-group">
-                                              <input class="form-control" type="text" placeholder="0000 0000 0000 0000" autocomplete="email">
-                                              <div class="input-group-append">
-                                                <span class="input-group-text">
-                                                  <i class="fa fa-credit-card"></i>
-                                                </span>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                      <div class="form-group col-sm-4">
-                                        <label for="month">Month</label>
-                                        <select class="form-control" id="month">
-                                          <option>1</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                          <option>4</option>
-                                          <option>5</option>
-                                          <option>6</option>
-                                          <option>7</option>
-                                          <option>8</option>
-                                          <option>9</option>
-                                          <option>10</option>
-                                          <option>11</option>
-                                          <option>12</option>
-                                        </select>
-                                      </div>
-                                      <div class="row ">
-                                        <label for="ccyear">Year</label>
-                                        <select class="form-control" id="ccyear">
-                                          <option>2014</option>
-                                          <option>2015</option>
-                                          <option>2017</option>
-                                          <option>2018</option>
-                                          <option>2019</option>
-                                          <option>2020</option>
-                                          <option>2021</option>
-                                          <option>2022</option>
-                                          <option>2023</option>
-                                          <option>2024</option>
-                                          <option>2025</option>
-                                        </select>
-                                      </div>
-                                      <div class="col-sm-4">
-                                          <div class="form-group">
-                                            <label for="cvv">CVV/CVC</label>
-                                            <input class="form-control" id="cvv" type="text" placeholder="123">
-                                                          </div>
-                                                        </div>
-                                                            </div>
-
-                                                            </div>
-                                                            <div class="card-footer">
-                                                            <button class="btn btn-sm btn-success float-right" type="submit">
-                                                              complete payment</button>
-
-                                                            </div>
-                                                          </div>
-                                                          <div class="form-group col-sm-4">
-                                                            </div>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                      </div> -->
-                                                    </div>
-                           <!-- <div class="accordion-item">
-                           <h2 class="accordion-header" id="headingTwo">
-                           <button class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  (click)="paypal(price)" >
-                           <input  type="radio" formControlName="payment_id" id="payment2" value="3">
-                           <label for="payment2" class="form-label mb-1">pay by paypal</label>
-                            </button>
-                            </h2>
-                            </div> -->
-                            <!-- <a href="http://127.0.0.1:8000/api/payment" target="_blank" >paypal</a> -->
-                                                    <!-- <div class="accordion-item" id="myPaypalButton">
-                                                      <h2 class="accordion-header" id="headingThree">
-                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                            <input  type="radio" formControlName="payment_id" id="payment2" value="3">
-                                                            <label for="payment2" class="form-label mb-1"
-                                                            >Pay by <i class="fa-brands fa-cc-paypal"></i></label
-                                                          >
-                                                        </button>
-                                                      </h2> -->
-                                                      <!-- <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                          <strong>link goes to paypal</strong>
-                                                        </div>
-                                                      </div> -->
-                                                    <!-- </div> -->
-                                                  </div>
-                                                  <div>
-                                                    <h5>Do you have a voucher?</h5>
-                                                    <input type="text" class="form-control mb-3" formControlName="copoun" id="copoun"  placeholder="Enter Cuopon code here">
-                                                    <div class="w-100">
-                                                    <button  type="submit" class="btn btn-purple mx-auto">confirm order</button>
-                                                </div>
-                                                </div>
-                        </form>
-                  </td>
-                </tr>
-               </tbody>
-              </table>
-          </div>
-        </div>
-      </div>
-
-
-      <!--second card-->
-
-        <!-- <div class="card">
-
-          <div class="ibox-content ">
-           <div class="table-responsive">
-              <table class="table shoping-cart-table">
-                <tbody>
-                  <tr>
-                    <td>
-
-                                           </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                              </ngx-paypal>
 
                             </div>
 
-                          </div> -->
+                          </div>
+                          <div>
+                            <h5>Do you have a voucher?</h5>
+                            <input type="text" class="form-control mb-3" formControlName="copoun" id="copoun"
+                              placeholder="Enter Cuopon code here">
+                            <div class="w-100">
+                              <button type="submit" class="btn btn-purple mx-auto">confirm order</button>
+                            </div>
+                          </div>
 
-
-
-              </div>
-
-
-
-   </div>
-        <!--right section-->
-        <div class="col-md-3">
-          <div class="card">
-            <div class="ibox-title">
-              <h5>ORDER SUMMARY</h5>
-            </div>
-            <div class="ibox-content">
-              <span>Total</span>
-              <h2 class="font-bold"> {{price}}</h2>
-              <hr>
-              <span class="text-muted small">
-                Orders above 250 EGP have free delivery</span>
-              <hr>
-              <div class="mt-3">
-                <div class="btn-group">
-                  <a [routerLink]="['/cart']" class="btn px-5 ms-2 btn-purple  w-100">MODIFY CART</a>
-                </div>
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-          <div class="ibox">
+
+
+        </div>
+
+
+
+      </div>
+      <!--right section-->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="ibox-title">
+            <h5>ORDER SUMMARY</h5>
+          </div>
+          <div class="ibox-content">
+            <span>Total</span>
+            <h2 class="font-bold"> {{price}}</h2>
+            <hr>
+            <span class="text-muted small">
+              Orders above 250 EGP have free delivery</span>
+            <hr>
+            <div class="mt-3">
+              <div class="btn-group">
+                <a [routerLink]="['/cart']" class="btn px-5 ms-2 btn-purple  w-100">MODIFY CART</a>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="ibox">
+        </div>
       </div>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-

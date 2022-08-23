@@ -46,9 +46,11 @@ getclosedorder(id:any){
   }
 
   filterbystatus(data: any){
-    return this.http.post('http://127.0.0.1:8000/api/filterbystatus',data); 
+    return this.http.post('http://127.0.0.1:8000/api/filterbystatus',data);
   }
 
-
+  getBuyerAddress(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/buyeradress/'+id);
+  }
 
 }

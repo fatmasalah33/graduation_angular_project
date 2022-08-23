@@ -8,12 +8,14 @@ import { Cart } from '../cart';
 import { RegisterService } from '../services/register.service';
 // import { render } from 'creditcardpayments/creditCardPayments'
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+
   public payPalConfig?: IPayPalConfig;
    form:FormGroup
    user_id:any
@@ -24,6 +26,7 @@ export class CheckoutComponent implements OnInit {
   token:any;
   states : Array<any> = [];
   cities:Array<any> = [];
+  AddressArray:Array<any> = [];
   showSuccess: boolean = false;
   payment: any;
   isSubmitted:boolean  = false;
@@ -36,6 +39,7 @@ export class CheckoutComponent implements OnInit {
      copoun:null,
       price:this.price,
       comment:null,
+      address_detail:null,
       address_state:['', [Validators.required,
       ]],
       address_city :['', [Validators.required,
@@ -76,6 +80,9 @@ export class CheckoutComponent implements OnInit {
      this.getallstates()
     //  console.log(this.token);
     this.initConfig();
+    this.getAddress();
+
+
   }
 
 
@@ -84,6 +91,7 @@ export class CheckoutComponent implements OnInit {
       this.states=data
     })
   }
+
 
   getid(e: any){
     console.log(e.target.value)
@@ -261,4 +269,21 @@ export class CheckoutComponent implements OnInit {
       },
     };
     }
+
+
+
+
+
+    // address ya rab y mo3een
+    // get address for each buyer  if exist
+
+    getAddress(){
+      this.OrdersService.getBuyerAddress(this.user_id).subscribe((data :any)=>{
+        console.log(data);
+        this.AddressArray=data;
+        console.log(this.AddressArray);
+      })
+      }
+
+
 }
