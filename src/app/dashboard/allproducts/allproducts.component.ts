@@ -50,6 +50,8 @@ export class AllproductsComponent implements OnInit {
     this.productsService.deleteproduct(id).subscribe(data => {
       this.getallproducts()
       this.toastr.error('The product has been successfully delete');
+      },err=>{
+        alert(err.error)
       });
 
   }

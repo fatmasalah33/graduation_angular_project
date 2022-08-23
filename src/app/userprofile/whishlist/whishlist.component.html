@@ -17,6 +17,18 @@
       
       <span class="date d-block mt-1">EGP {{item.product.products[0].price}}</span>
       <a (click)="deleteitem(item.id)" class="btn btn-purple btn-sm float-right"><i class="fa-solid me-2 fa-trash"></i>REMOVE</a>
+           
+      <div>
+        <ul class="ulsize">
+            <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
+                <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
+                :psize.id==1}"
+                >{{psize.size}}</button>
+            </li>
+        
+    
+        </ul>
+    </div>
     </div>
   </div>
 </div>

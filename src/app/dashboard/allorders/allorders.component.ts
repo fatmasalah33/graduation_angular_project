@@ -14,7 +14,8 @@ export class AllordersComponent implements OnInit {
   status=new Status()
   totalRecords: number | undefined; 
   page: number = 1
-  constructor(private orderService :OrdersService,private activatedRoute: ActivatedRoute,private toastr: ToastrService) { 
+  constructor(private orderService :OrdersService,
+    private activatedRoute: ActivatedRoute,private toastr: ToastrService) { 
 
   }
 
@@ -37,4 +38,21 @@ this.orders =data.data ;
 this.totalRecords=data.data.length
 })
   }
+  statusnow(order: any){
+    this.orderService.updateOrders(order.id,order).subscribe(res=>{
+     
+      this.toastr.warning('The order Status has been successfully update');
+      this.getallorders()
+      console.log(res)
+
+    })
+  }
+  cancelldorder(id:any){
+    console.log(id)
+    this.orderService.cancelldorder(id).subscribe((data: any)=>{
+      this.toastr.warning('The order Status has been successfully cancel');
+      this.getallorders()
+      console.log(data)
+    })
+      }
 }

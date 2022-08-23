@@ -23,10 +23,7 @@
                                             {{cat.product[0].name}}
                                         </a>
                                         </h3>
-                                        <p class="small">
-                                           
-                                           
-                                        </p>
+                                    
                                         <div *ngIf="cat.product[0].quantity==0" class="mb-2">
                                             <span class="outofstock-badge py-1 px-2">OUT OF STOCK</span><br>
                                         </div>
@@ -36,6 +33,10 @@
                                       
                                             <button class="btn" (click)=" increaseQuantity(cat,i)">+</button>
                                         </dl>
+                                        <p class="" *ngIf="cat.size_id !=null">
+                                           
+                                           size : {{cat.size_name[0].size}} 
+                                          </p>
                                         <div class="m-t-sm">
                                             <a [ngClass]="{'outofstock': cat.product[0].quantity==0}" href="#" class="text-warning"><i class="fa fa-gift"></i> Add gift package</a>
                                             |

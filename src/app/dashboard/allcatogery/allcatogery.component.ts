@@ -27,6 +27,8 @@ export class AllcatogeryComponent implements OnInit {
     this._CatogeryService.deletecategory(id).subscribe(data => {
       this.getallcategories()
       this.toastr.error('The category has been successfully delete');
+      },err=>{
+        alert(err.error)
       });
 
   }

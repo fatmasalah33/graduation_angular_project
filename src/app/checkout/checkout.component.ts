@@ -17,7 +17,9 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 export class CheckoutComponent implements OnInit {
 
   public payPalConfig?: IPayPalConfig;
+  lastAddressid:any
    form:FormGroup
+   address:FormGroup
    user_id:any
   logeduser: any
   price : any;
@@ -31,7 +33,17 @@ export class CheckoutComponent implements OnInit {
   payment: any;
   isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder, private OrdersService :OrdersService,private router: Router,private _CartService:CartService,private registerService :RegisterService) {
-
+    this.address=this.fb.group({
+      yourname:null,
+      phone:null,
+      address_state:['', [Validators.required,
+      ]],
+      address_city :['', [Validators.required,
+      ]],
+      address_street :['', [Validators.required,
+      ]],
+     user_id :this.user_id,
+    })
 
     this.form = this.fb.group({
       yourname:null,
@@ -109,37 +121,49 @@ export class CheckoutComponent implements OnInit {
   insertdate(){
     this.isSubmitted = true;
     // let data = new FormData;
-    const formData :any = new FormData;
-  //  console.log(this.token.id)
-  console.log(this.user_id)
-    // formData.append("status" , this.form.controls['status'].value);
-    formData.append("price" , this.price);
-    formData.append("comment" , this.form.controls['comment'].value);
-    formData.append("name" , this.form.controls['yourname'].value);
-    formData.append("phone" , this.form.controls['phone'].value);
-    formData.append("address_state" , this.form.controls['address_state'].value);
-    formData.append("address_city" , this.form.controls['address_city'].value);
-    formData.append("address_street" , this.form.controls['address_street'].value);
-    formData.append("user_id" , this.user_id);
-    formData.append("payment_id" , ( this.form.controls['payment_id'].value)? this.form.controls['payment_id'].value : this.payment );
-    formData.append("copoun" , this.form.controls['copoun'].value);
-    console.log(formData)
-     if (((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  || (this.showSuccess) ){
 
-    this.OrdersService.insertdate(formData).subscribe(data => {
-
-      this.router.navigate(['cart/checkout/confirmed-order']);
-      console.log(data)
-      });}
-      else {
-        alert("please check payment method credit or cash ");
-        // console.log( this.token.id)
-      }
-     console.log(this.form.value);
-
+   if( this.form.controls['yourname'].value ) {
+    const insertAddress:any = new FormData;
+    insertAddress.append("name" , this.form.controls['yourname'].value);
+    insertAddress.append("phone" , this.form.controls['phone'].value);
+    insertAddress.append("address_state" , this.form.controls['address_state'].value);
+    insertAddress.append("address_city" , this.form.controls['address_city'].value);
+    insertAddress.append("address_street" , this.form.controls['address_street'].value);
+    insertAddress.append("user_id" , this.user_id);
+    this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
+      this.lastAddressid=data;
+    });
+     this.submitOrder();
+     }
+     else  this.submitOrder();
     }
 
+   submitOrder(){
+    const formData :any = new FormData;
+    //  console.log(this.token.id)
+    console.log(this.user_id)
+      // formData.append("status" , this.form.controls['status'].value);
+      formData.append("price" , this.price);
+      formData.append("comment" , this.form.controls['comment'].value);
+      formData.append("user_id" , this.user_id);
+      formData.append("payment_id" , ( this.form.controls['payment_id'].value)? this.form.controls['payment_id'].value : this.payment );
+      formData.append("copoun" , this.form.controls['copoun'].value);
+      formData.append("buyeraddresse_id",( this.form.controls['address_detail'].value)?( this.form.controls['address_detail'].value):this.lastAddressid);
+      console.log(formData)
+       if (  (( this.form.controls['address_detail'].value) || this.lastAddressid) && ((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  || (this.showSuccess)) {
 
+      this.OrdersService.insertdate(formData).subscribe(data => {
+
+        this.router.navigate(['cart/checkout/confirmed-order']);
+        console.log(data)
+        });}
+        else {
+          alert("please check payment method credit or cash  and address if not ");
+          // console.log( this.token.id)
+        }
+       console.log(this.form.value);
+
+   }
 
 
 
@@ -284,6 +308,22 @@ export class CheckoutComponent implements OnInit {
         console.log(this.AddressArray);
       })
       }
+      // insertAddress:any
 
+      addAddress(){
+        const insertAddress:any = new FormData;
+        insertAddress.append("name" , this.address.controls['yourname'].value);
+        insertAddress.append("phone" , this.address.controls['phone'].value);
+        insertAddress.append("address_state" , this.address.controls['address_state'].value);
+        insertAddress.append("address_city" , this.address.controls['address_city'].value);
+        insertAddress.append("address_street" , this.address.controls['address_street'].value);
+        insertAddress.append("user_id" , this.user_id);
+        console.log(this.address)
+        this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
+          this.lastAddressid=data;
+          console.log( this.address);
+
+        })
+      }
 
 }
