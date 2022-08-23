@@ -46,14 +46,18 @@
       </div> -->
     </div>
     <section >
-      <div class="card my-4 p-3">
+        
+      <div class="card my-4 " >
+        <div class=" rounded-top p-3 pb-0">
+          <h4>Recommended for you</h4>
+        </div>
       <div class="row">
         <div class="col-12">
           <div class="card-block">
-            
-              <h4>Recommended for you</h4>
+              
+             
             <!--products-->
-            <div class="row">
+            <div class="row p-2">
               <div class="col-md-2 col-sm-6" *ngFor="let product of random ; let i = index">
                   <div class="product-grid">
                       <div class="product-image">
@@ -75,7 +79,7 @@
                           <div>
                             <ul class="ulsize">
                                 <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
-                                    <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" 
+                                    <button class="btnsize" (click)="addprosize($event,product.id,psize.id)" type="button" 
                                     >{{psize.size}}</button>
                                 </li>
                             
@@ -93,6 +97,7 @@
       </div>
       </div>
       </section>
+  
     <section>
         
       <div class="card my-4 ">
@@ -125,9 +130,8 @@
                              
                           <div>
                             <ul class="ulsize">
-                                <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
-                                    <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
-                                    :psize.id==1}"
+                                <li class="lisize" *ngFor="let psize of product.products[0].sizes ;let i = index">
+                                    <button class="btnsize" (click)="addprosize($event,product.products[0].id,psize.id)" type="button" 
                                     >{{psize.size}}</button>
                                 </li>
                             
@@ -147,15 +151,20 @@
       </div>
       </div>
       </section>
-    <section>
-        <div class="card my-4 p-3">
+      <section>
+        
+        <div class="card my-4 ">
+          <div class=" rounded-top p-3 pb-0">
+            <a routerLink="bestseller" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
+            <h4>Best seller</h4>
+          </div>
         <div class="row">
           <div class="col-12">
             <div class="card-block">
-                <a routerLink="bestseller" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
-                <h4>Best seller</h4>
+                
+               
               <!--products-->
-              <div class="row">
+              <div class="row p-2">
                 <div class="col-md-2 col-sm-6" *ngFor="let product of bestSeller  ; let i = index">
                     <div class="product-grid" *ngIf="i<6">
                         <div class="product-image">
@@ -176,8 +185,7 @@
                             <div>
                               <ul class="ulsize">
                                   <li class="lisize" *ngFor="let psize of product.products[0].sizes ;let i = index">
-                                      <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
-                                      :psize.id==1}"
+                                      <button class="btnsize" (click)="addprosize($event,product.products[0].id,psize.id)" type="button" 
                                       >{{psize.size}}</button>
                                   </li>
                               
@@ -196,6 +204,7 @@
         </div>
         </div>
         </section>
+  
        
     <!-- <section>
       <div class="card my-4 p-3">
@@ -619,8 +628,7 @@
                             <div>
                               <ul class="ulsize">
                                   <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
-                                      <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
-                                      :psize.id==1}"
+                                      <button class="btnsize" (click)="addprosize($event,product.id,psize.id)" type="button" 
                                       >{{psize.size}}</button>
                                   </li>
                               

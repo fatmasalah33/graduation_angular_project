@@ -188,7 +188,7 @@ this.subcat.push(id);
     if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
       alert('you must login as a buyer first')
     }else if(this.userid!=null && this.registerService.loginuserrole()=="buyer"){
-      if(this.cat.size_id==null && item.sizes.length>0 ){
+      if((this.cat.size_id==null && item.sizes.length>0)||(item.sizes.length>0 && this.sizep!=item.id )){
         alert('you must select size')
       }else{
     this.count++
@@ -285,16 +285,20 @@ gettotal(){
      console.log(data[0].totalprice)
   })
 }
-addprosize(event: any,id:any){
+sizep:any
+addprosize(event: any,prod_id:any,id:any){
+ 
   const btns=document.querySelectorAll(".lisize button");
   for(let i=0; i< btns.length; i++) {
     btns[i].className = " ";
   }
-  
   event.target.className += " active"
   event.target.className += " disabled "
   console.log(id)
-this.cat.size_id=id
+  this.sizep=prod_id
+    this.cat.size_id=id
+  
+
 }
 
 }

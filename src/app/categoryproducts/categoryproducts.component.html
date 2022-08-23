@@ -201,7 +201,7 @@
 				<div>
 					<ul class="ulsize">
 						<li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
-							<button class="btnsize" (click)="addprosize($event,psize.id)" type="button" 
+							<button class="btnsize" (click)="addprosize($event,product.id,psize.id)" type="button" 
 							>{{psize.size}}</button>
 						</li>
 					
