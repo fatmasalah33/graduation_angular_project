@@ -143,16 +143,19 @@ this.productsService.randomProduc().subscribe((data : any)=>{
     if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
       alert('you must login as a buyer first')
     }else if(this.userid!=null && this.registerService.loginuserrole()=="buyer"){
+      if((this.cat.size_id==null && item.sizes.length>0)||(item.sizes.length>0 && this.sizep!=item.id ) ){
+        alert('you must select size')
+      }else{
     this.count++
     this._CartService.setCartCount(this.count)
     console.log( event.target.parentNode.lastChild)
     // event.target.style.display='none'
     console.log(this.cart)
-    if(this.cat.size_id==null && item.sizes.length>0 ){
-      this.cat.size_id=1
-    }else if(item.sizes.length==0){
-      this.cat.size_id=null
-    }
+    // if(this.cat.size_id==null && item.sizes.length>0 ){
+    //   this.cat.size_id=1
+    // }else if(item.sizes.length==0){
+    //   this.cat.size_id=null
+    // }
     this.cat.product_id=item.id
     this.cat.user_id=this.userid
     console.log(this.cat.user_id)
@@ -196,7 +199,7 @@ this.cart[i].quantity++;
   this.gettotalitem()
       this.gettotal()
   });
-  }
+  }}
 }
  }
  addtowhishlist(ietm:any,e:any){
@@ -241,7 +244,8 @@ gettotal(){
      console.log(data[0].totalprice)
   })
 }
-addprosize(event: any,id:any){
+sizep:any
+addprosize(event: any,prod_id:any,id:any){
   const btns=document.querySelectorAll(".lisize button");
   for(let i=0; i< btns.length; i++) {
     btns[i].className = " ";
@@ -250,6 +254,9 @@ addprosize(event: any,id:any){
   event.target.className += " active"
   event.target.className += " disabled "
   console.log(id)
-this.cat.size_id=id
+  this.sizep=prod_id
+    this.cat.size_id=id
+  
+
 }
 }
