@@ -143,8 +143,7 @@ this.productsService.randomProduc().subscribe((data : any)=>{
     if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
       alert('you must login as a buyer first')
     }else if(this.userid!=null && this.registerService.loginuserrole()=="buyer"){
-      if(this.cat.size_id==null && item.sizes.length>0  )
-      {
+      if(this.cat.size_id==null && item.sizes.length>0 ){
         alert('you must select size')
       }else{
     this.count++
@@ -200,7 +199,7 @@ this.cart[i].quantity++;
   this.gettotalitem()
       this.gettotal()
   });
-}}
+  }}
 }
  }
  addtowhishlist(ietm:any,e:any){

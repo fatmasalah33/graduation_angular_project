@@ -205,16 +205,19 @@ this.subcat.push(id);
     if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
       alert('you must login as a buyer first')
     }else if(this.userid!=null && this.registerService.loginuserrole()=="buyer"){
+      if(this.cat.size_id==null && item.sizes.length>0 ){
+        alert('you must select size')
+      }else{
     this.count++
     this._CartService.setCartCount(this.count)
     console.log( event.target.parentNode.lastChild)
     // event.target.style.display='none'
     console.log(this.cart)
-    if(this.cat.size_id==null && item.sizes.length>0 ){
-      this.cat.size_id=1
-    }else if(item.sizes.length==0){
-      this.cat.size_id=null
-    }
+    // if(this.cat.size_id==null && item.sizes.length>0 ){
+    //   this.cat.size_id=1
+    // }else if(item.sizes.length==0){
+    //   this.cat.size_id=null
+    // }
     this.cat.product_id=item.id
     this.cat.user_id=this.userid
     console.log(this.cat.user_id)
@@ -261,7 +264,7 @@ this.cart[i].quantity++;
   this.gettotalitem()
       this.gettotal()
   });
-  }}
+  }}}
  }
  addtowhishlist(ietm:any,e:any){
 // e.target.style.backgroundColor='red'
