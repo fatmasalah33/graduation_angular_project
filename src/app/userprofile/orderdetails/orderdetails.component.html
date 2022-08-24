@@ -115,7 +115,7 @@
         <p class="orderid">Delivery Method</p>
         <h6>Standard Door Delivery</h6><br>
         <p class="orderid">Shipping Address</p>
-    <h6> {{order.address_city[0].name}} , {{order.address_state[0].name}}</h6>
+    <h6> {{order.address_data.buyeraddresses[0].address_city[0].name}} , {{order.address_data.buyeraddresses[0].address_state[0].name}}</h6>
    
     </div>
 

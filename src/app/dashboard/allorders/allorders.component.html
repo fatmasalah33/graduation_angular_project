@@ -59,9 +59,9 @@
                             <td>{{order.status}}</td>
                             <td>{{order.price}} L.E</td>
                           
-                            <td>{{order.address_state[0].name}}</td>
-                            <td>{{order.address_city[0].name}}</td>
-                            <td>{{order.address_street}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].address_state[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].address_city[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].address_street}}</td>
                             <td>{{order.copoun}}</td>
 
                             
