@@ -66,9 +66,11 @@ export class PaymentComponent implements OnInit {
         // this.token=token.id
         // console.log( this.token_id)
         alert('Token Created!!');
+
         this.updated_data.payment_id=2;
         this. updatePayment();
       }
+
     });
 
     handler.open({
@@ -77,6 +79,7 @@ export class PaymentComponent implements OnInit {
       amount: amount
     });
 
+      
   }
 
   loadStripe() {
