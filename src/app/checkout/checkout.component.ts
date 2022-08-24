@@ -132,6 +132,7 @@ export class CheckoutComponent implements OnInit {
     insertAddress.append("user_id" , this.user_id);
     this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
       this.lastAddressid=data;
+      
     });
      this.submitOrder();
      }

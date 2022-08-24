@@ -34,6 +34,8 @@
             <table class="table">
               <thead class="thead-primary">
                 <tr class="text-center">
+                  <th>ID</th>
+                  <th>Product name</th>
                   <th>Product id</th>
                   <th>End AT</th>
                   <th>Percent</th>
@@ -44,7 +46,9 @@
               itemsPerPage: 4,
               currentPage: page,
               totalItems: totalRecords}">
-                <th>{{offer.product_id}}</th>
+               <th>{{offer.id}}</th>
+               <th>{{offer.product.name}}</th>
+                <th>{{offer.product.id}}</th>
                 <td>{{offer.end_at}}</td>
                 <td>{{offer.percent}} %</td>
                

@@ -13,18 +13,20 @@
                     <table class="table">
                         <thead class="thead-primary">
                             <tr class="text-center">
+                              <th>ID</th>
                               <th>feedback</th>
                               <th>rating</th>
                               <th>user_name</th>
                               <th>product_name</th>
                             
-                              <th colspan="3">Action</th>
+                            
                             </tr>
                         </thead>
                         <tr class="text-center" *ngFor="let review of reviews |paginate: { id: 'listing_pagination',
                         itemsPerPage: 5,
                         currentPage: page,
                         totalItems: totalRecords}">
+                        <th >{{review.id}}</th>
                           <th >{{review.feedback}}</th>
                           <th >{{review.rating}}</th>
                           <td>{{review.user_name}} </td>
@@ -34,9 +36,7 @@
                          
                          
                          
-                          <td> <a >
-                          <i class='fa-solid fa-trash text-danger'></i>  
-                          </a></td>
+                       
                      
                       </tr>
                         </table>

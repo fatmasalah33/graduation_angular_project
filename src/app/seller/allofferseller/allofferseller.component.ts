@@ -42,8 +42,8 @@ export class AlloffersellerComponent implements OnInit {
   getalloffers(){
     this.offersService.getAllOffers(this.userid).subscribe((res : any) => {
       console.log(res)
-      this.offers =res ;
-      this.totalRecords=res.length
+      this.offers =res.data.offeres ;
+      this.totalRecords=res.data.offeres.length
      
       });
   }
@@ -58,13 +58,13 @@ export class AlloffersellerComponent implements OnInit {
     console.log(event.target.value)
     if(event.target.value == 1){
 this.offersService.continuesoffer(this.userid).subscribe((res: any)=>{
-  this.offers =res ;
-  this.totalRecords=res.length
+  this.offers =res.data.offeres ;
+  this.totalRecords=res.data.offeres.length
 })
     }else if(event.target.value == 2){
       this.offersService.expiredoffers(this.userid).subscribe((res: any)=>{
-        this.offers =res ;
-        this.totalRecords=res.length
+        this.offers =res.data.offeres ;
+        this.totalRecords=res.data.offeres.length
      
       })
     }
