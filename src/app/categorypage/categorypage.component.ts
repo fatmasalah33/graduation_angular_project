@@ -257,6 +257,9 @@ this.cart[i].quantity++;
  }
  addtowhishlist(ietm:any,e:any){
 // e.target.style.backgroundColor='red'
+if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
+  alert('you must login as a buyer first')
+}else if(this.userid!=null && this.registerService.loginuserrole()=="buyer"){
   this.saveditem.user_id=this.userid
   this.saveditem.product_id=ietm.id
 console.log(this.saveditem)
@@ -282,7 +285,7 @@ if (!this.ietmExists) {
   console.log('hi')
  
 
-}
+}}
 }
 gettotalitem(){
   this._CartService.gettotalitem(this.userid).subscribe((data: any)=>{
