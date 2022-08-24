@@ -65,10 +65,15 @@ export class PaymentComponent implements OnInit {
         localStorage.setItem('token_id' ,JSON.stringify(token.id) );
         // this.token=token.id
         // console.log( this.token_id)
-       
+
         alert('Token Created!!');
-       
+
+
+        this.updated_data.payment_id=2;
+        this. updatePayment();
+
       }
+
     });
 
     handler.open({
@@ -80,6 +85,7 @@ if((localStorage.getItem('token_id'))){
   this.updated_data.payment_id=2;
   this. updatePayment();
 }
+
   }
 
   loadStripe() {
@@ -110,9 +116,6 @@ if((localStorage.getItem('token_id'))){
     }
   }
 
-
-
-
    private initConfig(): void {
       this.payPalConfig = {
       currency: 'USD',
@@ -138,7 +141,7 @@ if((localStorage.getItem('token_id'))){
                 category: 'DIGITAL_GOODS',
                 unit_amount: {
                   currency_code: 'USD',
-                  value: '.1',
+                  value: this.price,
                 },
               }
             ]
@@ -153,8 +156,8 @@ if((localStorage.getItem('token_id'))){
         layout: 'vertical'
       },
       onApprove: (data, actions) => {
-        // this.payment=3;
-       
+
+
         console.log('onApprove - transaction was approved, but not authorized', data, actions);
         actions.order.get().then((details: any) => {
           console.log('onApprove - you can get full order details inside onApprove: ', details);
@@ -178,6 +181,8 @@ if((localStorage.getItem('token_id'))){
       },
     };
     }
+
+
   cash(){
     console.log("hi");
     this.updated_data.payment_id=1;
