@@ -133,10 +133,10 @@ export class CheckoutComponent implements OnInit {
     this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
       this.lastAddressid=data;
       
-<<<<<<< HEAD
-=======
+
+
       console.log(this.lastAddressid)
->>>>>>> 24417c796dc7d4355ec562895f0f71dac46728f0
+
     });
      this.submitOrder();
      }
