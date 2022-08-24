@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 import { OrdersService } from '../services/orders.service';
 import { CartService } from '../services/cart.service';
 import { Order } from '../order';
+import { Cart } from '../cart';
 import { RegisterService } from '../services/register.service';
-
+// import { render } from 'creditcardpayments/creditCardPayments'
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 @Component({
   selector: 'app-checkout',
@@ -13,6 +15,8 @@ import { RegisterService } from '../services/register.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+
+  public payPalConfig?: IPayPalConfig;
   lastAddressid:any
    form:FormGroup
    address:FormGroup
@@ -20,9 +24,13 @@ export class CheckoutComponent implements OnInit {
   logeduser: any
   price : any;
   Order=new Order()
+  handler:any = null;
+  token:any;
   states : Array<any> = [];
   cities:Array<any> = [];
   AddressArray:Array<any> = [];
+  showSuccess: boolean = false;
+  payment: any;
   isSubmitted:boolean  = false;
   constructor(public fb:FormBuilder, private OrdersService :OrdersService,private router: Router,private _CartService:CartService,private registerService :RegisterService) {
     this.address=this.fb.group({
@@ -44,12 +52,12 @@ export class CheckoutComponent implements OnInit {
       price:this.price,
       comment:null,
       address_detail:null,
-      // address_state:['', [Validators.required,
-      // ]],
-      // address_city :['', [Validators.required,
-      // ]],
-      // address_street :['', [Validators.required,
-      // ]],
+      address_state:['', [Validators.required,
+      ]],
+      address_city :['', [Validators.required,
+      ]],
+      address_street :['', [Validators.required,
+      ]],
      user_id :this.user_id,
       payment_id:null,
 
@@ -80,9 +88,13 @@ export class CheckoutComponent implements OnInit {
 
      })
      this.gettotal();
+    //  this.loadStripe();
      this.getallstates()
     //  console.log(this.token);
+    // this.initConfig();
     this.getAddress();
+
+
   }
 
 
@@ -138,21 +150,77 @@ export class CheckoutComponent implements OnInit {
       formData.append("copoun" , this.form.controls['copoun'].value);
       formData.append("buyeraddresse_id",( this.form.controls['address_detail'].value)?( this.form.controls['address_detail'].value):this.lastAddressid);
       console.log(formData)
-      // && ((this.form.controls['payment_id'].value==1))|| ((this.form.controls['payment_id'].value==2) && (localStorage.getItem('token_id')))  || (this.showSuccess)
        if (  (( this.form.controls['address_detail'].value) || this.lastAddressid) ) {
 
-         this.OrdersService.insertdate(formData).subscribe(data => {
+      this.OrdersService.insertdate(formData).subscribe(data => {
 
-        this.router.navigate(['cart/checkout/confirmed-order']);
+        // this.router.navigate(['cart/checkout/confirmed-order']);
+        this.router.navigate(['cart/checkout/payment/:'+data]);
         console.log(data)
         });}
         else {
-          alert("please check  your address  ");
+          alert("please check address you want to deliver in ");
           // console.log( this.token.id)
         }
        console.log(this.form.value);
 
    }
+
+
+
+    // pay(amount: any) {
+
+    //   var handler = (<any>window).StripeCheckout.configure({
+    //     key: 'pk_test_51HxRkiCumzEESdU2Z1FzfCVAJyiVHyHifo0GeCMAyzHPFme6v6ahYeYbQPpD9BvXbAacO2yFQ8ETlKjo4pkHSHSh00qKzqUVK9',
+    //     locale: 'auto',
+    //     token: function (token: any) {
+    //       // You can access the token ID with `token.id`.
+    //       // Get the token ID to your server-side code for use.
+    //       console.log(token)
+    //       localStorage.setItem('token_id' ,JSON.stringify(token.id) );
+    //       // this.token=token.id
+    //       // console.log( this.token_id)
+    //       alert('Token Created!!');
+    //     }
+    //   });
+
+    //   handler.open({
+    //     name: 'welcome to pay',
+    //     description: 'please enter your data',
+    //     amount: amount
+    //   });
+
+    // }
+
+    // loadStripe() {
+
+    //   if(!window.document.getElementById('stripe-script')) {
+    //     var s = window.document.createElement("script");
+    //     s.id = "stripe-script";
+    //     s.type = "text/javascript";
+    //     s.src = "https://checkout.stripe.com/checkout.js";
+    //     s.onload = () => {
+    //       this.handler = (<any>window).StripeCheckout.configure({
+    //         key: 'pk_test_51HxRkiCumzEESdU2Z1FzfCVAJyiVHyHifo0GeCMAyzHPFme6v6ahYeYbQPpD9BvXbAacO2yFQ8ETlKjo4pkHSHSh00qKzqUVK9',
+    //         locale: 'auto',
+    //         token: function (token: any) {
+    //           // You can access the token ID with `token.id`.
+    //           // Getr server-side cod the token ID to youe for use.
+    //           console.log(token.id)
+    //           localStorage.setItem('token_id' ,JSON.stringify(token.id) );
+    //           // this.token_id=token.id
+    //           alert('Payment Success!!');
+    //         }
+    //       });
+    //     }
+
+    //     window.document.body.appendChild(s);
+    //   }
+    // }
+
+
+
+
 
     // paypal(price:any){
     //   this.OrdersService.payment().subscribe(data=>{
@@ -160,6 +228,75 @@ export class CheckoutComponent implements OnInit {
     //   }
     //   )
     // }
+
+
+
+
+    // private initConfig(): void {
+    //   this.payPalConfig = {
+    //   currency: 'USD',
+    //   clientId: 'sb',
+    //   createOrderOnClient: (data) => <ICreateOrderRequest>{
+    //     intent: 'CAPTURE',
+    //     purchase_units: [
+    //       {
+    //         amount: {
+    //           currency_code: 'USD',
+    //           value: '.1',
+    //           breakdown: {
+    //             item_total: {
+    //               currency_code: 'USD',
+    //               value: '.1'
+    //             }
+    //           }
+    //         },
+    //         items: [
+    //           {
+    //             name: 'Enterprise Subscription',
+    //             quantity: '1',
+    //             category: 'DIGITAL_GOODS',
+    //             unit_amount: {
+    //               currency_code: 'USD',
+    //               value: '.1',
+    //             },
+    //           }
+    //         ]
+    //       }
+    //     ]
+    //   },
+    //   advanced: {
+    //     commit: 'true'
+    //   },
+    //   style: {
+    //     label: 'paypal',
+    //     layout: 'vertical'
+    //   },
+    //   onApprove: (data, actions) => {
+    //     this.payment=3;
+    //     console.log('onApprove - transaction was approved, but not authorized', data, actions);
+    //     actions.order.get().then((details: any) => {
+    //       console.log('onApprove - you can get full order details inside onApprove: ', details);
+    //     });
+    //   },
+    //   onClientAuthorization: (data) => {
+    //     this.payment=3;
+    //     console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
+    //     this.showSuccess = true;
+    //   },
+    //   onCancel: (data, actions) => {
+    //     console.log('OnCancel', data, actions);
+    //   },
+    //   onError: err => {
+    //     console.log('OnError', err);
+    //   },
+    //   onClick: (data, actions) => {
+    //     console.log('onClick', data, actions);
+    //   },
+    // };
+    // }
+
+
+
 
 
     // address ya rab y mo3een
@@ -172,6 +309,7 @@ export class CheckoutComponent implements OnInit {
         console.log(this.AddressArray);
       })
       }
+      // insertAddress:any
 
       addAddress(){
         const insertAddress:any = new FormData;

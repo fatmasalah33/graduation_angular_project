@@ -75,6 +75,7 @@ import { SizesComponent } from './dashboard/sizes/sizes.component';
 import { AddsizeComponent } from './dashboard/addsize/addsize.component';
 
 
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -108,6 +109,7 @@ const routes: Routes = [
   { path: 'FAQ', component: FAQComponent },
 
   { path: 'cart/checkout/confirmed-order', component: ConfirmedOrderComponent },
+  { path: 'cart/checkout/payment/:id', component: PaymentComponent },
  { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path:'',component: AccountdetailsComponent},
