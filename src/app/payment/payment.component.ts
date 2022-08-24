@@ -65,9 +65,9 @@ export class PaymentComponent implements OnInit {
         localStorage.setItem('token_id' ,JSON.stringify(token.id) );
         // this.token=token.id
         // console.log( this.token_id)
+       
         alert('Token Created!!');
-        this.updated_data.payment_id=2;
-        this. updatePayment();
+       
       }
     });
 
@@ -76,7 +76,10 @@ export class PaymentComponent implements OnInit {
       description: 'please enter your data',
       amount: amount
     });
-
+if((localStorage.getItem('token_id'))){
+  this.updated_data.payment_id=2;
+  this. updatePayment();
+}
   }
 
   loadStripe() {
@@ -151,8 +154,7 @@ export class PaymentComponent implements OnInit {
       },
       onApprove: (data, actions) => {
         // this.payment=3;
-        this.updated_data.payment_id=3;
-        this. updatePayment();
+       
         console.log('onApprove - transaction was approved, but not authorized', data, actions);
         actions.order.get().then((details: any) => {
           console.log('onApprove - you can get full order details inside onApprove: ', details);
@@ -162,6 +164,8 @@ export class PaymentComponent implements OnInit {
         this.payment=3;
         console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
         this.showSuccess = true;
+        this.updated_data.payment_id=3;
+        this. updatePayment();
       },
       onCancel: (data, actions) => {
         console.log('OnCancel', data, actions);

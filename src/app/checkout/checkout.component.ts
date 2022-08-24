@@ -155,7 +155,7 @@ export class CheckoutComponent implements OnInit {
       this.OrdersService.insertdate(formData).subscribe(data => {
 
         // this.router.navigate(['cart/checkout/confirmed-order']);
-        this.router.navigate(['cart/checkout/payment/:'+data]);
+        this.router.navigate(['cart/checkout/payment/'+data]);
         console.log(data)
         });}
         else {
