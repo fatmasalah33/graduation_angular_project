@@ -132,6 +132,8 @@ export class CheckoutComponent implements OnInit {
     insertAddress.append("user_id" , this.user_id);
     this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
       this.lastAddressid=data;
+      
+      console.log(this.lastAddressid)
     });
      this.submitOrder();
      }
@@ -150,21 +152,21 @@ export class CheckoutComponent implements OnInit {
       formData.append("copoun" , this.form.controls['copoun'].value);
       formData.append("buyeraddresse_id",( this.form.controls['address_detail'].value)?( this.form.controls['address_detail'].value):this.lastAddressid);
       console.log(formData)
-       if (  (( this.form.controls['address_detail'].value) || this.lastAddressid) ) {
+      //  if (  ( this.form.controls['address_detail'].value) ) {
 
       this.OrdersService.insertdate(formData).subscribe(data => {
 
         // this.router.navigate(['cart/checkout/confirmed-order']);
-        this.router.navigate(['cart/checkout/payment/:'+data]);
+        this.router.navigate(['cart/checkout/payment/'+data]);
         console.log(data)
         });}
-        else {
-          alert("please check address you want to deliver in ");
-          // console.log( this.token.id)
-        }
-       console.log(this.form.value);
+        // else {
+        //   alert("please check address you want to deliver in " + this.lastAddressid);
+        //   // console.log( this.token.id)
+        // }
+      //  console.log(this.form.value);
 
-   }
+  //  }
 
 
 
