@@ -132,10 +132,11 @@ export class CheckoutComponent implements OnInit {
     insertAddress.append("user_id" , this.user_id);
     this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
       this.lastAddressid=data;
-      
-      console.log(this.lastAddressid)
+      localStorage.setItem("lastAddress", this.lastAddressid);
+      // console.log(this.lastAddressid)
+      this.submitOrder();
     });
-     this.submitOrder();
+
      }
      else  this.submitOrder();
     }
@@ -150,15 +151,17 @@ export class CheckoutComponent implements OnInit {
       formData.append("user_id" , this.user_id);
       // formData.append("payment_id" , ( this.form.controls['payment_id'].value)? this.form.controls['payment_id'].value : this.payment );
       formData.append("copoun" , this.form.controls['copoun'].value);
-      formData.append("buyeraddresse_id",( this.form.controls['address_detail'].value)?( this.form.controls['address_detail'].value):this.lastAddressid);
-      console.log(formData)
+      formData.append("buyeraddresse_id",( this.form.controls['address_detail'].value)?( this.form.controls['address_detail'].value):localStorage.getItem("lastAddress"));
+      // localStorage.removeItem("lastAddress");
+      console.log(formData,localStorage.getItem("lastAddress"))
       //  if (  ( this.form.controls['address_detail'].value) ) {
 
       this.OrdersService.insertdate(formData).subscribe(data => {
 
         // this.router.navigate(['cart/checkout/confirmed-order']);
         this.router.navigate(['cart/checkout/payment/'+data]);
-        console.log(data)
+        console.log(data,)
+
         });}
         // else {
         //   alert("please check address you want to deliver in " + this.lastAddressid);
