@@ -162,7 +162,7 @@ export class CheckoutComponent implements OnInit {
       formData.append("buyeraddresse_id",( this.form.controls['address_detail'].value)?( this.form.controls['address_detail'].value):localStorage.getItem("lastAddress"));
       // localStorage.removeItem("lastAddress");
       console.log(formData,localStorage.getItem("lastAddress"))
-      //  if (  ( this.form.controls['address_detail'].value) ) {
+       if (  ( this.form.controls['address_detail'].value) ) {
 
       this.OrdersService.insertdate(formData).subscribe(data => {
 
@@ -171,13 +171,14 @@ export class CheckoutComponent implements OnInit {
         console.log(data,)
 
         });}
-        // else {
-        //   alert("please check address you want to deliver in " + this.lastAddressid);
-        //   // console.log( this.token.id)
-        // }
+
+        else {
+          alert("please check address you want to deliver in " + this.lastAddressid);
+          // console.log( this.token.id)
+        }
       //  console.log(this.form.value);
 
-  //  }
+   }
 
 
 
