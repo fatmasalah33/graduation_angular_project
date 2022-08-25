@@ -1,18 +1,55 @@
-<div id="addressDetails" *ngIf="AddressArray.length">
-    <div class="form-check" id="existAddress"
-      *ngFor="let address of  AddressArray ; let i = index">
-        {{address.name}},.{{address.address_street}},.{{address.address_state[0].name}},.{{address.address_city[0].name}},.{{address.phone}}
- <a ><i class='fa-solid fa-pencil'></i>
-        </a>
-   <a (click)="deleteaddress(address.id)">
-  <i class='fa-solid fa-trash text-danger'></i>  
-  </a>
 
-    </div>
-    
-    <a routerLink="addaddress">add new address</a>
-</div>
-<div routerLink="addaddress" id="addressDetails" *ngIf="AddressArray.length==0">
-   <a>add new address</a>
+<!--all address-->
+<div class="container" id="addressDetails" *ngIf="AddressArray.length" >
+  <div class="row mt-3">
+    <div class="py-0 ps-3 mb-2 border-bottom d-flex justify-content-between align-items-center">
+      <h3 class="maintitle">Addresses (2)</h3>
+      <a class="btn btn-pink mb-2" routerLink="addaddress">ADD NEW ADDRESS</a>
+  </div>
+          <div class=" py-4 text-center mt-3 emptycard row justify-content-evenly">
+            <div class="form-check card p-3 col-12 col-md-5 text-start" id="existAddress"
+            *ngFor="let address of  AddressArray ; let i = index">
+
+              <p>{{address.name}}</p>
+              <p class="gray"> {{address.address_street}},.{{address.address_state[0].name}},.{{address.address_city[0].name}}</p>
+              <p class="gray">{{address.phone}}</p>
+         <div class="action border-top ">
+         <section class="text-end">
+          <a class="me-2"><i class='fa-solid fa-pencil'></i>
+          </a>
+     <a (click)="deleteaddress(address.id)">
+    <i class='fa-solid fa-trash text-danger'></i>  
+    </a>
+         </section>
+         </div>
+      
+          </div>
+         
+          </div>
+  </div>
 </div>
 
+  
+
+
+
+
+<!--no address-->
+
+<!-- 
+    <div class="container " >
+      <div class="row mt-3">
+        <div class="py-0 ps-3 mb-2 border-bottom">
+          <h3 class="maintitle">Address Book</h3>
+      </div>
+              <div class=" py-4 text-center mt-3 emptycard">
+                  <img src="../../../assets/images/notebook.png" class="icon mt-2 mb-3">
+                  <h6 class="bold"> You have not added any address yet!</h6>
+                  <p class="thin">Add your shipping addresses here for a fast purchacse experience!<br>You will be able to add, modify or delete them at any time.</p>
+                  <a href="#" class="btn btn-pink btn-sm px-3 mx-auto">ADD NEW ADDRESS</a>
+              </div>
+      </div>
+  </div>
+  
+
+ -->
