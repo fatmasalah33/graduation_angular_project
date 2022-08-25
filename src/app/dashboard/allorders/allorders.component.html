@@ -46,8 +46,9 @@
                                 <th>Address_state</th>
                                 <th>Address_city</th>
                                 <th>Address_street</th>
-                                <th>copoun</th>
-
+                              
+                                <th>name</th>
+                                <th>phone</th>
                                 <th colspan="3">Action</th>
                             </tr>
                         </thead>
@@ -59,11 +60,13 @@
                             <td>{{order.status}}</td>
                             <td>{{order.price}} L.E</td>
                           
-                            <td>{{order.address_state[0].name}}</td>
-                            <td>{{order.address_city[0].name}}</td>
-                            <td>{{order.address_street}}</td>
-                            <td>{{order.copoun}}</td>
-
+                            <td>{{order.address_data.buyeraddresses[0].address_state[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].address_city[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].address_street}}</td>
+                     
+                            <td>{{order.address_data.buyeraddresses[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].phone}}</td>
+                           
                             
 
                             <td>

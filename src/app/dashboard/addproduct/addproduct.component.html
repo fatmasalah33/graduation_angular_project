@@ -60,9 +60,9 @@
           </div>
 
           <div class="input-group d-flex flex-column">
-
+            <label>Select a category</label>
             <select class='form-select mb-1 mt-3 w-100' formControlName='category_id' (change)="getsizeOfCategory($event)">
-              <option>Select a category</option>
+           
               <option *ngFor="let  category of  categories ; let i = index" value="{{category.id}}">{{category.name}}
               </option>
 

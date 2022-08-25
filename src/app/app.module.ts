@@ -43,6 +43,7 @@ import { AddofferComponent } from './dashboard/addoffer/addoffer.component';
 import { AllreviewComponent } from './dashboard/allreview/allreview.component';
 import { AlluserComponent } from './dashboard/alluser/alluser.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
@@ -88,6 +89,9 @@ import { ClosedOrdersComponent } from './userprofile/myorders/closed-orders/clos
 
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { SizesComponent } from './dashboard/sizes/sizes.component';
+import { AddsizeComponent } from './dashboard/addsize/addsize.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -172,6 +176,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
         AboutUsComponent,
         ContactUsComponent,
+        SizesComponent,
+        AddsizeComponent,
+        PaymentComponent,
 
 
 

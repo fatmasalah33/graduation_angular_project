@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cart } from '../cart';
 import { CartService } from '../services/cart.service';
 import { RegisterService } from '../services/register.service';
@@ -25,7 +26,7 @@ totalprice:number=0
   saveditem=new Wishlsit();
   constructor(private _CartService:CartService,
     private registerService :RegisterService,private _WishlistService:WishlistService
-    ,private router: Router) { }
+    ,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.registerService.currentUsers.subscribe((data:any)=>{
@@ -127,15 +128,27 @@ totalprice:number=0
  
  
   insertincart(event: any,item:any){
+    console.log(this.cat.size_id)
+    // console.log(this.registerService.loginuserrole())
+    if(this.userid==null || this.registerService.loginuserrole()!="buyer"){
+      alert('you must login as a buyer first')
+    }else if(this.userid!=null && this.registerService.loginuserrole()=="buyer"){
+      if((this.cat.size_id==null && item.sizes.length>0)||(item.sizes.length>0 && this.sizep!=item.id ) ){
+        alert('you must select size')
+      }else {
     this.count++
     this._CartService.setCartCount(this.count)
     console.log( event.target.parentNode.lastChild)
     // event.target.style.display='none'
     console.log(this.cart)
+    // if(this.cat.size_id==null && item.sizes.length>0 ){
+    //   this.cat.size_id=1
+    // }else if(item.sizes.length==0){
+    //   this.cat.size_id=null
+    // }
     this.cat.product_id=item.id
     this.cat.user_id=this.userid
     console.log(this.cat.user_id)
-    console.log(item.Offeres)
     if(item.Offeres==null){
       this.cat.price=item.price
       console.log('v')
@@ -143,11 +156,13 @@ totalprice:number=0
       this.cat.price=item.Offeres.price_offer
       console.log('b')
     }
-   
-    console.log(this.cat.price)
     for (let i=0;i< this.cart.length;i++) {
-    if(this.cart[i].product[0].id==item.id){
-      console.log(this.cart[i].quantity)
+    if(this.cart[i].product[0].id==item.id  ){
+      if(this.cart[i].size_id==this.cat.size_id){
+        console.log('k')
+      
+      console.log(this.cart[i].size_id)
+      console.log(this.cat.size_id)
      
 this.cart[i].quantity++;
 
@@ -157,22 +172,29 @@ this.cart[i].quantity++;
       
       this.productExists = true
       this._CartService. updatecart(this.cart[i].id, this.updateqty).subscribe((res: any)=>{
+        this.toastr.info('The product is exit in cart  and quantity now is '+this.updateqty.quantity);
         this.gettotalitem()
         this.gettotal()
         console.log(res);
+        this.cat.size_id=null
       })
       break;
+    }
     }else{
       this.productExists = false
     }
   }
+  console.log(this.cat.size_id)
+  console.log(this.cat)
   if (!this.productExists) {
    this._CartService.insertdate(this.cat).subscribe(data => {
+    this.toastr.success('The product has been successfully added to the card');
+    this.cat.size_id=null
   this.getallcarts()
   this.gettotalitem()
       this.gettotal()
   });
-  }
+  }}}
  }
  addtowhishlist(ietm:any,e:any){
 // e.target.style.backgroundColor='red'
@@ -226,5 +248,19 @@ checkout(){
   //     this.router.navigate(['/cart','checkout']);
   //   }
   // });
-
+  sizep:any
+  addprosize(event: any,prod_id:any,id:any){
+    const btns=document.querySelectorAll(".lisize button");
+    for(let i=0; i< btns.length; i++) {
+      btns[i].className = " ";
+    }
+    
+    event.target.className += " active"
+    event.target.className += " disabled "
+    console.log(id)
+    this.sizep=prod_id
+      this.cat.size_id=id
+    
+  
+  }
 }

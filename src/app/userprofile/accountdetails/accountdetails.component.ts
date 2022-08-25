@@ -27,7 +27,7 @@ export class AccountdetailsComponent implements OnInit {
   updateuser(updateForm : any){
     console.log(updateForm.value)
     this.registerService.updateuser(this.id,updateForm.value).subscribe(res=>{
-        this.registerService.saveCurrentUser(this.id,updateForm.value.name , updateForm.value.email , this.token,updateForm.value.address,updateForm.value.phone,this.typerole);
+        this.registerService.saveCurrentUser(this.id,updateForm.value.name , updateForm.value.email , this.token,updateForm.value.phone,this.typerole);
         
       console.log(res)
     })

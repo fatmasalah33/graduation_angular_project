@@ -71,8 +71,11 @@ import { ClosedOrdersComponent } from './userprofile/myorders/closed-orders/clos
 
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { SizesComponent } from './dashboard/sizes/sizes.component';
+import { AddsizeComponent } from './dashboard/addsize/addsize.component';
 
 
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -106,6 +109,7 @@ const routes: Routes = [
   { path: 'FAQ', component: FAQComponent },
 
   { path: 'cart/checkout/confirmed-order', component: ConfirmedOrderComponent },
+  { path: 'cart/checkout/payment/:id', component: PaymentComponent },
  { path: 'userprofile', component: UserprofileComponent, canActivate:[AuthGuardGuard],
   children: [
     {path:'',component: AccountdetailsComponent},
@@ -154,7 +158,9 @@ const routes: Routes = [
     {path:'alloffer/addoffer',component:AddofferComponent},
     {path:'allreview',component:AllreviewComponent},
     {path:'alluser',component:AlluserComponent},
-    {path:'pendingproduct',component:PendingproductComponent}
+    {path:'pendingproduct',component:PendingproductComponent},
+   {path:'sizes',component:SizesComponent},
+   {path:'sizes/addsize',component:AddsizeComponent}
   ], },
   {path:'login',component:LoginComponent},
   { path: '**', component: NotFoundComponent },

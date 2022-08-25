@@ -1,0 +1,51 @@
+<section class="section ">
+    <div class="container">
+      <div class="row justify-content-center">
+      </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class=" d-flex  row">
+                <h1 class=" text-center justify-content-center title fs-1">All catogery</h1>
+                <h5> <a routerLink="addsize" class="btn btn-info">Add category size</a></h5>
+               
+              </div>
+              <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                              <th>ID</th>
+                              <th>name</th>
+                           
+                              <th>category_id</th>
+                              <th colspan="3">Action</th>
+                            </tr>
+                        </thead>
+                        <tr class="text-center" *ngFor="let  size of  sizes |paginate: { id: 'listing_pagination',
+                        itemsPerPage: 5,
+                        currentPage: page,
+                        totalItems: totalRecords}">
+                          <th >{{size.id}}</th>
+                          <td>{{size.size}}</td>
+                          
+                         <td>{{size.category_id}}</td>
+                         
+                          
+                         
+                          <td>
+                          
+                          <td> <a (click)="deletesize(size.id)">
+                          <i class='fa-solid fa-trash text-danger'></i>  
+                          </a></td>
+                     
+                      </tr>
+                        </table>
+                        </div>
+                        </div>
+        </div>
+        </div>
+        </section>
+
+        <div class="text-center">
+          <pagination-controls class="my-pagination" id="listing_pagination"
+          (pageChange)="page = $event"></pagination-controls>
+        </div>

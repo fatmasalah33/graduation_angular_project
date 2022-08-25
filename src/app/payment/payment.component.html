@@ -1,0 +1,79 @@
+<p>payment works!</p>
+
+
+<div class="container mt-3">
+
+  <h5>CHECKOUT</h5>
+  <div class="wrapper wrapper-content animated  fadeInRight">
+    <div class="row">
+      <div class="col-md-9 ">
+        <div>
+          <div class="card">
+            <div class="ibox-title">
+              <h5>2. PAYMENT METHOD</h5>
+            </div>
+            <div class="ibox-content ">
+              <div class="table-responsive">
+                <table class="table shoping-cart-table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <!-- <form class="form card-text" [formGroup]="form" (ngSubmit)="updatepayment()"> -->
+
+                          <h3>How do you want to pay for your order?</h3>
+                          <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"  (click)="cash()">
+                                  <!-- <input type="radio" formControlName="payment_id" id="payment1" value="1"> -->
+                                  <label for="payment1" class="form-label mb-1">
+                                    <img src="../../assets/images/cashIcon1_1.png" alt="">Cash on Delivery</label>
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted fs-8">
+                                  When you choose Cash on delivery, you canorder in cash when you receive your shi<br>
+                                  1. Egyptian pounds is accepted only.<br>
+                                  2. Please provide the specified amount onlfor the possibility that there will be
+                                  enothe delivery representative if a value ithan the requested one.<Br>
+                                  3. You must pay for the product beforshipment. We remind you that you can
+                                  returyourself through the application or site industrial defect or non-conformity with
+                                  specifications.
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed border-0" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                  aria-controls="collapseTwo" (click)="pay(price)">
+                                  <!-- <input type="radio" formControlName="payment_id" id="payment3" value="2"> -->
+                                  <label for="payment3" class="form-label mb-1"><img src="../../assets/images/PNg24.png"
+                                      alt="">Pay by card</label>
+                                </button>
+                              </h2>
+                              <!-- <button class="accordion-button collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"  (click)="setpayment_id" > -->
+                              <ngx-paypal [config]="payPalConfig">
+
+                              </ngx-paypal>
+
+                            </div>
+
+                          </div>
+                        <!-- </form> -->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+      </div>

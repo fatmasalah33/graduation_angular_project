@@ -16,7 +16,9 @@
                             <th>ID</th>
                             <th>name</th>
                             <th>price</th>
-                            <th>description</th>
+                            <th>sizes</th>
+                            <th>  category name</th>
+                           
                             <th>brand</th>
                             <th>quantity</th>
                             <th>Image</th>
@@ -30,7 +32,12 @@
                         <th >{{product.id}}</th>
                         <td>{{product.name}}</td>
                         <td>{{product.price}} L.E</td>
-                        <td>{{product.description}}</td>
+                        <td *ngIf="product.sizes.length>0"><span *ngFor="let size of product.sizes ;let i = index">
+                          {{size.size}}
+                        </span></td>
+                        <td *ngIf="product.sizes.length==0">no sizes</td>
+                        <td *ngIf="product.category_name.length>0">{{product.category_name[0].name}}</td>
+                       
                         <td>{{product.brand}}</td>
                         <td>{{product.quantity}}</td>
                         

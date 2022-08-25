@@ -16,7 +16,7 @@ export class RegisterService {
   currentType =  new BehaviorSubject('');
   y:any
   storagerole:any;
-  constructor(private http: HttpClient , private _Router:Router ) { 
+  constructor(private http: HttpClient , private _Router:Router ) {
     if(localStorage.getItem('userData')){
       this.x=localStorage.getItem('userData')
       this.y=JSON.parse(this.x)
@@ -24,7 +24,7 @@ export class RegisterService {
     // this.localarry=JSON.parse(this.x)
     // console.log(JSON.parse(this.x).token)
       this.currentUsers.next(  JSON.parse(this.x)  )
-  
+
     }
     if(localStorage.getItem('userRole')){
       this.storagerole=localStorage.getItem('userRole')
@@ -40,18 +40,18 @@ export class RegisterService {
   updateuser(id: any,data:any){
     return this.http.put('http://127.0.0.1:8000/api/users/'+id,data);
   }
-  saveCurrentUser(id:number,name: string  , email: string , token: string,address:string,phone:string,type:string)
+  saveCurrentUser(id:number,name: string  , email: string , token: string,phone:string,type:string)
   {
-    this.user = new userData(id,name , email , token,address,phone,type);
+    this.user = new userData(id,name , email , token,phone,type);
 
     localStorage.setItem('userData' ,JSON.stringify(this.user) );
     localStorage.setItem('userRole' ,JSON.stringify(type) );
     this.loginuser(this.user)
     this.currentUsers.next(this.user);
     this.currentType.next(type)
-   
+
   }
- 
+
   logOut()
   {
       this.currentType.next('')
@@ -65,31 +65,45 @@ export class RegisterService {
   }
   loginuser(user: any){
    this.logeduser=user
-   
-   
+
+
   }
-  
+
   loginuserrole(){
     this.logeduser= this.getloginuser()
     return this.logeduser.user_type
-    
-    
+
+
    }
   getloginuser():Observable<any>{
     return this.logeduser
   }
- 
+
   code(verifyFormValue:any):Observable<any>{
     return this.http.post('http://127.0.0.1:8000/api/verifyAccount',verifyFormValue);
   }
   changepassword(id: any,data:any){
-    return this.http.post('http://127.0.0.1:8000/api/changepassword/'+id,data); 
+    return this.http.post('http://127.0.0.1:8000/api/changepassword/'+id,data);
   }
   forgetpassword(data: any){
-    return this.http.post('http://127.0.0.1:8000/api/forgetpassword',data); 
+    return this.http.post('http://127.0.0.1:8000/api/forgetpassword',data);
   }
   updatepassword(id:any,data: any){
-    return this.http.post('http://127.0.0.1:8000/api/updatepassword/'+id,data); 
+    return this.http.post('http://127.0.0.1:8000/api/updatepassword/'+id,data);
   }
+
+  getMyAddress(id:any){
+    return this.http.get('http://127.0.0.1:8000/api/buyeradress/'+id)
+  }
+  deletMyAddress(id:any){
+    return this.http.delete('http://127.0.0.1:8000/api/buyeradress/'+id)
+  }
+  updateMyAddress(id:any,data: any){
+    return this.http.put('http://127.0.0.1:8000/api/buyeradress/'+id,data)
+  }
+ getAddressByID(id:any,data: any){
+    return this.http.get('http://127.0.0.1:8000/api/getAddressByID/'+id)
+  }
+ 
 }
 

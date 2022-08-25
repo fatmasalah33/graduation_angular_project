@@ -46,45 +46,50 @@
       </div> -->
     </div>
     <section >
-      <div class="card my-4 p-3">
+        
+      <div class="card my-4 " >
+        <div class=" rounded-top p-3 pb-0">
+          <h4>Recommended for you</h4>
+        </div>
       <div class="row">
         <div class="col-12">
           <div class="card-block">
-            
-              <h4>Recommended for you</h4>
+              
+             
             <!--products-->
-            <div class="row">
+            <div class="row p-2">
               <div class="col-md-2 col-sm-6" *ngFor="let product of random ; let i = index">
-                  <div class="product-grid">
-                      <div class="product-image">
+                  <a [routerLink]="['/productdetails' , product.id]">
+                    <div class="product-grid">
+                      <div class="product-image" >
                           <a href="#" class="image">
                               <img [src]="pathimage+product.image">
                           </a>
                           <span class="product-discount-label" *ngIf="product.Offeres!=null">{{product.Offeres.offeres.percent}}%</span>
-                          <ul class="product-links">
+                          <!-- <ul class="product-links">
                               <li><a (click)="addtowhishlist(product,$event)"><i class="fa-regular fa-heart"></i></a></li>
-                          </ul>
-                          <a (click)="insertincart($event,product)" class="add-to-cart">Add to Cart</a>
+                          </ul> -->
+                          <!-- <a (click)="insertincart($event,product)" class="add-to-cart">Add to Cart</a> -->
                       </div>
                       <div class="product-content">
                           <h3 class="title"> <a [routerLink]="['/productdetails' , product.id]">{{product.name}}</a></h3>
                           <span class="price me-1" *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}} </span>
                           <span class="  d-inline" [ngClass]="{'oldprice': product.Offeres!=null,'price': product.Offeres==null}">EGP{{product.price}} </span>
                                     
-                              
+<!--                               
                           <div>
                             <ul class="ulsize">
                                 <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
-                                    <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
-                                    :psize.id==1}"
+                                    <button class="btnsize" (click)="addprosize($event,product.id,psize.id)" type="button" 
                                     >{{psize.size}}</button>
                                 </li>
                             
                         
                             </ul>
-                        </div>   
+                        </div>    -->
                       </div>
                   </div>
+                  </a>
               </div>
              
           </div>
@@ -94,6 +99,7 @@
       </div>
       </div>
       </section>
+  
     <section>
         
       <div class="card my-4 ">
@@ -109,34 +115,36 @@
             <!--products-->
             <div class="row p-2">
               <div class="col-md-2 col-sm-6" *ngFor="let product of productOffered ; let i = index">
+                <a [routerLink]="['/productdetails' , product.products[0].id]">
                   <div class="product-grid" *ngIf="i<6">
                       <div class="product-image">
                           <a href="#" class="image">
                               <img [src]="pathimage+product.products[0].image">
                           </a>
                           <span class="product-discount-label">{{product.products[0].Offeres.offeres.percent}}%</span>
-                          <ul class="product-links">
+                          <!-- <ul class="product-links">
                               <li><a (click)="addtowhishlist(product.products[0],$event)"><i class="fa-regular fa-heart"></i></a></li>
-                          </ul>
-                          <a (click)="insertincart($event,product.products[0])" class="add-to-cart">Add to Cart</a>
-                      </div>
+                          </ul> -->
+                          <!-- <a (click)="insertincart($event,product.products[0])" class="add-to-cart">Add to Cart</a>
+                      -->
+                        </div>
                       <div class="product-content">
                           <h3 class="title"><a [routerLink]="['/productdetails' , product.products[0].id]" >{{product.products[0].name}}</a></h3>
                           <div class="price">EGP {{product.products[0].Offeres.price_offer}} <span>EGP {{product.products[0].price}}</span></div>
                              
-                          <div>
+                          <!-- <div>
                             <ul class="ulsize">
-                                <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
-                                    <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
-                                    :psize.id==1}"
+                                <li class="lisize" *ngFor="let psize of product.products[0].sizes ;let i = index">
+                                    <button class="btnsize" (click)="addprosize($event,product.products[0].id,psize.id)" type="button" 
                                     >{{psize.size}}</button>
                                 </li>
                             
                         
                             </ul>
-                        </div>
+                        </div> -->
                         </div>
                   </div>
+                </a>
               </div>
        
               
@@ -148,46 +156,53 @@
       </div>
       </div>
       </section>
-    <section>
-        <div class="card my-4 p-3">
+      <section>
+        
+        <div class="card my-4 ">
+          <div class=" rounded-top p-3 pb-0">
+            <a routerLink="bestseller" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
+            <h4>Best seller</h4>
+          </div>
         <div class="row">
           <div class="col-12">
             <div class="card-block">
-                <a routerLink="bestseller" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
-                <h4>Best seller</h4>
+                
+               
               <!--products-->
-              <div class="row">
+              <div class="row p-2">
                 <div class="col-md-2 col-sm-6" *ngFor="let product of bestSeller  ; let i = index">
+                  <a [routerLink]="['/productdetails' , product.products[0].id]">
                     <div class="product-grid" *ngIf="i<6">
                         <div class="product-image">
                             <a href="#" class="image">
                                 <img [src]="pathimage+product.products[0].image">
                             </a>
                             <span class="product-discount-label" *ngIf="product.products[0].Offeres!=null">{{product.products[0].Offeres.offeres.percent}}%</span>
-                            <ul class="product-links">
+                            <!-- <ul class="product-links">
                                 <li><a (click)="addtowhishlist(product.products[0],$event)"><i class="fa-regular fa-heart"></i></a></li>
-                            </ul>
-                            <a (click)="insertincart($event,product.products[0])" class="add-to-cart">Add to Cart</a>
-                        </div>
+                            </ul> -->
+                            <!-- <a (click)="insertincart($event,product.products[0])" class="add-to-cart">Add to Cart</a>
+                         -->
+                          </div>
                         <div class="product-content">
                             <h3 class="title"> <a [routerLink]="['/productdetails' , product.products[0].id]">{{product.products[0].name}}</a></h3>
                             <span class="price me-1" *ngIf="product.products[0].Offeres!=null">EGP {{product.products[0].Offeres.price_offer}} </span>
                             <span class="  d-inline" [ngClass]="{'oldprice': product.products[0].Offeres!=null,'price': product.products[0].Offeres==null}">EGP{{product.products[0].price}} </span>
                                  
-                            <div>
+                            <!-- <div>
                               <ul class="ulsize">
                                   <li class="lisize" *ngFor="let psize of product.products[0].sizes ;let i = index">
-                                      <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
-                                      :psize.id==1}"
+                                      <button class="btnsize" (click)="addprosize($event,product.products[0].id,psize.id)" type="button" 
                                       >{{psize.size}}</button>
                                   </li>
                               
                           
                               </ul>
-                          </div>            
+                          </div>             -->
                             
                         </div>
                     </div>
+                  </a>
                 </div>
                
             </div>
@@ -197,6 +212,7 @@
         </div>
         </div>
         </section>
+  
        
     <!-- <section>
       <div class="card my-4 p-3">
@@ -620,8 +636,7 @@
                             <div>
                               <ul class="ulsize">
                                   <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
-                                      <button class="btnsize" (click)="addprosize($event,psize.id)" type="button" [ngClass]="{'active disabled '
-                                      :psize.id==1}"
+                                      <button class="btnsize" (click)="addprosize($event,product.id,psize.id)" type="button" 
                                       >{{psize.size}}</button>
                                   </li>
                               
