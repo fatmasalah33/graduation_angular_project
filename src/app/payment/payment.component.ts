@@ -47,32 +47,35 @@ export class PaymentComponent implements OnInit {
   }
    updated_data=new update;
 
-     updatePayment(){
+     updatePayment( ){
+
       this.OrdersService.updateOrders(this.id,this.updated_data).subscribe(data => {
+        localStorage.removeItem('token_id');
          this.router.navigate(['cart/checkout/confirmed-order']);
+
        console.log(data);
          });
      }
+    //  do(){
+    // this.updatePayment(2);
+    //  };
   pay(amount: any) {
 
     var handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_51HxRkiCumzEESdU2Z1FzfCVAJyiVHyHifo0GeCMAyzHPFme6v6ahYeYbQPpD9BvXbAacO2yFQ8ETlKjo4pkHSHSh00qKzqUVK9',
       locale: 'auto',
-      token: function (token: any) {
+      token: (token: any)=> {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
         console.log(token)
         localStorage.setItem('token_id' ,JSON.stringify(token.id) );
         // this.token=token.id
         // console.log( this.token_id)
-
-        alert('Token Created!!');
-
-
+        console.log("hi");
         this.updated_data.payment_id=2;
-        this. updatePayment();
-
-      }
+        this.updatePayment();
+        alert('Token Created!!');
+      },
 
     });
 
@@ -81,10 +84,9 @@ export class PaymentComponent implements OnInit {
       description: 'please enter your data',
       amount: amount
     });
-if((localStorage.getItem('token_id'))){
-  this.updated_data.payment_id=2;
-  this. updatePayment();
-}
+
+
+
 
   }
 
@@ -103,16 +105,20 @@ if((localStorage.getItem('token_id'))){
             // You can access the token ID with `token.id`.
             // Getr server-side cod the token ID to youe for use.
             console.log(token.id)
-            localStorage.setItem('token_id' ,JSON.stringify(token.id) );
+            // localStorage.setItem('token_id' ,JSON.stringify(token.id) );
             // this.token_id=token.id
-            this.updated_data.payment_id=2;
-            this. updatePayment();
+            // this.updated_data.payment_id=2;
+            // this. updatePayment();
             alert('Payment Success!!');
           }
         });
       }
 
       window.document.body.appendChild(s);
+      // if((localStorage.getItem('token_id'))){
+      //   this.updated_data.payment_id=2;
+      //   this. updatePayment();
+      // }
     }
   }
 

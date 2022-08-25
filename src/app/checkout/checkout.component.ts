@@ -132,9 +132,17 @@ export class CheckoutComponent implements OnInit {
     insertAddress.append("user_id" , this.user_id);
     this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
       this.lastAddressid=data;
+
       localStorage.setItem("lastAddress", this.lastAddressid);
       // console.log(this.lastAddressid)
       this.submitOrder();
+
+
+
+
+      console.log(this.lastAddressid)
+
+
     });
 
      }
@@ -310,7 +318,7 @@ export class CheckoutComponent implements OnInit {
     getAddress(){
       this.OrdersService.getBuyerAddress(this.user_id).subscribe((data :any)=>{
         console.log(data);
-        this.AddressArray=data;
+        this.AddressArray=data.data;
         console.log(this.AddressArray);
       })
       }
@@ -328,6 +336,7 @@ export class CheckoutComponent implements OnInit {
         this.OrdersService.AddnewAddress(insertAddress).subscribe((data :any)=>{
           this.lastAddressid=data;
           console.log( this.address);
+          this.getAddress();
 
         })
       }
