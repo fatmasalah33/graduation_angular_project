@@ -92,6 +92,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SizesComponent } from './dashboard/sizes/sizes.component';
 import { AddsizeComponent } from './dashboard/addsize/addsize.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AddressbookComponent } from './userprofile/addressbook/addressbook.component';
+import { AddAddressComponent } from './userprofile/add-address/add-address.component';
+import { EditAddressComponent } from './userprofile/edit-address/edit-address.component';
 
 
 @NgModule({
@@ -179,6 +182,9 @@ import { PaymentComponent } from './payment/payment.component';
         SizesComponent,
         AddsizeComponent,
         PaymentComponent,
+        AddressbookComponent,
+        AddAddressComponent,
+        EditAddressComponent,
 
 
 

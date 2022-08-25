@@ -81,7 +81,7 @@
 		</header>
 		<div class="filter-content collapse show" id="collapse_3" style="">
 			<div class="card-body">
-				<input type="range" class="custom-range" min="0" max="100" name="">
+			
 				<div class="form-row">
 				<div class="form-group col-md-6">
 				  <label>Min</label>
@@ -177,7 +177,7 @@
         </div>
     </div> -->
 	<div class="col-md-3 col-sm-6 mb-3" *ngFor="let product of products |paginate: { id: 'listing_pagination',
-    itemsPerPage: 8,
+    itemsPerPage: 12,
     currentPage: page,
     totalItems: totalRecords}">
         <div class="product-grid">
