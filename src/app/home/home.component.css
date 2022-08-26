@@ -22,7 +22,11 @@
     border-radius: 20px;
     background-color: #633a9c;
     font-size: 14px;
-    font-weight: 500
+    font-weight: 500;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 .text {
@@ -34,7 +38,11 @@
     height: 130px;
     overflow:hidden;
     border: none;
-    border-radius: 15px
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
 } */
 .card-block{
     overflow: hidden;
