@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 import { Verification } from '../verification';
 
@@ -11,7 +12,7 @@ import { Verification } from '../verification';
 export class VerificationCodeComponent implements OnInit {
 
 verifiateForm: FormGroup ;
-  constructor(public fb:FormBuilder,private _RegisterService:RegisterService) { 
+  constructor(public fb:FormBuilder,private _RegisterService:RegisterService,private router: Router) { 
     this.verifiateForm = this.fb.group({
 
       verification_code: [''],
@@ -27,6 +28,7 @@ verifiateForm: FormGroup ;
     console.log(verifiateForm.value);
     this._RegisterService.code(verifiateForm.value).subscribe((data:any)=>{
       console.log(data)
+      this.router.navigate(['/'])
     })
 
   }
