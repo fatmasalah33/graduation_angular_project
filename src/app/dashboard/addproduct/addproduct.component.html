@@ -62,7 +62,7 @@
           <div class="input-group d-flex flex-column">
             <label>Select a category</label>
             <select class='form-select mb-1 mt-3 w-100' formControlName='category_id' (change)="getsizeOfCategory($event)">
-           
+
               <option *ngFor="let  category of  categories ; let i = index" value="{{category.id}}">{{category.name}}
               </option>
 
@@ -78,13 +78,15 @@
 
             </div>
           </div>
-          <!-- _________________________________add size_____________________________________  --> 
+          <!-- _________________________________add size_____________________________________  -->
           <label>Available Sizes</label>
           <div class="form-check"  *ngFor="let  size of  categorySize ; let i = index">
             <input class="form-check-input" type="checkbox"  value="{{size.id}}"  (change)="selectSize($event)" id="flexCheckDefault">
+
             <label class="form-check-label" for="flexCheckDefault">
               {{size.size}}
             </label>
+            <input class="form-control mb-1 mt-3 w-50" type="text" placeholder="quantity" formControlName="quantity.{{i}}"   ng-disabled="expression" (blur)="setqantityOfSize($event)">
           </div>
           <!-- ___________________________end of add size _____________________ -->
           <div class="input-group d-flex flex-column">
