@@ -33,7 +33,7 @@
                         <td>{{product.name}}</td>
                         <td>{{product.price}} L.E</td>
                         <td *ngIf="product.sizes.length>0"><span *ngFor="let size of product.sizes ;let i = index">
-                          {{size.size}}
+                          {{size.size}}=>{{size.pivot.quantity}}
                         </span></td>
                         <td *ngIf="product.sizes.length==0">no sizes</td>
                         <td *ngIf="product.category_name.length>0">{{product.category_name[0].name}}</td>

@@ -140,6 +140,7 @@ color: #00173b !important;
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
 
+
   content: '';
   position: absolute;
   left: 0;
@@ -195,7 +196,6 @@ color: #00173b !important;
     width: 12px;
     height: 12px;
     background: #443298;
-    
     position: absolute;
     top: 19px;
     left: 11px;
@@ -211,6 +211,7 @@ color: #00173b !important;
     -o-border-radius: 100%;
 
 }
+
 [type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
@@ -245,12 +246,11 @@ font-size: smaller;
 
 
 
+
 .card-addr:first-of-type{
   background-color: #f2acbe8c;
 }
-/* .card-addr:first-of-type{
-  background-color: #f2acbe8c;
-} */
+
 
 .ps-6{
   padding-left: 2rem !important;
@@ -260,4 +260,5 @@ font-size: smaller;
   background-color: #f2acbe8c !important;
 
 }
+
 
