@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../services/products.service';
 import { RegisterService } from '../services/register.service';
 
 @Component({
@@ -10,7 +11,9 @@ export class UserprofileComponent implements OnInit {
   isLogin:boolean =false;
   logeduser:any
   username:string = ''
-  constructor(private _RegisterService:RegisterService ) { 
+  random: Array<any> = [];
+  pathimage:any="http://127.0.0.1:8000/public/image/";
+  constructor(private _RegisterService:RegisterService ,private productsService :ProductsService) { 
     
     _RegisterService.currentUsers.subscribe((data)=>{
 
@@ -36,7 +39,13 @@ export class UserprofileComponent implements OnInit {
     
   }
   ngOnInit(): void {
+    this.randomProduc()
   }
-  
+  randomProduc(){
+    this.productsService.randomProduc().subscribe((data : any)=>{
+      console.log(data)
+      this.random=data
+    })
+      } 
 
 }

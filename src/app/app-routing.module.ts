@@ -78,6 +78,7 @@ import { AddsizeComponent } from './dashboard/addsize/addsize.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AddressbookComponent } from './userprofile/addressbook/addressbook.component';
 import { AddAddressComponent } from './userprofile/add-address/add-address.component';
+import { EditAddressComponent } from './userprofile/edit-address/edit-address.component';
 
 
 const routes: Routes = [
@@ -118,6 +119,7 @@ const routes: Routes = [
     {path: 'accountdetails',component:AccountdetailsComponent},
     {path: 'addressbook',component:AddressbookComponent},
     {path: 'addressbook/addaddress',component:AddAddressComponent},
+    {path: 'addressbook/edit/:id',component:EditAddressComponent},
     {path: 'chpassword',component:ChpasswordComponent},
     {path: 'myorders',component:MyordersComponent,
     children: [
