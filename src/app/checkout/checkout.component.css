@@ -202,14 +202,12 @@ color: #443298;
 font-size: 1.2rem;
 }
 .fs-8{
-<<<<<<< HEAD
+
 font-size: smaller;
 }
-=======
-  font-size: smaller;
-}
+
 
 .card-addr:first-of-type{
   background-color: #f2acbe8c;
 }
->>>>>>> 91a684c5ec3108398dcdb916d4de1e683423144d
+
