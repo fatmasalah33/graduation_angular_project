@@ -162,10 +162,10 @@ export class CheckoutComponent implements OnInit {
       formData.append("buyeraddresse_id",( this.form.controls['address_detail'].value)?( this.form.controls['address_detail'].value):localStorage.getItem("lastAddress"));
       // localStorage.removeItem("lastAddress");
       console.log(formData,localStorage.getItem("lastAddress"))
-       if (  ( this.form.controls['address_detail'].value) || (localStorage.getItem("lastAddress")) ) {
+       if (  ( this.form.controls['address_detail'].value)||localStorage.getItem("lastAddress") ) {
 
       this.OrdersService.insertdate(formData).subscribe(data => {
-
+        localStorage.removeItem("lastAddress") ;
         // this.router.navigate(['cart/checkout/confirmed-order']);
         this.router.navigate(['cart/checkout/payment/'+data]);
         console.log(data,)

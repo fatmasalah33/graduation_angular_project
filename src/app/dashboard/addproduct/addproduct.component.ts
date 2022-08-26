@@ -7,18 +7,25 @@ import { formatDate } from '@angular/common';
 import { CatogeryService } from 'src/app/services/catogery.service';
 import { RegisterService } from 'src/app/services/register.service';
 import { ToastrService } from 'ngx-toastr';
+import{sizeData} from '../../sizedata'
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
   styleUrls: ['./addproduct.component.css']
 })
+
 export class AddproductComponent implements OnInit {
+
   sizeArray:Array<any>=[];
   file:any ;
   categories : Array<any> = [];
   logeduser:any
   userid:any;
   isSubmitted:boolean  = false;
+  obj: sizeData={
+    size: undefined,
+    quantity: undefined
+  };
   constructor(public fb:FormBuilder, private productsService :ProductsService
    ,private toastr: ToastrService ,private router: Router,private _CatogeryService:CatogeryService ,private registerService :RegisterService) {
       this.registerService.currentUsers.subscribe((data)=>{
@@ -96,12 +103,17 @@ export class AddproductComponent implements OnInit {
     formData.append("category_id" , this.form.controls['category_id'].value);
     formData.append("user_id" , this.form.controls['user_id'].value);
     formData.append("price" , this.form.controls['price'].value);
-    formData.append("brand" , this.form.controls['brand'].value); 
-    for (let size of this.sizeArray) {
-      formData.append('sizes[]', size);
+    formData.append("brand" , this.form.controls['brand'].value);
+  //   for (let size of this.sizeArray) {
+  //     formData.append('sizes[]', size);
+  // }
+    for (let size of this.sizedata) {
+
+      formData.append('sizes[]', JSON.stringify(size));
   }
     // formData.append("sizes[]" , this.sizeArray);
-      
+    console.log(formData );
+  console.log(formData.value);
     this.productsService.insertdate(formData).subscribe(data => {
       this.router.navigate(['/dashboard/', 'allproduct']);
       this.toastr.success('The product has been successfully added');
@@ -114,7 +126,7 @@ export class AddproductComponent implements OnInit {
 this.errorimg=err.error.errors.image
         }
       }
-      }); 
+      });
 
     //  console.log(formData['sizes']);
     //  console.log(formData.value);
@@ -124,25 +136,47 @@ this.errorimg=err.error.errors.image
 
 
 
-    // size  
-    categorySize:Array<any>=[]; 
+    // size
+    categorySize:Array<any>=[];
      getsizeOfCategory(event:any){
       this.productsService.getsizes(event.target.value).subscribe((data:any)=>{
-        console.log(data); 
+        console.log(data);
         this.categorySize=data;
       })
 
-    } 
+    }
     index:any;
-    selectSize(event:any){ 
+    // obj:any= {
+    //   "size" : null,
+    //   'quantity' :null
+    // };
+    sizedata:Array<any>=[];
+    selectSize(event:any){
       if(event.target.checked){
-        this.sizeArray.push(event.target.value) ; 
-      } 
+        this.sizeArray.push(event.target.value) ;
+        console.log(event)
+        console.log(event.target.offsetParent.lastChild.value);
+      }
       else {
         this.index =this.sizeArray.indexOf(event.target.value)
-        this.sizeArray.splice(this.index,1)
+        this.sizeArray.splice(this.index,1);
+        this.sizedata.splice(this.index,1);
+        console.log(this.sizedata);
       }
      console.log(this.sizeArray)
        }
-       
+
+       setqantityOfSize(event:any){
+        console.log(event);
+        console.log(event.target.offsetParent.firstChild.value);
+       this.obj=new sizeData;
+            this.obj.size=event.target.offsetParent.firstChild.value;
+            this.obj.quantity=event.target.value;
+            if( this.obj.quantity!="")
+            this.sizedata.push(this.obj);
+
+           console.log(this.sizedata);
+            console.log(this.obj);
+       }
+
 }
