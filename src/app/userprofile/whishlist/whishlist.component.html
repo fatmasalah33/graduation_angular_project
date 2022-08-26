@@ -11,7 +11,7 @@
   </div>
   <div class="col-md-10 col-sm-8">
     <div class="card-block">
-      <a (click)="insertincart($event,item.product.products[0])" class="btn btn-outline-purple btn-sm float-right px-3 py-2">Buy Now</a>
+      <a [routerLink]="['/productdetails' , item.product.products[0].id]" class="btn btn-outline-purple btn-sm float-right px-3 py-2">Buy Now</a>
       
       <a [routerLink]="['/productdetails' , item.product.products[0].id]" class="card-title">{{item.product.products[0].name}}</a><br>
       
@@ -19,7 +19,7 @@
       <a (click)="deleteitem(item.id)" class="btn btn-purple btn-sm float-right"><i class="fa-solid me-2 fa-trash"></i>REMOVE</a>
            
       <div>
-        <ul class="ulsize">
+        <!-- <ul class="ulsize">
             <li class="lisize" *ngFor="let psize of item.product.products[0].sizes ;let i = index">
                 <button class="btnsize" (click)="addprosize($event,product.products[0].id,psize.id)" type="button" [ngClass]="{'active disabled '
                 :psize.id==1}"
@@ -27,7 +27,7 @@
             </li>
         
     
-        </ul>
+        </ul> -->
     </div>
     </div>
   </div>
