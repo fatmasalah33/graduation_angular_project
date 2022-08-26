@@ -110,11 +110,11 @@
                       <td>
                         <form class="form card-text" [formGroup]="form" (ngSubmit)="insertdate()">
                           <div id="addressDetails" *ngIf="AddressArray.length" >
-                            <div class="form-check" id="existAddress" class="card card-addr p-3"
+                            <div class="form-check" id="existAddress" class="card "
                               *ngFor="let address of  AddressArray ; let i = index">
-                              <input class="form-check-input" type="radio" formControlName="address_detail"
+                              <input class="form-check-input rad " type="radio" formControlName="address_detail"
                                 value="{{address.id}}" id="{{address.id}}">
-                              <label class="form-check-label" for="{{address.id}}">
+                              <label class="form-check-label p-3 ps-6 card-addr" for="{{address.id}}">
                                 {{address.name}},.{{address.address_street}},.{{address.address_state[0].name}},.{{address.address_city[0].name}},.{{address.phone}}
                               </label>
                               <!-- <a href="#" class="ms-4 mt-1 text-dark">Edit</a> -->
@@ -282,12 +282,12 @@
             <span>Total</span>
             <h2 class="font-bold"> {{price}}</h2>
             <hr>
-            <span class="text-muted small">
-              Orders above 250 EGP have free delivery</span>
+            <!-- <span class="text-muted small">
+              Orders above 250 EGP have free delivery</span> -->
             <hr>
             <div class="mt-3">
-              <div class="btn-group">
-                <a [routerLink]="['/cart']" class="btn px-5 ms-2 btn-purple  w-100">MODIFY CART</a>
+              <div class="btn-group d-flex justify-content-center">
+                <a [routerLink]="['/cart']" class="btn px-2 mx-auto btn-purple  w-100">MODIFY CART</a>
               </div>
             </div>
           </div>

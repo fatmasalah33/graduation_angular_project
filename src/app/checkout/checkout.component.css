@@ -141,8 +141,8 @@ table.shoping-cart-table tr td:last-child {
 [type="radio"]:not(:checked) + label:before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 7px;
+    top: 15px;
     width: 20px;
     height: 20px;
     border: 2px solid #443298;
@@ -161,8 +161,8 @@ table.shoping-cart-table tr td:last-child {
     background: #443298;
     
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: 19px;
+    left: 11px;
     border-radius: 100%;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
@@ -204,6 +204,15 @@ table.shoping-cart-table tr td:last-child {
   font-size: smaller;
 }
 
-.card-addr:first-of-type{
+/* .card-addr:first-of-type{
   background-color: #f2acbe8c;
+} */
+
+.ps-6{
+  padding-left: 2rem !important;
 }
+
+[type="radio"]:checked + .card-addr{
+  background-color: #f2acbe8c !important;
+}
+
