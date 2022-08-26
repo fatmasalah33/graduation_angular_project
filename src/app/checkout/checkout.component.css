@@ -203,3 +203,7 @@ table.shoping-cart-table tr td:last-child {
 .fs-8{
   font-size: smaller;
 }
+
+.card-addr:first-of-type{
+  background-color: #f2acbe8c;
+}
