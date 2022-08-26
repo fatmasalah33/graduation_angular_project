@@ -109,19 +109,20 @@
                     <tr>
                       <td>
                         <form class="form card-text" [formGroup]="form" (ngSubmit)="insertdate()">
-                          <div id="addressDetails" *ngIf="AddressArray.length">
-                            <div class="form-check" id="existAddress"
+                          <div id="addressDetails" *ngIf="AddressArray.length" >
+                            <div class="form-check" id="existAddress" class="card card-addr p-3"
                               *ngFor="let address of  AddressArray ; let i = index">
                               <input class="form-check-input" type="radio" formControlName="address_detail"
                                 value="{{address.id}}" id="{{address.id}}">
                               <label class="form-check-label" for="{{address.id}}">
                                 {{address.name}},.{{address.address_street}},.{{address.address_state[0].name}},.{{address.address_city[0].name}},.{{address.phone}}
                               </label>
+                              <!-- <a href="#" class="ms-4 mt-1 text-dark">Edit</a> -->
                             </div>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-white border-0 mb-5" data-bs-toggle="modal"
                               data-bs-target="#exampleModal">
-                              Launch demo modal
+                              <i class="fa-solid fa-plus me-2 text-secondary"></i>Add a new address
                             </button>
 
 
@@ -252,7 +253,7 @@
                             <input type="text" class="form-control mb-3" formControlName="copoun" id="copoun"
                               placeholder="Enter Cuopon code here">
                             <div class="w-100">
-                              <button type="submit" class="btn btn-purple mx-auto">confirm order</button>
+                              <button type="submit" class="btn btn-purple mx-auto">Next Step</button>
                             </div>
                           </div>
 
