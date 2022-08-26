@@ -1,11 +1,14 @@
 <div class="p-4 p-md-3 mb-2 border-bottom">
     <h3 class="maintitle"><a href="#"><i class="fa-solid fa-arrow-left me-3"></i></a>Order Details</h3>
 </div>
-<div class="mx-3 border-bottom mb-2">
-    <p class="orderid me-5">Order nº {{order.id}}
-      <a class="btn btn-danger ms-auto" *ngIf="order.status=='pending'" (click)="cancelldorder(order.id)">
-        cancelled order</a> 
+<div class="mx-3 border-bottom mb-2 d-flex justify-content-between">
+    <p class="orderid me-5">Order number {{order.id}}
+      
     </p>
+    <a class="btn btn-pink mb-3" *ngIf="order.status=='pending'" (click)="cancelldorder(order.id)">
+      Cancel order</a>
+      </div>
+      <div class="mx-3 border-bottom mb-2">
     <h6>{{order.order_details.length}} Items</h6>
     <h6>Placed on {{order.created_at}}</h6>
     <h6>Total: EGP {{order.price}}</h6>

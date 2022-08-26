@@ -1,6 +1,5 @@
 body{margin-top:20px;
   background:#eee;
-
 }
 h3 {
   font-size: 16px;
@@ -122,11 +121,13 @@ color: #00173b !important;
 }
 
 
-/*custom radio buttons*/
+
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
   position: absolute;
+
   left: -999999999999px;
+
 }
 [type="radio"]:checked + label,
 [type="radio"]:not(:checked) + label
@@ -193,7 +194,7 @@ color: #00173b !important;
 }
 
 
-/*accordion*/
+
 .accordion-button{
 background-color: transparent !important;
 }
@@ -221,5 +222,3 @@ font-size: smaller;
 [type="radio"]:checked + .card-addr{
   background-color: #f2acbe8c !important;
 }
-
-
