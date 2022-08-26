@@ -139,6 +139,7 @@ color: #00173b !important;
 }
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
+
   content: '';
   position: absolute;
   left: 0;
@@ -173,6 +174,42 @@ color: #00173b !important;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
+
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #443298;
+    border-radius: 100%;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #443298;
+    
+    position: absolute;
+    top: 19px;
+    left: 11px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+
 }
 [type="radio"]:not(:checked) + label:after {
   opacity: 0;
@@ -207,7 +244,20 @@ font-size: smaller;
 }
 
 
+
 .card-addr:first-of-type{
   background-color: #f2acbe8c;
+}
+/* .card-addr:first-of-type{
+  background-color: #f2acbe8c;
+} */
+
+.ps-6{
+  padding-left: 2rem !important;
+}
+
+[type="radio"]:checked + .card-addr{
+  background-color: #f2acbe8c !important;
+
 }
 
