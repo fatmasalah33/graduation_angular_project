@@ -76,7 +76,9 @@
     font-size: 14px;
     font-weight: bold
 }
-
+.cat:active{
+    background-color: transparent !important;
+}
 
 
 /*recommended*/
@@ -227,6 +229,7 @@ a:focus{
     padding: 10px 26px;
     position: absolute;
     left: 0;
+    cursor: pointer;
     bottom: -60px;
     transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;

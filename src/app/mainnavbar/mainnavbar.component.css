@@ -1,5 +1,5 @@
 .navbar-brand{
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Aboreto', cursive;
     font-weight: 500;
     font-size: 2rem;
 }
@@ -28,3 +28,15 @@
 
 }
 
+.cat a{
+    color: #282828 !important;
+    /* font-weight: 400; */
+    font-size: 14px;
+}
+.cat a:hover{
+    color:#f2acbe !important;
+}
+.cat:active{
+    background-color: transparent !important;
+    color: #443298 !important;
+}

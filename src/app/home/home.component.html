@@ -3,7 +3,7 @@
     <div class="section1 row d-flex ">
       <div class=" col-12 col-lg-3 d-none d-lg-block">
         <ul class="card p-2 ">
-          <li class="mb-1" *ngFor="let catogery of categories  ; let i = index"><i class="fa-solid fa-store"></i> <a [routerLink]="['/categoryproducts' , catogery.id]">{{catogery.name}}</a></li>
+          <li class="mb-1" *ngFor="let catogery of categories  ; let i = index"><i class="fa-solid fa-store"></i> <a class="cat" [routerLink]="['/categoryproducts' , catogery.id]">{{catogery.name}}</a></li>
 
         </ul>
       </div>
@@ -58,7 +58,7 @@
              
             <!--products-->
             <div class="row p-2">
-              <div class="col-md-2 col-sm-6" *ngFor="let product of random ; let i = index">
+              <div class="col-md-4 col-lg-2 col-6" *ngFor="let product of random ; let i = index">
                   <a [routerLink]="['/productdetails' , product.id]">
                     <div class="product-grid">
                       <div class="product-image" >
@@ -114,7 +114,7 @@
              
             <!--products-->
             <div class="row p-2">
-              <div class="col-md-2 col-sm-6" *ngFor="let product of productOffered ; let i = index">
+              <div class="col-md-4 col-lg-2 col-6" *ngFor="let product of productOffered ; let i = index">
                 <a [routerLink]="['/productdetails' , product.products[0].id]">
                   <div class="product-grid" *ngIf="i<6">
                       <div class="product-image">
@@ -616,7 +616,7 @@
                
               <!--products-->
               <div class="row p-2">
-                <div class="col-md-2 col-sm-6" *ngFor="let product of cat.item.products  ; let i = index" >
+                <div class="col-md-4 col-lg-2 col-6" *ngFor="let product of cat.item.products  ; let i = index" >
                     <div class="product-grid" *ngIf="i<6">
                         <div class="product-image">
                             <a href="#" class="image">

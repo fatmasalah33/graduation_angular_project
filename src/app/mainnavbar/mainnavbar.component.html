@@ -76,7 +76,7 @@
             </a>
             <ul class="dropdown-menu">
           
-              <li class="mb-1 dropdown-item" *ngFor="let catogery of categories  ; let i = index"> <a [routerLink]="['/categoryproducts' , catogery.id]">{{catogery.name}}</a></li>
+              <li class="mb-1 dropdown-item cat" *ngFor="let catogery of categories  ; let i = index"> <a [routerLink]="['/categoryproducts' , catogery.id]">{{catogery.name}}</a></li>
             
             </ul>
           </div>
