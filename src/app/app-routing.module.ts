@@ -138,7 +138,7 @@ const routes: Routes = [
   ]},
   { path: 'seller', component: SellerComponent,canActivate:[SellerGuard],
   children: [
-    {path:'',component: NavbarComponent},
+    {path:'',component:VerifiedProductComponent},
     {path: 'verifiedProduct',component:VerifiedProductComponent},
     {path:'notVerifiedProduct',component:NotVerifiedProductComponent},
     {path:'alloffer',component:AlloffersellerComponent},
@@ -150,7 +150,7 @@ const routes: Routes = [
   ], },
   { path: 'dashboard', component: DashboardComponent,canActivate:[DashboardGuardGuard],
   children: [
-    {path:'',component: NavbarComponent},
+    {path:'',component:AllproductsComponent},
     {path: 'allproduct',component:AllproductsComponent},
     {path:'allproduct/addproduct',component:AddproductComponent},
     {path:'allproduct/edit/:id',component:EditproductComponent},
